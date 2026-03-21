@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans, Space_Mono, Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
+import { ThemeProvider } from "@/components/ThemeProvider";
 import { getCanonicalUrl, siteConfig } from "@/data/site";
 import "./globals.css";
 import { cn } from "@/lib/utils";
@@ -56,21 +57,23 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: "#ff5a36",
-  colorScheme: "light",
+  colorScheme: "dark light",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={cn("antialiased", geist.variable, "font-mono", geistMono.variable, jetbrainsMonoHeading.variable)}>
+    <html lang="en" suppressHydrationWarning className={cn("antialiased", geist.variable, "font-mono", geistMono.variable, jetbrainsMonoHeading.variable)}>
       <body>
-        <a href="#main-content" className="skipLink">Skip to content</a>
-        <div className="appFrame">
-          <SiteHeader />
-          <div id="main-content" tabIndex={-1}>
-            {children}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:p-4 focus:bg-primary focus:text-primary-foreground focus:font-bold focus:border-4 focus:border-foreground focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0_0_var(--brutal-shadow)]">Skip to content</a>
+          <div className="appFrame">
+            <SiteHeader />
+            <div id="main-content" tabIndex={-1}>
+              {children}
+            </div>
+            <SiteFooter />
           </div>
-          <SiteFooter />
-        </div>
+        </ThemeProvider>
       </body>
     </html>
   );

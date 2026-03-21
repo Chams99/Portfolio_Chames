@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import Image from "next/image";
-import { getCanonicalUrl, projects } from "@/data/site";
+import { getCanonicalUrl, projects as siteProjects } from "@/data/site";
+import { Projects } from "@/components/Projects";
+import type { ProjectWithMetadata } from "@/lib/projectFilters";
 
 export const metadata: Metadata = {
   title: "Work",
@@ -11,46 +12,54 @@ export const metadata: Metadata = {
 };
 
 export default function WorkPage() {
+  // Map siteProjects to the expected ProjectWithMetadata interface from v2
+  const mappedProjects: ProjectWithMetadata[] = siteProjects.map((p) => ({
+    slug: p.slug,
+    content: "",
+    metadata: {
+      title: p.title,
+      summary: p.summary,
+      category: p.type,
+      tags: ["React", "UI/UX", "Tailwind"],
+      publishedAt: `${p.year}-01-01`,
+      images: [p.image],
+    },
+  }));
+
+  const mockCategories = [
+    { label: "Interactive Product", value: "Interactive Product", count: 1 },
+    { label: "Agency System", value: "Agency System", count: 1 },
+    { label: "Company Website", value: "Company Website", count: 1 },
+  ];
+
+  const mockTechnologies = [
+    { label: "React", value: "React", count: 3 },
+    { label: "Tailwind", value: "Tailwind", count: 3 },
+    { label: "UI/UX", value: "UI/UX", count: 3 },
+  ];
+
   return (
-    <main className="pageShell pageStack">
-      <section className="infoHero splitHero">
-        <div>
-          <span className="sectionLabel">Work</span>
-          <h1 className="pageTitle">Selected projects with stronger framing and clearer outcomes.</h1>
+    <main className="min-h-screen bg-background border-x-4 border-foreground max-w-[1400px] mx-auto flex flex-col font-sans mb-20 pt-24 px-4 md:px-8">
+      <section className="py-12 md:py-20 border-b-4 border-foreground mb-12">
+        <div className="flex flex-col gap-4">
+          <div className="inline-block border-4 border-foreground px-4 py-2 font-black uppercase text-sm bg-secondary w-fit shadow-brutalist">
+            Work
+          </div>
+          <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] max-w-4xl">
+            Selected projects with stronger framing and clearer outcomes.
+          </h1>
+          <p className="text-xl md:text-2xl font-bold max-w-2xl border-l-8 border-primary pl-6 py-2 bg-secondary/20 uppercase mt-4">
+            Each project represents a different mood, pushed toward clarity, pace, and a stronger first impression.
+          </p>
         </div>
-        <p className="pageLead">
-          Each project here represents a different product mood, but all of them are pushed toward the same goal:
-          clarity, pace, and a stronger first impression.
-        </p>
       </section>
 
-      <section className="stackedProjects">
-        {projects.map((project, index) => (
-          <article key={project.slug} className="featureProjectCard">
-            <div className="featureProjectMedia">
-              <Image src={project.image} alt={project.title} fill sizes="(max-width: 1000px) 100vw, 45vw" />
-            </div>
-            <div className="featureProjectBody">
-              <div className="projectMeta">
-                <span>0{index + 1}</span>
-                <span>{project.year}</span>
-                <span>{project.type}</span>
-              </div>
-              <h2>{project.title}</h2>
-              <p>{project.summary}</p>
-              <div className="detailPair">
-                <div className="detailCard">
-                  <span className="sectionLabel">Challenge</span>
-                  <p>{project.challenge}</p>
-                </div>
-                <div className="detailCard accent">
-                  <span className="sectionLabel">Outcome</span>
-                  <p>{project.outcome}</p>
-                </div>
-              </div>
-            </div>
-          </article>
-        ))}
+      <section className="w-full">
+        <Projects 
+          projects={mappedProjects} 
+          categories={mockCategories} 
+          technologies={mockTechnologies} 
+        />
       </section>
     </main>
   );
