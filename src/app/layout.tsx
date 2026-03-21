@@ -1,18 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Space_Mono, Geist } from "next/font/google";
+import { DM_Sans, Space_Mono, Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { getCanonicalUrl, siteConfig } from "@/data/site";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
+const jetbrainsMonoHeading = JetBrains_Mono({subsets:['latin'],variable:'--font-heading'});
+
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
-const fontMono = Space_Mono({
-  subsets: ["latin"],
-  variable: "--font-mono",
-  weight: ["400", "700"],
-});
+const geistMono = Geist_Mono({subsets:['latin'],variable:'--font-mono'});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -63,7 +61,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}>
+    <html lang="en" className={cn("antialiased", geist.variable, "font-mono", geistMono.variable, jetbrainsMonoHeading.variable)}>
       <body>
         <a href="#main-content" className="skipLink">Skip to content</a>
         <div className="appFrame">
