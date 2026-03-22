@@ -26,7 +26,7 @@ export default function WorkPage() {
             than a standard project listing.
           </h1>
           <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-            Real product and website work from my earlier portfolio, reframed here around what had to become clearer, stronger, more usable, or more convincing.
+            Product websites, tools, apps, and digital experiences shaped around what needed to become clearer, stronger, more usable, or more convincing.
           </p>
         </div>
       </section>

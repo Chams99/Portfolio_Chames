@@ -269,13 +269,13 @@ const projectOrder = [
   "ai-story-video",
   "photo-printing-order",
   "lolchat-gaming",
-  "speed-typer-game",
   "wallpaper-generator",
-  "epic-chicken-adventure",
   "modern-estate-vision",
   "cleanfile-agency",
   "ecommerce-platform",
   "property-investment",
+  "epic-chicken-adventure",
+  "speed-typer-game",
 ] as const;
 
 type ProjectInput = Omit<Project, "intro" | "problem" | "creativeApproach" | "outcome" | "gallery"> & {
@@ -313,7 +313,7 @@ export const projects: Project[] = [
     category: "Cybersecurity",
     summary:
       "A brutalist company website for a cybersecurity provider, designed to turn technical credibility into a sharper, more commanding first impression.",
-    heroImage: "/images/projects/lumina-it-hero.png",
+    heroImage: "/images/projects/lumina-it-full.png",
     gallery: [
       "/images/projects/lumina-it-full.png",
       "/images/projects/lumina-it-details.png",
@@ -343,7 +343,7 @@ export const projects: Project[] = [
     category: "AI Product",
     summary:
       "A text-to-video concept that reframes AI storytelling as a cinematic, easy-to-enter product experience instead of a technical workflow.",
-    heroImage: "/images/projects/ai-story-video-hero.png",
+    heroImage: "/images/projects/ai-story-video-full.png",
     gallery: [
       "/images/projects/ai-story-video-full.png",
       "/images/projects/ai-story-video-details.png",
@@ -414,7 +414,7 @@ export const projects: Project[] = [
     category: "Agency System",
     summary:
       "A service platform for agencies that needed a more professional dashboard presence and clearer foundations for future automation.",
-    heroImage: "/images/projects/cleanfile-agency-hero.png",
+    heroImage: "/images/projects/cleanfile-agency-full.png",
     gallery: [
       "/images/projects/cleanfile-agency-full.png",
       "/images/projects/cleanfile-agency-details.png",
@@ -443,7 +443,7 @@ export const projects: Project[] = [
     category: "E-Commerce",
     summary:
       "A photo printing ordering experience with custom editing controls, smarter zoom behavior, and a smoother path from upload to checkout.",
-    heroImage: "/images/projects/photo-printing-hero.png",
+    heroImage: "/images/projects/photo-printing-full.png",
     gallery: [
       "/images/projects/photo-printing-full.png",
       "/images/projects/photo-printing-details.png",
