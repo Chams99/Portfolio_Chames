@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getCanonicalUrl } from "@/data/site";
+import { getCanonicalUrl, projectSlugs } from "@/data/site";
 
 const lastModified = new Date("2026-03-18");
 
@@ -29,5 +29,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "yearly",
       priority: 0.7,
     },
+    ...projectSlugs.map((slug) => ({
+      url: getCanonicalUrl(`/work/${slug}`),
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
   ];
 }

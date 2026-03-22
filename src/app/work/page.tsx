@@ -1,65 +1,61 @@
 import type { Metadata } from "next";
-import { getCanonicalUrl, projects as siteProjects } from "@/data/site";
-import { Projects } from "@/components/Projects";
-import type { ProjectWithMetadata } from "@/lib/projectFilters";
+import { ProjectPreviewCard } from "@/components/ProjectPreviewCard";
+import { getCanonicalUrl, projects } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Work",
-  description: "Selected projects from Chames Dhibi with challenge and outcome framing across portfolio v3.",
+  description:
+    "Selected case studies from Chames Dhibi across digital products, service platforms, company websites, and interactive tools.",
   alternates: {
     canonical: getCanonicalUrl("/work"),
   },
 };
 
 export default function WorkPage() {
-  // Map siteProjects to the expected ProjectWithMetadata interface from v2
-  const mappedProjects: ProjectWithMetadata[] = siteProjects.map((p) => ({
-    slug: p.slug,
-    content: "",
-    metadata: {
-      title: p.title,
-      summary: p.summary,
-      category: p.type,
-      tags: ["React", "UI/UX", "Tailwind"],
-      publishedAt: `${p.year}-01-01`,
-      images: [p.image],
-    },
-  }));
-
-  const mockCategories = [
-    { label: "Interactive Product", value: "Interactive Product", count: 1 },
-    { label: "Agency System", value: "Agency System", count: 1 },
-    { label: "Company Website", value: "Company Website", count: 1 },
-  ];
-
-  const mockTechnologies = [
-    { label: "React", value: "React", count: 3 },
-    { label: "Tailwind", value: "Tailwind", count: 3 },
-    { label: "UI/UX", value: "UI/UX", count: 3 },
-  ];
-
   return (
-    <main className="min-h-screen bg-background border-x-4 border-foreground max-w-[1400px] mx-auto flex flex-col font-sans mb-20 pt-24 px-4 md:px-8">
-      <section className="py-12 md:py-20 border-b-4 border-foreground mb-12">
-        <div className="flex flex-col gap-4">
-          <div className="inline-block border-4 border-foreground px-4 py-2 font-black uppercase text-sm bg-secondary w-fit shadow-brutalist">
-            Work
-          </div>
-          <h1 className="text-4xl md:text-7xl font-black uppercase tracking-tighter leading-[0.9] max-w-4xl">
-            Selected projects with stronger framing and clearer outcomes.
+    <main className="pb-16">
+      <section className="page-shell relative overflow-hidden py-12 md:py-20">
+        <p className="section-word pointer-events-none absolute left-0 top-14 text-[5rem] sm:text-[8rem] md:text-[13rem]">
+          Archive
+        </p>
+        <div className="relative z-10 max-w-5xl">
+          <p className="eyebrow">Archive</p>
+          <h1 className="display-monument mt-5 text-[4.3rem] text-foreground sm:text-[5.4rem] md:text-[7.4rem]">
+            Case studies with more
+            <span className="editorial-outline ml-2 inline-block">presence</span>
+            than a standard project listing.
           </h1>
-          <p className="text-xl md:text-2xl font-bold max-w-2xl border-l-8 border-primary pl-6 py-2 bg-secondary/20 uppercase mt-4">
-            Each project represents a different mood, pushed toward clarity, pace, and a stronger first impression.
+          <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
+            Real product and website work from my earlier portfolio, reframed here around what had to become clearer, stronger, more usable, or more convincing.
           </p>
         </div>
       </section>
 
-      <section className="w-full">
-        <Projects 
-          projects={mappedProjects} 
-          categories={mockCategories} 
-          technologies={mockTechnologies} 
-        />
+      <section className="section-line overflow-hidden">
+        <div className="page-shell py-16 md:py-20">
+          <div className="grid gap-6 lg:grid-cols-12">
+            {projects.map((project, index) => {
+              const layouts = [
+                "lg:col-span-7",
+                "lg:col-span-5 lg:translate-y-24",
+                "lg:col-span-4 lg:-mt-8",
+                "lg:col-span-8 lg:ml-10",
+                "lg:col-span-6 lg:-translate-y-10",
+                "lg:col-span-6 lg:translate-y-8",
+              ];
+              const layout = layouts[index % layouts.length];
+
+              return (
+                <ProjectPreviewCard
+                  key={project.slug}
+                  project={project}
+                  priority={index === 0}
+                  className={layout}
+                />
+              );
+            })}
+          </div>
+        </div>
       </section>
     </main>
   );

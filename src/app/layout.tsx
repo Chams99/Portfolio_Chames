@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Space_Mono, Geist, Geist_Mono, JetBrains_Mono } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, Space_Mono } from "next/font/google";
 import { SiteFooter } from "@/components/SiteFooter";
 import { SiteHeader } from "@/components/SiteHeader";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -7,11 +7,22 @@ import { getCanonicalUrl, siteConfig } from "@/data/site";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 
-const jetbrainsMonoHeading = JetBrains_Mono({subsets:['latin'],variable:'--font-heading'});
+const display = Cormorant_Garamond({
+  subsets: ["latin"],
+  variable: "--font-display",
+  weight: ["400", "500", "600", "700"],
+});
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+const body = DM_Sans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
-const geistMono = Geist_Mono({subsets:['latin'],variable:'--font-mono'});
+const mono = Space_Mono({
+  subsets: ["latin"],
+  variable: "--font-mono",
+  weight: ["400", "700"],
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
@@ -26,10 +37,10 @@ export const metadata: Metadata = {
   },
   keywords: [
     siteConfig.name,
-    "Full-stack developer",
+    "full-stack developer portfolio",
+    "UI designer portfolio",
     "Next.js portfolio",
-    "React portfolio",
-    "Web designer and developer",
+    "editorial website design",
   ],
   openGraph: {
     title: siteConfig.title,
@@ -56,17 +67,26 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  themeColor: "#ff5a36",
-  colorScheme: "dark light",
+  themeColor: "#0b0a0f",
+  colorScheme: "dark",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning className={cn("antialiased", geist.variable, "font-mono", geistMono.variable, jetbrainsMonoHeading.variable)}>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("antialiased", display.variable, body.variable, mono.variable)}
+    >
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:p-4 focus:bg-primary focus:text-primary-foreground focus:font-bold focus:border-4 focus:border-foreground focus:-translate-x-[2px] focus:-translate-y-[2px] focus:shadow-[4px_4px_0_0_var(--brutal-shadow)]">Skip to content</a>
-          <div className="appFrame">
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem={false} disableTransitionOnChange>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:border focus:border-border focus:bg-card focus:px-4 focus:py-2 focus:text-sm focus:text-foreground"
+          >
+            Skip to content
+          </a>
+          <div className="min-h-screen">
             <SiteHeader />
             <div id="main-content" tabIndex={-1}>
               {children}
