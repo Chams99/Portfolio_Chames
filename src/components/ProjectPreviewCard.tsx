@@ -10,12 +10,14 @@ interface ProjectPreviewCardProps {
   project: Project;
   priority?: boolean;
   className?: string;
+  compact?: boolean;
 }
 
 export function ProjectPreviewCard({
   project,
   priority = false,
   className = "",
+  compact = false,
 }: ProjectPreviewCardProps) {
   return (
     <div className={`${className} min-w-0`}>
@@ -46,27 +48,33 @@ export function ProjectPreviewCard({
               </p>
             </div>
 
-            <div className="flex flex-1 flex-col gap-5 p-6">
+            <div className={`flex flex-1 flex-col ${compact ? "gap-4 p-5" : "gap-5 p-6"}`}>
               <div className="flex items-center justify-between gap-4">
                 <p className="eyebrow text-foreground/70">{project.year}</p>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-foreground" />
               </div>
 
               <div className="min-w-0">
-                <h3 className="editorial-title text-3xl text-foreground md:text-4xl">{project.title}</h3>
-                <p className="mt-4 text-sm leading-7 text-muted-foreground">{project.summary}</p>
+                <h3 className={`editorial-title text-foreground ${compact ? "text-[2.2rem] md:text-[2.8rem]" : "text-3xl md:text-4xl"}`}>
+                  {project.title}
+                </h3>
+                {!compact ? (
+                  <p className="mt-4 text-sm leading-7 text-muted-foreground">{project.summary}</p>
+                ) : null}
               </div>
 
-              <div className="mt-auto flex flex-wrap gap-2">
-                {project.roles.slice(0, 3).map((role) => (
-                  <span
-                    key={role}
-                    className="rounded-full border border-white/10 px-3 py-1 text-[0.7rem] uppercase tracking-[0.24em] text-muted-foreground"
-                  >
-                    {role}
-                  </span>
-                ))}
-              </div>
+              {!compact ? (
+                <div className="mt-auto flex flex-wrap gap-2">
+                  {project.roles.slice(0, 2).map((role) => (
+                    <span
+                      key={role}
+                      className="rounded-full border border-white/10 px-3 py-1 text-[0.7rem] uppercase tracking-[0.24em] text-muted-foreground"
+                    >
+                      {role}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
             </div>
           </article>
         </Link>

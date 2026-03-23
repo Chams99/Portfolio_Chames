@@ -1,0 +1,22 @@
+---
+import type { ExperienceItem } from "@/data/site";
+
+interface Props {
+  items: ExperienceItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<div class="grid gap-5">
+  {
+    items.map((item, index) => (
+      <article class={`atmospheric-card panel-gradient p-7 ${index % 2 === 1 ? "md:ml-12" : ""}`}>
+        <p class="eyebrow">{item.period}</p>
+        <h3 class="mt-4 text-2xl text-white">{item.title}</h3>
+        <p class="mt-2 text-sm text-[color:var(--primary)]">{item.place}</p>
+        <p class="mt-4 text-sm leading-6 text-white/62">{item.details}</p>
+      </article>
+    ))
+  }
+</div>

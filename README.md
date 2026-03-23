@@ -1,12 +1,12 @@
 # portfolio v3
 
-Editorial portfolio built with Next.js.
+Editorial portfolio built with Astro.
 
 ## Local workflow
 
 ```bash
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 ## Production
@@ -26,7 +26,7 @@ https://v1.chames.dhibi.tn
 Set your server `.env` like this:
 
 ```bash
-NEXT_PUBLIC_SITE_URL=https://v1.chames.dhibi.tn
+PUBLIC_SITE_URL=https://v1.chames.dhibi.tn
 ```
 
 Then deploy on the VPS with:

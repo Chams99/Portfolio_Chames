@@ -4,7 +4,7 @@ x-service-template: &service-template
     test:
       [
         "CMD-SHELL",
-        "node -e \"fetch('http://localhost:3000/').then(r => process.exit(r.status === 200 ? 0 : 1)).catch(() => process.exit(1))\"",
+        "bun -e \"fetch('http://localhost:3000/').then(r => process.exit(r.status === 200 ? 0 : 1)).catch(() => process.exit(1))\"",
       ]
     interval: 5s
     timeout: 5s
@@ -15,7 +15,7 @@ x-service-template: &service-template
     - NODE_ENV=production
     - PORT=3000
     - INSTANCE_ID={{.Name}}
-    - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL:-https://v1.chames.dhibi.tn}
+    - PUBLIC_SITE_URL=${PUBLIC_SITE_URL:-https://v1.chames.dhibi.tn}
   networks:
     - traefik
   deploy:

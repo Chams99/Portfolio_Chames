@@ -38,9 +38,11 @@ export const metadata: Metadata = {
   keywords: [
     siteConfig.name,
     "full-stack developer portfolio",
-    "UI designer portfolio",
+    "web developer portfolio",
+    "mobile developer portfolio",
     "Next.js portfolio",
-    "editorial website design",
+    "Node.js developer",
+    "Flutter developer",
   ],
   openGraph: {
     title: siteConfig.title,

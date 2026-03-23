@@ -68,10 +68,9 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             <h1 className="display-monument mt-4 text-[4.3rem] text-foreground sm:text-[5.2rem] md:text-[7rem]">
               {project.title}
             </h1>
-            <p className="mt-7 max-w-2xl text-lg leading-8 text-muted-foreground">{project.summary}</p>
 
             <div className="mt-8 flex flex-wrap gap-2">
-              {project.roles.map((role) => (
+              {project.roles.slice(0, 3).map((role) => (
                 <span
                   key={role}
                   className="rounded-full border border-white/10 px-3 py-1 text-[0.7rem] uppercase tracking-[0.24em] text-muted-foreground"
@@ -88,7 +87,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
             </p>
             <div className="relative z-10">
               <p className="eyebrow">Opening note</p>
-              <p className="mt-4 text-base leading-7 text-muted-foreground">{project.intro}</p>
+              <p className="mt-4 max-w-md text-sm leading-6 text-muted-foreground">{project.intro}</p>
 
               {project.metrics?.length ? (
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
@@ -142,17 +141,17 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-12">
             <article className="atmospheric-card p-7 lg:col-span-4">
               <p className="eyebrow">Problem</p>
-              <p className="mt-4 text-base leading-7 text-muted-foreground">{project.problem}</p>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">{project.problem}</p>
             </article>
 
-            <article className="atmospheric-card p-7 lg:col-span-5 lg:translate-y-14">
+            <article className="atmospheric-card p-7 lg:col-span-5">
               <p className="eyebrow text-primary">Creative approach</p>
-              <p className="mt-4 text-base leading-7 text-muted-foreground">{project.creativeApproach}</p>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">{project.creativeApproach}</p>
             </article>
 
             <article className="atmospheric-card p-7 lg:col-span-3">
               <p className="eyebrow">Outcome</p>
-              <p className="mt-4 text-base leading-7 text-muted-foreground">{project.outcome}</p>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">{project.outcome}</p>
             </article>
           </div>
         </div>
@@ -169,8 +168,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 index === 0
                   ? "lg:col-span-7 lg:aspect-[16/9]"
                   : index === 1
-                    ? "lg:col-span-5 lg:translate-y-16"
-                    : "lg:col-span-6 lg:-mt-10";
+                    ? "lg:col-span-5 lg:pt-10"
+                    : "lg:col-span-6";
 
               return (
                 <div
@@ -213,7 +212,8 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                 <ProjectPreviewCard
                   key={item.slug}
                   project={item}
-                  className={index === 1 ? "md:translate-y-10" : ""}
+                  className={index === 1 ? "md:pt-8" : ""}
+                  compact
                 />
               ))}
             </div>

@@ -59,6 +59,7 @@ export type Project = {
   category: string;
   summary: string;
   heroImage: string;
+  previewMode?: "cover" | "scroll";
   gallery: string[];
   roles: string[];
   featured?: boolean;
@@ -76,10 +77,10 @@ export const siteConfig = {
   shortName: "Chames Eddine",
   title: "Dhibi Chames Eddine | Full-Stack Web & Mobile Developer",
   description:
-    "Editorial portfolio for Dhibi Chames Eddine, a full-stack web and mobile developer from Tunisia building backend-powered products with Next.js, Flutter, Node.js, and AI integration.",
+    "Portfolio of Dhibi Chames Eddine, a full-stack web and mobile developer from Tunisia building products with Next.js, Flutter, Node.js, and AI.",
   location: "Gafsa, Tunisia",
   email: "dhibichams@gmail.com",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? fallbackSiteUrl,
+  siteUrl: import.meta.env.PUBLIC_SITE_URL ?? fallbackSiteUrl,
   ogImage: "/opengraph-image.png",
   locale: "en_US",
 } as const;
@@ -107,9 +108,9 @@ export const heroStats: HeroStat[] = [
 
 export const homeIntro = {
   eyebrow: "Full-stack web and mobile developer",
-  headline: "Designing products and interfaces with atmosphere, clarity, and intent.",
+  headline: "Building web, mobile, and backend-powered products that ship.",
   body:
-    "I build launch-ready web, mobile, and backend-powered products with interface quality, clean architecture, and real-world usability in mind. The work has to feel sharp on the surface and solid underneath.",
+    "I build web, mobile, and backend-powered products with clean architecture and reliable execution.",
   ctaLabel: "See selected work",
   secondaryCtaLabel: "Start a conversation",
 };
@@ -122,75 +123,75 @@ export const homeNarrative = [
 export const capabilities: Capability[] = [
   {
     title: "Product launches",
-    body: "Landing pages, web apps, and digital products shaped to explain value quickly, convert cleanly, and hold up beyond the front end.",
+    body: "Launch-ready pages and products built to explain value fast.",
   },
   {
-    title: "Portfolio redesigns",
-    body: "Personal and studio sites with stronger hierarchy, clearer storytelling, and a more memorable first impression.",
+    title: "Web platforms",
+    body: "Web apps and sites built to be fast, clear, and dependable.",
   },
   {
     title: "Full-stack systems",
-    body: "Frontend and backend decisions shaped together, from UI flow to APIs, auth, data handling, and production-ready architecture.",
+    body: "Frontend, APIs, and data flow built as one system.",
   },
   {
     title: "UX structure",
-    body: "Flows, pacing, and product logic that make technically dense tools feel easier to understand, navigate, and trust.",
+    body: "Cleaner flows for products that need less friction.",
   },
 ];
 
 export const trustSignals: TrustSignal[] = [
   {
     label: "Working style",
-    value: "UI + backend thinking",
-    body: "The visual language, product logic, and implementation quality are shaped together, so the final result does not lose intent between concept and code.",
+    value: "Product + backend thinking",
+    body: "Architecture and usability are shaped together from the start.",
   },
   {
     label: "Background",
     value: "Web + mobile + AI",
-    body: "Computer science student at Universite de Gafsa building products across web, mobile, backend systems, and AI integration for real users and real client work.",
+    body: "Built across web, mobile, backend systems, and AI features.",
   },
   {
     label: "Best fit",
-    value: "Products that need both",
-    body: "Best for products and websites that need clearer positioning, stronger UI, and backend foundations that are ready to scale.",
+    value: "Products that need shipping",
+    body: "Best for products that need clear UX and real functionality.",
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
     label: "01",
-    title: "Find the real friction",
-    body: "Start by identifying what feels unclear, generic, or too technical in the current experience and what the new first impression needs to change.",
+    title: "Find the friction",
+    body: "Identify what feels unclear and what needs to improve first.",
   },
   {
     label: "02",
-    title: "Reshape the story",
-    body: "Build the page rhythm around what the visitor has to understand first, what should feel convincing next, and where the interface should create momentum.",
+    title: "Set the structure",
+    body: "Organize the page around what users need to understand quickly.",
   },
   {
     label: "03",
-    title: "Design for the browser",
-    body: "Push typography, layout, and imagery hard enough to feel distinctive, but keep the system realistic enough to ship cleanly across screens.",
+    title: "Build for the browser",
+    body: "Keep the UI distinctive, but practical enough to ship cleanly.",
   },
   {
     label: "04",
-    title: "Refine the final feel",
-    body: "Polish motion, spacing, and interaction details until the product feels coherent, fast, and deliberate instead of merely finished.",
+    title: "Refine",
+    body: "Tighten the details until the product feels fast and finished.",
   },
 ];
 
 export const principles: Principle[] = [
   {
-    title: "Clarity before noise",
-    body: "The strongest interfaces do not hide behind decoration. They earn attention by making the offer feel immediate and easy to trust.",
+    title: "Clarity first",
+    body: "The work should be easy to understand and easy to trust.",
   },
   {
     title: "Systems that ship",
-    body: "A concept only matters if it survives implementation. I design with real constraints in mind from the first pass.",
+    body: "Good ideas only matter if they hold up in real implementation.",
   },
   {
-    title: "Personality with control",
-    body: "Bold work lands better when hierarchy, readability, and interaction design stay disciplined underneath the atmosphere.",
+    title: "Polish with control",
+    body: "Strong visuals work better when the structure stays disciplined.",
   },
 ];
 
@@ -199,25 +200,25 @@ export const experience: ExperienceItem[] = [
     period: "2023 - 2026",
     title: "Bachelor of Computer Science",
     place: "Universite de Gafsa",
-    details: "Current degree path in computer science and engineering, shaping the technical foundation behind the portfolio work in web, mobile, backend, and AI.",
+    details: "Computer science studies focused on web, mobile, backend, and AI foundations.",
   },
   {
     period: "2022",
     title: "Full Stack Python Developer",
     place: "Go My Code",
-    details: "Built full-stack web applications, backend systems, and APIs while learning how product decisions hold up under real implementation pressure.",
+    details: "Built full-stack apps, backend systems, and APIs in a practical training environment.",
   },
   {
     period: "2025 - Present",
     title: "Freelance Full-Stack Developer",
     place: "Independent",
-    details: "Delivered web and mobile projects across Next.js, Flutter, Node.js, Express, Elysia, and Supabase, from landing pages to dashboards, APIs, and service platforms.",
+    details: "Built web and mobile projects across Next.js, Flutter, Node.js, Express, Elysia, and Supabase.",
   },
   {
     period: "2025 - 2026",
     title: "Web Development Intern",
     place: "CPG (Compagnie des Phosphates de Gafsa)",
-    details: "Built web applications and internal digital tools while strengthening practical experience with production workflows and business-facing software.",
+    details: "Built internal web tools and gained hands-on production experience.",
   },
 ];
 
@@ -292,16 +293,16 @@ function buildProject(input: ProjectInput): Project {
     gallery: input.gallery?.length ? input.gallery : [input.heroImage],
     intro:
       input.intro ??
-      `${input.title} started as a clear product idea, but it needed stronger structure and a more convincing digital presentation to feel complete.`,
+      `${input.title} needed a clearer, stronger digital presence.`,
     problem:
       input.problem ??
-      "The core challenge was turning the concept into something people could understand faster, trust sooner, and navigate without friction.",
+      "The core challenge was making the product easier to understand and trust quickly.",
     creativeApproach:
       input.creativeApproach ??
-      "I focused on hierarchy, pacing, and a cleaner interface direction so the value of the project could land quickly without losing personality.",
+      "I focused on hierarchy, pacing, and a cleaner interface direction.",
     outcome:
       input.outcome ??
-      "The result is a more confident experience that feels clearer in use, stronger in presentation, and better aligned with the product behind it.",
+      "The result feels clearer, stronger, and more aligned with the product behind it.",
   };
 }
 
@@ -312,8 +313,9 @@ export const projects: Project[] = [
     year: "2026",
     category: "Cybersecurity",
     summary:
-      "A brutalist company website for a cybersecurity provider, designed to turn technical credibility into a sharper, more commanding first impression.",
+      "A cybersecurity website shaped to feel sharper, more direct, and more trusted.",
     heroImage: "/images/projects/lumina-it-full.png",
+    previewMode: "scroll",
     gallery: [
       "/images/projects/lumina-it-full.png",
       "/images/projects/lumina-it-details.png",
@@ -323,13 +325,13 @@ export const projects: Project[] = [
     featured: true,
     externalLink: "https://lumina-it.vercel.app/",
     intro:
-      "Lumina started from a common problem in technical service businesses: the expertise was real, but the website still looked too safe to carry that authority.",
+      "Lumina needed a digital presence that felt as credible as the service behind it.",
     problem:
-      "A cybersecurity brand cannot afford to feel generic. It needed to communicate strength, speed, and operational confidence without reading like another template-led IT brochure.",
+      "The brand looked too generic for a cybersecurity company that needed instant trust.",
     creativeApproach:
-      "I pushed the interface toward a brutalist, terminal-inspired system with sharper typography, colder contrast, and a tone that felt decisive from the first screen. The goal was not polish for its own sake. It was presence.",
+      "I pushed the interface toward a colder, sharper system with stronger contrast and more command.",
     outcome:
-      "The final direction gave the company a stronger digital stance. It felt more technical, more deliberate, and more aligned with the high-trust service it was trying to sell.",
+      "The result feels more technical, more deliberate, and more believable.",
     metrics: [
       { label: "Direction", value: "Brutalist + cybersecurity" },
       { label: "Built with", value: "Next.js + custom CSS" },
@@ -342,8 +344,9 @@ export const projects: Project[] = [
     year: "2024",
     category: "AI Product",
     summary:
-      "A text-to-video concept that reframes AI storytelling as a cinematic, easy-to-enter product experience instead of a technical workflow.",
+      "An AI storytelling product framed to feel visual, simple, and cinematic.",
     heroImage: "/images/projects/ai-story-video-full.png",
+    previewMode: "scroll",
     gallery: [
       "/images/projects/ai-story-video-full.png",
       "/images/projects/ai-story-video-details.png",
@@ -353,13 +356,13 @@ export const projects: Project[] = [
     featured: true,
     externalLink: "https://ai-story-video.vercel.app/",
     intro:
-      "The product promise was strong from the start: turn written stories into video. What it needed was an interface that made that promise feel exciting before the mechanics took over.",
+      "The idea was strong. The product needed to feel exciting before the workflow appeared.",
     problem:
-      "AI tools often ask people to understand the system before they can feel the outcome. For a story-led product, that kills momentum fast. The experience had to feel visual and inviting on first contact.",
+      "The experience had to feel creative first, not technical first.",
     creativeApproach:
-      "I treated the product like an opening scene rather than a dashboard. The visual direction leaned into storytelling cues, cleaner hierarchy, and clearer feature framing so the workflow felt less mechanical and more imaginative.",
+      "I framed it like a story-led product, with clearer hierarchy and more visual momentum.",
     outcome:
-      "The concept became easier to trust and easier to want. Instead of presenting AI as complexity, the product started to present it as creative leverage with a much clearer emotional payoff.",
+      "The concept became easier to understand, trust, and want.",
     metrics: [
       { label: "Built for", value: "Creators + storytellers" },
       { label: "Core shift", value: "Technical to cinematic" },
@@ -372,8 +375,9 @@ export const projects: Project[] = [
     year: "2025",
     category: "Web Tool",
     summary:
-      "A website grading tool that turns performance, SEO, accessibility, and security checks into a faster, clearer product experience.",
+      "A website audit tool designed to make performance and SEO checks clearer.",
     heroImage: "/images/projects/webgrade-analyzer-full.png",
+    previewMode: "scroll",
     gallery: [
       "/images/projects/webgrade-analyzer-full.png",
       "/images/projects/website-grading-v0.png",
@@ -382,13 +386,13 @@ export const projects: Project[] = [
     featured: true,
     externalLink: "https://webgrade.pages.dev/",
     intro:
-      "Website audits are useful, but they often feel heavier than they need to. WebGrade was built to make diagnosis feel immediate and understandable for more than just technical users.",
+      "WebGrade was built to make audits feel fast, clear, and usable.",
     problem:
-      "Performance and SEO tools can overwhelm people with raw scores, scattered terminology, and too little sense of what to fix first. The product needed to make complex checks feel actionable in seconds.",
+      "Most audit tools overwhelm people before they help them.",
     creativeApproach:
-      "I kept the interface stripped back and purposeful, then framed the output around graded clarity: what is working, what is weak, and where the next improvement lives. The product had to read fast, not just compute accurately.",
+      "I stripped the interface back and organized the results around what matters first.",
     outcome:
-      "The result is a tool that feels calmer and more useful under pressure. Developers, agencies, and site owners get a clearer path from diagnosis to action instead of another wall of metrics.",
+      "The tool feels calmer, clearer, and more actionable.",
     metrics: [
       { label: "Audits", value: "Performance + SEO + security" },
       { label: "Audience", value: "Developers, agencies, owners" },
@@ -401,7 +405,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Real Estate",
     summary:
-      "A premium real estate investment platform with a darker visual language, investor-focused storytelling, and a more exclusive digital posture.",
+      "A premium real estate platform with a darker, investor-led digital presence.",
     heroImage: "/images/optimized/meridian-large.webp",
     roles: ["Web design", "Front-end development", "Content structure"],
     externalLink: "https://modern-estate-vision.vercel.app/",
@@ -413,7 +417,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Agency System",
     summary:
-      "A service platform for agencies that needed a more professional dashboard presence and clearer foundations for future automation.",
+      "A cleaner agency platform built for credibility, clarity, and future automation.",
     heroImage: "/images/projects/cleanfile-agency-full.png",
     gallery: [
       "/images/projects/cleanfile-agency-full.png",
@@ -423,13 +427,13 @@ export const projects: Project[] = [
     roles: ["Dashboard design", "System thinking", "Front-end development"],
     externalLink: "https://mahdi-ydm2.vercel.app/",
     intro:
-      "CleanFile was less about visual reinvention and more about creating a platform foundation that already felt credible before the deeper automation layer arrived.",
+      "CleanFile needed to feel credible before the deeper system arrived.",
     problem:
-      "Service businesses need trust fast. The platform had to feel organized, reliable, and extensible enough to support future modules without looking unfinished in the present.",
+      "The platform had to look organized, reliable, and ready to grow.",
     creativeApproach:
-      "I focused on restraint: clean panels, clear status surfaces, and a UI structure that could hold more complexity later without collapsing. It needed to feel calm, not empty.",
+      "I focused on restraint, status clarity, and a system that could expand cleanly.",
     outcome:
-      "The result was a more believable service platform, with a stronger operational feel and enough clarity to support both current client work and future product expansion.",
+      "The result feels more operational, more believable, and easier to scale.",
     metrics: [
       { label: "Primary goal", value: "Clarity + credibility" },
       { label: "Direction", value: "Dashboard-ready foundation" },
@@ -442,7 +446,7 @@ export const projects: Project[] = [
     year: "2024",
     category: "E-Commerce",
     summary:
-      "A photo printing ordering experience with custom editing controls, smarter zoom behavior, and a smoother path from upload to checkout.",
+      "A photo printing flow with better editing control and a smoother path to order.",
     heroImage: "/images/projects/photo-printing-full.png",
     gallery: [
       "/images/projects/photo-printing-full.png",
@@ -452,13 +456,13 @@ export const projects: Project[] = [
     roles: ["UX design", "Interactive UI", "React development"],
     externalLink: "https://photo-printing-order.vercel.app/",
     intro:
-      "Ordering photo prints sounds simple until customization gets involved. This product had to make detailed editing feel easy enough for everyday users.",
+      "The flow had to make detailed print edits feel simple enough for everyday users.",
     problem:
-      "Photo printing tools can become frustrating the moment zoom, crop, text, and sticker placement stop behaving predictably. The experience needed tighter control without feeling intimidating.",
+      "Customization breaks fast when zoom, crop, and placement stop feeling predictable.",
     creativeApproach:
-      "I leaned into interaction clarity: smarter zoom correction, more stable drag behavior, and a cleaner editing flow that helped people adjust prints without losing confidence in the result.",
+      "I tightened the editor around control, stability, and a clearer ordering flow.",
     outcome:
-      "The ordering journey became smoother and more trustworthy. Instead of fighting the editor, users could focus on personalizing the print and moving forward with less hesitation.",
+      "The experience became smoother, easier to trust, and easier to finish.",
     metrics: [
       { label: "Focus", value: "Editing flow + precision" },
       { label: "Built with", value: "React interaction logic" },
@@ -471,7 +475,7 @@ export const projects: Project[] = [
     year: "2024",
     category: "Healthcare",
     summary:
-      "A premium dental clinic website built to present high-end care services with more trust, clarity, and polish across the patient journey.",
+      "A premium dental website designed to feel calm, clear, and trusted.",
     heroImage: "/images/optimized/dent-showcase.png",
     roles: ["Website design", "Next.js development", "Service presentation"],
     externalLink: "https://dent-phi.vercel.app/",
@@ -483,7 +487,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "E-Commerce",
     summary:
-      "A modern e-commerce platform with authentication, a streamlined shopping flow, and a cleaner retail interface built to feel fast and dependable.",
+      "A modern e-commerce build focused on speed, flow, and dependable shopping.",
     heroImage: "/images/optimized/ecommerce-large.webp",
     roles: ["E-commerce UI", "Full-stack development", "Shopping flow"],
     externalLink: "https://chames.youssef.tn/ChamsShop/Public/core/",
@@ -495,7 +499,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Fitness App",
     summary:
-      "A landing page for an AI-powered fitness app with theme switching, motion, and a more energetic product presentation.",
+      "An AI fitness landing page with sharper motion and stronger energy.",
     heroImage: "/images/optimized/Fitness-large.webp",
     roles: ["Landing page design", "Motion styling", "Front-end development"],
     externalLink: "https://chames.youssef.tn/fitness_app",
@@ -507,7 +511,7 @@ export const projects: Project[] = [
     year: "2024",
     category: "Sports Commerce",
     summary:
-      "A football merchandise store designed to organize team gear, create clearer product discovery, and support a stronger retail identity.",
+      "A football storefront built for clearer browsing and stronger brand presence.",
     heroImage: "/images/optimized/FTBALL-large.webp",
     roles: ["Storefront design", "Commerce UI", "Front-end build"],
     externalLink: "https://ftball-ten.vercel.app/",
@@ -519,7 +523,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Restaurant Website",
     summary:
-      "A fine-dining restaurant website with elegant pacing, interactive menu sections, and a cleaner reservation-led experience.",
+      "A restaurant website with elegant pacing and a cleaner booking-led experience.",
     heroImage: "/images/optimized/restaurents-large.webp",
     roles: ["Web design", "Single-page UX", "Interaction polish"],
     externalLink: "https://chames.youssef.tn/restaurents/",
@@ -531,7 +535,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Gaming Interface",
     summary:
-      "A League of Legends themed chat interface that mixes gaming aesthetics with cleaner web interaction and responsive UI behavior.",
+      "A gaming-themed chat UI that balances atmosphere with cleaner usability.",
     heroImage: "/images/optimized/lol-large.webp",
     roles: ["Interface design", "Thematic UI", "Responsive development"],
     externalLink: "https://lolchat.vercel.app/",
@@ -543,7 +547,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Investment Platform",
     summary:
-      "A premium real estate investment experience aimed at high-net-worth users with stronger lead generation and clearer investor guidance.",
+      "A premium investment landing page designed for clearer trust and stronger leads.",
     heroImage: "/images/projects/property-consultation.png",
     roles: ["Lead generation design", "UI structure", "Conversion flow"],
     externalLink: "https://chames.youssef.tn/Property/",
@@ -555,7 +559,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Game",
     summary:
-      "A typing speed game with live WPM feedback, difficulty levels, and a more engaging, performance-led interface.",
+      "A typing game with live feedback and a cleaner performance-first interface.",
     heroImage: "/images/optimized/typing-game-large.webp",
     roles: ["Game UI", "Interactive logic", "Performance feedback"],
     externalLink: "https://chames.youssef.tn/typing-game/",
@@ -567,7 +571,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Interactive Tool",
     summary:
-      "A web-based star map that combines real-time sky rendering with a more explorable, visually immersive interface.",
+      "An interactive star map designed to feel immersive, curious, and easier to explore.",
     heroImage: "/images/optimized/sspace-large.webp",
     roles: ["Interactive design", "Data visualization", "Front-end development"],
     externalLink: "https://space-seven-fawn.vercel.app/",
@@ -579,7 +583,7 @@ export const projects: Project[] = [
     year: "2024",
     category: "Utility Tool",
     summary:
-      "A real-time unit converter with history tracking, dark mode support, and a cleaner utility-first interface.",
+      "A real-time unit converter with a simpler, faster utility-first interface.",
     heroImage: "/images/projects/unit-converter-full.png",
     roles: ["Utility UX", "Tool design", "JavaScript development"],
     externalLink: "https://unit-converter-sq3u.vercel.app/",
@@ -591,7 +595,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Creative Tool",
     summary:
-      "A dynamic pattern and wallpaper generator built around playful interaction, customization, and a more expressive visual output.",
+      "A playful wallpaper generator built around fast experimentation and visual output.",
     heroImage: "/images/optimized/wallpaper-large.webp",
     roles: ["Creative coding", "Interactive UI", "Front-end experimentation"],
     externalLink: "https://chames.youssef.tn/wallpaper/",
@@ -603,7 +607,7 @@ export const projects: Project[] = [
     year: "2025",
     category: "Game",
     summary:
-      "A browser game experience rebuilt in Next.js with stronger visual presentation, responsive behavior, and a more playful front-end shell.",
+      "A browser game shell rebuilt to feel cleaner, lighter, and more polished.",
     heroImage: "/images/optimized/chicken-large.webp",
     roles: ["Game presentation", "Next.js build", "Responsive UI"],
     externalLink: "/chicken/index.html",

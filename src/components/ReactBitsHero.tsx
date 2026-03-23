@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { AnimatedContent, GradientText, Silk } from "@appletosolutions/reactbits";
+import { AnimatedContent, GradientText } from "@appletosolutions/reactbits";
 import { ReactBitsMagnetLink } from "@/components/ReactBitsMagnetLink";
 import { Button } from "@/components/ui/button";
 
@@ -20,34 +20,34 @@ export function ReactBitsHero({
   secondaryLabel,
 }: ReactBitsHeroProps) {
   return (
-    <div className="relative z-10 grid gap-10 lg:grid-cols-[1.22fr_0.78fr] xl:grid-cols-[1.16fr_0.84fr]">
+    <div className="relative z-10 grid gap-12 lg:grid-cols-[1.18fr_0.82fr] xl:grid-cols-[1.12fr_0.88fr]">
       <div className="fade-rise">
         <p className="eyebrow">{eyebrow}</p>
 
         <div className="mt-5 max-w-[min(11ch,100%)] sm:max-w-none">
           <AnimatedContent distance={18} duration={0.8} initialOpacity={0}>
-            <div className="display-monument block text-[4rem] leading-[0.9] text-foreground sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9.6rem] md:whitespace-nowrap">
-              Designing
+            <div className="display-monument block text-[4rem] leading-[0.98] text-foreground sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9rem] md:whitespace-nowrap">
+              Building
             </div>
           </AnimatedContent>
           <AnimatedContent distance={18} duration={0.8} initialOpacity={0} delay={0.06}>
-            <div className="display-monument text-[4rem] leading-[0.9] text-foreground sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9.6rem] md:whitespace-nowrap">
+            <div className="display-monument text-[4rem] leading-[0.98] text-foreground sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9rem] md:whitespace-nowrap">
               <GradientText
                 className="display-monument inline-block align-baseline"
                 colors={["#f3d58a", "#f5ece0", "#d37b59", "#f3d58a"]}
                 animationSpeed={6}
               >
-                products
+                web apps
               </GradientText>
             </div>
           </AnimatedContent>
           <AnimatedContent distance={18} duration={0.8} initialOpacity={0} delay={0.12}>
-            <div className="display-monument block text-[4rem] leading-[0.9] text-foreground sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9.6rem] md:whitespace-nowrap">
-              and interfaces
+            <div className="display-monument block text-[4rem] leading-[0.98] text-foreground sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9rem] md:whitespace-nowrap">
+              and systems
             </div>
           </AnimatedContent>
           <AnimatedContent distance={18} duration={0.8} initialOpacity={0} delay={0.18}>
-            <div className="display-monument block text-[4rem] leading-[0.9] text-foreground sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9.6rem] md:whitespace-nowrap">
+            <div className="display-monument block text-[4rem] leading-[0.98] text-foreground sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9rem] md:whitespace-nowrap">
               that ship.
             </div>
           </AnimatedContent>
@@ -80,38 +80,39 @@ export function ReactBitsHero({
         </AnimatedContent>
       </div>
 
-      <div className="relative min-h-[36rem] fade-rise [animation-delay:120ms]">
-        <div className="absolute inset-x-10 top-8 bottom-20 overflow-hidden rounded-[2.4rem] border border-white/10">
-          <div className="absolute inset-0 opacity-80">
-            <Silk speed={4.5} scale={1.1} color="#5c3b2d" noiseIntensity={1.2} rotation={18} />
+      <div className="relative fade-rise [animation-delay:120ms]">
+        <div className="grid gap-4 lg:grid-rows-[auto_1fr_auto]">
+          <AnimatedContent distance={18} duration={0.75} initialOpacity={0} delay={0.16}>
+            <div className="ml-auto max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm">
+              <p className="eyebrow text-white/70">Core stack</p>
+              <p className="mt-2 text-sm leading-6 text-white/86">
+                Next.js, Flutter, Node.js
+              </p>
+            </div>
+          </AnimatedContent>
+
+          <div className="relative mx-auto w-full max-w-[31rem]">
+            <div className="image-frame relative aspect-[4/5] overflow-hidden rounded-[2.6rem]">
+              <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+              <Image
+                src="/images/avatar.webp"
+                alt="Chames Dhibi portrait"
+                fill
+                priority
+                className="object-cover"
+              />
+            </div>
           </div>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-          <Image
-            src="/images/avatar.webp"
-            alt="Chames Dhibi portrait"
-            fill
-            priority
-            className="object-cover mix-blend-screen opacity-70"
-          />
+
+          <AnimatedContent distance={18} duration={0.75} initialOpacity={0} delay={0.26}>
+            <div className="max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm">
+              <p className="eyebrow text-primary">Focus</p>
+              <p className="mt-2 text-sm leading-6 text-white/82">
+                Web apps, mobile apps, APIs, dashboards
+              </p>
+            </div>
+          </AnimatedContent>
         </div>
-
-        <AnimatedContent distance={18} duration={0.75} initialOpacity={0} delay={0.18}>
-          <div className="atmospheric-card absolute left-0 top-0 max-w-xs p-5">
-            <p className="eyebrow">Current focus</p>
-            <p className="mt-3 text-base leading-7 text-foreground/85">
-              Product websites, portfolio redesigns, and launch-ready interfaces with stronger visual presence.
-            </p>
-          </div>
-        </AnimatedContent>
-
-        <AnimatedContent distance={18} duration={0.75} initialOpacity={0} delay={0.28}>
-          <div className="atmospheric-card absolute bottom-0 right-0 max-w-sm p-5">
-            <p className="eyebrow text-primary">Atmosphere + clarity</p>
-            <p className="mt-3 text-base leading-7 text-muted-foreground">
-              The visual language should feel memorable, but the message still has to land in seconds.
-            </p>
-          </div>
-        </AnimatedContent>
       </div>
     </div>
   );

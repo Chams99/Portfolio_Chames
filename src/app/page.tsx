@@ -3,7 +3,6 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { ProjectPreviewCard } from "@/components/ProjectPreviewCard";
 import { ReactBitsHero } from "@/components/ReactBitsHero";
-import { ReactBitsParagraph } from "@/components/ReactBitsParagraph";
 import { Button } from "@/components/ui/button";
 import {
   capabilities,
@@ -11,15 +10,13 @@ import {
   getCanonicalUrl,
   heroStats,
   homeIntro,
-  homeNarrative,
-  processSteps,
   trustSignals,
 } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Dhibi Chames Eddine | Full-Stack Web & Mobile Developer",
   description:
-    "Editorial portfolio for Dhibi Chames Eddine, a full-stack web and mobile developer building backend-powered products with Next.js, Flutter, Node.js, and AI integration.",
+    "Portfolio of Dhibi Chames Eddine, a full-stack web and mobile developer building products with Next.js, Flutter, Node.js, and AI.",
   alternates: {
     canonical: getCanonicalUrl("/"),
   },
@@ -56,28 +53,6 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="section-line overflow-hidden">
-        <div className="page-shell relative py-12 md:py-14">
-          <p className="section-word pointer-events-none absolute -right-4 top-8 text-[4.5rem] sm:text-[6rem] md:text-[8rem]">
-            Story
-          </p>
-          <div className="grid gap-6 lg:grid-cols-[0.62fr_1.38fr]">
-            <div>
-              <p className="eyebrow">Positioning</p>
-            </div>
-            <div className="grid gap-4 md:grid-cols-2">
-              {homeNarrative.map((line) => (
-                <ReactBitsParagraph
-                  key={line}
-                  text={line}
-                  textClassName="text-base leading-7 text-muted-foreground"
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       <section id="selected-work" className="section-line overflow-hidden">
         <div className="page-shell relative py-16 md:py-20">
           <p className="section-word pointer-events-none absolute left-0 top-16 text-[5.5rem] sm:text-[8rem] md:text-[12rem]">
@@ -88,9 +63,9 @@ export default function Home() {
               <p className="eyebrow">Selected work</p>
               <h2 className="display-monument mt-4 text-[3.8rem] text-foreground sm:text-[4.8rem] md:text-[6.5rem]">
                 <span className="editorial-outline-soft block">Selected</span>
-                projects with
-                <span className="editorial-outline ml-2 inline-block">more tension</span>
-                than a standard portfolio grid.
+                projects built
+                <span className="editorial-outline ml-2 inline-block">for real use</span>
+                and shipping.
               </h2>
             </div>
             <Link href="/work" className="link-underline w-fit text-sm text-muted-foreground hover:text-foreground">
@@ -104,8 +79,8 @@ export default function Home() {
                 index === 0
                   ? "lg:col-span-7"
                   : index === 1
-                    ? "lg:col-span-5 lg:translate-y-20"
-                    : "lg:col-span-8 lg:ml-10";
+                    ? "lg:col-span-5 lg:pt-10"
+                    : "lg:col-span-8";
 
               return (
                 <ProjectPreviewCard
@@ -129,7 +104,7 @@ export default function Home() {
             <div className="stage-line pl-6">
               <p className="eyebrow">Capabilities</p>
               <h2 className="editorial-title mt-4 text-5xl text-foreground md:text-7xl">
-                More than visual polish.
+                More than front-end only.
               </h2>
             </div>
 
@@ -140,7 +115,7 @@ export default function Home() {
                   className={`atmospheric-card p-7 ${index % 2 === 1 ? "md:translate-y-12" : ""}`}
                 >
                   <p className="eyebrow text-primary">{item.title}</p>
-                  <p className="mt-4 text-base leading-7 text-muted-foreground">{item.body}</p>
+                  <p className="mt-4 text-sm leading-6 text-muted-foreground">{item.body}</p>
                 </article>
               ))}
             </div>
@@ -156,11 +131,11 @@ export default function Home() {
           <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
             <div>
               <p className="eyebrow">Why this lands</p>
-              <h2 className="display-monument mt-4 max-w-3xl text-[3.2rem] leading-[0.92] text-foreground sm:text-[4rem] md:text-[5rem]">
-                Visual confidence
+              <h2 className="display-monument mt-4 max-w-3xl text-[3.2rem] leading-[0.98] text-foreground sm:text-[4rem] md:text-[5rem]">
+                Strong products
                 <br />
-                with enough
-                <span className="editorial-outline ml-2 inline-block">control</span>
+                with solid
+                <span className="editorial-outline ml-2 inline-block">implementation</span>
                 to ship.
               </h2>
             </div>
@@ -169,44 +144,14 @@ export default function Home() {
               {trustSignals.map((signal, index) => (
                 <article
                   key={signal.label}
-                  className={`atmospheric-card p-7 ${index === 1 ? "md:ml-16" : ""} ${index === 2 ? "md:mr-16" : ""}`}
+                  className="atmospheric-card p-7"
                 >
                   <p className="eyebrow">{signal.label}</p>
                   <h3 className="mt-3 text-2xl text-foreground">{signal.value}</h3>
-                  <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground">{signal.body}</p>
+                  <p className="mt-3 max-w-xl text-sm leading-6 text-muted-foreground">{signal.body}</p>
                 </article>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section-line overflow-hidden">
-        <div className="page-shell relative py-16 md:py-20">
-          <p className="section-word pointer-events-none absolute right-0 top-16 text-[5rem] sm:text-[7rem] md:text-[10rem]">
-            Process
-          </p>
-          <div className="max-w-3xl">
-            <p className="eyebrow">Approach</p>
-            <h2 className="display-monument mt-4 max-w-4xl text-[3.7rem] leading-[0.92] text-foreground sm:text-[4.8rem] md:text-[6rem]">
-              Built in stages that
-              <br />
-              <span className="editorial-outline inline-block">shape feeling</span>
-              and function together.
-            </h2>
-          </div>
-
-          <div className="mt-10 grid gap-4 md:grid-cols-2">
-            {processSteps.map((step, index) => (
-              <article
-                key={step.label}
-                className={`atmospheric-card panel-gradient p-7 ${index === 1 || index === 3 ? "md:translate-y-12" : ""}`}
-              >
-                <p className="eyebrow text-primary">{step.label}</p>
-                <h3 className="mt-4 text-2xl text-foreground">{step.title}</h3>
-                <p className="mt-3 text-base leading-7 text-muted-foreground">{step.body}</p>
-              </article>
-            ))}
           </div>
         </div>
       </section>
@@ -220,10 +165,10 @@ export default function Home() {
             <div className="relative z-10 max-w-3xl">
               <p className="eyebrow">Next step</p>
               <h2 className="display-monument mt-4 text-[3.8rem] text-foreground sm:text-[4.8rem] md:text-[6rem]">
-                Let&apos;s make the next digital experience feel more singular.
+                Let&apos;s build the next product well.
               </h2>
-              <p className="mt-6 max-w-2xl text-lg leading-8 text-muted-foreground">
-                Best suited for portfolio redesigns, product landing pages, and brand-led experiences that need a stronger point of view.
+              <p className="mt-6 max-w-2xl text-base leading-7 text-muted-foreground">
+                Open to web apps, mobile apps, APIs, dashboards, and product sites.
               </p>
               <Link href="/contact" className="mt-8 inline-flex">
                 <Button className="rounded-full border border-primary/20 px-6 py-6 text-sm uppercase tracking-[0.22em]">

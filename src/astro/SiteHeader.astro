@@ -1,0 +1,39 @@
+---
+import { navItems, siteConfig } from "@/data/site";
+
+interface Props {
+  pathname: string;
+}
+
+const { pathname } = Astro.props;
+---
+
+<div class="sticky top-0 z-40 border-b border-white/8 bg-black/72 backdrop-blur-xl">
+  <header class="page-shell">
+    <nav class="flex items-center justify-between gap-4 py-5" aria-label="Main navigation">
+      <a href="/" class="group">
+        <div class="eyebrow text-white/75 transition-colors group-hover:text-white">{siteConfig.name}</div>
+        <div class="text-sm text-white/62">Full-Stack Web &amp; Mobile Developer</div>
+      </a>
+
+      <div class="flex items-center gap-3 sm:gap-5">
+        {
+          navItems.map((item) => {
+            const isActive = pathname === item.href;
+            return (
+              <a
+                href={item.href}
+                class={`link-underline text-sm ${
+                  isActive ? "text-white" : "text-white/62 hover:text-white"
+                }`}
+                aria-current={isActive ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            );
+          })
+        }
+      </div>
+    </nav>
+  </header>
+</div>

@@ -19,7 +19,7 @@ export function ReactBitsHelloMarquee({ texts }: ReactBitsHelloMarqueeProps) {
         numCopies={8}
         className="overflow-hidden"
         parallaxClassName="overflow-hidden"
-        scrollerClassName="display-monument whitespace-nowrap text-[2.6rem] tracking-[-0.04em] text-foreground/90 md:text-[4rem]"
+        scrollerClassName="font-display inline-flex whitespace-nowrap [text-wrap:nowrap] text-[2.6rem] leading-none tracking-[-0.03em] text-foreground/90 md:text-[4rem]"
       />
     </div>
   );
