@@ -1,4 +1,5 @@
 ---
+import { ClientRouter } from "astro:transitions";
 import SiteFooter from "@/astro/SiteFooter.astro";
 import SiteHeader from "@/astro/SiteHeader.astro";
 import { getCanonicalUrl, siteConfig } from "@/data/site";
@@ -48,6 +49,7 @@ const pageTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <ClientRouter />
     <noscript>
       <style>
         [data-simplebar] {
