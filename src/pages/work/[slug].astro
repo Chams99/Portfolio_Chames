@@ -3,7 +3,6 @@ import ProjectCard from "@/astro/ProjectCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { featuredProjects, getProjectBySlug, projectSlugs } from "@/data/site";
 
-export const prerender = true;
 
 export function getStaticPaths() {
   return projectSlugs.map((slug) => ({ params: { slug } }));
@@ -24,7 +23,7 @@ const relatedProjects = featuredProjects.filter((item) => item.slug !== project.
     <section class="page-shell relative overflow-hidden py-12 md:py-16">
       <p class="section-word pointer-events-none absolute left-0 top-16 text-[5rem] sm:text-[7rem] md:text-[12rem]">{project.category}</p>
       <a href="/work" class="link-underline relative z-10 inline-flex items-center gap-2 text-sm text-white/62 hover:text-white">
-        <span>?</span>
+        <span>&larr;</span>
         Back to work
       </a>
 
@@ -67,7 +66,7 @@ const relatedProjects = featuredProjects.filter((item) => item.slug !== project.
               project.externalLink ? (
                 <a href={project.externalLink} target="_blank" rel="noreferrer" class="mt-8 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white hover:bg-white/5">
                   Visit project
-                  <span>?</span>
+                  <span>&larr;</span>
                 </a>
               ) : null
             }
@@ -152,3 +151,4 @@ const relatedProjects = featuredProjects.filter((item) => item.slug !== project.
     }
   </main>
 </BaseLayout>
+
