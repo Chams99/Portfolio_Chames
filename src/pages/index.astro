@@ -90,7 +90,7 @@ import { capabilities, featuredProjects, heroStats, homeIntro, trustSignals } fr
             featuredProjects.map((project, index) => {
               const layout =
                 index === 0 ? "lg:col-span-7" : index === 1 ? "lg:col-span-5 lg:pt-10" : "lg:col-span-8";
-              return <ProjectCard project={project} className={layout} />;
+              return <ProjectCard project={project} className={layout} compact />;
             })
           }
         </div>
@@ -172,3 +172,4 @@ import { capabilities, featuredProjects, heroStats, homeIntro, trustSignals } fr
     </section>
   </main>
 </BaseLayout>
+
