@@ -1,7 +1,10 @@
 ---
 import ProjectCard from "@/astro/ProjectCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { capabilities, featuredProjects, heroStats, homeIntro, trustSignals } from "@/data/site";
+import { capabilities, featuredProjects, heroStats, trustSignals } from "@/data/site";
+
+const primaryProject = featuredProjects[0];
+const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProject.slug}`;
 ---
 
 <BaseLayout title="Dhibi Chames Eddine | Full-Stack Web & Mobile Developer">
@@ -12,7 +15,7 @@ import { capabilities, featuredProjects, heroStats, homeIntro, trustSignals } fr
 
       <div class="relative z-10 grid gap-12 lg:grid-cols-[1.18fr_0.82fr]">
         <div>
-          <p class="eyebrow">{homeIntro.eyebrow}</p>
+          <p class="eyebrow">Full-stack web and mobile developer</p>
           <div class="mt-5 max-w-[11ch] sm:max-w-none">
             <h1 class="display-monument text-[4rem] text-white sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9rem]">
               Building
@@ -23,16 +26,16 @@ import { capabilities, featuredProjects, heroStats, homeIntro, trustSignals } fr
           </div>
 
           <div class="mt-8 max-w-2xl border-l border-[color:var(--primary)]/40 pl-6">
-            <p class="text-lg leading-8 text-white/62">{homeIntro.body}</p>
+            <p class="text-lg leading-8 text-white/62">I build web, mobile, and backend-powered products with clean architecture and reliable execution.</p>
           </div>
 
           <div class="mt-10 flex flex-col gap-4 sm:flex-row">
-            <a href="#selected-work" class="inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
-              {homeIntro.ctaLabel}
-              <span>↘</span>
+            <a href={primaryProjectHref} class="inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
+              Open selected project
+              <span>&#8599;</span>
             </a>
             <a href="/contact" class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-transparent px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5 hover:bg-white/5">
-              {homeIntro.secondaryCtaLabel}
+              Start a conversation
             </a>
           </div>
         </div>
@@ -82,7 +85,7 @@ import { capabilities, featuredProjects, heroStats, homeIntro, trustSignals } fr
               and shipping.
             </h2>
           </div>
-          <a href="/work" class="link-underline w-fit text-sm text-white/62 hover:text-white">View the full archive</a>
+          <a href={primaryProjectHref} class="link-underline w-fit text-sm text-white/62 hover:text-white">Open the first project</a>
         </div>
 
         <div class="relative z-10 mt-12 grid gap-6 lg:grid-cols-12">
@@ -164,7 +167,7 @@ import { capabilities, featuredProjects, heroStats, homeIntro, trustSignals } fr
             </p>
             <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
               Start a project
-              <span>↗</span>
+              <span>&#8599;</span>
             </a>
           </div>
         </div>
@@ -172,4 +175,3 @@ import { capabilities, featuredProjects, heroStats, homeIntro, trustSignals } fr
     </section>
   </main>
 </BaseLayout>
-

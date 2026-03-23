@@ -62,6 +62,7 @@ export type Project = {
   previewMode?: "cover" | "scroll";
   gallery: string[];
   roles: string[];
+  stack?: string[];
   featured?: boolean;
   externalLink?: string;
   intro: string;
@@ -111,7 +112,7 @@ export const homeIntro = {
   headline: "Building web, mobile, and backend-powered products that ship.",
   body:
     "I build web, mobile, and backend-powered products with clean architecture and reliable execution.",
-  ctaLabel: "See selected work",
+  ctaLabel: "Open selected work",
   secondaryCtaLabel: "Start a conversation",
 };
 
@@ -322,6 +323,7 @@ export const projects: Project[] = [
       "/images/projects/lumina-it-features.png",
     ],
     roles: ["Web design", "Brand direction", "Front-end development"],
+    stack: ["Next.js", "Custom CSS", "Responsive UI"],
     featured: true,
     externalLink: "https://lumina-it.vercel.app/",
     intro:
@@ -353,6 +355,7 @@ export const projects: Project[] = [
       "/images/projects/ai-story-video-features.png",
     ],
     roles: ["Product design", "Front-end development", "AI workflow framing"],
+    stack: ["Next.js", "AI APIs", "Video workflow"],
     featured: true,
     externalLink: "https://ai-story-video.vercel.app/",
     intro:
@@ -383,6 +386,7 @@ export const projects: Project[] = [
       "/images/projects/website-grading-v0.png",
     ],
     roles: ["Product strategy", "UX design", "JavaScript development"],
+    stack: ["JavaScript", "SEO checks", "Performance"],
     featured: true,
     externalLink: "https://webgrade.pages.dev/",
     intro:
@@ -408,6 +412,7 @@ export const projects: Project[] = [
       "A premium real estate platform with a darker, investor-led digital presence.",
     heroImage: "/images/optimized/meridian-large.webp",
     roles: ["Web design", "Front-end development", "Content structure"],
+    stack: ["Next.js", "Landing page", "Responsive UI"],
     externalLink: "https://modern-estate-vision.vercel.app/",
     quote: "Premium positioning only works when the experience feels composed from the first second.",
   }),
@@ -425,6 +430,7 @@ export const projects: Project[] = [
       "/images/projects/cleanfile-agency-features.png",
     ],
     roles: ["Dashboard design", "System thinking", "Front-end development"],
+    stack: ["Dashboard UI", "System design", "Front-end"],
     externalLink: "https://mahdi-ydm2.vercel.app/",
     intro:
       "CleanFile needed to feel credible before the deeper system arrived.",
@@ -454,6 +460,7 @@ export const projects: Project[] = [
       "/images/projects/photo-printing-features.png",
     ],
     roles: ["UX design", "Interactive UI", "React development"],
+    stack: ["React", "Image editor", "Order flow"],
     externalLink: "https://photo-printing-order.vercel.app/",
     intro:
       "The flow had to make detailed print edits feel simple enough for everyday users.",
@@ -478,6 +485,7 @@ export const projects: Project[] = [
       "A premium dental website designed to feel calm, clear, and trusted.",
     heroImage: "/images/optimized/dent-showcase.png",
     roles: ["Website design", "Next.js development", "Service presentation"],
+    stack: ["Next.js", "Service site", "Booking UX"],
     externalLink: "https://dent-phi.vercel.app/",
     quote: "Healthcare sites earn confidence when every detail feels calm and credible.",
   }),
@@ -490,6 +498,7 @@ export const projects: Project[] = [
       "A modern e-commerce build focused on speed, flow, and dependable shopping.",
     heroImage: "/images/optimized/ecommerce-large.webp",
     roles: ["E-commerce UI", "Full-stack development", "Shopping flow"],
+    stack: ["PHP", "Commerce UI", "MySQL"],
     externalLink: "https://chames.youssef.tn/ChamsShop/Public/core/",
     quote: "Retail interfaces work best when speed and clarity feel built into the surface.",
   }),
@@ -502,6 +511,7 @@ export const projects: Project[] = [
       "An AI fitness landing page with sharper motion and stronger energy.",
     heroImage: "/images/optimized/Fitness-large.webp",
     roles: ["Landing page design", "Motion styling", "Front-end development"],
+    stack: ["Next.js", "Motion UI", "Landing page"],
     externalLink: "https://chames.youssef.tn/fitness_app",
     quote: "Energetic products need a landing page that feels alive before the first click.",
   }),
@@ -514,6 +524,7 @@ export const projects: Project[] = [
       "A football storefront built for clearer browsing and stronger brand presence.",
     heroImage: "/images/optimized/FTBALL-large.webp",
     roles: ["Storefront design", "Commerce UI", "Front-end build"],
+    stack: ["React", "Commerce UI", "Responsive"],
     externalLink: "https://ftball-ten.vercel.app/",
     quote: "Merchandise sells better when the storefront already feels like part of the fandom.",
   }),
@@ -526,6 +537,7 @@ export const projects: Project[] = [
       "A restaurant website with elegant pacing and a cleaner booking-led experience.",
     heroImage: "/images/optimized/restaurents-large.webp",
     roles: ["Web design", "Single-page UX", "Interaction polish"],
+    stack: ["Landing page", "Booking UX", "Responsive UI"],
     externalLink: "https://chames.youssef.tn/restaurents/",
     quote: "Hospitality sites should set the tone before the customer ever arrives.",
   }),
@@ -538,6 +550,7 @@ export const projects: Project[] = [
       "A gaming-themed chat UI that balances atmosphere with cleaner usability.",
     heroImage: "/images/optimized/lol-large.webp",
     roles: ["Interface design", "Thematic UI", "Responsive development"],
+    stack: ["Chat UI", "Responsive", "Themed interface"],
     externalLink: "https://lolchat.vercel.app/",
     quote: "Themed interfaces work when the atmosphere stays sharp without breaking usability.",
   }),
@@ -550,6 +563,7 @@ export const projects: Project[] = [
       "A premium investment landing page designed for clearer trust and stronger leads.",
     heroImage: "/images/projects/property-consultation.png",
     roles: ["Lead generation design", "UI structure", "Conversion flow"],
+    stack: ["Lead gen", "Landing page", "Responsive UI"],
     externalLink: "https://chames.youssef.tn/Property/",
     quote: "High-trust financial experiences need structure that feels premium and direct at once.",
   }),
@@ -562,6 +576,7 @@ export const projects: Project[] = [
       "A typing game with live feedback and a cleaner performance-first interface.",
     heroImage: "/images/optimized/typing-game-large.webp",
     roles: ["Game UI", "Interactive logic", "Performance feedback"],
+    stack: ["JavaScript", "Game loop", "Score tracking"],
     externalLink: "https://chames.youssef.tn/typing-game/",
     quote: "Simple games feel better when the feedback loop is immediate and satisfying.",
   }),
@@ -574,6 +589,7 @@ export const projects: Project[] = [
       "An interactive star map designed to feel immersive, curious, and easier to explore.",
     heroImage: "/images/optimized/sspace-large.webp",
     roles: ["Interactive design", "Data visualization", "Front-end development"],
+    stack: ["Interactive UI", "Data viz", "Animation"],
     externalLink: "https://space-seven-fawn.vercel.app/",
     quote: "Exploration tools land best when the interface feels curious, not complicated.",
   }),
@@ -586,6 +602,7 @@ export const projects: Project[] = [
       "A real-time unit converter with a simpler, faster utility-first interface.",
     heroImage: "/images/projects/unit-converter-full.png",
     roles: ["Utility UX", "Tool design", "JavaScript development"],
+    stack: ["JavaScript", "Utility UI", "Real-time calc"],
     externalLink: "https://unit-converter-sq3u.vercel.app/",
     quote: "Utility products feel premium when speed and simplicity are obvious from the first interaction.",
   }),
@@ -598,6 +615,7 @@ export const projects: Project[] = [
       "A playful wallpaper generator built around fast experimentation and visual output.",
     heroImage: "/images/optimized/wallpaper-large.webp",
     roles: ["Creative coding", "Interactive UI", "Front-end experimentation"],
+    stack: ["Creative coding", "Canvas", "Interactive UI"],
     externalLink: "https://chames.youssef.tn/wallpaper/",
     quote: "Creative tools earn attention when the interface itself feels generative.",
   }),
@@ -610,6 +628,7 @@ export const projects: Project[] = [
       "A browser game shell rebuilt to feel cleaner, lighter, and more polished.",
     heroImage: "/images/optimized/chicken-large.webp",
     roles: ["Game presentation", "Next.js build", "Responsive UI"],
+    stack: ["Next.js", "Game shell", "Responsive UI"],
     externalLink: "/chicken/index.html",
     quote: "Even playful projects feel stronger when the surrounding experience is properly designed.",
   }),
@@ -639,3 +658,5 @@ export function getProjectBySlug(slug: string) {
 }
 
 export const projectSlugs = projects.map((project) => project.slug);
+
+
