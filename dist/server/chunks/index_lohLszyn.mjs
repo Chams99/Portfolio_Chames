@@ -1,8 +1,8 @@
-import { c as createComponent } from './astro-component_p_H4d2Hr.mjs';
+import { c as createComponent } from './astro-component_CfxgHBJO.mjs';
 import 'piccolore';
-import { i as renderComponent, r as renderTemplate, m as maybeRenderHead, g as addAttribute } from './server_BudBFOcP.mjs';
-import { $ as $$ProjectCard } from './ProjectCard_CRcIDIoJ.mjs';
-import { $ as $$BaseLayout } from './BaseLayout_CQYW-qy5.mjs';
+import { i as renderComponent, r as renderTemplate, m as maybeRenderHead, g as addAttribute } from './server_CxHHWH61.mjs';
+import { $ as $$ProjectCard } from './ProjectCard_Da0QkQK0.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_CrYWDZ-8.mjs';
 import { h as homeIntro, f as heroStats, j as featuredProjects, k as capabilities, t as trustSignals } from './site_D5q6Aank.mjs';
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
@@ -14,7 +14,7 @@ projects built
 and shipping.
 </h2> </div> <a href="/work" class="link-underline w-fit text-sm text-white/62 hover:text-white">View the full archive</a> </div> <div class="relative z-10 mt-12 grid gap-6 lg:grid-cols-12"> ${featuredProjects.map((project, index) => {
     const layout = index === 0 ? "lg:col-span-7" : index === 1 ? "lg:col-span-5 lg:pt-10" : "lg:col-span-8";
-    return renderTemplate`${renderComponent($$result2, "ProjectCard", $$ProjectCard, { "project": project, "className": layout })}`;
+    return renderTemplate`${renderComponent($$result2, "ProjectCard", $$ProjectCard, { "project": project, "className": layout, "compact": true })}`;
   })} </div> </div> </section> <section class="section-line overflow-hidden"> <div class="page-shell relative py-16 md:py-20"> <p class="section-word pointer-events-none absolute right-0 top-6 text-[5.5rem] sm:text-[7rem] md:text-[11rem]">Offer</p> <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]"> <div class="stage-line pl-6"> <p class="eyebrow">Capabilities</p> <h2 class="editorial-title mt-4 text-5xl text-white md:text-7xl">More than front-end only.</h2> </div> <div class="grid gap-4 md:grid-cols-2"> ${capabilities.map((item, index) => renderTemplate`<article${addAttribute(`atmospheric-card p-7 ${index % 2 === 1 ? "md:translate-y-12" : ""}`, "class")}> <p class="eyebrow text-[color:var(--primary)]">${item.title}</p> <p class="mt-4 text-sm leading-6 text-white/62">${item.body}</p> </article>`)} </div> </div> </div> </section> <section class="section-line overflow-hidden"> <div class="page-shell relative py-16 md:py-20"> <p class="section-word pointer-events-none absolute left-0 top-10 text-[5rem] sm:text-[7rem] md:text-[11rem]">Proof</p> <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]"> <div> <p class="eyebrow">Why this lands</p> <h2 class="display-monument mt-4 max-w-3xl text-[3.2rem] leading-[0.98] text-white sm:text-[4rem] md:text-[5rem]">
 Strong products
 <br>

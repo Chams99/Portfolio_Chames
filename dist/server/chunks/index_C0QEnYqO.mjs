@@ -1,8 +1,8 @@
-import { c as createComponent } from './astro-component_p_H4d2Hr.mjs';
+import { c as createComponent } from './astro-component_CfxgHBJO.mjs';
 import 'piccolore';
-import { i as renderComponent, r as renderTemplate, m as maybeRenderHead } from './server_BudBFOcP.mjs';
-import { $ as $$ProjectCard } from './ProjectCard_CRcIDIoJ.mjs';
-import { $ as $$BaseLayout } from './BaseLayout_CQYW-qy5.mjs';
+import { i as renderComponent, r as renderTemplate, m as maybeRenderHead } from './server_CxHHWH61.mjs';
+import { $ as $$ProjectCard } from './ProjectCard_Da0QkQK0.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_CrYWDZ-8.mjs';
 import { d as projects } from './site_D5q6Aank.mjs';
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {

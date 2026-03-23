@@ -1,6 +1,6 @@
-import { c as createComponent } from './astro-component_p_H4d2Hr.mjs';
+import { c as createComponent } from './astro-component_CfxgHBJO.mjs';
 import 'piccolore';
-import { m as maybeRenderHead, g as addAttribute, r as renderTemplate } from './server_BudBFOcP.mjs';
+import { m as maybeRenderHead, g as addAttribute, r as renderTemplate } from './server_CxHHWH61.mjs';
 import 'clsx';
 
 const $$ProjectCard = createComponent(($$result, $$props, $$slots) => {
