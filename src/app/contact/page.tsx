@@ -5,7 +5,7 @@ import { contactChannels, getCanonicalUrl, isExternalHref, siteConfig } from "@/
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Contact Dhibi Chames Eddine for product websites, portfolio redesigns, Flutter app work, and backend-powered digital products.",
+    "Contact Dhibi Chames Eddine for web apps, Flutter work, backend-powered products, and full-stack development.",
   alternates: {
     canonical: getCanonicalUrl("/contact"),
   },
@@ -22,11 +22,11 @@ export default function ContactPage() {
           <p className="eyebrow">Contact</p>
           <h1 className="display-monument mt-5 max-w-[13ch] text-[3.8rem] text-foreground sm:text-[4.8rem] md:text-[5.9rem] lg:text-[6.8rem]">
             For projects that need
-            <span className="editorial-outline ml-2 inline-block">more presence</span>
-            , not just a cleaner layout.
+            <span className="editorial-outline ml-2 inline-block">clean builds</span>
+            and solid execution.
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-            Open to product websites, portfolio redesigns, Flutter app work, and backend-powered experiences that need stronger hierarchy, better structure, and a more distinctive digital voice.
+          <p className="mt-8 max-w-2xl text-base leading-7 text-muted-foreground">
+            Open to web apps, Flutter work, APIs, internal tools, and backend-powered products that need clean execution and reliable foundations.
           </p>
         </div>
       </section>
@@ -36,10 +36,10 @@ export default function ContactPage() {
           <div className="space-y-5">
             <p className="eyebrow">Best fit</p>
             <h2 className="editorial-title text-5xl text-foreground md:text-6xl">
-              Launch-ready web work with a stronger point of view.
+              Launch-ready product work.
             </h2>
-            <p className="max-w-xl text-base leading-7 text-muted-foreground">
-              If the project needs better rhythm, clearer positioning, and a result that still feels intentional across the interface, backend, and mobile experience, that is where I do my best work.
+            <p className="max-w-xl text-sm leading-6 text-muted-foreground">
+              Best for web apps, mobile apps, APIs, internal tools, and product sites that need clear execution.
             </p>
 
             <div className="atmospheric-card panel-gradient max-w-md p-6">

@@ -98,14 +98,16 @@
 
   .editorial-title {
     font-family: var(--font-display), serif;
-    letter-spacing: -0.04em;
-    line-height: 0.88;
+    letter-spacing: -0.028em;
+    line-height: 0.94;
+    text-wrap: balance;
   }
 
   .display-monument {
     font-family: var(--font-display), serif;
-    letter-spacing: -0.055em;
-    line-height: 0.8;
+    letter-spacing: -0.038em;
+    line-height: 0.9;
+    text-wrap: balance;
   }
 
   .editorial-outline {
@@ -178,8 +180,8 @@
 
   .section-word {
     font-family: var(--font-display), serif;
-    letter-spacing: -0.08em;
-    line-height: 0.82;
+    letter-spacing: -0.055em;
+    line-height: 0.9;
     color: transparent;
     -webkit-text-stroke: 1px rgba(247, 240, 224, 0.14);
     text-stroke: 1px rgba(247, 240, 224, 0.14);

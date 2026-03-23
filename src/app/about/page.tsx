@@ -7,7 +7,7 @@ import { experience, getCanonicalUrl, principles, processSteps } from "@/data/si
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Dhibi Chames Eddine, the full-stack web and mobile background behind the work, and the approach that connects product thinking, interface design, and backend-aware implementation.",
+    "About Dhibi Chames Eddine, a full-stack web and mobile developer building products across frontend, backend, and mobile.",
   alternates: {
     canonical: getCanonicalUrl("/about"),
   },
@@ -24,43 +24,46 @@ export default function AboutPage() {
           <div>
             <p className="eyebrow">About</p>
             <h1 className="display-monument mt-5 text-[4.3rem] text-foreground sm:text-[5.4rem] md:text-[7rem]">
-              Building digital work that feels
-              <span className="editorial-outline ml-2 inline-block">precise</span>
+              Building products that stay
+              <span className="editorial-outline ml-2 inline-block">usable</span>
               ,
               <br />
-              emotional, and considered.
+              fast, and reliable.
             </h1>
-            <div className="mt-8 grid gap-6 text-lg leading-8 text-muted-foreground">
+            <div className="mt-8 grid gap-5 text-base leading-7 text-muted-foreground">
               <p>
-                My work sits between product thinking, interface design, and the implementation instincts that help ideas survive contact with production. I care about what a site says, but also about how it moves, how it breathes, how the data flows, and how quickly it earns belief across both web and mobile products.
+                I work across frontend, backend, and mobile, so the product work is always tied to real implementation.
               </p>
               <p>
-                That mix comes from working across both design and development, backed by current computer science studies at Universite de Gafsa and ongoing freelance product work. The point is never decoration for its own sake. It is a stronger presence, a clearer narrative, and a product that still feels deliberate once the UI, backend, and real usage all meet.
+                That comes from current computer science studies at Universite de Gafsa and ongoing freelance work across web, mobile, and APIs.
               </p>
             </div>
           </div>
 
-          <div className="relative min-h-[34rem]">
-            <div className="image-frame absolute inset-x-10 top-8 bottom-16 -rotate-[4deg]">
-              <Image
-                src="/images/avatar.webp"
-                alt="Portrait of Chames Dhibi"
-                fill
-                className="object-cover"
-              />
-            </div>
-
-            <div className="atmospheric-card absolute left-0 top-0 max-w-xs p-5">
-              <p className="eyebrow">Current direction</p>
-              <p className="mt-3 text-base leading-7 text-muted-foreground">
-                Next.js websites, Flutter apps, backend-aware products, and cleaner digital storytelling for real users.
+          <div className="grid gap-4 lg:grid-rows-[auto_1fr_auto]">
+            <div className="ml-auto max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm">
+              <p className="eyebrow text-white/70">Current direction</p>
+              <p className="mt-2 text-sm leading-6 text-white/86">
+                Next.js, Flutter, Node.js, and products built for real users.
               </p>
             </div>
 
-            <div className="atmospheric-card absolute bottom-0 right-0 max-w-sm p-5">
+            <div className="relative mx-auto w-full max-w-[31rem]">
+              <div className="image-frame relative aspect-[4/5] overflow-hidden rounded-[2.6rem]">
+                <div className="absolute inset-0 z-[1] bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                <Image
+                  src="/images/avatar.webp"
+                  alt="Portrait of Chames Dhibi"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            <div className="max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm">
               <p className="eyebrow text-primary">What matters most</p>
-              <p className="mt-3 text-base leading-7 text-muted-foreground">
-                A premium result should still feel calm, legible, and ready to ship.
+              <p className="mt-2 text-sm leading-6 text-white/82">
+                The product should be clear, stable, and ready to ship.
               </p>
             </div>
           </div>
@@ -86,7 +89,7 @@ export default function AboutPage() {
                 >
                   <article>
                   <h2 className="text-2xl text-foreground">{item.title}</h2>
-                  <p className="mt-4 text-base leading-7 text-muted-foreground">{item.body}</p>
+                  <p className="mt-4 text-sm leading-6 text-muted-foreground">{item.body}</p>
                   </article>
                 </EditorialSpotlightCard>
               ))}
@@ -117,8 +120,8 @@ export default function AboutPage() {
           <div className="max-w-3xl">
             <p className="eyebrow">How I work</p>
             <h2 className="display-monument mt-4 text-[3.8rem] text-foreground sm:text-[4.8rem] md:text-[6rem]">
-              Calm process.
-              <span className="editorial-outline ml-2 inline-block">Sharper result.</span>
+              Clear process.
+              <span className="editorial-outline ml-2 inline-block">Better result.</span>
             </h2>
           </div>
 
@@ -133,7 +136,7 @@ export default function AboutPage() {
                 <article>
                   <p className="eyebrow text-primary">{step.label}</p>
                   <h3 className="mt-4 text-2xl text-foreground">{step.title}</h3>
-                  <p className="mt-3 text-base leading-7 text-muted-foreground">{step.body}</p>
+                  <p className="mt-3 text-sm leading-6 text-muted-foreground">{step.body}</p>
                 </article>
               </EditorialSpotlightCard>
             ))}

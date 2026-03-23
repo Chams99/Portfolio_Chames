@@ -1,20 +1,15 @@
-FROM node:20-slim
-
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ca-certificates \
-    libvips-dev \
-    && rm -rf /var/lib/apt/lists/*
+FROM oven/bun:1.3.6
 
 WORKDIR /app
 
-COPY package.json package-lock.json ./
+COPY package.json bun.lock ./
 
-RUN npm ci --legacy-peer-deps
+RUN bun install --frozen-lockfile
 
 COPY . .
 
-RUN npm run build
+RUN bun run build
 
 EXPOSE 3000
 
-CMD ["npm", "run", "start"]
+CMD ["bun", "./dist/server/entry.mjs"]

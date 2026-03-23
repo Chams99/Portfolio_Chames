@@ -21,12 +21,12 @@ export default function WorkPage() {
         <div className="relative z-10 max-w-5xl">
           <p className="eyebrow">Archive</p>
           <h1 className="display-monument mt-5 text-[4.3rem] text-foreground sm:text-[5.4rem] md:text-[7.4rem]">
-            Case studies with more
-            <span className="editorial-outline ml-2 inline-block">presence</span>
-            than a standard project listing.
+            Selected work with a
+            <span className="editorial-outline ml-2 inline-block">sharper presence</span>
+            .
           </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-8 text-muted-foreground">
-            Product websites, tools, apps, and digital experiences shaped around what needed to become clearer, stronger, more usable, or more convincing.
+          <p className="mt-6 max-w-xl text-base leading-7 text-muted-foreground">
+            Websites, tools, and apps built for clarity, presence, and real use.
           </p>
         </div>
       </section>
@@ -37,11 +37,11 @@ export default function WorkPage() {
             {projects.map((project, index) => {
               const layouts = [
                 "lg:col-span-7",
-                "lg:col-span-5 lg:translate-y-24",
-                "lg:col-span-4 lg:-mt-8",
-                "lg:col-span-8 lg:ml-10",
-                "lg:col-span-6 lg:-translate-y-10",
-                "lg:col-span-6 lg:translate-y-8",
+                "lg:col-span-5 lg:pt-10",
+                "lg:col-span-6",
+                "lg:col-span-6 lg:pt-10",
+                "lg:col-span-5",
+                "lg:col-span-7 lg:pt-10",
               ];
               const layout = layouts[index % layouts.length];
 
@@ -51,6 +51,7 @@ export default function WorkPage() {
                   project={project}
                   priority={index === 0}
                   className={layout}
+                  compact
                 />
               );
             })}

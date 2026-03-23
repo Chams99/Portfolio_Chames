@@ -11,10 +11,10 @@ export function SiteFooter() {
           <div className="space-y-4">
             <p className="eyebrow">Closing note</p>
             <h2 className="editorial-title max-w-xl text-4xl text-foreground md:text-6xl">
-              Built for products and websites that need a sharper digital presence.
+              Built for products that need clean code and clear UX.
             </h2>
-            <p className="max-w-lg text-base leading-7 text-muted-foreground">
-              Strong UI direction, full-stack execution, and launch-ready thinking in one workflow.
+            <p className="max-w-lg text-sm leading-6 text-muted-foreground">
+              Full-stack work across web, mobile, backend, and product sites.
             </p>
           </div>
 

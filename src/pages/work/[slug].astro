@@ -1,0 +1,154 @@
+---
+import ProjectCard from "@/astro/ProjectCard.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { featuredProjects, getProjectBySlug, projectSlugs } from "@/data/site";
+
+export const prerender = true;
+
+export function getStaticPaths() {
+  return projectSlugs.map((slug) => ({ params: { slug } }));
+}
+
+const { slug } = Astro.params;
+const project = slug ? getProjectBySlug(slug) : undefined;
+
+if (!project) {
+  return Astro.redirect("/404");
+}
+
+const relatedProjects = featuredProjects.filter((item) => item.slug !== project.slug).slice(0, 2);
+---
+
+<BaseLayout title={project.title} description={project.summary}>
+  <main class="pb-16">
+    <section class="page-shell relative overflow-hidden py-12 md:py-16">
+      <p class="section-word pointer-events-none absolute left-0 top-16 text-[5rem] sm:text-[7rem] md:text-[12rem]">{project.category}</p>
+      <a href="/work" class="link-underline relative z-10 inline-flex items-center gap-2 text-sm text-white/62 hover:text-white">
+        <span>?</span>
+        Back to work
+      </a>
+
+      <div class="relative z-10 mt-10 grid gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+        <div>
+          <p class="eyebrow">{project.year}</p>
+          <h1 class="display-monument mt-4 text-[4.3rem] text-white sm:text-[5.2rem] md:text-[7rem]">{project.title}</h1>
+
+          <div class="mt-8 flex flex-wrap gap-2">
+            {
+              project.roles.slice(0, 3).map((role) => (
+                <span class="rounded-full border border-white/10 px-3 py-1 text-[0.7rem] uppercase tracking-[0.24em] text-white/55">
+                  {role}
+                </span>
+              ))
+            }
+          </div>
+        </div>
+
+        <aside class="atmospheric-card panel-gradient glow-accent relative overflow-hidden p-6">
+          <p class="section-word pointer-events-none absolute -right-4 bottom-0 text-[4rem] md:text-[6rem]">Note</p>
+          <div class="relative z-10">
+            <p class="eyebrow">Opening note</p>
+            <p class="mt-4 max-w-md text-sm leading-6 text-white/62">{project.intro}</p>
+
+            {
+              project.metrics?.length ? (
+                <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                  {project.metrics.map((metric, index) => (
+                    <div class={`rounded-2xl border border-white/8 bg-white/[0.04] p-4 ${index === 1 ? "sm:translate-y-6" : ""}`}>
+                      <p class="eyebrow">{metric.label}</p>
+                      <p class="mt-3 text-lg text-white">{metric.value}</p>
+                    </div>
+                  ))}
+                </div>
+              ) : null
+            }
+
+            {
+              project.externalLink ? (
+                <a href={project.externalLink} target="_blank" rel="noreferrer" class="mt-8 inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-white hover:bg-white/5">
+                  Visit project
+                  <span>?</span>
+                </a>
+              ) : null
+            }
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section-line overflow-hidden">
+      <div class="page-shell py-12 md:py-16">
+        <div class="grid gap-6 lg:grid-cols-12">
+          <div class="image-frame relative min-h-[24rem] lg:col-span-8 lg:aspect-[16/10]">
+            <img src={project.heroImage} alt={project.title} class="h-full w-full object-cover" />
+          </div>
+          <div class="atmospheric-card panel-gradient flex flex-col justify-end p-6 lg:col-span-4 lg:translate-y-16">
+            <p class="eyebrow text-[color:var(--primary)]">Core idea</p>
+            <p class="mt-4 text-2xl leading-tight text-white">{project.quote}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-line overflow-hidden">
+      <div class="page-shell relative py-16 md:py-20">
+        <p class="section-word pointer-events-none absolute right-0 top-8 text-[4.5rem] sm:text-[6.5rem] md:text-[10rem]">Story</p>
+        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-12">
+          <article class="atmospheric-card p-7 lg:col-span-4">
+            <p class="eyebrow">Problem</p>
+            <p class="mt-4 text-sm leading-6 text-white/62">{project.problem}</p>
+          </article>
+
+          <article class="atmospheric-card p-7 lg:col-span-5">
+            <p class="eyebrow text-[color:var(--primary)]">Creative approach</p>
+            <p class="mt-4 text-sm leading-6 text-white/62">{project.creativeApproach}</p>
+          </article>
+
+          <article class="atmospheric-card p-7 lg:col-span-3">
+            <p class="eyebrow">Outcome</p>
+            <p class="mt-4 text-sm leading-6 text-white/62">{project.outcome}</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-line overflow-hidden">
+      <div class="page-shell relative py-16 md:py-20">
+        <p class="section-word pointer-events-none absolute left-0 top-12 text-[4.5rem] sm:text-[6.5rem] md:text-[10rem]">Frames</p>
+        <div class="relative z-10 grid gap-4 md:grid-cols-2 lg:grid-cols-12">
+          {
+            project.gallery.map((image, index) => {
+              const layout = index === 0 ? "lg:col-span-7 lg:aspect-[16/9]" : index === 1 ? "lg:col-span-5 lg:pt-10" : "lg:col-span-6";
+              return (
+                <div class={`image-frame relative min-h-72 aspect-[4/5] ${layout}`}>
+                  <img src={image} alt={`${project.title} gallery image ${index + 1}`} class="h-full w-full object-cover" />
+                </div>
+              );
+            })
+          }
+        </div>
+      </div>
+    </section>
+
+    {
+      relatedProjects.length ? (
+        <section class="section-line overflow-hidden">
+          <div class="page-shell relative py-16 md:py-20">
+            <p class="section-word pointer-events-none absolute right-0 top-16 text-[4.5rem] sm:text-[6.5rem] md:text-[10rem]">Next</p>
+            <div class="relative z-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+              <div>
+                <p class="eyebrow">Related work</p>
+                <h2 class="display-monument mt-4 text-[3.6rem] text-white sm:text-[4.4rem] md:text-[5.6rem]">More case studies</h2>
+              </div>
+              <a href="/work" class="link-underline w-fit text-sm text-white/62 hover:text-white">Return to archive</a>
+            </div>
+
+            <div class="relative z-10 mt-10 grid gap-6 md:grid-cols-2">
+              {relatedProjects.map((item, index) => <ProjectCard project={item} compact className={index === 1 ? "md:pt-8" : ""} />)}
+            </div>
+          </div>
+        </section>
+      ) : null
+    }
+  </main>
+</BaseLayout>

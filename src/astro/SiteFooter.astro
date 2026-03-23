@@ -1,0 +1,52 @@
+---
+import HelloMarquee from "@/astro/HelloMarquee.astro";
+import { contactChannels, isExternalHref, navItems, siteConfig } from "@/data/site";
+---
+
+<footer class="section-line mt-24">
+  <HelloMarquee />
+  <div class="page-shell py-14">
+    <div class="grid gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]">
+      <div class="space-y-4">
+        <p class="eyebrow">Closing note</p>
+        <h2 class="editorial-title max-w-xl text-4xl text-white md:text-6xl">
+          Built for products that need clean code and clear UX.
+        </h2>
+        <p class="max-w-lg text-sm leading-6 text-white/62">
+          Full-stack work across web, mobile, backend, and product sites.
+        </p>
+      </div>
+
+      <div class="space-y-3">
+        <p class="eyebrow">Navigate</p>
+        <div class="flex flex-col gap-2">
+          {navItems.map((item) => (
+            <a href={item.href} class="link-underline w-fit text-sm text-white/62 hover:text-white">
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div class="space-y-3">
+        <p class="eyebrow">Connect</p>
+        <div class="flex flex-col gap-2">
+          {contactChannels.map((item) => (
+            <a
+              href={item.href}
+              target={isExternalHref(item.href) ? "_blank" : undefined}
+              rel={isExternalHref(item.href) ? "noreferrer" : undefined}
+              class="link-underline w-fit text-sm text-white/62 hover:text-white"
+            >
+              {item.label}: {item.value}
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-12 border-t border-white/8 pt-5 text-sm text-white/62">
+      Copyright {new Date().getFullYear()} {siteConfig.name}
+    </div>
+  </div>
+</footer>
