@@ -1,4 +1,4 @@
-const fallbackSiteUrl = "https://chames.youssef.tn";
+const fallbackSiteUrl = "https://v1.chames.dhibi.tn";
 
 export type NavItem = {
   href: string;

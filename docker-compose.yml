@@ -1,0 +1,55 @@
+version: "3.8"
+
+x-service-template: &service-template
+  build: .
+  healthcheck:
+    test:
+      [
+        "CMD-SHELL",
+        "node -e \"fetch('http://localhost:3000/').then(r => process.exit(r.status === 200 ? 0 : 1)).catch(() => process.exit(1))\"",
+      ]
+    interval: 5s
+    timeout: 5s
+    retries: 5
+    start_period: 10s
+  restart: unless-stopped
+  env_file:
+    - .env
+  environment:
+    - NODE_ENV=production
+    - PORT=3000
+    - INSTANCE_ID={{.Name}}
+  networks:
+    - traefik
+  deploy:
+    resources:
+      limits:
+        cpus: "0.25"
+        memory: 256M
+
+services:
+  blue:
+    <<: *service-template
+    container_name: portfolio-v1-blue
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio-v1-blue.rule=Host(`v1.chames.dhibi.tn`)"
+      - "traefik.http.routers.portfolio-v1-blue.entrypoints=websecure"
+      - "traefik.http.routers.portfolio-v1-blue.tls.certresolver=myresolver"
+      - "traefik.http.routers.portfolio-v1-blue.middlewares=default-chain@file"
+      - "traefik.http.services.portfolio-v1-blue.loadbalancer.server.port=3000"
+
+  green:
+    <<: *service-template
+    container_name: portfolio-v1-green
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio-v1-green.rule=Host(`v1.chames.dhibi.tn`)"
+      - "traefik.http.routers.portfolio-v1-green.entrypoints=websecure"
+      - "traefik.http.routers.portfolio-v1-green.tls.certresolver=myresolver"
+      - "traefik.http.routers.portfolio-v1-green.middlewares=default-chain@file"
+      - "traefik.http.services.portfolio-v1-green.loadbalancer.server.port=3000"
+
+networks:
+  traefik:
+    external: true

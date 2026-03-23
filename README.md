@@ -1,17 +1,37 @@
 # portfolio v3
 
-Standalone portfolio experiment built beside `portfolio v2`.
+Editorial portfolio built with Next.js.
 
-## Bun workflow
+## Local workflow
 
 ```bash
-bun install
-bun run dev
+npm install
+npm run dev
 ```
 
-## Scripts
+## Production
+
+This repo now includes the same VPS deployment pattern used in `portfolio v2`:
+
+- `Dockerfile`
+- `docker-compose.yml`
+- `deploy.sh`
+
+Target host:
 
 ```bash
-bun run build
-bun run start
+https://v1.chames.dhibi.tn
+```
+
+Set your server `.env` like this:
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://v1.chames.dhibi.tn
+```
+
+Then deploy on the VPS with:
+
+```bash
+chmod +x deploy.sh
+./deploy.sh
 ```
