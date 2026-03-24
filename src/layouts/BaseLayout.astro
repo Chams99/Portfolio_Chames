@@ -9,12 +9,14 @@ interface Props {
   title?: string;
   description?: string;
   canonical?: string;
+  robots?: string;
 }
 
 const {
   title = siteConfig.title,
   description = siteConfig.description,
   canonical = getCanonicalUrl(Astro.url.pathname),
+  robots,
 } = Astro.props;
 
 const pageTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.name}`;
@@ -40,9 +42,11 @@ const pageTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={getCanonicalUrl(siteConfig.ogImage)} />
+    {robots ? <meta name="robots" content={robots} /> : null}
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/opengraph-image.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="sitemap" href={getCanonicalUrl("/sitemap.xml")} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

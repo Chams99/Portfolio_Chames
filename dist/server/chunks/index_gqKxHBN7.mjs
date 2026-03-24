@@ -1,0 +1,51 @@
+import { c as createComponent } from './astro-component_ClCll87c.mjs';
+import 'piccolore';
+import { i as renderComponent, r as renderTemplate, m as maybeRenderHead, g as addAttribute } from './server_CaBh-Yw7.mjs';
+import { $ as $$ProjectCard } from './ProjectCard_C1ZukFIE.mjs';
+import { $ as $$BaseLayout } from './BaseLayout_PlYOITJw.mjs';
+import { f as featuredProjects, h as heroStats, j as capabilities, t as trustSignals } from './site_CA3Q-_Nt.mjs';
+
+const $$Index = createComponent(($$result, $$props, $$slots) => {
+  const primaryProject = featuredProjects[0];
+  const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProject.slug}`;
+  return renderTemplate`${renderComponent($$result, "BaseLayout", $$BaseLayout, { "title": "Dhibi Chames Eddine | Full-Stack Web & Mobile Developer" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<main class="pb-16"> <section class="page-shell relative overflow-hidden py-12 md:py-20"> <div class="ambient-grid pointer-events-none absolute inset-x-0 top-0 h-[34rem]"></div> <p class="section-word pointer-events-none absolute left-0 top-20 z-0 text-[6rem] sm:text-[8rem] md:text-[11rem] lg:text-[15rem]">Build</p> <div class="relative z-10 grid gap-12 lg:grid-cols-[1.18fr_0.82fr]"> <div> <p class="eyebrow">Full-stack web and mobile developer</p> <div class="mt-5 max-w-[11ch] sm:max-w-none"> <h1 class="display-monument text-[4rem] text-white sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9rem]">
+Building
+<span class="block bg-gradient-to-r from-[#f3d58a] via-[#f5ece0] to-[#d37b59] bg-clip-text text-transparent">web apps</span> <span class="block">and systems</span> <span class="block">that ship.</span> </h1> </div> <div class="mt-8 max-w-2xl border-l border-[color:var(--primary)]/40 pl-6"> <p class="text-lg leading-8 text-white/62">I build web, mobile, and backend-powered products with clean architecture and reliable execution.</p> </div> <div class="mt-10 flex flex-col gap-4 sm:flex-row"> <a href="/work" class="inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
+Open projects
+<span>&#8599;</span> </a> <a href="/contact" class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-transparent px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5 hover:bg-white/5">
+Start a conversation
+</a> </div> </div> <div class="grid gap-4 lg:grid-rows-[auto_1fr_auto]"> <div class="ml-auto max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm"> <p class="eyebrow text-white/70">Core stack</p> <p class="mt-2 text-sm leading-6 text-white/86">Next.js, Flutter, Node.js</p> </div> <div class="relative mx-auto w-full max-w-[31rem]"> <div class="image-frame relative aspect-[4/5] overflow-hidden rounded-[2.6rem]"> <div class="absolute inset-0 z-[1] bg-gradient-to-t from-black/35 via-transparent to-transparent"></div> <img src="/images/avatar.webp" alt="Chames Dhibi portrait" class="h-full w-full object-cover"> </div> </div> <div class="max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm"> <p class="eyebrow text-[color:var(--primary)]">Focus</p> <p class="mt-2 text-sm leading-6 text-white/82">Web apps, mobile apps, APIs, dashboards</p> </div> </div> </div> <div class="section-line mt-14 grid gap-4 pt-8 md:grid-cols-3"> ${heroStats.map((stat, index) => renderTemplate`<div${addAttribute(`rounded-[1.75rem] border border-white/8 p-5 ${index === 1 ? "bg-white/[0.05]" : "bg-white/[0.025]"}`, "class")}> <p class="eyebrow">${stat.label}</p> <p class="mt-4 text-lg text-white">${stat.value}</p> </div>`)} </div> </section> <section id="selected-work" class="section-line overflow-hidden"> <div class="page-shell relative py-16 md:py-20"> <p class="section-word pointer-events-none absolute left-0 top-16 text-[5.5rem] sm:text-[8rem] md:text-[12rem]">Work</p> <div class="relative z-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"> <div class="max-w-4xl"> <p class="eyebrow">Selected work</p> <h2 class="display-monument mt-4 text-[3.8rem] text-white sm:text-[4.8rem] md:text-[6.5rem]"> <span class="editorial-outline-soft block">Selected</span>
+projects built
+<span class="editorial-outline ml-2 inline-block">for real use</span>
+and shipping.
+</h2> </div> <a${addAttribute(primaryProjectHref, "href")} class="link-underline w-fit text-sm text-white/62 hover:text-white">Open the first project</a> </div> <div class="relative z-10 mt-12 grid gap-6 lg:grid-cols-12"> ${featuredProjects.map((project, index) => {
+    const layout = index === 0 ? "lg:col-span-7" : index === 1 ? "lg:col-span-5 lg:pt-10" : "lg:col-span-8";
+    return renderTemplate`${renderComponent($$result2, "ProjectCard", $$ProjectCard, { "project": project, "className": layout, "compact": true })}`;
+  })} </div> </div> </section> <section class="section-line overflow-hidden"> <div class="page-shell relative py-16 md:py-20"> <p class="section-word pointer-events-none absolute right-0 top-6 text-[5.5rem] sm:text-[7rem] md:text-[11rem]">Offer</p> <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]"> <div class="stage-line pl-6"> <p class="eyebrow">Capabilities</p> <h2 class="editorial-title mt-4 text-5xl text-white md:text-7xl">More than front-end only.</h2> </div> <div class="grid gap-4 md:grid-cols-2"> ${capabilities.map((item, index) => renderTemplate`<article${addAttribute(`atmospheric-card p-7 ${index % 2 === 1 ? "md:translate-y-12" : ""}`, "class")}> <p class="eyebrow text-[color:var(--primary)]">${item.title}</p> <p class="mt-4 text-sm leading-6 text-white/62">${item.body}</p> </article>`)} </div> </div> </div> </section> <section class="section-line overflow-hidden"> <div class="page-shell relative py-16 md:py-20"> <p class="section-word pointer-events-none absolute left-0 top-10 text-[5rem] sm:text-[7rem] md:text-[11rem]">Proof</p> <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]"> <div> <p class="eyebrow">Why this lands</p> <h2 class="display-monument mt-4 max-w-3xl text-[3.2rem] leading-[0.98] text-white sm:text-[4rem] md:text-[5rem]">
+Strong products
+<br>
+with solid
+<span class="editorial-outline ml-2 inline-block">implementation</span>
+to ship.
+</h2> </div> <div class="grid gap-4"> ${trustSignals.map((signal) => renderTemplate`<article class="atmospheric-card p-7"> <p class="eyebrow">${signal.label}</p> <h3 class="mt-3 text-2xl text-white">${signal.value}</h3> <p class="mt-3 max-w-xl text-sm leading-6 text-white/62">${signal.body}</p> </article>`)} </div> </div> </div> </section> <section class="section-line"> <div class="page-shell py-16 md:py-24"> <div class="atmospheric-card panel-gradient relative overflow-hidden px-6 py-10 md:px-10 md:py-14"> <p class="section-word pointer-events-none absolute -right-3 bottom-0 text-[5rem] sm:text-[7rem] md:text-[10rem]">Hello</p> <div class="relative z-10 max-w-3xl"> <p class="eyebrow">Next step</p> <h2 class="display-monument mt-4 text-[3.8rem] text-white sm:text-[4.8rem] md:text-[6rem]">
+Let&apos;s build the next product well.
+</h2> <p class="mt-6 max-w-2xl text-base leading-7 text-white/62">
+Open to web apps, mobile apps, APIs, dashboards, and product sites.
+</p> <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
+Start a project
+<span>&#8599;</span> </a> </div> </div> </div> </section> </main> ` })}`;
+}, "D:/1_DEV/1_APORTFOLIO/portfolio v3/src/pages/index.astro", void 0);
+
+const $$file = "D:/1_DEV/1_APORTFOLIO/portfolio v3/src/pages/index.astro";
+const $$url = "";
+
+const _page = /*#__PURE__*/Object.freeze(/*#__PURE__*/Object.defineProperty({
+  __proto__: null,
+  default: $$Index,
+  file: $$file,
+  url: $$url
+}, Symbol.toStringTag, { value: 'Module' }));
+
+const page = () => _page;
+
+export { page };
