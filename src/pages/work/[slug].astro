@@ -3,7 +3,7 @@ import ResponsiveImage from "@/astro/ResponsiveImage.astro";
 import ProjectCard from "@/astro/ProjectCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { featuredProjects, getProjectBySlug, projectSlugs } from "@/data/site";
-import { getProjectMedia } from "@/data/projectMedia";
+import { getProjectImages } from "@/data/generatedImages";
 
 export function getStaticPaths() {
   return projectSlugs.map((slug) => ({ params: { slug } }));
@@ -17,7 +17,7 @@ if (!project) {
 }
 
 const relatedProjects = featuredProjects.filter((item) => item.slug !== project.slug).slice(0, 2);
-const media = getProjectMedia(project.slug);
+const media = getProjectImages(project.slug);
 const heroImage = media?.hero ?? project.heroImage;
 const galleryImages = media?.gallery ?? project.gallery;
 ---
@@ -89,9 +89,7 @@ const galleryImages = media?.gallery ?? project.gallery;
               class="h-full w-full object-cover"
               loading="eager"
               fetchpriority="high"
-              widths={[480, 800, 1200, 1600]}
               sizes="(min-width: 1024px) 66vw, 100vw"
-              quality={78}
             />
           </div>
           <div class="atmospheric-card panel-gradient flex flex-col justify-end p-6 lg:col-span-4 lg:translate-y-16">
@@ -139,9 +137,7 @@ const galleryImages = media?.gallery ?? project.gallery;
                     alt={`${project.title} gallery image ${index + 1}`}
                     class="h-full w-full object-cover"
                     loading="lazy"
-                    widths={[400, 800, 1200, 1600]}
                     sizes={sizes}
-                    quality={74}
                   />
                 </div>
               );

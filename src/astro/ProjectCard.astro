@@ -2,7 +2,7 @@
 import ResponsiveImage from "@/astro/ResponsiveImage.astro";
 import type { Project } from "@/data/site";
 import { isExternalHref } from "@/data/site";
-import { getProjectMedia } from "@/data/projectMedia";
+import { getProjectImages } from "@/data/generatedImages";
 
 interface Props {
   project: Project;
@@ -16,8 +16,9 @@ const scrollPreview = compact && project.previewMode === "scroll";
 const cardTags = (project.stack?.length ? project.stack : project.roles).slice(0, compact ? 3 : 2);
 const projectHref = project.externalLink ?? `/work/${project.slug}`;
 const external = project.externalLink ? isExternalHref(project.externalLink) : false;
-const media = getProjectMedia(project.slug);
-const previewImage = media?.hero ?? project.heroImage;
+const media = getProjectImages(project.slug);
+const previewImage = media?.card ?? project.heroImage;
+const srcset = media ? `${media.card.src} ${media.card.width}w, ${media.hero.src} ${media.hero.width}w` : undefined;
 const imageLoading = priority ? "eager" : "lazy";
 const imageFetchPriority = priority ? "high" : "auto";
 const imageSizes = compact
@@ -37,8 +38,8 @@ const imageSizes = compact
               class="h-auto w-full object-top"
               loading={imageLoading}
               fetchpriority={imageFetchPriority}
-              widths={[360, 540, 720, 960]}
               sizes={imageSizes}
+              srcset={srcset}
             />
           </div>
         ) : (
@@ -48,8 +49,8 @@ const imageSizes = compact
             class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading={imageLoading}
             fetchpriority={imageFetchPriority}
-            widths={[360, 540, 720, 960]}
             sizes={imageSizes}
+            srcset={srcset}
           />
         )
       }

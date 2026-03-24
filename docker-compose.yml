@@ -1,20 +1,13 @@
 x-service-template: &service-template
   build: .
   healthcheck:
-    test:
-      [
-        "CMD-SHELL",
-        "bun -e \"fetch('http://localhost:3000/').then(r => process.exit(r.status === 200 ? 0 : 1)).catch(() => process.exit(1))\"",
-      ]
+    test: ["CMD-SHELL", "wget -qO- http://localhost/ > /dev/null || exit 1"]
     interval: 5s
     timeout: 5s
     retries: 5
     start_period: 10s
   restart: unless-stopped
   environment:
-    - NODE_ENV=production
-    - PORT=3000
-    - INSTANCE_ID={{.Name}}
     - PUBLIC_SITE_URL=${PUBLIC_SITE_URL:-https://v1.chames.dhibi.tn}
   networks:
     - traefik
@@ -34,7 +27,7 @@ services:
       - "traefik.http.routers.portfolio-v1-blue.entrypoints=websecure"
       - "traefik.http.routers.portfolio-v1-blue.tls.certresolver=myresolver"
       - "traefik.http.routers.portfolio-v1-blue.middlewares=default-chain@file"
-      - "traefik.http.services.portfolio-v1-blue.loadbalancer.server.port=3000"
+      - "traefik.http.services.portfolio-v1-blue.loadbalancer.server.port=80"
 
   green:
     <<: *service-template
@@ -45,7 +38,7 @@ services:
       - "traefik.http.routers.portfolio-v1-green.entrypoints=websecure"
       - "traefik.http.routers.portfolio-v1-green.tls.certresolver=myresolver"
       - "traefik.http.routers.portfolio-v1-green.middlewares=default-chain@file"
-      - "traefik.http.services.portfolio-v1-green.loadbalancer.server.port=3000"
+      - "traefik.http.services.portfolio-v1-green.loadbalancer.server.port=80"
 
 networks:
   traefik:

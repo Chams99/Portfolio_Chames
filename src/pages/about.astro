@@ -1,8 +1,8 @@
 ---
-import { Image } from "astro:assets";
+import ResponsiveImage from "@/astro/ResponsiveImage.astro";
 import ExperienceStack from "@/astro/ExperienceStack.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import { avatarImage } from "@/data/projectMedia";
+import { avatarImage } from "@/data/generatedImages";
 import { experience, principles, processSteps } from "@/data/site";
 ---
 
@@ -35,16 +35,13 @@ import { experience, principles, processSteps } from "@/data/site";
           <div class="relative mx-auto w-full max-w-[31rem]">
             <div class="image-frame relative aspect-[4/5] overflow-hidden rounded-[2.6rem]">
               <div class="absolute inset-0 z-[1] bg-gradient-to-t from-black/35 via-transparent to-transparent"></div>
-              <Image
+              <ResponsiveImage
                 src={avatarImage}
                 alt="Portrait of Chames Dhibi"
                 class="h-full w-full object-cover"
-                widths={[320, 480, 640]}
-                sizes="(min-width: 1024px) 31rem, 80vw"
-                format="webp"
-                quality={80}
                 loading="eager"
                 fetchpriority="high"
+                sizes="(min-width: 1024px) 31rem, 80vw"
               />
             </div>
           </div>
