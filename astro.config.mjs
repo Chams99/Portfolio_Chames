@@ -2,7 +2,10 @@ import { defineConfig } from "astro/config";
 import node from "@astrojs/node";
 import { fileURLToPath } from "node:url";
 
+const fallbackSiteUrl = "https://v1.chames.dhibi.tn";
+
 export default defineConfig({
+  site: process.env.PUBLIC_SITE_URL ?? fallbackSiteUrl,
   output: "server",
   adapter: node({
     mode: "standalone",

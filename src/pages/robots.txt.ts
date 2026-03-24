@@ -1,10 +1,15 @@
-import { getCanonicalUrl } from "@/data/site";
+import type { APIRoute } from "astro";
+import { siteConfig } from "@/data/site";
 
-export function GET() {
-  const body = `User-agent: *\nAllow: /\n\nSitemap: ${getCanonicalUrl("/sitemap.xml")}\n`;
-  return new Response(body, {
+const fallbackSite = new URL(siteConfig.siteUrl);
+
+function buildRobotsTxt(site: URL) {
+  return `User-agent: *\nAllow: /\n\nSitemap: ${new URL("/sitemap.xml", site).toString()}\n`;
+}
+
+export const GET: APIRoute = ({ site }) =>
+  new Response(buildRobotsTxt(site ?? fallbackSite), {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
     },
   });
-}
