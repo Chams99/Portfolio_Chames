@@ -1,12 +1,12 @@
-FROM node:20-alpine AS builder
+FROM oven/bun:1-debian AS builder
 
 WORKDIR /app
 
 COPY package.json bun.lock ./
-RUN npm install
+RUN bun install --frozen-lockfile
 
 COPY . .
-RUN node scripts/generate-image-derivatives.cjs && npx astro build
+RUN bun scripts/generate-image-derivatives.cjs && bunx --bun astro build
 
 FROM nginx:1.27-alpine
 
