@@ -1,14 +1,12 @@
-# Use a more complete bun image or ensure build tools are present
-FROM oven/bun:1.3.6 AS builder
+FROM node:20-alpine AS builder
 
 WORKDIR /app
 
 COPY package.json bun.lock ./
-RUN bun install --frozen-lockfile
+RUN npm install
 
 COPY . .
-# Use bun to run the scripts for better compatibility in this image
-RUN bun scripts/generate-image-derivatives.cjs && bunx --bun astro build
+RUN node scripts/generate-image-derivatives.cjs && npx astro build
 
 FROM nginx:1.27-alpine
 
