@@ -106,7 +106,6 @@ a {
   line-height: 0.9;
   color: transparent;
   -webkit-text-stroke: 1px rgba(247, 240, 224, 0.14);
-  user-select: none;
   pointer-events: none;
 }
 
@@ -324,7 +323,7 @@ a {
   text-transform: uppercase;
   letter-spacing: 0.2em;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 9999px;
+  border-radius: 1.25rem;
   padding: 0.35rem 0.75rem;
   color: rgba(255, 255, 255, 0.62);
   transition: color 0.2s ease, border-color 0.2s ease;
@@ -338,13 +337,14 @@ a {
 
 /* --- Selection Tweaks --- */
 ::selection {
-  background-color: var(--primary);
-  color: #000 !important;
-  -webkit-text-fill-color: #000 !important;
+  background-color: white !important;
+  color: black !important;
+  -webkit-text-fill-color: black !important;
   -webkit-text-stroke: 0px transparent !important;
+  text-shadow: none !important;
 }
 
-/* Force outline text to be visible when selected */
+/* Specific overrides to ensure outlines fill correctly */
 .editorial-outline::selection,
 .editorial-outline-soft::selection,
 .section-word::selection {
