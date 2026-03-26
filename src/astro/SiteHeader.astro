@@ -1,39 +1,112 @@
 ---
 import { navItems, siteConfig } from "@/data/site";
+import { t } from "@/i18n/index";
 
 interface Props {
   pathname: string;
+  locale?: string;
 }
 
-const { pathname } = Astro.props;
+const { pathname, locale = "en" } = Astro.props;
+const i = t(locale);
+const altLocale = locale === "fr" ? "en" : "fr";
+const altLabel = locale === "fr" ? "EN" : "FR";
+
+const navLabels = [i.nav.home, i.nav.about, i.nav.work, i.nav.contact];
+
+function localizedHref(href: string) {
+  if (locale === "en") return href;
+  return `/fr${href === "/" ? "" : href}`;
+}
+
+function switchLocalePath() {
+  if (locale === "en") {
+    return `/fr${pathname === "/" ? "" : pathname}`;
+  }
+  return pathname.replace(/^\/fr/, "") || "/";
+}
 ---
 
 <div class="sticky top-0 z-40 border-b border-white/8 bg-black/72 backdrop-blur-xl">
   <header class="page-shell">
     <nav class="flex items-center justify-between gap-4 py-5" aria-label="Main navigation">
-      <a href="/" class="group">
+      <a href={localizedHref("/")} class="group">
         <div class="eyebrow text-white/75 transition-colors group-hover:text-white">{siteConfig.name}</div>
-        <div class="text-sm text-white/62">Full-Stack Web &amp; Mobile Developer</div>
+        <div class="text-sm text-white/62">{i.header.subtitle}</div>
       </a>
 
-      <div class="flex items-center gap-3 sm:gap-5">
+      <div class="hidden items-center gap-5 md:flex">
         {
-          navItems.map((item) => {
+          navItems.map((item, idx) => {
+            const href = localizedHref(item.href);
             const isActive = pathname === item.href;
             return (
               <a
-                href={item.href}
+                href={href}
                 class={`link-underline text-sm ${
                   isActive ? "text-white" : "text-white/62 hover:text-white"
                 }`}
                 aria-current={isActive ? "page" : undefined}
               >
-                {item.label}
+                {navLabels[idx]}
+              </a>
+            );
+          })
+        }
+        <a href={switchLocalePath()} class="lang-switch">{altLabel}</a>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <div class="flex items-center gap-3 md:hidden">
+        <a href={switchLocalePath()} class="lang-switch">{altLabel}</a>
+        <button
+          type="button"
+          class="hamburger flex flex-col gap-[5px] p-2 text-white/62"
+          aria-label="Toggle menu"
+          id="mobile-menu-btn"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-menu md:hidden" id="mobile-menu">
+      <div class="flex flex-col gap-3 pb-6">
+        {
+          navItems.map((item, idx) => {
+            const href = localizedHref(item.href);
+            const isActive = pathname === item.href;
+            return (
+              <a
+                href={href}
+                class={`text-sm ${
+                  isActive ? "text-white" : "text-white/62 hover:text-white"
+                }`}
+              >
+                {navLabels[idx]}
               </a>
             );
           })
         }
       </div>
-    </nav>
+    </div>
   </header>
 </div>
+
+<script>
+  function initMobileMenu() {
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    if (!btn || !menu) return;
+
+    btn.addEventListener("click", () => {
+      btn.classList.toggle("active");
+      menu.classList.toggle("open");
+    });
+  }
+
+  initMobileMenu();
+  document.addEventListener("astro:after-swap", initMobileMenu);
+</script>

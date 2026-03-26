@@ -4,13 +4,16 @@ import ProjectCard from "@/astro/ProjectCard.astro";
 import CountUp from "@/astro/CountUp.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { avatarImage } from "@/data/generatedImages";
-import { capabilities, featuredProjects, heroStats, trustSignals } from "@/data/site";
+import { featuredProjects, heroStats } from "@/data/site";
+import { t } from "@/i18n/index";
 
+const locale = "fr";
+const i = t(locale);
 const primaryProject = featuredProjects[0];
-const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProject.slug}`;
+const primaryProjectHref = primaryProject.externalLink ?? `/fr/work/${primaryProject.slug}`;
 ---
 
-<BaseLayout title="Dhibi Chames Eddine | Full-Stack Web & Mobile Developer">
+<BaseLayout title="Dhibi Chames Eddine | Développeur Full-Stack Web & Mobile" locale={locale}>
   <main class="pb-16">
     <section class="page-shell relative overflow-hidden py-12 md:py-20">
       <div class="ambient-grid pointer-events-none absolute inset-x-0 top-0 h-[34rem]"></div>
@@ -18,34 +21,34 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
 
       <div class="relative z-10 grid gap-12 lg:grid-cols-[1.18fr_0.82fr]">
         <div>
-          <p class="eyebrow" data-reveal>Full-stack web and mobile developer</p>
+          <p class="eyebrow" data-reveal>{i.home.eyebrow}</p>
           <div class="mt-5 max-w-[11ch] sm:max-w-none" data-reveal>
             <h1 class="display-monument text-[4rem] text-white sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9rem]">
-              Building
-              <span class="block bg-gradient-to-r from-[#f3d58a] via-[#f5ece0] to-[#d37b59] bg-clip-text text-transparent">web apps</span>
-              <span class="block">and systems</span>
-              <span class="block">that ship.</span>
+              {i.home.h1Line1}
+              <span class="block bg-gradient-to-r from-[#f3d58a] via-[#f5ece0] to-[#d37b59] bg-clip-text text-transparent">{i.home.h1Line2}</span>
+              <span class="block">{i.home.h1Line3}</span>
+              <span class="block">{i.home.h1Line4}</span>
             </h1>
           </div>
 
           <div class="mt-8 max-w-2xl border-l border-[color:var(--primary)]/40 pl-6" data-reveal>
-            <p class="text-lg leading-8 text-white/62">I build web, mobile, and backend-powered products with clean architecture and reliable execution.</p>
+            <p class="text-lg leading-8 text-white/62">{i.home.body}</p>
           </div>
 
           <div class="mt-10 flex flex-col gap-4 sm:flex-row" data-reveal>
-            <a href="/work" class="inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
-              Open projects
+            <a href="/fr/work" class="inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
+              {i.home.cta}
               <span>&#8599;</span>
             </a>
-            <a href="/contact" class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-transparent px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5 hover:bg-white/5">
-              Start a conversation
+            <a href="/fr/contact" class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-transparent px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5 hover:bg-white/5">
+              {i.home.ctaSecondary}
             </a>
           </div>
         </div>
 
         <div class="grid gap-4 lg:grid-rows-[auto_1fr_auto]">
           <div class="ml-auto max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm">
-            <p class="eyebrow text-white/70">Core stack</p>
+            <p class="eyebrow text-white/70">{i.home.coreStack}</p>
             <p class="mt-2 text-sm leading-6 text-white/86">Next.js, Flutter, Node.js</p>
           </div>
 
@@ -64,8 +67,8 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
           </div>
 
           <div class="max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm">
-            <p class="eyebrow text-[color:var(--primary)]">Focus</p>
-            <p class="mt-2 text-sm leading-6 text-white/82">Web apps, mobile apps, APIs, dashboards</p>
+            <p class="eyebrow text-[color:var(--primary)]">{i.home.focus}</p>
+            <p class="mt-2 text-sm leading-6 text-white/82">{i.home.focusBody}</p>
           </div>
         </div>
       </div>
@@ -74,7 +77,7 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
         {
           heroStats.map((stat, index) => (
             <div data-reveal class={`rounded-[1.75rem] border border-white/8 p-5 ${index === 1 ? "bg-white/[0.05]" : "bg-white/[0.025]"}`}>
-              <p class="eyebrow">{stat.label}</p>
+              <p class="eyebrow">{i.heroStats[index].label}</p>
               <p class="mt-4 text-lg text-white">
                 {stat.number != null ? <CountUp target={stat.number} suffix={stat.suffix} /> : stat.value}
               </p>
@@ -89,15 +92,15 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
         <p class="section-word pointer-events-none absolute left-0 top-16 text-[5.5rem] sm:text-[8rem] md:text-[12rem]">Work</p>
         <div class="relative z-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between" data-reveal>
           <div class="max-w-4xl">
-            <p class="eyebrow">Selected work</p>
+            <p class="eyebrow">{i.selectedWork.eyebrow}</p>
             <h2 class="display-monument mt-4 text-[3.8rem] text-white sm:text-[4.8rem] md:text-[6.5rem]">
-              <span class="editorial-outline-soft block">Selected</span>
-              projects built
-              <span class="editorial-outline ml-2 inline-block">for real use</span>
-              and shipping.
+              <span class="editorial-outline-soft block">{i.selectedWork.title}</span>
+              {i.selectedWork.titleRest}
+              <span class="editorial-outline ml-2 inline-block">{i.selectedWork.titleOutline}</span>
+              {i.selectedWork.titleEnd}
             </h2>
           </div>
-          <a href={primaryProjectHref} class="link-underline w-fit text-sm text-white/62 hover:text-white">Open the first project</a>
+          <a href={primaryProjectHref} class="link-underline w-fit text-sm text-white/62 hover:text-white">{i.selectedWork.openFirst}</a>
         </div>
 
         <div class="relative z-10 mt-12 grid gap-6 lg:grid-cols-12" data-reveal-stagger>
@@ -117,13 +120,13 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
         <p class="section-word pointer-events-none absolute right-0 top-6 text-[5.5rem] sm:text-[7rem] md:text-[11rem]">Offer</p>
         <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
           <div class="stage-line pl-6" data-reveal="fade-left">
-            <p class="eyebrow">Capabilities</p>
-            <h2 class="editorial-title mt-4 text-5xl text-white md:text-7xl">More than front-end only.</h2>
+            <p class="eyebrow">{i.capabilities.eyebrow}</p>
+            <h2 class="editorial-title mt-4 text-5xl text-white md:text-7xl">{i.capabilities.title}</h2>
           </div>
 
           <div class="grid gap-4 md:grid-cols-2" data-reveal-stagger>
             {
-              capabilities.map((item, index) => (
+              i.capabilities.items.map((item, index) => (
                 <article data-reveal class={`atmospheric-card p-7 ${index % 2 === 1 ? "md:translate-y-12" : ""}`}>
                   <p class="eyebrow text-[color:var(--primary)]">{item.title}</p>
                   <p class="mt-4 text-sm leading-6 text-white/62">{item.body}</p>
@@ -140,19 +143,19 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
         <p class="section-word pointer-events-none absolute left-0 top-10 text-[5rem] sm:text-[7rem] md:text-[11rem]">Proof</p>
         <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div data-reveal="fade-left">
-            <p class="eyebrow">Why this lands</p>
+            <p class="eyebrow">{i.proof.eyebrow}</p>
             <h2 class="display-monument mt-4 max-w-3xl text-[3.2rem] leading-[0.98] text-white sm:text-[4rem] md:text-[5rem]">
-              Strong products
+              {i.proof.h2Line1}
               <br />
-              with solid
-              <span class="editorial-outline ml-2 inline-block">implementation</span>
-              to ship.
+              {i.proof.h2Line2}
+              <span class="editorial-outline ml-2 inline-block">{i.proof.h2Outline}</span>
+              {i.proof.h2End}
             </h2>
           </div>
 
           <div class="grid gap-4" data-reveal-stagger>
             {
-              trustSignals.map((signal) => (
+              i.proof.items.map((signal) => (
                 <article data-reveal class="atmospheric-card p-7">
                   <p class="eyebrow">{signal.label}</p>
                   <h3 class="mt-3 text-2xl text-white">{signal.value}</h3>
@@ -170,15 +173,15 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
         <div class="atmospheric-card panel-gradient relative overflow-hidden px-6 py-10 md:px-10 md:py-14" data-reveal="scale">
           <p class="section-word pointer-events-none absolute -right-3 bottom-0 text-[5rem] sm:text-[7rem] md:text-[10rem]">Hello</p>
           <div class="relative z-10 max-w-3xl">
-            <p class="eyebrow">Next step</p>
+            <p class="eyebrow">{i.cta.eyebrow}</p>
             <h2 class="display-monument mt-4 text-[3.8rem] text-white sm:text-[4.8rem] md:text-[6rem]">
-              Let&apos;s build the next product well.
+              {i.cta.title}
             </h2>
             <p class="mt-6 max-w-2xl text-base leading-7 text-white/62">
-              Open to web apps, mobile apps, APIs, dashboards, and product sites.
+              {i.cta.body}
             </p>
-            <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
-              Start a project
+            <a href="/fr/contact" class="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
+              {i.cta.button}
               <span>&#8599;</span>
             </a>
           </div>

@@ -2,20 +2,24 @@
 import ProjectCard from "@/astro/ProjectCard.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { projects } from "@/data/site";
+import { t } from "@/i18n/index";
+
+const locale = "fr";
+const i = t(locale);
 ---
 
-<BaseLayout title="Work" description="Selected case studies from Chames Dhibi across digital products, service platforms, company websites, and interactive tools.">
+<BaseLayout title="Projets" description="Études de cas sélectionnées de Chames Dhibi sur les produits numériques, les plateformes de services et les outils interactifs." locale={locale}>
   <main class="pb-16">
     <section class="page-shell relative overflow-hidden py-12 md:py-20">
-      <p class="section-word pointer-events-none absolute left-0 top-14 text-[5rem] sm:text-[8rem] md:text-[13rem]">Archive</p>
+      <p class="section-word pointer-events-none absolute left-0 top-14 text-[5rem] sm:text-[8rem] md:text-[13rem]">{i.work.eyebrow}</p>
       <div class="relative z-10 max-w-5xl">
-        <p class="eyebrow">Archive</p>
+        <p class="eyebrow">{i.work.eyebrow}</p>
         <h1 class="display-monument mt-5 text-[4.3rem] text-white sm:text-[5.4rem] md:text-[7.4rem]">
-          Selected work with a
-          <span class="editorial-outline ml-2 inline-block">sharper presence</span>
+          {i.work.h1Start}
+          <span class="editorial-outline ml-2 inline-block">{i.work.h1Outline}</span>
           .
         </h1>
-        <p class="mt-6 max-w-xl text-base leading-7 text-white/62">Websites, tools, and apps built for clarity, presence, and real use.</p>
+        <p class="mt-6 max-w-xl text-base leading-7 text-white/62">{i.work.body}</p>
       </div>
     </section>
 

@@ -5,6 +5,13 @@ const fallbackSiteUrl = "https://v1.chames.dhibi.tn";
 
 export default defineConfig({
   site: process.env.PUBLIC_SITE_URL ?? fallbackSiteUrl,
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "fr"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
   server: {
     host: true,
     port: 3000,
