@@ -1,6 +1,30 @@
-.next
-node_modules
-out
-.env*
-coverage
+# Build output
+dist/
+.next/
+out/
+.astro/
+
+# Dependencies
+node_modules/
+bun.lockb
+
+# Logs
+*-debug.log*
+*-error.log*
+
+# Environment variables
+.env
+.env.*
+!.env.example
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Editor-specific files
+.vscode/*
+!.vscode/extensions.json
+.idea/
+
+# TypeScript
 *.tsbuildinfo
