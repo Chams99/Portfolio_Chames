@@ -1,6 +1,7 @@
 ---
 import ResponsiveImage from "@/astro/ResponsiveImage.astro";
 import ProjectCard from "@/astro/ProjectCard.astro";
+import CountUp from "@/astro/CountUp.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { avatarImage } from "@/data/generatedImages";
 import { capabilities, featuredProjects, heroStats, trustSignals } from "@/data/site";
@@ -17,8 +18,8 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
 
       <div class="relative z-10 grid gap-12 lg:grid-cols-[1.18fr_0.82fr]">
         <div>
-          <p class="eyebrow">Full-stack web and mobile developer</p>
-          <div class="mt-5 max-w-[11ch] sm:max-w-none">
+          <p class="eyebrow" data-reveal>Full-stack web and mobile developer</p>
+          <div class="mt-5 max-w-[11ch] sm:max-w-none" data-reveal>
             <h1 class="display-monument text-[4rem] text-white sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9rem]">
               Building
               <span class="block bg-gradient-to-r from-[#f3d58a] via-[#f5ece0] to-[#d37b59] bg-clip-text text-transparent">web apps</span>
@@ -27,11 +28,11 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
             </h1>
           </div>
 
-          <div class="mt-8 max-w-2xl border-l border-[color:var(--primary)]/40 pl-6">
+          <div class="mt-8 max-w-2xl border-l border-[color:var(--primary)]/40 pl-6" data-reveal>
             <p class="text-lg leading-8 text-white/62">I build web, mobile, and backend-powered products with clean architecture and reliable execution.</p>
           </div>
 
-          <div class="mt-10 flex flex-col gap-4 sm:flex-row">
+          <div class="mt-10 flex flex-col gap-4 sm:flex-row" data-reveal>
             <a href="/work" class="inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
               Open projects
               <span>&#8599;</span>
@@ -69,12 +70,14 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
         </div>
       </div>
 
-      <div class="section-line mt-14 grid gap-4 pt-8 md:grid-cols-3">
+      <div class="section-line mt-14 grid gap-4 pt-8 md:grid-cols-3" data-reveal-stagger>
         {
           heroStats.map((stat, index) => (
-            <div class={`rounded-[1.75rem] border border-white/8 p-5 ${index === 1 ? "bg-white/[0.05]" : "bg-white/[0.025]"}`}>
+            <div data-reveal class={`rounded-[1.75rem] border border-white/8 p-5 ${index === 1 ? "bg-white/[0.05]" : "bg-white/[0.025]"}`}>
               <p class="eyebrow">{stat.label}</p>
-              <p class="mt-4 text-lg text-white">{stat.value}</p>
+              <p class="mt-4 text-lg text-white">
+                {stat.number != null ? <CountUp target={stat.number} suffix={stat.suffix} /> : stat.value}
+              </p>
             </div>
           ))
         }
@@ -84,7 +87,7 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
     <section id="selected-work" class="section-line overflow-hidden">
       <div class="page-shell relative py-16 md:py-20">
         <p class="section-word pointer-events-none absolute left-0 top-16 text-[5.5rem] sm:text-[8rem] md:text-[12rem]">Work</p>
-        <div class="relative z-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <div class="relative z-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between" data-reveal>
           <div class="max-w-4xl">
             <p class="eyebrow">Selected work</p>
             <h2 class="display-monument mt-4 text-[3.8rem] text-white sm:text-[4.8rem] md:text-[6.5rem]">
@@ -97,7 +100,7 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
           <a href={primaryProjectHref} class="link-underline w-fit text-sm text-white/62 hover:text-white">Open the first project</a>
         </div>
 
-        <div class="relative z-10 mt-12 grid gap-6 lg:grid-cols-12">
+        <div class="relative z-10 mt-12 grid gap-6 lg:grid-cols-12" data-reveal-stagger>
           {
             featuredProjects.map((project, index) => {
               const layout =
@@ -113,15 +116,15 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
       <div class="page-shell relative py-16 md:py-20">
         <p class="section-word pointer-events-none absolute right-0 top-6 text-[5.5rem] sm:text-[7rem] md:text-[11rem]">Offer</p>
         <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
-          <div class="stage-line pl-6">
+          <div class="stage-line pl-6" data-reveal="fade-left">
             <p class="eyebrow">Capabilities</p>
             <h2 class="editorial-title mt-4 text-5xl text-white md:text-7xl">More than front-end only.</h2>
           </div>
 
-          <div class="grid gap-4 md:grid-cols-2">
+          <div class="grid gap-4 md:grid-cols-2" data-reveal-stagger>
             {
               capabilities.map((item, index) => (
-                <article class={`atmospheric-card p-7 ${index % 2 === 1 ? "md:translate-y-12" : ""}`}>
+                <article data-reveal class={`atmospheric-card p-7 ${index % 2 === 1 ? "md:translate-y-12" : ""}`}>
                   <p class="eyebrow text-[color:var(--primary)]">{item.title}</p>
                   <p class="mt-4 text-sm leading-6 text-white/62">{item.body}</p>
                 </article>
@@ -136,7 +139,7 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
       <div class="page-shell relative py-16 md:py-20">
         <p class="section-word pointer-events-none absolute left-0 top-10 text-[5rem] sm:text-[7rem] md:text-[11rem]">Proof</p>
         <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
-          <div>
+          <div data-reveal="fade-left">
             <p class="eyebrow">Why this lands</p>
             <h2 class="display-monument mt-4 max-w-3xl text-[3.2rem] leading-[0.98] text-white sm:text-[4rem] md:text-[5rem]">
               Strong products
@@ -147,10 +150,10 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
             </h2>
           </div>
 
-          <div class="grid gap-4">
+          <div class="grid gap-4" data-reveal-stagger>
             {
               trustSignals.map((signal) => (
-                <article class="atmospheric-card p-7">
+                <article data-reveal class="atmospheric-card p-7">
                   <p class="eyebrow">{signal.label}</p>
                   <h3 class="mt-3 text-2xl text-white">{signal.value}</h3>
                   <p class="mt-3 max-w-xl text-sm leading-6 text-white/62">{signal.body}</p>
@@ -164,7 +167,7 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
 
     <section class="section-line">
       <div class="page-shell py-16 md:py-24">
-        <div class="atmospheric-card panel-gradient relative overflow-hidden px-6 py-10 md:px-10 md:py-14">
+        <div class="atmospheric-card panel-gradient relative overflow-hidden px-6 py-10 md:px-10 md:py-14" data-reveal="scale">
           <p class="section-word pointer-events-none absolute -right-3 bottom-0 text-[5rem] sm:text-[7rem] md:text-[10rem]">Hello</p>
           <div class="relative z-10 max-w-3xl">
             <p class="eyebrow">Next step</p>

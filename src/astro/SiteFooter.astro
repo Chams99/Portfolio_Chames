@@ -1,6 +1,15 @@
 ---
 import HelloMarquee from "@/astro/HelloMarquee.astro";
 import { contactChannels, isExternalHref, navItems, siteConfig } from "@/data/site";
+import { t, getLocaleFromUrl, localizedPath } from "@/i18n/index";
+
+interface Props {
+  locale?: string;
+}
+
+const { locale = getLocaleFromUrl(Astro.url) } = Astro.props;
+const i = t(locale);
+const navLabels = [i.nav.home, i.nav.about, i.nav.work, i.nav.contact];
 ---
 
 <footer class="section-line mt-24">
@@ -8,28 +17,28 @@ import { contactChannels, isExternalHref, navItems, siteConfig } from "@/data/si
   <div class="page-shell py-14">
     <div class="grid gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]">
       <div class="space-y-4">
-        <p class="eyebrow">Closing note</p>
+        <p class="eyebrow">{i.footer.closingNote}</p>
         <h2 class="editorial-title max-w-xl text-4xl text-white md:text-6xl">
-          Built for products that need clean code and clear UX.
+          {i.footer.closingTitle}
         </h2>
         <p class="max-w-lg text-sm leading-6 text-white/62">
-          Full-stack work across web, mobile, backend, and product sites.
+          {i.footer.closingBody}
         </p>
       </div>
 
       <div class="space-y-3">
-        <p class="eyebrow">Navigate</p>
+        <p class="eyebrow">{i.footer.navigate}</p>
         <div class="flex flex-col gap-2">
-          {navItems.map((item) => (
-            <a href={item.href} class="link-underline w-fit text-sm text-white/62 hover:text-white">
-              {item.label}
+          {navItems.map((item, idx) => (
+            <a href={localizedPath(item.href, locale as any)} class="link-underline w-fit text-sm text-white/62 hover:text-white">
+              {navLabels[idx]}
             </a>
           ))}
         </div>
       </div>
 
       <div class="space-y-3">
-        <p class="eyebrow">Connect</p>
+        <p class="eyebrow">{i.footer.connect}</p>
         <div class="flex flex-col gap-2">
           {contactChannels.map((item) => (
             <a
@@ -46,7 +55,7 @@ import { contactChannels, isExternalHref, navItems, siteConfig } from "@/data/si
     </div>
 
     <div class="mt-12 border-t border-white/8 pt-5 text-sm text-white/62">
-      Copyright {new Date().getFullYear()} {siteConfig.name}
+      {i.footer.copyright} {new Date().getFullYear()} {siteConfig.name}
     </div>
   </div>
 </footer>

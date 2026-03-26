@@ -3,6 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import SiteFooter from "@/astro/SiteFooter.astro";
 import SiteHeader from "@/astro/SiteHeader.astro";
 import { getCanonicalUrl, siteConfig } from "@/data/site";
+import { getLocaleFromUrl } from "@/i18n/index";
 import "@/styles/global.css";
 
 interface Props {
@@ -10,6 +11,7 @@ interface Props {
   description?: string;
   canonical?: string;
   robots?: string;
+  locale?: string;
 }
 
 const {
@@ -17,6 +19,7 @@ const {
   description = siteConfig.description,
   canonical = getCanonicalUrl(Astro.url.pathname),
   robots,
+  locale = getLocaleFromUrl(Astro.url),
 } = Astro.props;
 
 const pageTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.name}`;
@@ -70,7 +73,7 @@ const pageTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.
       Skip to content
     </a>
     <div class="min-h-screen">
-      <SiteHeader pathname={Astro.url.pathname} />
+      <SiteHeader pathname={Astro.url.pathname.replace(/^\/fr/, '') || '/'} locale={locale} />
       <div id="main-content" tabindex="-1">
         <slot />
       </div>
@@ -79,6 +82,7 @@ const pageTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.
 
     <script>
       import "simplebar";
+      import "@/scripts/scroll-reveal";
     </script>
   </body>
 </html>

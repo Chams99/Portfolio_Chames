@@ -1,0 +1,44 @@
+---
+interface Props {
+  target: number;
+  suffix?: string;
+  class?: string;
+}
+
+const { target, suffix = "", class: className = "" } = Astro.props;
+---
+
+<span class={className} data-countup data-target={target} data-suffix={suffix}>
+  0{suffix}
+</span>
+
+<script>
+  function initCountUp() {
+    document.querySelectorAll<HTMLElement>("[data-countup]").forEach((el) => {
+      if (el.dataset.counted) return;
+      const target = Number(el.dataset.target);
+      const suffix = el.dataset.suffix ?? "";
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (!entry.isIntersecting) return;
+          observer.disconnect();
+          el.dataset.counted = "1";
+          const duration = 1200;
+          const start = performance.now();
+          function tick(now: number) {
+            const t = Math.min((now - start) / duration, 1);
+            const ease = 1 - Math.pow(1 - t, 3); // ease-out cubic
+            el.textContent = Math.round(ease * target) + suffix;
+            if (t < 1) requestAnimationFrame(tick);
+          }
+          requestAnimationFrame(tick);
+        },
+        { threshold: 0.5 }
+      );
+      observer.observe(el);
+    });
+  }
+
+  initCountUp();
+  document.addEventListener("astro:after-swap", initCountUp);
+</script>
