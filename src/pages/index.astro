@@ -4,23 +4,22 @@ import ProjectCard from "@/astro/ProjectCard.astro";
 import CountUp from "@/astro/CountUp.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { avatarImage } from "@/data/generatedImages";
-import { capabilities, featuredProjects, heroStats, trustSignals } from "@/data/site";
+import { capabilities, contactChannels, heroStats, isExternalHref, projects, trustSignals } from "@/data/site";
 
-const primaryProject = featuredProjects[0];
-const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProject.slug}`;
+const visibleProjects = projects;
+const projectCount = visibleProjects.length;
 ---
 
 <BaseLayout title="Dhibi Chames Eddine | Full-Stack Web & Mobile Developer">
-  <main class="pb-16">
-    <section class="page-shell relative overflow-hidden py-12 md:py-20">
-      <div class="ambient-grid pointer-events-none absolute inset-x-0 top-0 h-[34rem]"></div>
-      <p class="section-word pointer-events-none absolute left-0 top-20 z-0 text-[6rem] sm:text-[8rem] md:text-[11rem] lg:text-[15rem]">Build</p>
+  <main id="top" class="pb-16">
+    <section class="page-shell relative overflow-hidden py-12 md:py-16">
+      <div class="ambient-grid pointer-events-none absolute inset-x-0 top-0 h-[28rem]"></div>
 
-      <div class="relative z-10 grid gap-12 lg:grid-cols-[1.18fr_0.82fr]">
+      <div class="relative z-10 grid gap-10 lg:grid-cols-[1.08fr_0.92fr]">
         <div>
           <p class="eyebrow" data-reveal>Full-stack web and mobile developer</p>
-          <div class="mt-5 max-w-[11ch] sm:max-w-none" data-reveal>
-            <h1 class="display-monument text-[4rem] text-white sm:text-[5.4rem] md:text-[6.7rem] lg:text-[8.4rem] xl:text-[9rem]">
+          <div class="mt-5 max-w-[12ch] sm:max-w-none" data-reveal>
+            <h1 class="display-monument text-[3.6rem] text-white sm:text-[4.8rem] md:text-[5.8rem] lg:text-[6.8rem] xl:text-[7.4rem]">
               Building
               <span class="block bg-gradient-to-r from-[#f3d58a] via-[#f5ece0] to-[#d37b59] bg-clip-text text-transparent">web apps</span>
               <span class="block">and systems</span>
@@ -33,18 +32,17 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
           </div>
 
           <div class="mt-10 flex flex-col gap-4 sm:flex-row" data-reveal>
-            <a href="/work" class="inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
+            <a href="#selected-work" class="premium-button inline-flex items-center gap-2 rounded-full px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
               Open projects
-              <span>&#8599;</span>
             </a>
-            <a href="/contact" class="inline-flex items-center gap-2 rounded-full border border-white/12 bg-transparent px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5 hover:bg-white/5">
+            <a href="#contact" class="secondary-button inline-flex items-center gap-2 rounded-full px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
               Start a conversation
             </a>
           </div>
         </div>
 
         <div class="grid gap-4 lg:grid-rows-[auto_1fr_auto]">
-          <div class="ml-auto max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm">
+          <div class="tint-card ml-auto max-w-sm rounded-2xl px-5 py-4">
             <p class="eyebrow text-white/70">Core stack</p>
             <p class="mt-2 text-sm leading-6 text-white/86">Next.js, Flutter, Node.js</p>
           </div>
@@ -63,7 +61,7 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
             </div>
           </div>
 
-          <div class="max-w-sm rounded-[1.75rem] border border-white/10 bg-white/[0.03] px-5 py-4 backdrop-blur-sm">
+          <div class="tint-card max-w-sm rounded-2xl px-5 py-4">
             <p class="eyebrow text-[color:var(--primary)]">Focus</p>
             <p class="mt-2 text-sm leading-6 text-white/82">Web apps, mobile apps, APIs, dashboards</p>
           </div>
@@ -73,7 +71,7 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
       <div class="section-line mt-14 grid gap-4 pt-8 md:grid-cols-3" data-reveal-stagger>
         {
           heroStats.map((stat, index) => (
-            <div data-reveal class={`rounded-[1.75rem] border border-white/8 p-5 ${index === 1 ? "bg-white/[0.05]" : "bg-white/[0.025]"}`}>
+            <div data-reveal class="luxury-stat rounded-2xl p-5">
               <p class="eyebrow">{stat.label}</p>
               <p class="mt-4 text-lg text-white">
                 {stat.number != null ? <CountUp target={stat.number} suffix={stat.suffix} /> : stat.value}
@@ -84,47 +82,45 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
       </div>
     </section>
 
-    <section id="selected-work" class="section-line overflow-hidden">
+    <section id="selected-work" class="work-showcase section-line overflow-hidden">
       <div class="page-shell relative py-16 md:py-20">
-        <p class="section-word pointer-events-none absolute left-0 top-16 text-[5.5rem] sm:text-[8rem] md:text-[12rem]">Work</p>
         <div class="relative z-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between" data-reveal>
           <div class="max-w-4xl">
             <p class="eyebrow">Selected work</p>
-            <h2 class="display-monument mt-4 text-[3.8rem] text-white sm:text-[4.8rem] md:text-[6.5rem]">
-              <span class="editorial-outline-soft block">Selected</span>
-              projects built
-              <span class="editorial-outline ml-2 inline-block">for real use</span>
-              and shipping.
+            <h2 class="display-monument mt-4 text-[3.1rem] text-white sm:text-[4rem] md:text-[5rem]">
+              Projects with a sharper <span class="prestige-text">visual signature.</span>
             </h2>
           </div>
-          <a href={primaryProjectHref} class="link-underline w-fit text-sm text-white/62 hover:text-white">Open the first project</a>
+          <div class="tint-card max-w-sm px-5 py-4">
+            <p class="eyebrow text-[color:var(--primary)]">{projectCount} builds</p>
+            <p class="mt-2 text-sm leading-6 text-white/70">A visible archive with enough color and polish to feel premium while staying easy to scan.</p>
+          </div>
         </div>
 
-        <div class="relative z-10 mt-12 grid gap-6 lg:grid-cols-12" data-reveal-stagger>
+        <div class="relative z-10 mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-12" data-reveal-stagger>
           {
-            featuredProjects.map((project, index) => {
+            visibleProjects.map((project, index) => {
               const layout =
-                index === 0 ? "lg:col-span-7" : index === 1 ? "lg:col-span-5 lg:pt-10" : "lg:col-span-8";
-              return <ProjectCard project={project} className={layout} compact priority={index === 0} />;
+                index < 2 ? "lg:col-span-6" : "lg:col-span-4";
+              return <ProjectCard project={project} className={layout} compact priority={index < 2} />;
             })
           }
         </div>
       </div>
     </section>
 
-    <section class="section-line overflow-hidden">
+    <section id="about" class="section-line overflow-hidden">
       <div class="page-shell relative py-16 md:py-20">
-        <p class="section-word pointer-events-none absolute right-0 top-6 text-[5.5rem] sm:text-[7rem] md:text-[11rem]">Offer</p>
         <div class="grid gap-8 lg:grid-cols-[0.7fr_1.3fr]">
           <div class="stage-line pl-6" data-reveal="fade-left">
             <p class="eyebrow">Capabilities</p>
-            <h2 class="editorial-title mt-4 text-5xl text-white md:text-7xl">More than front-end only.</h2>
+            <h2 class="editorial-title mt-4 text-4xl text-white md:text-6xl">More than front-end only.</h2>
           </div>
 
           <div class="grid gap-4 md:grid-cols-2" data-reveal-stagger>
             {
               capabilities.map((item, index) => (
-                <article data-reveal class={`atmospheric-card p-7 ${index % 2 === 1 ? "md:translate-y-12" : ""}`}>
+                <article data-reveal class="atmospheric-card p-6">
                   <p class="eyebrow text-[color:var(--primary)]">{item.title}</p>
                   <p class="mt-4 text-sm leading-6 text-white/62">{item.body}</p>
                 </article>
@@ -137,23 +133,18 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
 
     <section class="section-line overflow-hidden">
       <div class="page-shell relative py-16 md:py-20">
-        <p class="section-word pointer-events-none absolute left-0 top-10 text-[5rem] sm:text-[7rem] md:text-[11rem]">Proof</p>
         <div class="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div data-reveal="fade-left">
             <p class="eyebrow">Why this lands</p>
-            <h2 class="display-monument mt-4 max-w-3xl text-[3.2rem] leading-[0.98] text-white sm:text-[4rem] md:text-[5rem]">
-              Strong products
-              <br />
-              with solid
-              <span class="editorial-outline ml-2 inline-block">implementation</span>
-              to ship.
+            <h2 class="display-monument mt-4 max-w-3xl text-[2.8rem] leading-[1] text-white sm:text-[3.6rem] md:text-[4.4rem]">
+              Strong products with solid implementation.
             </h2>
           </div>
 
           <div class="grid gap-4" data-reveal-stagger>
             {
               trustSignals.map((signal) => (
-                <article data-reveal class="atmospheric-card p-7">
+                <article data-reveal class="atmospheric-card p-6">
                   <p class="eyebrow">{signal.label}</p>
                   <h3 class="mt-3 text-2xl text-white">{signal.value}</h3>
                   <p class="mt-3 max-w-xl text-sm leading-6 text-white/62">{signal.body}</p>
@@ -165,22 +156,36 @@ const primaryProjectHref = primaryProject.externalLink ?? `/work/${primaryProjec
       </div>
     </section>
 
-    <section class="section-line">
+    <section id="contact" class="section-line">
       <div class="page-shell py-16 md:py-24">
         <div class="atmospheric-card panel-gradient relative overflow-hidden px-6 py-10 md:px-10 md:py-14" data-reveal="scale">
-          <p class="section-word pointer-events-none absolute -right-3 bottom-0 text-[5rem] sm:text-[7rem] md:text-[10rem]">Hello</p>
           <div class="relative z-10 max-w-3xl">
             <p class="eyebrow">Next step</p>
-            <h2 class="display-monument mt-4 text-[3.8rem] text-white sm:text-[4.8rem] md:text-[6rem]">
+            <h2 class="display-monument mt-4 text-[3rem] text-white sm:text-[4rem] md:text-[5rem]">
               Let&apos;s build the next product well.
             </h2>
             <p class="mt-6 max-w-2xl text-base leading-7 text-white/62">
               Open to web apps, mobile apps, APIs, dashboards, and product sites.
             </p>
-            <a href="/contact" class="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
+            <a href="mailto:dhibichams@gmail.com" class="mt-8 inline-flex items-center gap-2 rounded-full border border-[color:var(--primary)]/20 px-6 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5">
               Start a project
-              <span>&#8599;</span>
             </a>
+          </div>
+
+          <div class="relative z-10 mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {
+              contactChannels.map((channel) => (
+                <a
+                  href={channel.href}
+                  target={isExternalHref(channel.href) ? "_blank" : undefined}
+                  rel={isExternalHref(channel.href) ? "noreferrer" : undefined}
+                  class="tint-card group rounded-2xl px-5 py-4 transition-transform hover:-translate-y-0.5"
+                >
+                  <p class="eyebrow text-[color:var(--primary)]">{channel.label}</p>
+                  <p class="mt-2 break-words text-sm leading-6 text-white/74 group-hover:text-white">{channel.value}</p>
+                </a>
+              ))
+            }
           </div>
         </div>
       </div>

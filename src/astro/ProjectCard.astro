@@ -27,8 +27,8 @@ const imageSizes = compact
 ---
 
 <a href={projectHref} class={`group block min-w-0 ${className}`} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
-  <article class="atmospheric-card panel-gradient glow-accent flex h-full min-w-0 flex-col overflow-hidden transition-transform duration-500 group-hover:-translate-y-1">
-    <div class={`relative overflow-hidden bg-black/20 ${compact ? (scrollPreview ? "aspect-[4/3]" : "aspect-[16/10]") : "aspect-[5/4]"}`}>
+  <article class="project-card atmospheric-card flex h-full min-w-0 flex-col overflow-hidden transition-transform duration-500 group-hover:-translate-y-1">
+    <div class={`project-card-media relative overflow-hidden bg-black/20 ${compact ? (scrollPreview ? "aspect-[4/3]" : "aspect-[16/10]") : "aspect-[5/4]"}`}>
       {
         scrollPreview ? (
           <div data-simplebar data-simplebar-auto-hide="false" class="scroll-card-scroll h-full bg-[#120f14]">
@@ -54,14 +54,14 @@ const imageSizes = compact
           />
         )
       }
-      <div class={`pointer-events-none absolute inset-0 ${scrollPreview ? "bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-70" : "bg-gradient-to-t from-black/60 via-black/5 to-transparent opacity-90"}`}></div>
+      <div class={`pointer-events-none absolute inset-0 ${scrollPreview ? "bg-gradient-to-t from-black/15 via-transparent to-transparent opacity-60" : "bg-gradient-to-t from-black/42 via-black/5 to-transparent opacity-75"}`}></div>
       <div class="pointer-events-none absolute inset-0 ring-1 ring-inset ring-white/8"></div>
-      <p class="absolute left-5 top-5 rounded-full border border-white/12 bg-black/35 px-3 py-1 text-[0.62rem] uppercase tracking-[0.28em] text-white/80 backdrop-blur-sm">
+      <p class="category-pill absolute left-5 top-5 rounded-full px-3 py-1 text-[0.62rem] uppercase tracking-[0.22em] text-white">
         {project.category}
       </p>
       {
         scrollPreview ? (
-          <p class="pointer-events-none absolute bottom-4 right-4 rounded-full border border-white/10 bg-black/45 px-3 py-1 text-[0.6rem] uppercase tracking-[0.24em] text-white/70 backdrop-blur-sm">
+          <p class="pointer-events-none absolute bottom-4 right-4 rounded-full border border-white/10 bg-black/45 px-3 py-1 text-[0.6rem] uppercase tracking-[0.18em] text-white/70 backdrop-blur-sm">
             Scroll
           </p>
         ) : null
@@ -71,23 +71,23 @@ const imageSizes = compact
     <div class={`flex flex-1 flex-col ${compact ? "gap-4 p-5" : "gap-5 p-6"}`}>
       <div class="flex items-center justify-between gap-4">
         <p class="eyebrow text-white/70">{project.year}</p>
-        <span class="text-sm text-white/55 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white">
+        <span class="project-arrow text-sm text-white/55 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-white">
           &#8599;
         </span>
       </div>
 
       <div class="min-w-0">
-        <h3 class={`editorial-title text-white ${compact ? "text-[2.2rem] md:text-[2.8rem]" : "text-3xl md:text-4xl"}`}>
+        <h3 class={`editorial-title text-white ${compact ? "text-[1.9rem] md:text-[2.25rem]" : "text-3xl md:text-4xl"}`}>
           {project.title}
         </h3>
-        {!compact && <p class="mt-4 text-sm leading-7 text-white/62">{project.summary}</p>}
+        <p class={`${compact ? "mt-3 text-sm leading-6 text-white/58" : "mt-4 text-sm leading-7 text-white/62"}`}>{project.summary}</p>
       </div>
 
       {
         compact && cardTags.length ? (
           <div class="mt-auto flex flex-wrap gap-2">
             {cardTags.map((tag) => (
-              <span class="rounded-full border border-white/10 px-3 py-1 text-[0.62rem] uppercase tracking-[0.2em] text-white/55">
+              <span class="project-tag rounded-full px-3 py-1 text-[0.62rem] uppercase tracking-[0.14em]">
                 {tag}
               </span>
             ))}
@@ -98,7 +98,7 @@ const imageSizes = compact
       {!compact && (
         <div class="mt-auto flex flex-wrap gap-2">
           {cardTags.map((role) => (
-            <span class="rounded-full border border-white/10 px-3 py-1 text-[0.7rem] uppercase tracking-[0.24em] text-white/55">
+            <span class="project-tag rounded-full px-3 py-1 text-[0.7rem] uppercase tracking-[0.14em]">
               {role}
             </span>
           ))}
