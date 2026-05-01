@@ -13,7 +13,7 @@ export type GeneratedProjectImages = {
 export const avatarImage: GeneratedImage = {
   "src": "/generated-images/avatar.webp",
   "width": 560,
-  "height": 747
+  "height": 762
 };
 
 export const projectImages: Record<string, GeneratedProjectImages> = {

@@ -1,6 +1,6 @@
 ---
 import HelloMarquee from "@/astro/HelloMarquee.astro";
-import { contactChannels, isExternalHref, navItems, siteConfig } from "@/data/site";
+import { contactChannels, isExternalHref, siteConfig } from "@/data/site";
 import { t, getLocaleFromUrl, localizedPath } from "@/i18n/index";
 
 interface Props {
@@ -10,6 +10,12 @@ interface Props {
 const { locale = getLocaleFromUrl(Astro.url) } = Astro.props;
 const i = t(locale);
 const navLabels = [i.nav.home, i.nav.about, i.nav.work, i.nav.contact];
+const scrollNavItems = [
+  { href: localizedPath("/", locale as any) + "#top", label: navLabels[0] },
+  { href: localizedPath("/", locale as any) + "#about", label: navLabels[1] },
+  { href: localizedPath("/", locale as any) + "#selected-work", label: navLabels[2] },
+  { href: localizedPath("/", locale as any) + "#contact", label: navLabels[3] },
+];
 ---
 
 <footer class="section-line mt-24">
@@ -29,9 +35,9 @@ const navLabels = [i.nav.home, i.nav.about, i.nav.work, i.nav.contact];
       <div class="space-y-3">
         <p class="eyebrow">{i.footer.navigate}</p>
         <div class="flex flex-col gap-2">
-          {navItems.map((item, idx) => (
-            <a href={localizedPath(item.href, locale as any)} class="link-underline w-fit text-sm text-white/62 hover:text-white">
-              {navLabels[idx]}
+          {scrollNavItems.map((item) => (
+            <a href={item.href} class="link-underline w-fit text-sm text-white/62 hover:text-white">
+              {item.label}
             </a>
           ))}
         </div>

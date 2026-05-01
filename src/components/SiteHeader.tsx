@@ -2,10 +2,15 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { navItems } from "@/data/site";
 
 export function SiteHeader() {
   const pathname = usePathname();
+  const scrollNavItems = [
+    { href: "#top", label: "Home" },
+    { href: "#about", label: "About" },
+    { href: "#selected-work", label: "Work" },
+    { href: "#contact", label: "Contact" },
+  ];
 
   return (
     <div className="sticky top-0 z-40 border-b border-white/8 bg-background/72 backdrop-blur-xl">
@@ -22,17 +27,14 @@ export function SiteHeader() {
           </Link>
 
           <div className="flex items-center gap-3 sm:gap-5">
-            {navItems.map((item) => {
-              const isActive = pathname === item.href;
+            {scrollNavItems.map((item) => {
+              const href = pathname === "/" ? item.href : `/${item.href}`;
 
               return (
                 <Link
                   key={item.href}
-                  href={item.href}
-                  className={`link-underline text-sm ${
-                    isActive ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                  }`}
-                  aria-current={isActive ? "page" : undefined}
+                  href={href}
+                  className="link-underline text-sm text-muted-foreground hover:text-foreground"
                 >
                   {item.label}
                 </Link>
