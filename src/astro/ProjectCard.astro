@@ -1,7 +1,6 @@
 ---
 import ResponsiveImage from "@/astro/ResponsiveImage.astro";
 import type { Project } from "@/data/site";
-import { isExternalHref } from "@/data/site";
 import { getProjectImages } from "@/data/generatedImages";
 
 interface Props {
@@ -9,13 +8,13 @@ interface Props {
   compact?: boolean;
   className?: string;
   priority?: boolean;
+  locale?: string;
 }
 
-const { project, compact = false, className = "", priority = false } = Astro.props;
+const { project, compact = false, className = "", priority = false, locale = "en" } = Astro.props;
 const scrollPreview = compact && project.previewMode === "scroll";
 const cardTags = (project.stack?.length ? project.stack : project.roles).slice(0, compact ? 3 : 2);
-const projectHref = project.externalLink ?? `/work/${project.slug}`;
-const external = project.externalLink ? isExternalHref(project.externalLink) : false;
+const projectHref = locale === "fr" ? `/fr/work/${project.slug}` : `/work/${project.slug}`;
 const media = getProjectImages(project.slug);
 const previewImage = media?.card ?? project.heroImage;
 const srcset = media ? `${media.card.src} ${media.card.width}w, ${media.hero.src} ${media.hero.width}w` : undefined;
@@ -26,7 +25,7 @@ const imageSizes = compact
   : "(min-width: 1280px) 33vw, (min-width: 768px) 50vw, 100vw";
 ---
 
-<a href={projectHref} class={`group block min-w-0 ${className}`} target={external ? "_blank" : undefined} rel={external ? "noreferrer" : undefined}>
+<a href={projectHref} class={`group block min-w-0 ${className}`}>
   <article class="project-card atmospheric-card flex h-full min-w-0 flex-col overflow-hidden transition-transform duration-500 group-hover:-translate-y-1">
     <div class={`project-card-media relative overflow-hidden bg-black/20 ${compact ? (scrollPreview ? "aspect-[4/3]" : "aspect-[16/10]") : "aspect-[5/4]"}`}>
       {

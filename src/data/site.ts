@@ -629,7 +629,6 @@ export const projects: Project[] = [
     heroImage: "/images/optimized/chicken-large.webp",
     roles: ["Game presentation", "Next.js build", "Responsive UI"],
     stack: ["Next.js", "Game shell", "Responsive UI"],
-    externalLink: "/chicken/index.html",
     quote: "Even playful projects feel stronger when the surrounding experience is properly designed.",
   }),
 ].sort((a, b) => {

@@ -4,7 +4,9 @@ import { projectSlugs, siteConfig } from "@/data/site";
 const fallbackSite = new URL(siteConfig.siteUrl);
 
 export const GET: APIRoute = ({ site }) => {
-  const urls = ["/", "/about", "/work", "/contact", ...projectSlugs.map((slug) => `/work/${slug}`)];
+  const englishUrls = ["/", "/about", "/work", "/contact", ...projectSlugs.map((slug) => `/work/${slug}`)];
+  const frenchUrls = ["/fr", "/fr/about", "/fr/work", "/fr/contact", ...projectSlugs.map((slug) => `/fr/work/${slug}`)];
+  const urls = [...englishUrls, ...frenchUrls];
   const siteUrl = site ?? fallbackSite;
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls
     .map((url) => `  <url><loc>${new URL(url, siteUrl).toString()}</loc></url>`)
