@@ -164,7 +164,7 @@ const galleryImages = media?.gallery ?? project.gallery;
             </div>
 
             <div class="relative z-10 mt-10 grid gap-6 md:grid-cols-2">
-              {relatedProjects.map((item, index) => <ProjectCard project={item} compact className={index === 1 ? "md:pt-8" : ""} />)}
+              {relatedProjects.map((item, index) => <ProjectCard project={item} compact className={index === 1 ? "md:pt-8" : ""} locale={locale} />)}
             </div>
           </div>
         </section>
