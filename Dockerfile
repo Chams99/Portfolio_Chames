@@ -8,13 +8,15 @@ RUN bun install --frozen-lockfile
 COPY . .
 RUN bun scripts/generate-image-derivatives.cjs && bunx --bun astro build
 
-FROM nginx:1.27-alpine
+FROM oven/bun:1-debian
 
-RUN apk add --no-cache curl
+WORKDIR /app
 
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY --from=builder /app/dist ./dist
+
+ENV HOST=0.0.0.0
+ENV PORT=80
 
 EXPOSE 80
 
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["bun", "run", "dist/server/entry.mjs"]

@@ -22,7 +22,11 @@ const {
   locale = getLocaleFromUrl(Astro.url),
 } = Astro.props;
 
-const pageTitle = title === siteConfig.title ? title : `${title} | ${siteConfig.name}`;
+const pageTitle = title
+  ? title.includes(siteConfig.name)
+    ? title
+    : `${title} | ${siteConfig.name}`
+  : siteConfig.title;
 const htmlLang = locale === "fr" ? "fr" : "en";
 const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
 ---
@@ -55,8 +59,44 @@ const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,400&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
+    />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": `${siteConfig.siteUrl}/#website`,
+            url: siteConfig.siteUrl,
+            name: siteConfig.name,
+            description: siteConfig.description,
+            publisher: { "@id": `${siteConfig.siteUrl}/#person` },
+          },
+          {
+            "@type": "Person",
+            "@id": `${siteConfig.siteUrl}/#person`,
+            name: siteConfig.name,
+            alternateName: "Chames Eddine",
+            jobTitle: "Full-Stack Web & Mobile Developer",
+            description: siteConfig.description,
+            email: `mailto:${siteConfig.email}`,
+            url: siteConfig.siteUrl,
+            sameAs: [
+              "https://github.com/Chams99",
+              "https://www.linkedin.com/in/dhibi-chames-eddine-827146344/",
+              "https://www.upwork.com/freelancers/~01ec2dc27e0c617399",
+            ],
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Gafsa",
+              addressCountry: "Tunisia",
+            },
+          },
+        ],
+      })}
     />
     <ClientRouter />
     <noscript>

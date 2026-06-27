@@ -9,39 +9,111 @@
 export const translations = {
   en: {
     // ── Nav & Header ──
-    nav: { home: "Home", about: "About", work: "Work", contact: "Contact" },
+    nav: { home: "Home", stack: "Stack", projects: "Projects", experiences: "Experiences", contact: "Contact" },
     header: { subtitle: "Full-Stack Web & Mobile Developer" },
 
-    // ── Home: Hero ──
+    // ── Home ──
     home: {
-      eyebrow: "Full-stack web and mobile developer",
-      h1Line1: "Building",
-      h1Line2: "web apps",
-      h1Line3: "and systems",
-      h1Line4: "that ship.",
-      body: "I build web, mobile, and backend-powered products with clean architecture and reliable execution.",
-      cta: "Open projects",
-      ctaSecondary: "Start a conversation",
-      coreStack: "Core stack",
-      focus: "Focus",
-      focusBody: "Web apps, mobile apps, APIs, dashboards",
-    },
-
-    // ── Home: Stats ──
-    heroStats: [
-      { label: "Projects shipped" },
-      { label: "Core stack" },
-      { label: "Base" },
-    ],
-
-    // ── Home: Selected Work ──
-    selectedWork: {
-      eyebrow: "Selected work",
-      title: "Selected",
-      titleRest: "projects built",
-      titleOutline: "for real use",
-      titleEnd: "and shipping.",
-      openFirst: "Open the first project",
+      hero: {
+        eyebrow: "Enchanted",
+        nameLine1: "Chames Eddine",
+        nameLine2: "Dhibi",
+        subtitle: "Full-stack web & mobile developer",
+        body: "I'm a full-stack web & mobile developer who turns ideas into shipped products. 15+ projects built, 5-star client reviews, and a track record of reliable delivery.",
+        location: "Based in Tunisia",
+        ctaPrimary: "View work",
+        ctaSecondary: "Get in touch",
+      },
+      story: {
+        sectionTitle: "My Story",
+        heading: "A bit about Chames Eddine",
+        paragraphs: [
+          "I'm a full-stack web and mobile developer from Gafsa, Tunisia, building products with Next.js, Flutter, Node.js, and AI. I care about clean architecture, reliable execution, and outcomes that feel intentional from the first interaction.",
+          "From product launches and web platforms to mobile apps and backend systems, I bring the whole stack together — so the final result is never just designed, but fully built and ready to ship.",
+        ],
+      },
+      profile: {
+        title: "Information",
+        nameLabel: "Name",
+        baseLabel: "Base",
+        stackLabel: "Stack",
+        emailLabel: "Email",
+      },
+      stats: [
+        { label: "Jobs" },
+        { label: "Satisfaction" },
+        { label: "Rating" },
+      ],
+      projects: {
+        sectionTitle: "Projects",
+        viewAll: "View all projects →",
+      },
+      stack: {
+        sectionTitle: "Stack",
+        items: [
+          {
+            name: "Next.js",
+            category: "Frontend",
+            desc: "Full-stack web apps, landing pages, and SSR products built with React and TypeScript.",
+            related: ["TypeScript", "Tailwind CSS", "Vercel"],
+          },
+          {
+            name: "Flutter",
+            category: "Mobile",
+            desc: "Cross-platform iOS & Android apps from a single Dart codebase.",
+            related: ["Dart", "Firebase", "REST APIs"],
+          },
+          {
+            name: "Node.js",
+            category: "Backend",
+            desc: "REST APIs, real-time systems, and server-side architecture that ship reliably.",
+            related: ["Elysia", "Express", "Supabase"],
+          },
+          {
+            name: "React",
+            category: "UI",
+            desc: "Component-driven interfaces, SPAs, and interactive web apps.",
+            related: ["Vite", "TypeScript", "TailwindCSS"],
+          },
+        ],
+      },
+      faq: {
+        sectionTitle: "Common questions",
+        items: [
+          {
+            question: "What kind of projects do you take on?",
+            answer:
+              "I work on web apps, mobile apps, REST APIs, dashboards, and AI-powered products. Most of my projects involve taking an idea from early concept to a shipped product.",
+          },
+          {
+            question: "What is your tech stack?",
+            answer:
+              "I primarily use Next.js, React, TypeScript, and Tailwind CSS for the web; Flutter and Dart for mobile; and Node.js, Supabase, or Firebase for backends and APIs.",
+          },
+          {
+            question: "Do you work with international clients?",
+            answer:
+              "Yes. I collaborate with founders, teams, and agencies across Europe, the US, the MENA region, and beyond. I'm comfortable working asynchronously and across time zones.",
+          },
+          {
+            question: "How do we start a project together?",
+            answer:
+              "Send me an email with a short description of what you need. I'll reply within a day to schedule a call, clarify scope, and outline the next steps.",
+          },
+        ],
+      },
+      contact: {
+        sectionTitle: "Say Hi",
+        servicesTitle: "Services",
+        socialTitle: "Stay connected",
+        projectTitle: "Start a project",
+        projectBody: "Available for freelance projects and collaborations.",
+        aboutTitle: "About",
+        aboutBody: "Full-stack developer from Gafsa, Tunisia. Feel free to get in touch.",
+        emailLabel: "Email",
+        githubLabel: "GitHub",
+        upworkLabel: "Upwork",
+      },
     },
 
     // ── Home: Capabilities ──
@@ -56,32 +128,6 @@ export const translations = {
       ],
     },
 
-    // ── Home: Trust / Proof ──
-    proof: {
-      eyebrow: "Why this lands",
-      h2Line1: "Strong products",
-      h2Line2: "with solid",
-      h2Outline: "implementation",
-      h2End: "to ship.",
-      items: [
-        {
-          label: "Working style",
-          value: "Product + backend thinking",
-          body: "Architecture and usability are shaped together from the start.",
-        },
-        {
-          label: "Background",
-          value: "Web + mobile + AI",
-          body: "Built across web, mobile, backend systems, and AI features.",
-        },
-        {
-          label: "Best fit",
-          value: "Products that need shipping",
-          body: "Best for products that need clear UX and real functionality.",
-        },
-      ],
-    },
-
     // ── Home: CTA ──
     cta: {
       eyebrow: "Next step",
@@ -90,47 +136,24 @@ export const translations = {
       button: "Start a project",
     },
 
-    // ── About ──
-    about: {
-      eyebrow: "About",
-      h1Start: "Building products that stay",
-      h1Outline: "usable",
-      h1End: "fast, and reliable.",
-      body1: "I work across frontend, backend, and mobile, so the product work is always tied to real implementation.",
-      body2: "That comes from current computer science studies at Universite de Gafsa and ongoing freelance work across web, mobile, and APIs.",
-      currentDirection: "Current direction",
-      currentDirectionBody: "Next.js, Flutter, Node.js, and products built for real users.",
-      whatMatters: "What matters most",
-      whatMattersBody: "The product should be clear, stable, and ready to ship.",
-      principlesLabel: "Principles",
-      experienceLabel: "Experience",
-      processEyebrow: "How I work",
-      processTitle: "Clear process.",
-      processOutline: "Better result.",
+    // ── Experiences ──
+    experiences: {
+      eyebrow: "Experiences",
+      h1Start: "Path &",
+      h1Outline: "experience",
+      h1End: "building products.",
+      body: "Background across computer science, freelance work, certifications, and production internships.",
     },
 
-    // ── About: Principles ──
-    principles: [
-      { title: "Clarity first", body: "The work should be easy to understand and easy to trust." },
-      { title: "Systems that ship", body: "Good ideas only matter if they hold up in real implementation." },
-      { title: "Polish with control", body: "Strong visuals work better when the structure stays disciplined." },
-    ],
-
-    // ── About: Process Steps ──
-    processSteps: [
-      { label: "01", title: "Find the friction", body: "Identify what feels unclear and what needs to improve first." },
-      { label: "02", title: "Set the structure", body: "Organize the page around what users need to understand quickly." },
-      { label: "03", title: "Build for the browser", body: "Keep the UI distinctive, but practical enough to ship cleanly." },
-      { label: "04", title: "Refine", body: "Tighten the details until the product feels fast and finished." },
-    ],
-
-    // ── About: Experience ──
+    // ── Experience timeline ──
     // Titles and places are NOT translated (proper nouns / achievements)
     experience: [
-      { period: "2023 - 2026", title: "Bachelor of Computer Science", place: "Universite de Gafsa", details: "Computer science studies focused on web, mobile, backend, and AI foundations." },
       { period: "2022", title: "Full Stack Python Developer", place: "Go My Code", details: "Built full-stack apps, backend systems, and APIs in a practical training environment." },
+      { period: "2023", title: "Baccalaureate in Mathematics", place: "Tunisia", details: "High-school diploma focused on mathematics." },
+      { period: "2023 - June 2026", title: "Bachelor of Computer Science", place: "Universite de Gafsa", details: "Computer science studies focused on web, mobile, backend, and AI foundations." },
+      { period: "Feb 2025", title: "TOEFL iBT 84/120", place: "ETS", details: "English proficiency certification." },
+      { period: "2025 - May 2026", title: "Web Development Intern", place: "CPG (Compagnie des Phosphates de Gafsa)", details: "Built internal web tools and gained hands-on production experience." },
       { period: "2025 - Present", title: "Freelance Full-Stack Developer", place: "Independent", details: "Built web and mobile projects across Next.js, Flutter, Node.js, Express, Elysia, and Supabase." },
-      { period: "2025 - 2026", title: "Web Development Intern", place: "CPG (Compagnie des Phosphates de Gafsa)", details: "Built internal web tools and gained hands-on production experience." },
     ],
 
     // ── Contact ──
@@ -144,6 +167,18 @@ export const translations = {
       bestFitTitle: "Launch-ready product work.",
       bestFitBody: "Best for web apps, mobile apps, APIs, internal tools, and product sites that need clear execution.",
       primaryContact: "Primary contact",
+      formTitle: "Send a message",
+      formBody: "Tell me what you're building, what you need, and when you're aiming to ship.",
+      nameLabel: "Name",
+      emailLabel: "Email",
+      subjectLabel: "Subject",
+      messageLabel: "Message",
+      messagePlaceholder: "Project scope, timeline, or anything else I should know...",
+      sendButton: "Send message",
+      sendingButton: "Sending...",
+      successMessage: "Message sent. I'll get back to you soon.",
+      errorMessage: "Something went wrong. Please try again.",
+      replyHint: "Usually replies within 24 hours.",
     },
 
     // ── Contact: Channel labels ──
@@ -172,6 +207,7 @@ export const translations = {
       problem: "Problem",
       creativeApproach: "Creative approach",
       outcome: "Outcome",
+      frames: "Frames",
       relatedWork: "Related work",
       moreCaseStudies: "More case studies",
       returnToArchive: "Return to archive",
@@ -197,39 +233,111 @@ export const translations = {
 
   fr: {
     // ── Nav & Header ──
-    nav: { home: "Accueil", about: "À propos", work: "Projets", contact: "Contact" },
+    nav: { home: "Accueil", stack: "Stack", projects: "Projets", experiences: "Expériences", contact: "Contact" },
     header: { subtitle: "Développeur Full-Stack Web & Mobile" },
 
-    // ── Home: Hero ──
+    // ── Home ──
     home: {
-      eyebrow: "Développeur full-stack web et mobile",
-      h1Line1: "Je construis",
-      h1Line2: "des apps web",
-      h1Line3: "et des systèmes",
-      h1Line4: "qui livrent.",
-      body: "Je crée des produits web, mobile et backend avec une architecture propre et une exécution fiable.",
-      cta: "Voir les projets",
-      ctaSecondary: "Démarrer une conversation",
-      coreStack: "Stack principal",
-      focus: "Spécialités",
-      focusBody: "Apps web, apps mobile, APIs, tableaux de bord",
-    },
-
-    // ── Home: Stats ──
-    heroStats: [
-      { label: "Projets livrés" },
-      { label: "Stack principal" },
-      { label: "Localisation" },
-    ],
-
-    // ── Home: Selected Work ──
-    selectedWork: {
-      eyebrow: "Travaux sélectionnés",
-      title: "Projets",
-      titleRest: "sélectionnés construits",
-      titleOutline: "pour un usage réel",
-      titleEnd: "et la mise en production.",
-      openFirst: "Ouvrir le premier projet",
+      hero: {
+        eyebrow: "Enchanted",
+        nameLine1: "Chames Eddine",
+        nameLine2: "Dhibi",
+        subtitle: "Développeur full-stack web & mobile",
+        body: "Je suis un développeur full-stack web & mobile qui transforme les idées en produits livrés. 15+ projets réalisés, avis clients 5 étoiles et une livraison fiable.",
+        location: "Basé en Tunisie",
+        ctaPrimary: "Voir les projets",
+        ctaSecondary: "Me contacter",
+      },
+      story: {
+        sectionTitle: "Mon Histoire",
+        heading: "Un peu sur Chames Eddine",
+        paragraphs: [
+          "Je suis développeur full-stack web et mobile de Gafsa, Tunisie. Je crée des produits avec Next.js, Flutter, Node.js et l'IA. Je m'attache à une architecture propre, une exécution fiable et des résultats qui semblent intentionnels dès la première interaction.",
+          "Du lancement de produits et plateformes web aux applications mobiles et systèmes backend, je rassemble toute la stack — pour que le résultat final ne soit pas seulement conçu, mais entièrement construit et prêt à livrer.",
+        ],
+      },
+      profile: {
+        title: "Informations",
+        nameLabel: "Nom",
+        baseLabel: "Base",
+        stackLabel: "Stack",
+        emailLabel: "Email",
+      },
+      stats: [
+        { label: "Missions" },
+        { label: "Satisfaction" },
+        { label: "Note" },
+      ],
+      projects: {
+        sectionTitle: "Projets",
+        viewAll: "Voir tous les projets →",
+      },
+      stack: {
+        sectionTitle: "Stack",
+        items: [
+          {
+            name: "Next.js",
+            category: "Frontend",
+            desc: "Applications web full-stack, pages d'accueil et produits SSR avec React et TypeScript.",
+            related: ["TypeScript", "Tailwind CSS", "Vercel"],
+          },
+          {
+            name: "Flutter",
+            category: "Mobile",
+            desc: "Applications iOS & Android cross-platform depuis une seule base de code Dart.",
+            related: ["Dart", "Firebase", "REST APIs"],
+          },
+          {
+            name: "Node.js",
+            category: "Backend",
+            desc: "APIs REST, systèmes temps réel et architecture serveur fiable.",
+            related: ["Elysia", "Express", "Supabase"],
+          },
+          {
+            name: "React",
+            category: "UI",
+            desc: "Interfaces composants, SPA et applications web interactives.",
+            related: ["Vite", "TypeScript", "TailwindCSS"],
+          },
+        ],
+      },
+      faq: {
+        sectionTitle: "Questions fréquentes",
+        items: [
+          {
+            question: "Quels types de projets acceptez-vous ?",
+            answer:
+              "Je travaille sur des applications web, des applications mobiles, des APIs REST, des tableaux de bord et des produits IA. La plupart des projets consistent à passer d'une idée initiale à un produit livré.",
+          },
+          {
+            question: "Quelle est votre stack technique ?",
+            answer:
+              "J'utilise principalement Next.js, React, TypeScript et Tailwind CSS pour le web ; Flutter et Dart pour le mobile ; Node.js, Supabase ou Firebase pour les backends et les APIs.",
+          },
+          {
+            question: "Travaillez-vous avec des clients internationaux ?",
+            answer:
+              "Oui. Je collabore avec des fondateurs, des équipes et des agences en Europe, aux États-Unis, au Maghreb et au-delà. Je suis à l'aise avec le travail asynchrone et les décalages horaires.",
+          },
+          {
+            question: "Comment démarrer un projet ensemble ?",
+            answer:
+              "Envoyez-moi un email avec une brève description de votre besoin. Je réponds dans la journée pour planifier un appel, clarifier le périmètre et définir les prochaines étapes.",
+          },
+        ],
+      },
+      contact: {
+        sectionTitle: "Dites Bonjour",
+        servicesTitle: "Services",
+        socialTitle: "Rester connecté",
+        projectTitle: "Démarrer un projet",
+        projectBody: "Disponible pour des projets freelance et collaborations.",
+        aboutTitle: "À propos",
+        aboutBody: "Développeur full-stack de Gafsa, Tunisie. N'hésitez pas à me contacter.",
+        emailLabel: "Email",
+        githubLabel: "GitHub",
+        upworkLabel: "Upwork",
+      },
     },
 
     // ── Home: Capabilities ──
@@ -244,32 +352,6 @@ export const translations = {
       ],
     },
 
-    // ── Home: Trust / Proof ──
-    proof: {
-      eyebrow: "Pourquoi ça fonctionne",
-      h2Line1: "Des produits solides",
-      h2Line2: "avec une",
-      h2Outline: "implémentation",
-      h2End: "fiable.",
-      items: [
-        {
-          label: "Style de travail",
-          value: "Pensée produit + backend",
-          body: "L'architecture et l'utilisabilité sont façonnées ensemble dès le départ.",
-        },
-        {
-          label: "Parcours",
-          value: "Web + mobile + IA",
-          body: "Construit à travers le web, le mobile, les systèmes backend et les fonctionnalités IA.",
-        },
-        {
-          label: "Idéal pour",
-          value: "Des produits à livrer",
-          body: "Idéal pour les produits qui ont besoin d'une UX claire et de fonctionnalités réelles.",
-        },
-      ],
-    },
-
     // ── Home: CTA ──
     cta: {
       eyebrow: "Prochaine étape",
@@ -278,47 +360,24 @@ export const translations = {
       button: "Démarrer un projet",
     },
 
-    // ── About ──
-    about: {
-      eyebrow: "À propos",
-      h1Start: "Des produits qui restent",
-      h1Outline: "utilisables",
-      h1End: "rapides et fiables.",
-      body1: "Je travaille sur le frontend, le backend et le mobile — le travail produit est toujours lié à l'implémentation réelle.",
-      body2: "Cela vient de mes études en informatique à l'Université de Gafsa et de mon travail freelance sur le web, le mobile et les APIs.",
-      currentDirection: "Direction actuelle",
-      currentDirectionBody: "Next.js, Flutter, Node.js, et des produits construits pour de vrais utilisateurs.",
-      whatMatters: "Ce qui compte le plus",
-      whatMattersBody: "Le produit doit être clair, stable et prêt à être livré.",
-      principlesLabel: "Principes",
-      experienceLabel: "Expérience",
-      processEyebrow: "Comment je travaille",
-      processTitle: "Un processus clair.",
-      processOutline: "Un meilleur résultat.",
+    // ── Experiences ──
+    experiences: {
+      eyebrow: "Expériences",
+      h1Start: "Parcours et",
+      h1Outline: "expérience",
+      h1End: "de construction de produits.",
+      body: "Formation en informatique, travail freelance, certifications et stages en production.",
     },
 
-    // ── About: Principles ──
-    principles: [
-      { title: "La clarté d'abord", body: "Le travail doit être facile à comprendre et facile à croire." },
-      { title: "Des systèmes qui livrent", body: "Les bonnes idées ne comptent que si elles tiennent dans l'implémentation réelle." },
-      { title: "Finition maîtrisée", body: "Un visuel fort fonctionne mieux quand la structure reste disciplinée." },
-    ],
-
-    // ── About: Process Steps ──
-    processSteps: [
-      { label: "01", title: "Trouver la friction", body: "Identifier ce qui manque de clarté et ce qui doit être amélioré en premier." },
-      { label: "02", title: "Définir la structure", body: "Organiser la page autour de ce que l'utilisateur doit comprendre rapidement." },
-      { label: "03", title: "Construire pour le navigateur", body: "Garder l'UI distinctive, mais assez pratique pour être livrée proprement." },
-      { label: "04", title: "Affiner", body: "Peaufiner les détails jusqu'à ce que le produit soit rapide et fini." },
-    ],
-
-    // ── About: Experience ──
+    // ── Experience timeline ──
     // Titles and places are NOT translated (proper nouns / achievements)
     experience: [
-      { period: "2023 - 2026", title: "Bachelor of Computer Science", place: "Universite de Gafsa", details: "Études en informatique axées sur le web, le mobile, le backend et les fondamentaux de l'IA." },
       { period: "2022", title: "Full Stack Python Developer", place: "Go My Code", details: "Construction d'applications full-stack, systèmes backend et APIs dans un environnement de formation pratique." },
+      { period: "2023", title: "Baccalauréat Mathématiques", place: "Tunisie", details: "Diplôme de fin d'études secondaires axé sur les mathématiques." },
+      { period: "2023 - juin 2026", title: "Bachelor of Computer Science", place: "Universite de Gafsa", details: "Études en informatique axées sur le web, le mobile, le backend et les fondamentaux de l'IA." },
+      { period: "fév 2025", title: "TOEFL iBT 84/120", place: "ETS", details: "Certification de compétence en anglais." },
+      { period: "2025 - mai 2026", title: "Web Development Intern", place: "CPG (Compagnie des Phosphates de Gafsa)", details: "Construction d'outils web internes et acquisition d'expérience pratique en production." },
       { period: "2025 - Présent", title: "Freelance Full-Stack Developer", place: "Indépendant", details: "Construction de projets web et mobile avec Next.js, Flutter, Node.js, Express, Elysia et Supabase." },
-      { period: "2025 - 2026", title: "Web Development Intern", place: "CPG (Compagnie des Phosphates de Gafsa)", details: "Construction d'outils web internes et acquisition d'expérience pratique en production." },
     ],
 
     // ── Contact ──
@@ -332,6 +391,18 @@ export const translations = {
       bestFitTitle: "Du travail produit prêt au lancement.",
       bestFitBody: "Idéal pour les apps web, mobile, APIs, outils internes et sites produit nécessitant une exécution claire.",
       primaryContact: "Contact principal",
+      formTitle: "Envoyer un message",
+      formBody: "Parlez-moi de ce que vous construisez, de vos besoins et de votre échéance visée.",
+      nameLabel: "Nom",
+      emailLabel: "Email",
+      subjectLabel: "Sujet",
+      messageLabel: "Message",
+      messagePlaceholder: "Périmètre du projet, délais ou toute information utile...",
+      sendButton: "Envoyer le message",
+      sendingButton: "Envoi...",
+      successMessage: "Message envoyé. Je vous réponds bientôt.",
+      errorMessage: "Une erreur s'est produite. Veuillez réessayer.",
+      replyHint: "Réponse généralement sous 24 heures.",
     },
 
     // ── Contact: Channel labels ──
@@ -360,6 +431,7 @@ export const translations = {
       problem: "Problème",
       creativeApproach: "Approche créative",
       outcome: "Résultat",
+      frames: "Captures",
       relatedWork: "Projets connexes",
       moreCaseStudies: "Plus d'études de cas",
       returnToArchive: "Retour aux archives",

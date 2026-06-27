@@ -9,6 +9,8 @@ x-service-template: &service-template
   restart: unless-stopped
   environment:
     - PUBLIC_SITE_URL=${PUBLIC_SITE_URL:-https://v1.chames.dhibi.tn}
+    - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+    - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
   networks:
     - traefik
   deploy:

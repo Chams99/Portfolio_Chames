@@ -8,15 +8,38 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<div class="grid gap-5">
-  {
-    items.map((item, index) => (
-      <article class={`atmospheric-card panel-gradient p-7 ${index % 2 === 1 ? "md:ml-12" : ""}`}>
-        <p class="eyebrow">{item.period}</p>
-        <h3 class="mt-4 text-2xl text-white">{item.title}</h3>
-        <p class="mt-2 text-sm text-[color:var(--primary)]">{item.place}</p>
-        <p class="mt-4 text-sm leading-6 text-white/62">{item.details}</p>
-      </article>
-    ))
-  }
+<div class="relative">
+  <!-- vertical timeline line -->
+  <div class="absolute bottom-0 left-[1.125rem] top-0 w-px bg-white/15 md:left-1/2"></div>
+
+  <div class="space-y-5 md:space-y-2">
+    {
+      items.map((item, index) => {
+        const isOdd = index % 2 === 1;
+        return (
+          <div class:list={["relative flex items-start", isOdd && "md:flex-row-reverse"]}>
+            <!-- timeline dot -->
+            <div class="absolute left-[1.125rem] top-5 z-10 h-3 w-3 -translate-x-1/2 rounded-full border-2 border-[color:var(--primary)] bg-[color:var(--bg-1)] md:left-1/2 md:top-6" />
+
+            <!-- desktop spacer for alternating layout -->
+            <div class="hidden md:block md:w-1/2" />
+
+            <!-- card -->
+            <div
+              class:list={[
+                "pl-10 md:w-1/2",
+                isOdd ? "md:pr-10 md:pl-0" : "md:pl-10",
+              ]}
+            >
+              <article class="atmospheric-card panel-gradient p-5 transition-all duration-300 hover:-translate-y-1 hover:border-[color:var(--primary)]/25 lg:p-6">
+                <p class="eyebrow">{item.period}</p>
+                <h3 class="mt-2 text-xl text-white lg:mt-3 lg:text-2xl">{item.title}</h3>
+                <p class="mt-1 text-sm text-[color:var(--primary)]">{item.place}</p>
+              </article>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
 </div>
