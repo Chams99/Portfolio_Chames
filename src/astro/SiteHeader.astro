@@ -12,12 +12,13 @@ const i = t(locale);
 const altLocale = locale === "fr" ? "en" : "fr";
 const altLabel = locale === "fr" ? "EN" : "FR";
 
-const navLabels = [i.nav.home, i.nav.about, i.nav.work, i.nav.contact];
+const navLabels = [i.nav.home, i.nav.stack, i.nav.projects, i.nav.experiences, i.nav.contact];
 const scrollNavItems = [
   { href: "#top", label: navLabels[0] },
-  { href: "#about", label: navLabels[1] },
-  { href: "#selected-work", label: navLabels[2] },
-  { href: "#contact", label: navLabels[3] },
+  { href: "#stack", label: navLabels[1] },
+  { href: "#projects", label: navLabels[2] },
+  { href: "#experiences", label: navLabels[3] },
+  { href: "#contact", label: navLabels[4] },
 ];
 
 function localizedHref(href: string) {
@@ -41,14 +42,16 @@ function switchLocalePath() {
         <div class="text-sm text-white/62">{i.header.subtitle}</div>
       </a>
 
-      <div class="hidden items-center gap-5 md:flex">
+      <div class="relative hidden items-center gap-5 md:flex" id="desktop-nav">
         {
           scrollNavItems.map((item) => {
             const href = pathname === "/" ? item.href : `${localizedHref("/")}${item.href}`;
+            const section = item.href.replace("#", "");
             return (
               <a
                 href={href}
-                class="link-underline text-sm text-white/62 hover:text-white"
+                data-section={section}
+                class="nav-link relative z-10 text-sm text-white/62 transition-colors hover:text-white"
               >
                 {item.label}
               </a>
@@ -56,6 +59,11 @@ function switchLocalePath() {
           })
         }
         <a href={switchLocalePath()} class="lang-switch">{altLabel}</a>
+        <span
+          id="nav-indicator"
+          class="pointer-events-none absolute bottom-0 left-0 h-[2px] rounded-full bg-[color:var(--primary)] opacity-0 shadow-[0_0_10px_rgba(201,164,83,0.6)] transition-all duration-300 ease-out"
+          aria-hidden="true"
+        />
       </div>
 
       <!-- Mobile hamburger -->
@@ -106,6 +114,77 @@ function switchLocalePath() {
     });
   }
 
+  function initNavIndicator() {
+    const nav = document.getElementById("desktop-nav");
+    const indicator = document.getElementById("nav-indicator");
+    if (!nav || !indicator) return;
+
+    const links = nav.querySelectorAll('a[data-section]');
+    if (!links.length) return;
+
+    function moveIndicatorTo(section) {
+      const target = nav.querySelector(`a[data-section="${section}"]`);
+      if (!target) {
+        indicator.style.opacity = "0";
+        return;
+      }
+      indicator.style.opacity = "1";
+      indicator.style.transform = `translateX(${target.offsetLeft}px)`;
+      indicator.style.width = `${target.offsetWidth}px`;
+    }
+
+    function setActiveFromPath() {
+      const path = window.location.pathname;
+      if (path.includes("/work")) return moveIndicatorTo("projects");
+      if (path.includes("/contact")) return moveIndicatorTo("contact");
+      return null;
+    }
+
+    // Static pages (work / contact)
+    if (setActiveFromPath()) return;
+
+    // Homepage: track sections on scroll
+    const sectionIds = ["top", "stack", "projects", "experiences", "contact"];
+    const offset = 120;
+    let current = "top";
+    let ticking = false;
+
+    function updateActiveSection() {
+      const scrollPos = window.scrollY + offset;
+      let active = "top";
+      for (const id of sectionIds) {
+        const section = document.getElementById(id);
+        if (section && section.offsetTop <= scrollPos) {
+          active = id;
+        }
+      }
+      if (active !== current) {
+        current = active;
+        moveIndicatorTo(current);
+      }
+    }
+
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateActiveSection();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => moveIndicatorTo(current));
+
+    // Initial position after layout settles
+    updateActiveSection();
+  }
+
   initMobileMenu();
-  document.addEventListener("astro:after-swap", initMobileMenu);
+  initNavIndicator();
+  document.addEventListener("astro:after-swap", () => {
+    initMobileMenu();
+    initNavIndicator();
+  });
 </script>

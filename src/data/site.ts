@@ -1,10 +1,5 @@
 const fallbackSiteUrl = "https://v1.chames.dhibi.tn";
 
-export type NavItem = {
-  href: string;
-  label: string;
-};
-
 export type Capability = {
   title: string;
   body: string;
@@ -14,13 +9,6 @@ export type TrustSignal = {
   label: string;
   value: string;
   body: string;
-};
-
-export type HeroStat = {
-  label: string;
-  value: string;
-  number?: number;
-  suffix?: string;
 };
 
 export type ProcessStep = {
@@ -76,9 +64,9 @@ export type Project = {
 export const siteConfig = {
   name: "Dhibi Chames Eddine",
   shortName: "Chames Eddine",
-  title: "Dhibi Chames Eddine | Full-Stack Web & Mobile Developer",
+  title: "Full-Stack Web & Mobile Developer | Dhibi Chames Eddine",
   description:
-    "Portfolio of Dhibi Chames Eddine, a full-stack web and mobile developer from Tunisia building products with Next.js, Flutter, Node.js, and AI.",
+    "Chames Eddine Dhibi is a full-stack web and mobile developer building web apps, mobile apps, and AI products. Available for freelance and remote work.",
   location: "Gafsa, Tunisia",
   email: "dhibichams@gmail.com",
   siteUrl: import.meta.env.PUBLIC_SITE_URL ?? fallbackSiteUrl,
@@ -93,19 +81,6 @@ export function getCanonicalUrl(path = "/") {
 export function isExternalHref(href: string) {
   return href.startsWith("http://") || href.startsWith("https://");
 }
-
-export const navItems: NavItem[] = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/work", label: "Work" },
-  { href: "/contact", label: "Contact" },
-];
-
-export const heroStats: HeroStat[] = [
-  { label: "Projects shipped", value: "15+", number: 15, suffix: "+" },
-  { label: "Core stack", value: "Next.js / Flutter / Node.js" },
-  { label: "Base", value: "Gafsa, Tunisia" },
-];
 
 export const homeIntro = {
   eyebrow: "Full-stack web and mobile developer",
@@ -650,12 +625,6 @@ export const projects: Project[] = [
   return aIndex - bIndex;
 });
 
-export const featuredProjects = projects.slice(0, 3);
 
-export function getProjectBySlug(slug: string) {
-  return projects.find((project) => project.slug === slug);
-}
-
-export const projectSlugs = projects.map((project) => project.slug);
 
 

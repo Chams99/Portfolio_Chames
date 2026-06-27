@@ -9,12 +9,13 @@ interface Props {
 
 const { locale = getLocaleFromUrl(Astro.url) } = Astro.props;
 const i = t(locale);
-const navLabels = [i.nav.home, i.nav.about, i.nav.work, i.nav.contact];
+const navLabels = [i.nav.home, i.nav.stack, i.nav.projects, i.nav.experiences, i.nav.contact];
 const scrollNavItems = [
   { href: localizedPath("/", locale as any) + "#top", label: navLabels[0] },
-  { href: localizedPath("/", locale as any) + "#about", label: navLabels[1] },
-  { href: localizedPath("/", locale as any) + "#selected-work", label: navLabels[2] },
-  { href: localizedPath("/", locale as any) + "#contact", label: navLabels[3] },
+  { href: localizedPath("/", locale as any) + "#stack", label: navLabels[1] },
+  { href: localizedPath("/", locale as any) + "#projects", label: navLabels[2] },
+  { href: localizedPath("/", locale as any) + "#experiences", label: navLabels[3] },
+  { href: localizedPath("/", locale as any) + "#contact", label: navLabels[4] },
 ];
 ---
 

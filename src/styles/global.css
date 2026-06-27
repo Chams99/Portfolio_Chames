@@ -63,7 +63,18 @@ a {
 }
 
 .section-line {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+}
+
+.section-line::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+  pointer-events: none;
 }
 
 .eyebrow {
@@ -87,6 +98,113 @@ a {
   letter-spacing: 0;
   line-height: 0.95;
   text-wrap: balance;
+}
+
+.hero-headline {
+  font-family: "Bodoni Moda", "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+}
+
+.hero-name-outline {
+  font-family: "Bodoni Moda", "Cormorant Garamond", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: italic;
+  letter-spacing: -0.03em;
+  line-height: 0.92;
+  color: transparent;
+  background: linear-gradient(135deg, #d4b06b 0%, #c9a453 30%, #aa4838 70%, #d4b06b 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shimmer-name 5s ease-in-out infinite;
+}
+
+@keyframes shimmer-name {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.location-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.9rem;
+  color: rgba(247, 240, 224, 0.55);
+}
+
+.corner-frame {
+  position: relative;
+}
+
+.corner-frame::before,
+.corner-frame::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-color: var(--primary);
+  border-style: solid;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.corner-frame::before {
+  top: -12px;
+  left: -12px;
+  border-width: 2px 0 0 2px;
+}
+
+.corner-frame::after {
+  bottom: -12px;
+  right: -12px;
+  border-width: 0 2px 2px 0;
+}
+
+.portrait-glow {
+  position: relative;
+}
+
+.portrait-glow::before {
+  content: "";
+  position: absolute;
+  inset: -25%;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(201, 164, 83, 0.28), transparent 45%),
+    radial-gradient(circle at 70% 70%, rgba(170, 72, 56, 0.18), transparent 40%);
+  filter: blur(50px);
+  pointer-events: none;
+  animation: glow-breathe 5s ease-in-out infinite;
+}
+
+@keyframes glow-breathe {
+  0%, 100% {
+    opacity: 0.75;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08) rotate(2deg);
+  }
+}
+
+.portrait-vignette::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 50% 35%, transparent 25%, rgba(9, 8, 14, 0.55) 100%),
+    linear-gradient(180deg, rgba(9, 8, 14, 0.15), transparent 30%, transparent 70%, rgba(9, 8, 14, 0.35));
 }
 
 .editorial-outline {
@@ -115,6 +233,18 @@ a {
   background-size: 48px 48px;
   opacity: 0.5;
   mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.28), transparent 78%);
+}
+
+.hero-section {
+  padding-top: 110px;
+  padding-bottom: 110px;
+}
+
+@media screen and (max-width: 1024px) {
+  .hero-section {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
 }
 
 .atmospheric-card {
@@ -520,16 +650,16 @@ a {
   box-shadow: 0 0 8px rgba(243, 213, 138, 0.5);
 }
 
-/* Section title badge pill */
+/* Section title with dot */
 .tmpl-section-title-wrap {
-  background: linear-gradient(135deg, rgba(243, 213, 138, 0.12), rgba(211, 123, 89, 0.08));
-  border: 1px solid rgba(243, 213, 138, 0.2);
-  border-radius: 100px;
-  padding: 10px 24px;
   display: inline-flex;
   align-items: center;
-  gap: 1rem;
-  backdrop-filter: blur(8px);
+  gap: 0.75rem;
+}
+
+.tmpl-section-title-wrap h2 {
+  font-size: 2rem;
+  transform: translateY(-1px);
 }
 
 /* Avatar circles */
