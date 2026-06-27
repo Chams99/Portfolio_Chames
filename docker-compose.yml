@@ -8,9 +8,7 @@ x-service-template: &service-template
     start_period: 15s
   restart: unless-stopped
   environment:
-    - PUBLIC_SITE_URL=${PUBLIC_SITE_URL:-https://v1.chames.dhibi.tn}
-    - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
-    - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+    - PUBLIC_SITE_URL=${PUBLIC_SITE_URL:-https://chames.tn}
   networks:
     - traefik
   deploy:
@@ -25,7 +23,7 @@ services:
     container_name: portfolio-v1-blue
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portfolio-v1-blue.rule=Host(`v1.chames.dhibi.tn`)"
+      - "traefik.http.routers.portfolio-v1-blue.rule=Host(`v1.chames.dhibi.tn`) || Host(`chames.tn`)"
       - "traefik.http.routers.portfolio-v1-blue.entrypoints=websecure"
       - "traefik.http.routers.portfolio-v1-blue.tls.certresolver=myresolver"
       - "traefik.http.routers.portfolio-v1-blue.middlewares=default-chain@file"
@@ -36,7 +34,7 @@ services:
     container_name: portfolio-v1-green
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.portfolio-v1-green.rule=Host(`v1.chames.dhibi.tn`)"
+      - "traefik.http.routers.portfolio-v1-green.rule=Host(`v1.chames.dhibi.tn`) || Host(`chames.tn`)"
       - "traefik.http.routers.portfolio-v1-green.entrypoints=websecure"
       - "traefik.http.routers.portfolio-v1-green.tls.certresolver=myresolver"
       - "traefik.http.routers.portfolio-v1-green.middlewares=default-chain@file"
