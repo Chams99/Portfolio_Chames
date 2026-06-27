@@ -64,4 +64,4 @@ if [ -n "$IS_BLUE_RUNNING" ] || [ "$CURRENT" = "green" ]; then
 fi
 
 echo "Deployment complete."
-echo "Live host: https://v1.chames.dhibi.tn"
+echo "Live host: https://chames.tn  https://v1.chames.dhibi.tn"
