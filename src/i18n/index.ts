@@ -9,7 +9,7 @@
 export const translations = {
   en: {
     // ── Nav & Header ──
-    nav: { home: "Home", stack: "Stack", projects: "Projects", experiences: "Experiences", contact: "Contact" },
+    nav: { home: "Home", stack: "Services", projects: "Projects", experiences: "Experiences", contact: "Contact" },
     header: { subtitle: "Full-Stack Web & Mobile Developer" },
 
     // ── Home ──
@@ -47,33 +47,39 @@ export const translations = {
       projects: {
         sectionTitle: "Projects",
         viewAll: "View all projects →",
+        openProject: "Open project →",
+        archiveLabel: "Full archive",
       },
       stack: {
-        sectionTitle: "Stack",
+        sectionTitle: "Services",
         items: [
           {
-            name: "Next.js",
-            category: "Frontend",
-            desc: "Full-stack web apps, landing pages, and SSR products built with React and TypeScript.",
-            related: ["TypeScript", "Tailwind CSS", "Vercel"],
+            name: "Web Applications",
+            icon: "Next.js",
+            category: "Full-Stack",
+            desc: "Dashboards, SaaS platforms, and marketing sites — designed, built, and deployed end to end.",
+            related: ["Next.js", "React", "TypeScript"],
           },
           {
-            name: "Flutter",
-            category: "Mobile",
-            desc: "Cross-platform iOS & Android apps from a single Dart codebase.",
-            related: ["Dart", "Firebase", "REST APIs"],
+            name: "Mobile Apps",
+            icon: "Flutter",
+            category: "iOS & Android",
+            desc: "One codebase, both stores. Native-feeling apps without paying to build the same thing twice.",
+            related: ["Flutter", "Dart", "Firebase"],
           },
           {
-            name: "Node.js",
-            category: "Backend",
-            desc: "REST APIs, real-time systems, and server-side architecture that ship reliably.",
-            related: ["Elysia", "Express", "Supabase"],
+            name: "APIs & Backends",
+            icon: "Node.js",
+            category: "Server-Side",
+            desc: "The part users never see: auth, data, integrations, and endpoints that stay up under load.",
+            related: ["Node.js", "Elysia", "Supabase"],
           },
           {
-            name: "React",
-            category: "UI",
-            desc: "Component-driven interfaces, SPAs, and interactive web apps.",
-            related: ["Vite", "TypeScript", "TailwindCSS"],
+            name: "AI Products",
+            icon: "AI",
+            category: "Integration",
+            desc: "Chat, search, and automation wired into your product with real models — not a demo.",
+            related: ["LLM APIs", "RAG", "Automation"],
           },
         ],
       },
@@ -179,6 +185,10 @@ export const translations = {
       successMessage: "Message sent. I'll get back to you soon.",
       errorMessage: "Something went wrong. Please try again.",
       replyHint: "Usually replies within 24 hours.",
+      validationRequired: "Please fill in all fields.",
+      validationEmail: "Please enter a valid email address.",
+      unexpectedResponse: "Unexpected response.",
+      networkError: "Network error. Please try again.",
     },
 
     // ── Contact: Channel labels ──
@@ -233,7 +243,7 @@ export const translations = {
 
   fr: {
     // ── Nav & Header ──
-    nav: { home: "Accueil", stack: "Stack", projects: "Projets", experiences: "Expériences", contact: "Contact" },
+    nav: { home: "Accueil", stack: "Services", projects: "Projets", experiences: "Expériences", contact: "Contact" },
     header: { subtitle: "Développeur Full-Stack Web & Mobile" },
 
     // ── Home ──
@@ -271,33 +281,39 @@ export const translations = {
       projects: {
         sectionTitle: "Projets",
         viewAll: "Voir tous les projets →",
+        openProject: "Ouvrir le projet →",
+        archiveLabel: "Archive complète",
       },
       stack: {
-        sectionTitle: "Stack",
+        sectionTitle: "Services",
         items: [
           {
-            name: "Next.js",
-            category: "Frontend",
-            desc: "Applications web full-stack, pages d'accueil et produits SSR avec React et TypeScript.",
-            related: ["TypeScript", "Tailwind CSS", "Vercel"],
+            name: "Applications Web",
+            icon: "Next.js",
+            category: "Full-Stack",
+            desc: "Dashboards, plateformes SaaS et sites vitrines — conçus, développés et déployés de bout en bout.",
+            related: ["Next.js", "React", "TypeScript"],
           },
           {
-            name: "Flutter",
-            category: "Mobile",
-            desc: "Applications iOS & Android cross-platform depuis une seule base de code Dart.",
-            related: ["Dart", "Firebase", "REST APIs"],
+            name: "Applications Mobiles",
+            icon: "Flutter",
+            category: "iOS & Android",
+            desc: "Une seule base de code, les deux stores. Des applications au rendu natif sans payer deux fois.",
+            related: ["Flutter", "Dart", "Firebase"],
           },
           {
-            name: "Node.js",
-            category: "Backend",
-            desc: "APIs REST, systèmes temps réel et architecture serveur fiable.",
-            related: ["Elysia", "Express", "Supabase"],
+            name: "APIs & Backends",
+            icon: "Node.js",
+            category: "Côté Serveur",
+            desc: "La partie invisible : authentification, données, intégrations et endpoints qui tiennent la charge.",
+            related: ["Node.js", "Elysia", "Supabase"],
           },
           {
-            name: "React",
-            category: "UI",
-            desc: "Interfaces composants, SPA et applications web interactives.",
-            related: ["Vite", "TypeScript", "TailwindCSS"],
+            name: "Produits IA",
+            icon: "AI",
+            category: "Intégration",
+            desc: "Chat, recherche et automatisation intégrés à votre produit avec de vrais modèles — pas une démo.",
+            related: ["APIs LLM", "RAG", "Automatisation"],
           },
         ],
       },
@@ -403,6 +419,10 @@ export const translations = {
       successMessage: "Message envoyé. Je vous réponds bientôt.",
       errorMessage: "Une erreur s'est produite. Veuillez réessayer.",
       replyHint: "Réponse généralement sous 24 heures.",
+      validationRequired: "Veuillez remplir tous les champs.",
+      validationEmail: "Veuillez saisir une adresse email valide.",
+      unexpectedResponse: "Réponse inattendue.",
+      networkError: "Erreur réseau. Veuillez réessayer.",
     },
 
     // ── Contact: Channel labels ──

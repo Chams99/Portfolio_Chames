@@ -1,6 +1,14 @@
 @import "simplebar/dist/simplebar.css";
 @import "tailwindcss";
 
+/* Tailwind v4 only generates font-* utilities from @theme, not from :root —
+   these also emit as --font-* custom properties for use in plain CSS below. */
+@theme {
+  --font-display: "Bodoni Moda", "Times New Roman", serif;
+  --font-body: "DM Sans", system-ui, sans-serif;
+  --font-label: "Space Mono", ui-monospace, monospace;
+}
+
 :root {
   color-scheme: dark;
   --background: oklch(0.09 0.01 286);
@@ -8,6 +16,170 @@
   --card: oklch(0.13 0.01 286);
   --muted-foreground: oklch(0.72 0.01 75);
   --primary: oklch(0.77 0.1 81);
+
+  /* Three voices (--font-display / --font-body / --font-label) are declared in
+     the @theme block above so they exist as Tailwind utilities too. */
+
+  /* ── Print scale. Breakpoint steps keep editorial type predictable. ── */
+  --step-display: 3.25rem;
+  --step-title: 2.25rem;
+  --step-sub: 1.35rem;
+  --step-body: 1.0625rem;
+  --step-label: 0.7rem;
+
+  /* ── Hairlines do the structural work that borders/cards used to. ── */
+  --rule: rgba(247, 240, 224, 0.16);
+  --rule-soft: rgba(247, 240, 224, 0.07);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --step-display: 5rem;
+    --step-title: 3.4rem;
+    --step-sub: 1.65rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --step-display: 8rem;
+    --step-title: 4.5rem;
+    --step-sub: 2rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  :root {
+    --step-display: 10rem;
+    --step-title: 5rem;
+    --step-sub: 2.25rem;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════
+   EDITORIAL PRIMITIVES
+   ══════════════════════════════════════════════════════════ */
+
+/* Display voice — one class, every headline. */
+.display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: 0.86;
+  text-wrap: balance;
+}
+
+.display-italic {
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* Folio — the "01 — STACK" section marker. Pure print signal. */
+.folio {
+  font-family: var(--font-label);
+  font-size: var(--step-label);
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: rgba(247, 240, 224, 0.45);
+}
+
+.folio-num {
+  color: var(--primary);
+}
+
+/* Caption — mono, under images and figures. */
+.caption {
+  font-family: var(--font-label);
+  font-size: 0.66rem;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  line-height: 1.6;
+  color: rgba(247, 240, 224, 0.42);
+}
+
+/* Rules — structure without boxes. */
+.rule {
+  border-top: 1px solid var(--rule);
+}
+
+.rule-soft {
+  border-top: 1px solid var(--rule-soft);
+}
+
+/* Measure — capped line length. Print never lets text run full width. */
+.measure {
+  max-width: 34ch;
+}
+
+.measure-wide {
+  max-width: 54ch;
+}
+
+/* Asymmetric 12-column grid. */
+.ed-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: 1.5rem;
+}
+
+/* Matches Tailwind's `lg` breakpoint exactly (1024px) so col-span utilities
+   and this column count never disagree. */
+@media (max-width: 1023.98px) {
+  .ed-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    column-gap: 1rem;
+  }
+}
+
+/* Index row — replaces card chrome with a hairline that warms on hover. */
+.index-row {
+  border-top: 1px solid var(--rule-soft);
+  transition: border-color 0.45s ease;
+}
+
+.index-row:last-child {
+  border-bottom: 1px solid var(--rule-soft);
+}
+
+.index-row:hover {
+  border-top-color: rgba(201, 164, 83, 0.4);
+}
+
+.index-row:hover .index-num {
+  color: var(--primary);
+}
+
+.index-row .index-num {
+  transition: color 0.45s ease;
+}
+
+/* Section header: folio left, label right, sitting on a rule. */
+.section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--rule);
+}
+
+/* ── SplitText staging ──
+   .js-split is set inline in <head> before paint (see BaseLayout), so
+   headlines never flash unsplit. Absent when JS is off or motion is reduced. */
+.js-split [data-split] {
+  visibility: hidden;
+}
+
+.js-split [data-split].split-ready {
+  visibility: visible;
+}
+
+/* GSAP's mask:"lines" supplies the clipping wrapper itself. This only adds
+   descender room so Bodoni's g/y/p tails aren't shaved off by that mask. */
+.split-line {
+  padding-bottom: 0.14em;
 }
 
 * {
@@ -30,7 +202,7 @@ body {
     radial-gradient(circle at 82% 11%, rgba(170, 72, 56, 0.08), transparent 22%),
     linear-gradient(180deg, rgba(255, 255, 255, 0.015), transparent 24%);
   color: var(--foreground);
-  font-family: "DM Sans", sans-serif;
+  font-family: var(--font-body);
 }
 
 img {
@@ -78,42 +250,66 @@ a {
 }
 
 .eyebrow {
-  font-family: "Space Mono", monospace;
+  font-family: var(--font-label);
   font-size: 0.72rem;
   line-height: 1.2;
   text-transform: uppercase;
-  letter-spacing: 0.32em;
+  letter-spacing: 0;
   color: rgba(247, 240, 224, 0.62);
 }
 
+.brand-mark {
+  display: inline-flex;
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(201, 164, 83, 0.34);
+  border-radius: 999px;
+  background:
+    linear-gradient(145deg, rgba(201, 164, 83, 0.13), rgba(170, 72, 56, 0.06)),
+    rgba(255, 255, 255, 0.025);
+  color: rgba(247, 240, 224, 0.86);
+  font-family: var(--font-label);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.11),
+    0 10px 26px rgba(0, 0, 0, 0.22);
+}
+
 .editorial-title {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 0.94;
   text-wrap: balance;
 }
 
 .display-monument {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 0.95;
   text-wrap: balance;
 }
 
 .hero-headline {
-  font-family: "Bodoni Moda", "Cormorant Garamond", serif;
+  font-family: var(--font-display);
   font-optical-sizing: auto;
   font-weight: 700;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   line-height: 0.92;
 }
 
 .hero-name-outline {
-  font-family: "Bodoni Moda", "Cormorant Garamond", serif;
+  font-family: var(--font-display);
   font-optical-sizing: auto;
   font-weight: 700;
   font-style: italic;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
   line-height: 0.92;
   color: transparent;
   background: linear-gradient(135deg, #d4b06b 0%, #c9a453 30%, #aa4838 70%, #d4b06b 100%);
@@ -170,6 +366,7 @@ a {
 
 .portrait-glow {
   position: relative;
+  --portrait-shape: polygon(18% 0, 82% 0, 100% 18%, 100% 84%, 88% 100%, 12% 100%, 0 84%, 0 18%);
 }
 
 .portrait-glow::before {
@@ -196,15 +393,85 @@ a {
   }
 }
 
-.portrait-vignette::after {
+.portrait-frame {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  padding: 1px;
+  clip-path: var(--portrait-shape);
+  background:
+    linear-gradient(145deg, rgba(247, 240, 224, 0.66), rgba(201, 164, 83, 0.92) 38%, rgba(170, 72, 56, 0.66) 100%);
+  box-shadow:
+    0 26px 90px rgba(0, 0, 0, 0.42),
+    0 16px 55px rgba(170, 72, 56, 0.13);
+}
+
+.portrait-frame::before {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  z-index: 0;
+  clip-path: var(--portrait-shape);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.01)),
+    rgba(255, 255, 255, 0.025);
+}
+
+.portrait-frame img {
+  position: relative;
+  z-index: 1;
+  clip-path: var(--portrait-shape);
+  filter: saturate(0.84) contrast(1.05);
+}
+
+.portrait-frame::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: 2;
   pointer-events: none;
+  clip-path: var(--portrait-shape);
   background:
-    radial-gradient(ellipse at 50% 35%, transparent 25%, rgba(9, 8, 14, 0.55) 100%),
-    linear-gradient(180deg, rgba(9, 8, 14, 0.15), transparent 30%, transparent 70%, rgba(9, 8, 14, 0.35));
+    radial-gradient(ellipse at 50% 34%, transparent 26%, rgba(9, 8, 14, 0.28) 76%),
+    linear-gradient(180deg, rgba(9, 8, 14, 0.08), transparent 30%, transparent 66%, rgba(9, 8, 14, 0.34));
+}
+
+.portrait-frame-ring {
+  position: absolute;
+  pointer-events: none;
+  clip-path: var(--portrait-shape);
+}
+
+.portrait-frame-ring--outer {
+  inset: -0.85rem;
+  border: 1px solid rgba(201, 164, 83, 0.28);
+  opacity: 0.82;
+}
+
+.portrait-frame-ring--inner {
+  inset: 0.85rem;
+  border: 1px solid rgba(247, 240, 224, 0.16);
+}
+
+.portrait-corner {
+  position: absolute;
+  width: 5.25rem;
+  height: 5.25rem;
+  pointer-events: none;
+  opacity: 0.74;
+}
+
+.portrait-corner--tl {
+  top: 8%;
+  left: -0.65rem;
+  border-top: 1px solid rgba(201, 164, 83, 0.58);
+  border-left: 1px solid rgba(201, 164, 83, 0.58);
+}
+
+.portrait-corner--br {
+  right: -0.65rem;
+  bottom: 8%;
+  border-right: 1px solid rgba(201, 164, 83, 0.58);
+  border-bottom: 1px solid rgba(201, 164, 83, 0.58);
 }
 
 .editorial-outline {
@@ -218,12 +485,23 @@ a {
 }
 
 .section-word {
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
   letter-spacing: 0;
   line-height: 0.9;
   color: transparent;
   -webkit-text-stroke: 1px rgba(247, 240, 224, 0.08);
   pointer-events: none;
+}
+
+/* Zellige tessellation. currentColor drives the tile linework, so the motif
+   inherits the gold accent instead of hardcoding it. Kept faint — it should
+   read as texture, not decoration. */
+.zellige {
+  color: var(--primary);
+  opacity: 0.08;
+  -webkit-mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95), transparent 76%);
+  mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.95), transparent 76%);
 }
 
 .ambient-grid {
@@ -292,6 +570,93 @@ a {
 
 .secondary-button:hover {
   background: rgba(255, 255, 255, 0.05);
+}
+
+.archive-cta {
+  position: relative;
+  display: inline-flex;
+  width: 100%;
+  max-width: none;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  overflow: hidden;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule-soft);
+  padding: 1.65rem 0;
+  background: transparent;
+  box-shadow: none;
+  color: white;
+  transition: border-color 0.35s ease, color 0.35s ease;
+}
+
+.archive-cta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(201, 164, 83, 0.06), transparent 58%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.archive-cta:hover {
+  border-top-color: rgba(201, 164, 83, 0.46);
+  border-bottom-color: rgba(201, 164, 83, 0.22);
+}
+
+.archive-cta:hover::before {
+  opacity: 1;
+}
+
+.archive-cta-copy {
+  display: grid;
+  position: relative;
+  z-index: 1;
+  gap: 0.35rem;
+  min-width: 0;
+}
+
+.archive-cta-kicker {
+  font-family: var(--font-label);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(201, 164, 83, 0.78);
+}
+
+.archive-cta-title {
+  font-family: var(--font-display);
+  font-size: var(--step-sub);
+  font-weight: 700;
+  line-height: 0.92;
+  color: rgba(247, 240, 224, 0.94);
+  transition: color 0.35s ease;
+}
+
+.archive-cta:hover .archive-cta-title {
+  color: var(--primary);
+}
+
+.archive-cta-icon {
+  display: inline-flex;
+  position: relative;
+  z-index: 1;
+  width: 3.35rem;
+  height: 3.35rem;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(247, 240, 224, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.018);
+  color: var(--primary);
+  font-size: 1.35rem;
+  transition: border-color 0.35s ease, background 0.35s ease, color 0.35s ease;
+}
+
+.archive-cta:hover .archive-cta-icon {
+  border-color: rgba(201, 164, 83, 0.4);
+  background: rgba(201, 164, 83, 0.08);
 }
 
 .tint-card {
@@ -519,6 +884,17 @@ a {
   transition: opacity 0.7s ease, transform 0.7s ease;
 }
 
+/* Reduced motion must not leave content parked at opacity:0 waiting on an
+   observer. Show everything outright instead. */
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal],
+  [data-reveal].revealed {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
 [data-reveal="fade-left"] {
   transform: translateX(-24px);
 }
@@ -603,7 +979,7 @@ a {
 .lang-switch {
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.2em;
+  letter-spacing: 0;
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 1.25rem;
   padding: 0.35rem 0.75rem;
@@ -759,7 +1135,7 @@ a {
   align-items: center;
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   flex-shrink: 0;
 }
 
@@ -785,14 +1161,15 @@ a {
   font-weight: 700;
   display: block;
   color: white;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
 }
 
 .tmpl-featured-text {
   color: var(--primary);
   font-size: 0.72rem;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0;
   margin-top: 8px;
   display: block;
 }
@@ -913,7 +1290,8 @@ a {
   color: white;
   font-size: 1.35rem;
   font-weight: 700;
-  font-family: "Cormorant Garamond", serif;
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
   margin: 4px 0 0;
 }
 
@@ -922,7 +1300,7 @@ a {
   font-weight: 500;
   color: var(--primary);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0;
   display: block;
 }
 
@@ -938,7 +1316,7 @@ a {
   font-size: 0.8rem;
   color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
-  letter-spacing: 0.22em;
+  letter-spacing: 0;
   display: block;
 }
 

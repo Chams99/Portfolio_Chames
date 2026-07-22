@@ -1,6 +1,7 @@
 ---
 import CountUp from "@/astro/CountUp.astro";
 import ExperienceStack from "@/astro/ExperienceStack.astro";
+import ZelligePattern from "@/astro/ZelligePattern.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import { avatarImage, projectImages } from "@/data/generatedImages";
 import { contactChannels, isExternalHref, projects, siteConfig } from "@/data/site";
@@ -38,13 +39,16 @@ const iconPaths: Record<string, string> = {
     "M14.314 0L2.3 12 6 15.7 21.684.013h-7.357zm.014 11.072L7.857 17.53l6.47 6.47H21.7l-6.46-6.468 6.46-6.46h-7.37z",
   "Node.js":
     "M11.998 24c-.321 0-.641-.084-.922-.247l-2.936-1.737c-.438-.245-.224-.332-.08-.383.585-.203.703-.25 1.328-.604.065-.037.151-.023.218.017l2.256 1.339c.082.045.197.045.272 0l8.795-5.076c.082-.047.134-.141.134-.238V6.921c0-.099-.053-.192-.137-.242l-8.791-5.072c-.081-.047-.189-.047-.271 0L3.075 6.68C2.99 6.729 2.936 6.825 2.936 6.921v10.15c0 .097.054.189.139.235l2.409 1.392c1.307.654 2.108-.116 2.108-.89V7.787c0-.142.114-.253.256-.253h1.115c.139 0 .255.112.255.253v10.021c0 1.745-.95 2.745-2.604 2.745-.508 0-.909 0-2.026-.551L2.28 18.675c-.57-.329-.922-.945-.922-1.604V6.921c0-.659.353-1.275.922-1.603l8.795-5.082c.557-.315 1.296-.315 1.848 0l8.794 5.082c.57.329.924.944.924 1.603v10.15c0 .659-.354 1.273-.924 1.604l-8.794 5.078C12.643 23.916 12.324 24 11.998 24zm7.101-10.007c0-1.9-1.284-2.406-3.987-2.763-2.731-.361-3.009-.548-3.009-1.187 0-.528.235-1.233 2.258-1.233 1.807 0 2.473.389 2.747 1.607.024.115.129.199.247.199h1.141c.071 0 .138-.031.186-.081.048-.054.074-.123.067-.196-.177-2.098-1.571-3.076-4.388-3.076-2.508 0-4.004 1.058-4.004 2.833 0 1.925 1.488 2.457 3.895 2.695 2.88.282 3.103.703 3.103 1.269 0 .983-.789 1.402-2.642 1.402-2.327 0-2.839-.584-3.011-1.742-.02-.124-.126-.215-.253-.215h-1.137c-.141 0-.254.112-.254.253 0 1.482.806 3.248 4.655 3.248 2.786.001 4.384-1.096 4.384-3.013z",
+  AI: "M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z",
   React:
     "M14.23 12.004a2.236 2.236 0 0 1-2.235 2.236 2.236 2.236 0 0 1-2.236-2.236 2.236 2.236 0 0 1 2.235-2.236 2.236 2.236 0 0 1 2.236 2.236zm2.648-10.69c-1.346 0-3.107.96-4.888 2.622-1.78-1.653-3.542-2.602-4.887-2.602-.41 0-.783.093-1.106.278-1.375.793-1.683 3.264-.973 6.365C1.98 8.917 0 10.42 0 12.004c0 1.59 1.99 3.097 5.043 4.03-.704 3.113-.39 5.588.988 6.38.32.187.69.275 1.102.275 1.345 0 3.107-.96 4.888-2.624 1.78 1.654 3.542 2.603 4.887 2.603.41 0 .783-.09 1.106-.275 1.374-.792 1.683-3.263.973-6.365C22.02 15.096 24 13.59 24 12.004c0-1.59-1.99-3.097-5.043-4.032.704-3.11.39-5.587-.988-6.38a2.167 2.167 0 0 0-1.092-.278zm-.005 1.09v.006c.225 0 .406.044.558.127.666.382.955 1.835.73 3.704-.054.46-.142.945-.25 1.44-.96-.236-2.006-.417-3.107-.534-.66-.905-1.345-1.727-2.035-2.447 1.592-1.48 3.087-2.292 4.105-2.295zm-9.77.02c1.012 0 2.514.808 4.11 2.28-.686.72-1.37 1.537-2.02 2.442-1.107.117-2.154.298-3.113.538-.112-.49-.195-.964-.254-1.42-.23-1.868.054-3.32.714-3.707.19-.09.4-.127.563-.132zm4.882 3.05c.455.468.91.992 1.36 1.564-.44-.02-.89-.034-1.345-.034-.46 0-.915.01-1.36.034.44-.572.895-1.096 1.345-1.565zM12 8.1c.74 0 1.477.034 2.202.093.406.582.802 1.203 1.183 1.86.372.64.71 1.29 1.018 1.946-.308.655-.646 1.31-1.013 1.95-.38.66-.773 1.288-1.18 1.87-.728.063-1.466.098-2.21.098-.74 0-1.477-.035-2.202-.093-.406-.582-.802-1.204-1.183-1.86-.372-.64-.71-1.29-1.018-1.946.303-.657.646-1.313 1.013-1.954.38-.66.773-1.286 1.18-1.868.728-.064 1.466-.098 2.21-.098zm-3.635.254c-.24.377-.48.763-.704 1.16-.225.39-.435.782-.635 1.174-.265-.656-.49-1.31-.676-1.947.64-.15 1.315-.283 2.015-.386zm7.26 0c.695.103 1.365.23 2.006.387-.18.632-.405 1.282-.66 1.933-.2-.39-.41-.783-.64-1.174-.225-.392-.465-.774-.705-1.146zm3.063.675c.484.15.944.317 1.375.498 1.732.74 2.852 1.708 2.852 2.476-.005.768-1.125 1.74-2.857 2.475-.42.18-.88.342-1.355.493-.28-.958-.646-1.956-1.1-2.98.45-1.017.81-2.01 1.085-2.964zm-13.395.004c.278.96.645 1.957 1.1 2.98-.45 1.017-.812 2.01-1.086 2.964-.484-.15-.944-.317-1.375-.498-1.732-.74-2.852-1.708-2.852-2.476.005-.768 1.125-1.74 2.857-2.475.42-.18.88-.342 1.355-.493.28.958.646 1.956 1.1 2.98-.45 1.017-.81 2.01-1.085 2.964z",
 };
 
+// Keyed off `icon` rather than `name` so service names can change freely
+// without breaking the mark shown beside them.
 const stacks = home.stack.items.map((item) => ({
   ...item,
-  iconPath: iconPaths[item.name],
+  iconPath: iconPaths[item.icon],
 }));
 
 const workBasePath = isFr ? "/fr/work" : "/work";
@@ -55,74 +59,70 @@ const heroAlt = isFr
 
 <BaseLayout title={pageTitle} description={pageDescription} locale={locale}>
   <main id="top" class="pb-16">
-    <!-- ═══ HERO ═══ -->
+    <!-- ═══ HERO — zellige medallion ═══ -->
     <section class="hero-section relative overflow-hidden" aria-label="Introduction">
-      <div class="ambient-grid pointer-events-none absolute inset-x-0 top-0 h-[34rem]"></div>
+      <ZelligePattern class="zellige pointer-events-none absolute inset-0 h-full w-full" />
 
       <div class="page-shell relative z-10">
-        <div class="grid min-h-[36rem] items-start gap-12 lg:min-h-[720px] lg:grid-cols-[1.3fr_0.7fr] lg:gap-16">
+        <div class="grid min-h-[36rem] items-center gap-10 lg:min-h-[660px] lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
           <!-- Left: text -->
           <div class="flex flex-col justify-center">
-            <div class="inline-flex items-center gap-2.5" data-reveal>
-              <span class="h-2.5 w-2.5 rounded-sm bg-[color:var(--primary)]"></span>
-              <span class="eyebrow">{home.hero.eyebrow}</span>
+            <div class="flex items-center gap-3" data-reveal>
+              <span class="h-2 w-2 rounded-full bg-[color:var(--primary)]"></span>
+              <span class="eyebrow">{home.hero.subtitle}</span>
             </div>
 
-            <h1 class="hero-headline mt-6 text-6xl font-bold leading-[0.88] text-white sm:text-7xl lg:text-8xl" data-reveal>
+            <h1 class="hero-headline mt-7 text-6xl font-bold leading-[0.9] text-white sm:text-7xl lg:text-8xl" data-split>
               {home.hero.nameLine1}<br />
               <span class="hero-name-outline">{home.hero.nameLine2}</span>
             </h1>
 
-            <p class="mt-5 text-2xl text-white/80 lg:text-3xl" data-reveal>
-              {home.hero.subtitle}
-            </p>
-
-            <p class="mt-5 max-w-lg text-lg leading-8 text-white/62 lg:text-xl lg:leading-9" data-reveal>
+            <p class="mt-7 max-w-md text-lg leading-8 text-white/70 lg:text-xl lg:leading-9" data-reveal>
               {home.hero.body}
             </p>
 
-            <div class="mt-5" data-reveal>
-              <span class="location-badge">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-                {home.hero.location}
-              </span>
-            </div>
-
-            <div class="mt-8 flex flex-col gap-4 sm:flex-row" data-reveal>
+            <div class="mt-9 flex flex-col gap-4 sm:flex-row" data-reveal>
               <a
                 href="#projects"
-                class="premium-button inline-flex items-center gap-2 rounded-full px-8 py-5 text-base uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5"
+                class="premium-button inline-flex items-center gap-2 rounded-full px-8 py-5 text-base uppercase tracking-normal text-white transition-transform hover:-translate-y-0.5"
               >
                 {home.hero.ctaPrimary}
               </a>
               <a
                 href="#contact"
-                class="secondary-button inline-flex items-center gap-2 rounded-full px-8 py-5 text-base uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5"
+                class="secondary-button inline-flex items-center gap-2 rounded-full px-8 py-5 text-base uppercase tracking-normal text-white transition-transform hover:-translate-y-0.5"
               >
                 {home.hero.ctaSecondary}
               </a>
             </div>
 
-            <div class="mt-8 flex items-center gap-4" data-reveal>
-              {
-                ["GitHub", "LinkedIn", "Upwork"].map((label) => (
-                  <a
-                    href={contactChannels.find((ch) => ch.label === label)?.href ?? "#"}
-                    target="_blank"
-                    rel="noreferrer"
-                    class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-white/10 text-white/60 transition-colors hover:border-[color:var(--primary)]/30 hover:text-[color:var(--primary)]"
-                    aria-label={label}
-                  >
-                    <Fragment set:html={socialIcons[label]} />
-                  </a>
-                ))
-              }
+            <div class="mt-9 flex flex-wrap items-center gap-5" data-reveal>
+              <span class="location-badge">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                {home.hero.location}
+              </span>
+              <span class="hidden h-px w-8 bg-white/15 sm:block"></span>
+              <div class="flex items-center gap-3">
+                {
+                  ["GitHub", "LinkedIn", "Upwork"].map((label) => (
+                    <a
+                      href={contactChannels.find((ch) => ch.label === label)?.href ?? "#"}
+                      target="_blank"
+                      rel="noreferrer"
+                      class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/10 text-white/60 transition-colors hover:border-[color:var(--primary)]/30 hover:text-[color:var(--primary)]"
+                      aria-label={label}
+                    >
+                      <Fragment set:html={socialIcons[label]} />
+                    </a>
+                  ))
+                }
+              </div>
             </div>
           </div>
 
-          <!-- Right: portrait (desktop) -->
-          <div class="portrait-glow relative hidden self-center lg:-mt-2 lg:flex lg:justify-end" data-reveal="fade-right">
-            <div class="corner-frame portrait-vignette relative aspect-square w-full max-w-[24rem] overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03]">
+          <!-- Right: portrait in a custom DCE atelier shield. -->
+          <div class="portrait-glow relative mx-auto hidden w-full max-w-[24rem] self-center lg:block" data-reveal="fade-right">
+            <div class="portrait-frame">
               <img
                 src={avatarImage.src}
                 alt={heroAlt}
@@ -133,43 +133,54 @@ const heroAlt = isFr
                 height="525"
               />
             </div>
+            <div class="portrait-frame-ring portrait-frame-ring--outer" aria-hidden="true"></div>
+            <div class="portrait-frame-ring portrait-frame-ring--inner" aria-hidden="true"></div>
+            <span class="portrait-corner portrait-corner--tl" aria-hidden="true"></span>
+            <span class="portrait-corner portrait-corner--br" aria-hidden="true"></span>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ═══ STACK ═══ -->
-    <section class="section-line tmpl-section-padding" id="stack">
+    <!-- ═══ 01 — STACK (typographic index) ═══ -->
+    <section class="tmpl-section-padding" id="stack">
       <div class="page-shell">
-        <div class="flex justify-center" data-reveal>
-          <div class="tmpl-section-title-wrap">
-            <span class="tmpl-badge-dot"></span>
-            <h2 class="font-bold text-white">{home.stack.sectionTitle}</h2>
-          </div>
+        <div class="section-head" data-reveal>
+          <span class="folio"><span class="folio-num">01</span> &mdash; {home.stack.sectionTitle}</span>
+          <span class="caption hidden sm:inline">{stacks.length} disciplines</span>
         </div>
 
-        <div class="mt-8 grid gap-6 pt-4 lg:grid-cols-2" data-reveal-stagger>
+        <div class="mt-10" data-reveal-stagger>
           {
-            stacks.map((stack, i) => (
-              <div data-reveal class={`tmpl-services-thumb${i % 2 === 1 ? " tmpl-services-thumb-up" : ""}`}>
-                <div class="mb-4 flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-3">
-                  <h3 class="m-0 text-xl font-bold text-white">{stack.name}</h3>
-                  <div class="tmpl-price-wrap">
-                    <p class="tmpl-price-text">{stack.category}</p>
+            stacks.map((stack, idx) => (
+              <div class="index-row ed-grid group items-baseline gap-y-5 py-9" data-reveal>
+                <span class="folio index-num col-span-1 self-start pt-2">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+
+                <h3 class="display col-span-5 text-[length:var(--step-sub)] text-white lg:col-span-3">
+                  {stack.name}
+                </h3>
+
+                <p class="col-span-6 text-base leading-7 text-white/60 lg:col-span-5">
+                  {stack.desc}
+                </p>
+
+                <div class="col-span-6 lg:col-span-3">
+                  <div class="flex items-center gap-2.5 lg:justify-end">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      class="h-3.5 w-3.5 shrink-0 text-[color:var(--primary)] opacity-60"
+                      aria-hidden="true"
+                    >
+                      <path d={stack.iconPath} />
+                    </svg>
+                    <span class="caption">{stack.category}</span>
                   </div>
-                </div>
-                <p class="mb-5 text-base leading-7 text-white/62">{stack.desc}</p>
-                <div class="flex flex-wrap gap-2">
-                  {stack.related.map((tag) => (
-                    <span class="rounded-full border border-white/10 px-3 py-1 text-xs text-white/50">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <div class="tmpl-services-icon-wrap">
-                  <svg viewBox="0 0 24 24" fill="currentColor" class="tmpl-services-icon-svg">
-                    <path d={stack.iconPath} />
-                  </svg>
+                  <p class="mt-3 text-sm leading-6 text-white/40 lg:text-right">
+                    {stack.related.join(" · ")}
+                  </p>
                 </div>
               </div>
             ))
@@ -178,26 +189,50 @@ const heroAlt = isFr
       </div>
     </section>
 
-    <!-- ═══ PROJECTS ═══ -->
-    <section class="section-line tmpl-section-padding" id="projects">
+    <!-- ═══ 02 — WORK (staggered contact sheet) ═══ -->
+    <section class="tmpl-section-padding" id="projects">
       <div class="page-shell">
-        <div class="flex justify-end" data-reveal>
-          <div class="tmpl-section-title-wrap">
-            <span class="tmpl-badge-dot"></span>
-            <h2 class="font-bold text-white">{home.projects.sectionTitle}</h2>
-          </div>
+        <div class="section-head" data-reveal>
+          <span class="folio"><span class="folio-num">02</span> &mdash; {home.projects.sectionTitle}</span>
+          <span class="caption hidden sm:inline">{visibleProjects.length} selected</span>
         </div>
 
-        <div class="grid md:grid-cols-2 lg:grid-cols-3" data-reveal-stagger>
+        <div class="mt-14 grid gap-x-12 gap-y-20 md:grid-cols-2" data-reveal-stagger>
           {
-            visibleProjects.map((project) => {
+            visibleProjects.map((project, idx) => {
               const img = projectImages[project.slug]?.card.src ?? project.heroImage;
               return (
-                <a href={project.externalLink} target="_blank" rel="noreferrer" class="group block" data-reveal>
-                  <div class="tmpl-projects-thumb m-3 transition-transform duration-500 group-hover:-translate-y-1">
-                    <span class="tmpl-projects-tag">{project.category}</span>
-                    <h3 class="tmpl-projects-title">{project.title}</h3>
-                    <img src={img} alt={project.title} class="tmpl-projects-image transition-transform duration-700 group-hover:scale-105" loading="lazy" />
+                <a
+                  href={project.externalLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-reveal
+                  class:list={["index-row group block pt-5", idx % 2 === 1 && "md:mt-24"]}
+                >
+                  <div class="flex items-baseline justify-between gap-4">
+                    <span class="folio index-num">{String(idx + 1).padStart(2, "0")}</span>
+                    <span class="caption">{project.category}</span>
+                  </div>
+
+                  <h3 class="display mt-5 text-[length:var(--step-sub)] text-white transition-colors duration-500 group-hover:text-[color:var(--primary)]">
+                    {project.title}
+                  </h3>
+
+                  <div class="mt-7 overflow-hidden">
+                    <img
+                      src={img}
+                      alt={project.title}
+                      class="aspect-[4/3] w-full object-cover object-top grayscale-[65%] transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:grayscale-0"
+                      loading="lazy"
+                    />
+                  </div>
+
+                  <div class="rule-soft mt-5 flex items-center justify-between pt-4">
+                    <span class="caption">{home.projects.openProject.replace(/\s*→\s*$/, "")}</span>
+                    <span
+                      class="text-[color:var(--primary)] transition-transform duration-500 group-hover:translate-x-1"
+                      aria-hidden="true">&#8599;</span
+                    >
                   </div>
                 </a>
               );
@@ -205,12 +240,16 @@ const heroAlt = isFr
           }
         </div>
 
-        <div class="mt-12 text-center" data-reveal>
+        <div class="mt-24" data-reveal>
           <a
             href={workBasePath}
-            class="secondary-button inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5"
+            class="archive-cta group"
           >
-            {home.projects.viewAll}
+            <span class="archive-cta-copy">
+              <span class="archive-cta-kicker">{home.projects.archiveLabel}</span>
+              <span class="archive-cta-title">{home.projects.viewAll.replace(/\s*→\s*$/, "")}</span>
+            </span>
+            <span class="archive-cta-icon" aria-hidden="true">&rarr;</span>
           </a>
         </div>
       </div>
@@ -220,22 +259,19 @@ const heroAlt = isFr
     <section class="section-line relative overflow-hidden tmpl-section-padding" id="experiences">
       <div class="pointer-events-none absolute inset-x-0 top-1/2 -z-10 h-[42rem] -translate-y-1/2 bg-[radial-gradient(circle_at_center,rgba(201,164,83,0.035),transparent_60%)]" aria-hidden="true"></div>
       <div class="page-shell relative z-10">
-        <div class="mb-10" data-reveal>
-          <div class="tmpl-section-title-wrap">
-            <span class="tmpl-badge-dot"></span>
-            <h2 class="font-bold text-white">{i.nav.experiences}</h2>
-          </div>
+        <div class="section-head" data-reveal>
+          <span class="folio"><span class="folio-num">03</span> &mdash; {i.nav.experiences}</span>
+          <span class="caption hidden sm:inline">{i.experiences.eyebrow}</span>
         </div>
 
-        <div class="mb-12 max-w-3xl" data-reveal>
-          <p class="eyebrow">{i.experiences.eyebrow}</p>
-          <h3 class="display-monument mt-4 text-[3.2rem] text-white sm:text-[4.2rem] md:text-[5.2rem]">
+        <div class="mb-14 mt-12 max-w-4xl">
+          <h3 class="display text-[length:var(--step-title)] text-white" data-split>
             {i.experiences.h1Start}
             <span class="editorial-outline ml-2 inline-block">{i.experiences.h1Outline}</span>
             <br />
             {i.experiences.h1End}
           </h3>
-          <p class="mt-4 max-w-xl text-base leading-7 text-white/62">
+          <p class="measure-wide mt-8 text-[length:var(--step-body)] leading-8 text-white/62" data-reveal>
             {i.experiences.body}
           </p>
         </div>
@@ -244,27 +280,23 @@ const heroAlt = isFr
           <ExperienceStack items={i.experience} />
         </div>
 
-        <div class="mt-12 grid grid-cols-3 gap-4" data-reveal>
-          <div class="luxury-stat rounded-2xl p-5 text-center transition-transform duration-300 hover:-translate-y-1">
-            <div class="mx-auto mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--primary)]/10 text-[color:var(--primary)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="7" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        <!-- Figures set as type on a rule — no cards, no icon circles. -->
+        <div class="rule mt-20 grid grid-cols-3 gap-6 pt-8" data-reveal-stagger>
+          <div data-reveal>
+            <div class="display text-[length:var(--step-title)] leading-none text-white">
+              <CountUp target={6} suffix="" />
             </div>
-            <div class="tmpl-featured-numbers text-3xl"><CountUp target={6} suffix="" /></div>
-            <span class="tmpl-featured-text">{home.stats[0].label}</span>
+            <span class="caption mt-4 block">{home.stats[0].label}</span>
           </div>
-          <div class="luxury-stat rounded-2xl p-5 text-center transition-transform duration-300 hover:-translate-y-1">
-            <div class="mx-auto mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--primary)]/10 text-[color:var(--primary)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+          <div data-reveal>
+            <div class="display text-[length:var(--step-title)] leading-none text-white">
+              <CountUp target={100} suffix="%" />
             </div>
-            <div class="tmpl-featured-numbers text-3xl"><CountUp target={100} suffix="%" /></div>
-            <span class="tmpl-featured-text">{home.stats[1].label}</span>
+            <span class="caption mt-4 block">{home.stats[1].label}</span>
           </div>
-          <div class="luxury-stat rounded-2xl p-5 text-center transition-transform duration-300 hover:-translate-y-1">
-            <div class="mx-auto mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--primary)]/10 text-[color:var(--primary)]">
-              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </div>
-            <div class="tmpl-featured-numbers text-3xl">5.0</div>
-            <span class="tmpl-featured-text">{home.stats[2].label}</span>
+          <div data-reveal>
+            <div class="display text-[length:var(--step-title)] leading-none text-white">5.0</div>
+            <span class="caption mt-4 block">{home.stats[2].label}</span>
           </div>
         </div>
       </div>
@@ -273,26 +305,23 @@ const heroAlt = isFr
     <!-- ═══ CONTACT ═══ -->
     <section class="section-line tmpl-section-padding" id="contact">
       <div class="page-shell">
-        <div class="mb-10" data-reveal>
-          <div class="tmpl-section-title-wrap">
-            <span class="tmpl-badge-dot"></span>
-            <h2 class="font-bold text-white">{home.contact.sectionTitle}</h2>
-          </div>
+        <div class="section-head" data-reveal>
+          <span class="folio"><span class="folio-num">04</span> &mdash; {home.contact.sectionTitle}</span>
+          <span class="caption hidden sm:inline">{i.cta.eyebrow}</span>
         </div>
 
-        <div class="grid gap-8 lg:grid-cols-2 lg:gap-12">
+        <div class="mt-14 grid gap-10 lg:grid-cols-2 lg:gap-16">
           <!-- Left: CTA -->
-          <div data-reveal>
-            <p class="eyebrow">{i.cta.eyebrow}</p>
-            <h3 class="display-monument mt-4 text-4xl text-white sm:text-5xl md:text-6xl">
+          <div>
+            <h3 class="display text-[length:var(--step-title)] text-white" data-split>
               {i.cta.title}
             </h3>
-            <p class="mt-5 max-w-md text-base leading-7 text-white/62">
+            <p class="measure mt-7 text-[length:var(--step-body)] leading-8 text-white/62" data-reveal>
               {i.cta.body}
             </p>
             <a
               href={`mailto:${siteConfig.email}`}
-              class="premium-button mt-8 inline-flex items-center gap-2 rounded-full px-8 py-5 text-base uppercase tracking-[0.22em] text-white transition-transform hover:-translate-y-0.5"
+              class="premium-button mt-8 inline-flex items-center gap-2 rounded-full px-8 py-5 text-base uppercase tracking-normal text-white transition-transform hover:-translate-y-0.5"
             >
               {i.cta.button}
             </a>

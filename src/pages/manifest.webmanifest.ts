@@ -11,8 +11,8 @@ export function GET() {
       theme_color: "#0b0a0f",
       icons: [
         {
-          src: "/opengraph-image.png",
-          sizes: "1200x630",
+          src: "/app-icon.png",
+          sizes: "512x512",
           type: "image/png",
         },
       ],

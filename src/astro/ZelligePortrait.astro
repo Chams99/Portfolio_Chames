@@ -1,0 +1,74 @@
+---
+// Portrait clipped into the eight-pointed khatim — the way Islamic art sets a
+// medallion, not a square headshot. Concentric gold outlines echo real zellige.
+
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+}
+
+const { src, alt, class: className = "" } = Astro.props;
+const uid = `zp-${crypto.randomUUID().slice(0, 8)}`;
+
+// 16-vertex star: tips at the outer radius, valleys at inner (√2−1 relation
+// of two crossed squares → 0.7654), first point straight up.
+function star(cx: number, cy: number, outer: number) {
+  const inner = outer * 0.7654;
+  return Array.from({ length: 16 }, (_, i) => {
+    const r = i % 2 === 0 ? outer : inner;
+    const a = (Math.PI / 8) * i - Math.PI / 2;
+    return `${(cx + r * Math.cos(a)).toFixed(2)},${(cy + r * Math.sin(a)).toFixed(2)}`;
+  }).join(" ");
+}
+
+const clipStar = star(100, 100, 100);
+const frameOuter = star(100, 100, 98);
+const frameInner = star(100, 100, 90);
+---
+
+<svg
+  viewBox="0 0 200 200"
+  class={className}
+  role="img"
+  aria-label={alt}
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <clipPath id={`${uid}-clip`}>
+      <polygon points={clipStar} />
+    </clipPath>
+    <radialGradient id={`${uid}-vg`} cx="50%" cy="38%" r="70%">
+      <stop offset="55%" stop-color="black" stop-opacity="0" />
+      <stop offset="100%" stop-color="#09080e" stop-opacity="0.55" />
+    </radialGradient>
+  </defs>
+
+  <image
+    href={src}
+    x="0"
+    y="0"
+    width="200"
+    height="200"
+    preserveAspectRatio="xMidYMin slice"
+    clip-path={`url(#${uid}-clip)`}
+  />
+  <polygon points={clipStar} fill={`url(#${uid}-vg)`} />
+
+  <polygon
+    points={frameOuter}
+    fill="none"
+    stroke="var(--primary)"
+    stroke-width="1.1"
+    stroke-linejoin="round"
+    opacity="0.9"
+  />
+  <polygon
+    points={frameInner}
+    fill="none"
+    stroke="var(--primary)"
+    stroke-width="0.5"
+    stroke-linejoin="round"
+    opacity="0.4"
+  />
+</svg>
