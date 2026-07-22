@@ -1,5 +1,4 @@
 ---
-import CountUp from "@/astro/CountUp.astro";
 import ExperienceStack from "@/astro/ExperienceStack.astro";
 import ZelligePattern from "@/astro/ZelligePattern.astro";
 import BaseLayout from "@/layouts/BaseLayout.astro";
@@ -278,26 +277,6 @@ const heroAlt = isFr
 
         <div data-reveal>
           <ExperienceStack items={i.experience} />
-        </div>
-
-        <!-- Figures set as type on a rule — no cards, no icon circles. -->
-        <div class="rule mt-20 grid grid-cols-3 gap-6 pt-8" data-reveal-stagger>
-          <div data-reveal>
-            <div class="display text-[length:var(--step-title)] leading-none text-white">
-              <CountUp target={6} suffix="" />
-            </div>
-            <span class="caption mt-4 block">{home.stats[0].label}</span>
-          </div>
-          <div data-reveal>
-            <div class="display text-[length:var(--step-title)] leading-none text-white">
-              <CountUp target={100} suffix="%" />
-            </div>
-            <span class="caption mt-4 block">{home.stats[1].label}</span>
-          </div>
-          <div data-reveal>
-            <div class="display text-[length:var(--step-title)] leading-none text-white">5.0</div>
-            <span class="caption mt-4 block">{home.stats[2].label}</span>
-          </div>
         </div>
       </div>
     </section>

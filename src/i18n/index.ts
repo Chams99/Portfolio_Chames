@@ -39,11 +39,6 @@ export const translations = {
         stackLabel: "Stack",
         emailLabel: "Email",
       },
-      stats: [
-        { label: "Jobs" },
-        { label: "Satisfaction" },
-        { label: "Rating" },
-      ],
       projects: {
         sectionTitle: "Projects",
         viewAll: "View all projects →",
@@ -273,11 +268,6 @@ export const translations = {
         stackLabel: "Stack",
         emailLabel: "Email",
       },
-      stats: [
-        { label: "Missions" },
-        { label: "Satisfaction" },
-        { label: "Note" },
-      ],
       projects: {
         sectionTitle: "Projets",
         viewAll: "Voir tous les projets →",
