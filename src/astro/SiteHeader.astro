@@ -37,9 +37,12 @@ function switchLocalePath() {
 <div class="sticky top-0 z-40 border-b border-white/8 bg-black/72 backdrop-blur-xl">
   <header class="page-shell">
     <nav class="flex items-center justify-between gap-4 py-5" aria-label="Main navigation">
-      <a href={localizedHref("/")} class="group">
-        <div class="eyebrow text-white/75 transition-colors group-hover:text-white">{siteConfig.name}</div>
-        <div class="text-sm text-white/62">{i.header.subtitle}</div>
+      <a href={localizedHref("/")} class="group flex items-center gap-3">
+        <span class="brand-mark" aria-hidden="true">DCE</span>
+        <span>
+          <span class="eyebrow block text-white/75 transition-colors group-hover:text-white">{siteConfig.name}</span>
+          <span class="block text-sm text-white/62">{i.header.subtitle}</span>
+        </span>
       </a>
 
       <div class="relative hidden items-center gap-5 md:flex" id="desktop-nav">
@@ -73,6 +76,8 @@ function switchLocalePath() {
           type="button"
           class="hamburger flex flex-col gap-[5px] p-2 text-white/62"
           aria-label="Toggle menu"
+          aria-controls="mobile-menu"
+          aria-expanded="false"
           id="mobile-menu-btn"
         >
           <span class="hamburger-bar"></span>
@@ -108,9 +113,18 @@ function switchLocalePath() {
     const menu = document.getElementById("mobile-menu");
     if (!btn || !menu) return;
 
+    function setOpen(open) {
+      btn.classList.toggle("active", open);
+      menu.classList.toggle("open", open);
+      btn.setAttribute("aria-expanded", String(open));
+    }
+
     btn.addEventListener("click", () => {
-      btn.classList.toggle("active");
-      menu.classList.toggle("open");
+      setOpen(!menu.classList.contains("open"));
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => setOpen(false));
     });
   }
 

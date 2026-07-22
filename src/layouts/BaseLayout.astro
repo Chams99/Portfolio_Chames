@@ -53,13 +53,14 @@ const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
     <meta name="twitter:image" content={getCanonicalUrl(siteConfig.ogImage)} />
     {robots ? <meta name="robots" content={robots} /> : null}
     <link rel="canonical" href={canonical} />
-    <link rel="icon" href="/opengraph-image.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/app-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="sitemap" href={getCanonicalUrl("/sitemap.xml")} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,400&family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,400;1,6..96,700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <script
@@ -99,6 +100,13 @@ const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
       })}
     />
     <ClientRouter />
+    <script is:inline>
+      // Hide split-target headlines before first paint so SplitText can stage them.
+      // Skipped when JS is off or motion is reduced, so text is never trapped hidden.
+      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        document.documentElement.classList.add("js-split");
+      }
+    </script>
     <noscript>
       <style>
         [data-simplebar] {
@@ -125,6 +133,7 @@ const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
     <script>
       import "simplebar";
       import "@/scripts/scroll-reveal";
+      import "@/scripts/type-reveal";
     </script>
   </body>
 </html>

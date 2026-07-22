@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="DCE">
+  <defs>
+    <radialGradient id="bg" cx="24%" cy="18%" r="82%">
+      <stop offset="0" stop-color="#2a2115" />
+      <stop offset="0.58" stop-color="#0c0a10" />
+      <stop offset="1" stop-color="#050407" />
+    </radialGradient>
+    <linearGradient id="gold" x1="12" y1="8" x2="54" y2="56">
+      <stop offset="0" stop-color="#f0d48a" />
+      <stop offset="0.48" stop-color="#c9a453" />
+      <stop offset="1" stop-color="#aa4838" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="18" fill="url(#bg)" />
+  <path d="M32 6.5 38 20l14.5-1.5L44 32l8.5 13.5L38 44l-6 13.5L26 44l-14.5 1.5L20 32l-8.5-13.5L26 20 32 6.5Z" fill="none" stroke="url(#gold)" stroke-width="1.4" opacity="0.42" />
+  <text x="32" y="38" text-anchor="middle" fill="#f7f0e0" font-family="Georgia, serif" font-size="18" font-weight="700" letter-spacing="1.2">DCE</text>
+</svg>

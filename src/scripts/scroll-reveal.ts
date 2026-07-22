@@ -2,6 +2,12 @@
 function initReveal() {
   const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
 
+  // Without an observer these elements would stay at opacity:0 forever.
+  if (!("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("revealed"));
+    return;
+  }
+
   // assign stagger indices
   document.querySelectorAll("[data-reveal-stagger]").forEach((parent) => {
     parent.querySelectorAll<HTMLElement>(":scope > [data-reveal]").forEach((child, i) => {

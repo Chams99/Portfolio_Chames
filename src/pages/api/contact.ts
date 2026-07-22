@@ -164,22 +164,18 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     }
 
     if (!TELEGRAM_BOT_TOKEN || !TELEGRAM_CHAT_ID) {
-      console.log("Telegram not configured, logging contact form submission:");
-      console.log("Name:", sanitizedName);
-      console.log("Email:", sanitizedEmail);
-      console.log("Subject:", sanitizedSubject);
-      console.log("Message:", sanitizedMessage);
+      console.error("Contact delivery is not configured: missing Telegram credentials.");
 
       return new Response(
         JSON.stringify({
-          success: true,
-          message: "Message received (Telegram not configured)",
+          success: false,
+          error: "Contact delivery is not configured yet. Please use the email link instead.",
         }),
-        { status: 200, headers: { "Content-Type": "application/json" } },
+        { status: 503, headers: { "Content-Type": "application/json" } },
       );
     }
 
-    const telegramMessage = `📧 New Portfolio Contact Form Submission:
+    const telegramMessage = `New Portfolio Contact Form Submission:
 
 Name: ${sanitizedName}
 Email: ${sanitizedEmail}

@@ -103,6 +103,10 @@ const socialIcons: Record<string, string> = {
           data-reveal
           data-success={i.contact.successMessage}
           data-error={i.contact.errorMessage}
+          data-required={i.contact.validationRequired}
+          data-invalid-email={i.contact.validationEmail}
+          data-unexpected={i.contact.unexpectedResponse}
+          data-network={i.contact.networkError}
           novalidate
         >
           <div class="grid gap-5 md:grid-cols-2">
@@ -225,12 +229,12 @@ const socialIcons: Record<string, string> = {
       const message = String(formData.get("message") ?? "").trim();
 
       if (!name || !email || !subject || !message) {
-        setStatus("error", "Please fill in all fields.");
+        setStatus("error", form.dataset.required ?? "Please fill in all fields.");
         return;
       }
 
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-        setStatus("error", "Please enter a valid email address.");
+        setStatus("error", form.dataset.invalidEmail ?? "Please enter a valid email address.");
         return;
       }
 
@@ -243,7 +247,10 @@ const socialIcons: Record<string, string> = {
           body: JSON.stringify({ name, email, subject, message }),
         });
 
-        const result = await response.json().catch(() => ({ success: false, error: "Unexpected response." }));
+        const result = await response.json().catch(() => ({
+          success: false,
+          error: form.dataset.unexpected ?? "Unexpected response.",
+        }));
 
         if (response.ok && result.success) {
           setStatus("success", form.dataset.success ?? "Message sent.");
@@ -252,7 +259,7 @@ const socialIcons: Record<string, string> = {
           setStatus("error", result.error ?? result.details?.join(" ") ?? form.dataset.error ?? "Something went wrong.");
         }
       } catch {
-        setStatus("error", form.dataset.error ?? "Network error. Please try again.");
+        setStatus("error", form.dataset.network ?? form.dataset.error ?? "Network error. Please try again.");
       } finally {
         setLoading(false);
       }
