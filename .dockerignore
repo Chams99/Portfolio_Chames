@@ -1,6 +1,11 @@
 .git
 .next
+dist
+.astro
 node_modules
 npm-debug.log
 README.md
 tsconfig.tsbuildinfo
+.env
+.env.*
+!.env.example

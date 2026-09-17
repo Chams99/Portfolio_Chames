@@ -21,7 +21,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/lumina-it/card.webp",
       "width": 820,
-      "height": 1723
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/lumina-it/hero.webp",
@@ -50,7 +50,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/ai-story-video/card.webp",
       "width": 820,
-      "height": 1044
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/ai-story-video/hero.webp",
@@ -79,7 +79,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/webgrade-analyzer/card.webp",
       "width": 820,
-      "height": 1714
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/webgrade-analyzer/hero.webp",
@@ -103,7 +103,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/modern-estate-vision/card.webp",
       "width": 820,
-      "height": 404
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/modern-estate-vision/hero.webp",
@@ -122,7 +122,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/cleanfile-agency/card.webp",
       "width": 820,
-      "height": 407
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/cleanfile-agency/hero.webp",
@@ -151,7 +151,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/photo-printing-order/card.webp",
       "width": 820,
-      "height": 407
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/photo-printing-order/hero.webp",
@@ -180,7 +180,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/dent-dental-clinic/card.webp",
       "width": 820,
-      "height": 400
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/dent-dental-clinic/hero.webp",
@@ -199,7 +199,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/ecommerce-platform/card.webp",
       "width": 820,
-      "height": 412
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/ecommerce-platform/hero.webp",
@@ -218,7 +218,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/fitlite-ai-fitness/card.webp",
       "width": 820,
-      "height": 402
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/fitlite-ai-fitness/hero.webp",
@@ -237,7 +237,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/ftball-ecommerce/card.webp",
       "width": 820,
-      "height": 641
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/ftball-ecommerce/hero.webp",
@@ -256,7 +256,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/la-cuisine-restaurant/card.webp",
       "width": 820,
-      "height": 574
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/la-cuisine-restaurant/hero.webp",
@@ -275,7 +275,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/lolchat-gaming/card.webp",
       "width": 820,
-      "height": 461
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/lolchat-gaming/hero.webp",
@@ -294,7 +294,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/property-investment/card.webp",
       "width": 820,
-      "height": 404
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/property-investment/hero.webp",
@@ -313,7 +313,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/speed-typer-game/card.webp",
       "width": 820,
-      "height": 406
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/speed-typer-game/hero.webp",
@@ -332,7 +332,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/sspace-star-map/card.webp",
       "width": 820,
-      "height": 408
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/sspace-star-map/hero.webp",
@@ -351,7 +351,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/unit-converter/card.webp",
       "width": 820,
-      "height": 569
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/unit-converter/hero.webp",
@@ -370,7 +370,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/wallpaper-generator/card.webp",
       "width": 820,
-      "height": 413
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/wallpaper-generator/hero.webp",
@@ -389,7 +389,7 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "card": {
       "src": "/generated-images/epic-chicken-adventure/card.webp",
       "width": 820,
-      "height": 408
+      "height": 512
     },
     "hero": {
       "src": "/generated-images/epic-chicken-adventure/hero.webp",

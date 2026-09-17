@@ -1,5 +1,5 @@
 // ──────────────────────────────────────────────────────────
-// i18n/index.ts — Full EN/FR translation dictionary
+// i18n/index.ts · Full EN/FR translation dictionary
 // ──────────────────────────────────────────────────────────
 // Rules:
 //   ✅ Translate all UI strings, labels, descriptions, body copy
@@ -9,27 +9,27 @@
 export const translations = {
   en: {
     // ── Nav & Header ──
-    nav: { home: "Home", stack: "Services", projects: "Projects", experiences: "Experiences", contact: "Contact" },
-    header: { subtitle: "Full-Stack Web & Mobile Developer" },
+    nav: { home: "Home", stack: "Skills", projects: "Projects", experiences: "Experiences", contact: "Contact" },
+    header: { subtitle: "Full-Stack Developer & Software Engineer", menuLabel: "Toggle navigation" },
 
     // ── Home ──
     home: {
       hero: {
-        eyebrow: "Enchanted",
-        nameLine1: "Chames Eddine",
-        nameLine2: "Dhibi",
-        subtitle: "Full-stack web & mobile developer",
-        body: "I'm a full-stack web & mobile developer who turns ideas into shipped products. 15+ projects built, 5-star client reviews, and a track record of reliable delivery.",
-        location: "Based in Tunisia",
-        ctaPrimary: "View work",
-        ctaSecondary: "Get in touch",
+        eyebrow: "Full-stack developer based in Gafsa",
+        nameLine1: "Web, mobile,",
+        nameLine2: "built to ship.",
+        subtitle: "Full-Stack Developer & Software Engineer",
+        body: "Computer Science graduate specialized in Software Engineering. I build software products, AI applications, and data-driven systems from interface to backend.",
+        location: "Gafsa, Tunisia",
+        ctaPrimary: "View selected work",
+        ctaSecondary: "Start a project",
       },
       story: {
         sectionTitle: "My Story",
         heading: "A bit about Chames Eddine",
         paragraphs: [
-          "I'm a full-stack web and mobile developer from Gafsa, Tunisia, building products with Next.js, Flutter, Node.js, and AI. I care about clean architecture, reliable execution, and outcomes that feel intentional from the first interaction.",
-          "From product launches and web platforms to mobile apps and backend systems, I bring the whole stack together — so the final result is never just designed, but fully built and ready to ship.",
+          "I'm a Computer Science graduate specialized in Software Engineering, with academic and practical experience in software development, artificial intelligence applications, and database systems.",
+          "I’m interested in advanced computer science topics, including artificial intelligence, software systems, and data-driven applications, and I enjoy turning them into dependable products.",
         ],
       },
       profile: {
@@ -40,43 +40,27 @@ export const translations = {
         emailLabel: "Email",
       },
       projects: {
-        sectionTitle: "Projects",
+        sectionTitle: "My projects",
+        intro: "Six products I designed and built from interface to delivery.",
+        selectedLabel: "6 selected projects",
+        featuredLabel: "Featured build",
         viewAll: "View all projects →",
-        openProject: "Open project →",
-        archiveLabel: "Full archive",
+        openProject: "Visit project →",
+        archiveLabel: "More work",
       },
       stack: {
-        sectionTitle: "Services",
-        items: [
-          {
-            name: "Web Applications",
-            icon: "Next.js",
-            category: "Full-Stack",
-            desc: "Dashboards, SaaS platforms, and marketing sites — designed, built, and deployed end to end.",
-            related: ["Next.js", "React", "TypeScript"],
-          },
-          {
-            name: "Mobile Apps",
-            icon: "Flutter",
-            category: "iOS & Android",
-            desc: "One codebase, both stores. Native-feeling apps without paying to build the same thing twice.",
-            related: ["Flutter", "Dart", "Firebase"],
-          },
-          {
-            name: "APIs & Backends",
-            icon: "Node.js",
-            category: "Server-Side",
-            desc: "The part users never see: auth, data, integrations, and endpoints that stay up under load.",
-            related: ["Node.js", "Elysia", "Supabase"],
-          },
-          {
-            name: "AI Products",
-            icon: "AI",
-            category: "Integration",
-            desc: "Chat, search, and automation wired into your product with real models — not a demo.",
-            related: ["LLM APIs", "RAG", "Automation"],
-          },
-        ],
+        sectionTitle: "My skills",
+        titleLine1: "My",
+        titleLine2: "Skills",
+        intro: "The tools I use to design, build, and ship reliable software.",
+        categoryLabels: {
+          languages: "Programming Languages",
+          frontend: "Frontend Technologies",
+          backend: "Backend Technologies",
+          databases: "Databases",
+          tools: "Dev Tools & Platforms",
+          hardware: "Hardware & IoT",
+        },
       },
       faq: {
         sectionTitle: "Common questions",
@@ -104,6 +88,11 @@ export const translations = {
         ],
       },
       contact: {
+        marker: "05",
+        titleLine1: "Get in",
+        titleLine2: "Touch",
+        body: "Ready to get started? Reach out through any of these channels.",
+        profileAction: "View profile",
         sectionTitle: "Say Hi",
         servicesTitle: "Services",
         socialTitle: "Stay connected",
@@ -112,15 +101,17 @@ export const translations = {
         aboutTitle: "About",
         aboutBody: "Full-stack developer from Gafsa, Tunisia. Feel free to get in touch.",
         emailLabel: "Email",
+        phoneLabel: "Phone",
         githubLabel: "GitHub",
+        linkedinLabel: "LinkedIn",
         upworkLabel: "Upwork",
       },
     },
 
     // ── Home: Capabilities ──
     capabilities: {
-      eyebrow: "Capabilities",
-      title: "More than front-end only.",
+      eyebrow: "Skills",
+      title: "My skills.",
       items: [
         { title: "Product launches", body: "Launch-ready pages and products built to explain value fast." },
         { title: "Web platforms", body: "Web apps and sites built to be fast, clear, and dependable." },
@@ -139,23 +130,33 @@ export const translations = {
 
     // ── Experiences ──
     experiences: {
-      eyebrow: "Experiences",
-      h1Start: "Path &",
-      h1Outline: "experience",
-      h1End: "building products.",
-      body: "Background across computer science, freelance work, certifications, and production internships.",
+      eyebrow: "Experience & education",
+      h1Start: "Experience &",
+      h1Outline: "education",
+      h1End: "behind the work.",
+      body: "A record of the work, education, and credentials behind the products.",
+      experienceLabel: "Experience",
+      educationLabel: "Education",
+      credentialsTitle: "A little more about me",
+      credentialsBody: "The certifications, languages, interests, and working habits behind the work.",
+      workItems: [
+        { period: "Mar 2026 - May 2026", title: "Final Year Project Intern (PFE) · Software Engineering", place: "Compagnie des Phosphates de Gafsa (CPG)", details: "Completed my final year project internship and developed a software solution as part of my graduation project." },
+        { period: "Jul 2025 - Present", title: "Full-Stack Developer (Freelance)", place: "Upwork", details: "Worked as a freelance full-stack developer for international clients, implementing frontend and backend solutions, APIs, and database integrations." },
+        { period: "Jun 2025 - Aug 2025", title: "Software Development & Cybersecurity Intern", place: "Compagnie des Phosphates de Gafsa (CPG)", details: "Developed software solutions under the supervision of a Cybersecurity Engineer and gained practical exposure to secure software development practices." },
+      ],
+      educationItems: [
+        { period: "Sep 2023 - Jun 2026", title: "Licence in Computer Science · Software Engineering", place: "Faculté des Sciences de Gafsa, Tunisia", details: "Bachelor's degree focused on software development, databases, artificial intelligence, and web technologies. Final grade: 14/20." },
+        { period: "September 2022 - June 2023", title: "Baccalaureate in Mathematics", place: "Houcine Bouzaiene High School of Gafsa (L.H.B.G)", details: "Completed in 2023." },
+      ],
+      credentials: [
+        { label: "IELTS Academic", value: "Band score 7.0 · September 2026" },
+        { label: "TOEFL iBT", value: "84/120 · 2025" },
+        { label: "Full Python Course", value: "GoMyCode · 2022" },
+        { label: "Achievement", value: "Upwork Rising Talent · 100% Job Success Score · 2026", badge: "Rising Talent", href: "https://www.upwork.com/freelancers/~01ec2dc27e0c617399" },
+        { label: "Languages", value: "Arabic · English · French · German" },
+        { label: "Activity", value: "Member · Bionic Brains Robotics Club · 2025-2026" },
+      ],
     },
-
-    // ── Experience timeline ──
-    // Titles and places are NOT translated (proper nouns / achievements)
-    experience: [
-      { period: "2022", title: "Full Stack Python Developer", place: "Go My Code", details: "Built full-stack apps, backend systems, and APIs in a practical training environment." },
-      { period: "2023", title: "Baccalaureate in Mathematics", place: "Tunisia", details: "High-school diploma focused on mathematics." },
-      { period: "2023 - June 2026", title: "Bachelor of Computer Science", place: "Universite de Gafsa", details: "Computer science studies focused on web, mobile, backend, and AI foundations." },
-      { period: "Feb 2025", title: "TOEFL iBT 84/120", place: "ETS", details: "English proficiency certification." },
-      { period: "2025 - May 2026", title: "Web Development Intern", place: "CPG (Compagnie des Phosphates de Gafsa)", details: "Built internal web tools and gained hands-on production experience." },
-      { period: "2025 - Present", title: "Freelance Full-Stack Developer", place: "Independent", details: "Built web and mobile projects across Next.js, Flutter, Node.js, Express, Elysia, and Supabase." },
-    ],
 
     // ── Contact ──
     contact: {
@@ -182,6 +183,12 @@ export const translations = {
       replyHint: "Usually replies within 24 hours.",
       validationRequired: "Please fill in all fields.",
       validationEmail: "Please enter a valid email address.",
+      validationName: "Please enter your name.",
+      validationSubject: "Please enter a subject.",
+      validationMessage: "Please add a little more detail.",
+      rateLimitError: "Too many messages. Please try again later or use the email link.",
+      unavailableError: "The form is temporarily unavailable. Please use the email link instead.",
+      timeoutError: "The request took too long. Please try again.",
       unexpectedResponse: "Unexpected response.",
       networkError: "Network error. Please try again.",
     },
@@ -197,10 +204,25 @@ export const translations = {
 
     // ── Work Archive ──
     work: {
-      eyebrow: "Archive",
-      h1Start: "Selected work with a",
-      h1Outline: "sharper presence",
-      body: "Websites, tools, and apps built for clarity, presence, and real use.",
+      eyebrow: "Work",
+      h1Start: "Selected",
+      h1Outline: "work",
+      body: "Products, websites, and tools built from Gafsa.",
+      featuredEyebrow: "Selected projects",
+      featuredTitle: "A closer look.",
+      featuredBody: "Three projects, end to end.",
+      archiveEyebrow: "More projects",
+      archiveTitle: "The directory",
+      archiveBody: "More products, tools, and experiments.",
+      backToPortfolio: "Back to portfolio",
+      groups: {
+        products: "Products & platforms",
+        commerce: "Commerce & service",
+        experiments: "Experiments & interfaces",
+      },
+      projectsLabel: "projects",
+      rolesLabel: "Contribution",
+      openProject: "Open project",
     },
 
     // ── Case Study ──
@@ -220,11 +242,11 @@ export const translations = {
 
     // ── Footer ──
     footer: {
-      closingNote: "Closing note",
-      closingTitle: "Built for products that need clean code and clear UX.",
-      closingBody: "Full-stack work across web, mobile, backend, and product sites.",
-      navigate: "Navigate",
-      connect: "Connect",
+      closingNote: "CD / Gafsa, TN",
+      closingTitle: "From first interface to final deploy.",
+      closingBody: "Software products, AI applications, and data-driven systems built with care from Gafsa, Tunisia.",
+      contactCta: "Start a conversation",
+      backToTop: "Back to top",
       copyright: "Copyright",
     },
 
@@ -238,27 +260,27 @@ export const translations = {
 
   fr: {
     // ── Nav & Header ──
-    nav: { home: "Accueil", stack: "Services", projects: "Projets", experiences: "Expériences", contact: "Contact" },
-    header: { subtitle: "Développeur Full-Stack Web & Mobile" },
+    nav: { home: "Accueil", stack: "Compétences", projects: "Projets", experiences: "Expériences", contact: "Contact" },
+    header: { subtitle: "Développeur full-stack & ingénieur logiciel", menuLabel: "Ouvrir la navigation" },
 
     // ── Home ──
     home: {
       hero: {
-        eyebrow: "Enchanted",
-        nameLine1: "Chames Eddine",
-        nameLine2: "Dhibi",
-        subtitle: "Développeur full-stack web & mobile",
-        body: "Je suis un développeur full-stack web & mobile qui transforme les idées en produits livrés. 15+ projets réalisés, avis clients 5 étoiles et une livraison fiable.",
-        location: "Basé en Tunisie",
-        ctaPrimary: "Voir les projets",
-        ctaSecondary: "Me contacter",
+        eyebrow: "Développeur full-stack basé à Gafsa",
+        nameLine1: "Web, mobile,",
+        nameLine2: "prêts à livrer.",
+        subtitle: "Développeur full-stack & ingénieur logiciel",
+        body: "Diplômé en informatique, spécialisé en génie logiciel. Je développe des produits logiciels, des applications d'IA et des systèmes orientés données, de l'interface au backend.",
+        location: "Gafsa, Tunisie",
+        ctaPrimary: "Voir les projets sélectionnés",
+        ctaSecondary: "Démarrer un projet",
       },
       story: {
         sectionTitle: "Mon Histoire",
         heading: "Un peu sur Chames Eddine",
         paragraphs: [
-          "Je suis développeur full-stack web et mobile de Gafsa, Tunisie. Je crée des produits avec Next.js, Flutter, Node.js et l'IA. Je m'attache à une architecture propre, une exécution fiable et des résultats qui semblent intentionnels dès la première interaction.",
-          "Du lancement de produits et plateformes web aux applications mobiles et systèmes backend, je rassemble toute la stack — pour que le résultat final ne soit pas seulement conçu, mais entièrement construit et prêt à livrer.",
+          "Je suis diplômé en informatique, spécialisé en génie logiciel, avec une expérience académique et pratique en développement logiciel, applications d'intelligence artificielle et systèmes de bases de données.",
+          "Je m'intéresse aux sujets avancés de l'informatique, notamment l'intelligence artificielle, les systèmes logiciels et les applications orientées données, avec l'objectif d'en faire des produits fiables.",
         ],
       },
       profile: {
@@ -269,43 +291,27 @@ export const translations = {
         emailLabel: "Email",
       },
       projects: {
-        sectionTitle: "Projets",
+        sectionTitle: "Mes projets",
+        intro: "Six produits que j'ai conçus et développés, de l'interface à la livraison.",
+        selectedLabel: "6 projets sélectionnés",
+        featuredLabel: "Projet phare",
         viewAll: "Voir tous les projets →",
-        openProject: "Ouvrir le projet →",
-        archiveLabel: "Archive complète",
+        openProject: "Visiter le projet →",
+        archiveLabel: "Autres projets",
       },
       stack: {
-        sectionTitle: "Services",
-        items: [
-          {
-            name: "Applications Web",
-            icon: "Next.js",
-            category: "Full-Stack",
-            desc: "Dashboards, plateformes SaaS et sites vitrines — conçus, développés et déployés de bout en bout.",
-            related: ["Next.js", "React", "TypeScript"],
-          },
-          {
-            name: "Applications Mobiles",
-            icon: "Flutter",
-            category: "iOS & Android",
-            desc: "Une seule base de code, les deux stores. Des applications au rendu natif sans payer deux fois.",
-            related: ["Flutter", "Dart", "Firebase"],
-          },
-          {
-            name: "APIs & Backends",
-            icon: "Node.js",
-            category: "Côté Serveur",
-            desc: "La partie invisible : authentification, données, intégrations et endpoints qui tiennent la charge.",
-            related: ["Node.js", "Elysia", "Supabase"],
-          },
-          {
-            name: "Produits IA",
-            icon: "AI",
-            category: "Intégration",
-            desc: "Chat, recherche et automatisation intégrés à votre produit avec de vrais modèles — pas une démo.",
-            related: ["APIs LLM", "RAG", "Automatisation"],
-          },
-        ],
+        sectionTitle: "Mes compétences",
+        titleLine1: "Mes",
+        titleLine2: "compétences",
+        intro: "Les outils que j'utilise pour concevoir, développer et livrer des logiciels fiables.",
+        categoryLabels: {
+          languages: "Langages de programmation",
+          frontend: "Technologies frontend",
+          backend: "Technologies backend",
+          databases: "Bases de données",
+          tools: "Outils & plateformes",
+          hardware: "Matériel & IoT",
+        },
       },
       faq: {
         sectionTitle: "Questions fréquentes",
@@ -333,6 +339,11 @@ export const translations = {
         ],
       },
       contact: {
+        marker: "05",
+        titleLine1: "Me",
+        titleLine2: "contacter",
+        body: "Prêt à commencer ? Écrivez-moi par l’un de ces canaux.",
+        profileAction: "Voir le profil",
         sectionTitle: "Dites Bonjour",
         servicesTitle: "Services",
         socialTitle: "Rester connecté",
@@ -341,7 +352,9 @@ export const translations = {
         aboutTitle: "À propos",
         aboutBody: "Développeur full-stack de Gafsa, Tunisie. N'hésitez pas à me contacter.",
         emailLabel: "Email",
+        phoneLabel: "Téléphone",
         githubLabel: "GitHub",
+        linkedinLabel: "LinkedIn",
         upworkLabel: "Upwork",
       },
     },
@@ -349,7 +362,7 @@ export const translations = {
     // ── Home: Capabilities ──
     capabilities: {
       eyebrow: "Compétences",
-      title: "Bien plus que du front-end.",
+      title: "Mes compétences.",
       items: [
         { title: "Lancement de produits", body: "Pages et produits prêts au lancement, conçus pour expliquer la valeur rapidement." },
         { title: "Plateformes web", body: "Apps et sites web conçus pour être rapides, clairs et fiables." },
@@ -368,23 +381,33 @@ export const translations = {
 
     // ── Experiences ──
     experiences: {
-      eyebrow: "Expériences",
-      h1Start: "Parcours et",
-      h1Outline: "expérience",
-      h1End: "de construction de produits.",
-      body: "Formation en informatique, travail freelance, certifications et stages en production.",
+      eyebrow: "Expérience & formation",
+      h1Start: "Expérience &",
+      h1Outline: "formation",
+      h1End: "derrière le travail.",
+      body: "Un aperçu du travail, de la formation et des qualifications qui soutiennent les produits livrés.",
+      experienceLabel: "Expérience",
+      educationLabel: "Formation",
+      credentialsTitle: "Un peu plus sur moi",
+      credentialsBody: "Les certifications, les langues, les intérêts et les habitudes de travail derrière mes projets.",
+      workItems: [
+        { period: "mars 2026 - mai 2026", title: "Stagiaire PFE · Génie logiciel", place: "Compagnie des Phosphates de Gafsa (CPG)", details: "Réalisation de mon stage de projet de fin d'études et développement d'une solution logicielle dans le cadre du projet de diplôme." },
+        { period: "juil. 2025 - présent", title: "Développeur full-stack (freelance)", place: "Upwork", details: "Développement full-stack freelance pour des clients internationaux, avec implémentation de solutions frontend et backend, d'APIs et d'intégrations de bases de données." },
+        { period: "juin 2025 - août 2025", title: "Stagiaire en développement logiciel & cybersécurité", place: "Compagnie des Phosphates de Gafsa (CPG)", details: "Développement de solutions logicielles sous la supervision d'un ingénieur cybersécurité et découverte pratique du développement logiciel sécurisé." },
+      ],
+      educationItems: [
+        { period: "sept. 2023 - juin 2026", title: "Licence en informatique · Génie logiciel", place: "Faculté des Sciences de Gafsa, Tunisie", details: "Formation axée sur le développement logiciel, les bases de données, l'intelligence artificielle et les technologies web. Note finale : 14/20." },
+        { period: "septembre 2022 - juin 2023", title: "Baccalauréat en mathématiques", place: "Lycée Houcine Bouzaiene de Gafsa (L.H.B.G)", details: "Diplôme obtenu en 2023." },
+      ],
+      credentials: [
+        { label: "IELTS Academic", value: "Score 7,0 · septembre 2026" },
+        { label: "TOEFL iBT", value: "84/120 · 2025" },
+        { label: "Full Python Course", value: "GoMyCode · 2022" },
+        { label: "Réussite", value: "Upwork Rising Talent · Job Success Score de 100 % · 2026", badge: "Rising Talent", href: "https://www.upwork.com/freelancers/~01ec2dc27e0c617399" },
+        { label: "Langues", value: "Arabe · Anglais · Français · Allemand" },
+        { label: "Activité", value: "Membre · Bionic Brains Robotics Club · 2025-2026" },
+      ],
     },
-
-    // ── Experience timeline ──
-    // Titles and places are NOT translated (proper nouns / achievements)
-    experience: [
-      { period: "2022", title: "Full Stack Python Developer", place: "Go My Code", details: "Construction d'applications full-stack, systèmes backend et APIs dans un environnement de formation pratique." },
-      { period: "2023", title: "Baccalauréat Mathématiques", place: "Tunisie", details: "Diplôme de fin d'études secondaires axé sur les mathématiques." },
-      { period: "2023 - juin 2026", title: "Bachelor of Computer Science", place: "Universite de Gafsa", details: "Études en informatique axées sur le web, le mobile, le backend et les fondamentaux de l'IA." },
-      { period: "fév 2025", title: "TOEFL iBT 84/120", place: "ETS", details: "Certification de compétence en anglais." },
-      { period: "2025 - mai 2026", title: "Web Development Intern", place: "CPG (Compagnie des Phosphates de Gafsa)", details: "Construction d'outils web internes et acquisition d'expérience pratique en production." },
-      { period: "2025 - Présent", title: "Freelance Full-Stack Developer", place: "Indépendant", details: "Construction de projets web et mobile avec Next.js, Flutter, Node.js, Express, Elysia et Supabase." },
-    ],
 
     // ── Contact ──
     contact: {
@@ -411,6 +434,12 @@ export const translations = {
       replyHint: "Réponse généralement sous 24 heures.",
       validationRequired: "Veuillez remplir tous les champs.",
       validationEmail: "Veuillez saisir une adresse email valide.",
+      validationName: "Veuillez saisir votre nom.",
+      validationSubject: "Veuillez saisir un sujet.",
+      validationMessage: "Veuillez ajouter un peu plus de détails.",
+      rateLimitError: "Trop de messages. Réessayez plus tard ou utilisez le lien email.",
+      unavailableError: "Le formulaire est temporairement indisponible. Utilisez plutôt le lien email.",
+      timeoutError: "La requête a pris trop de temps. Veuillez réessayer.",
       unexpectedResponse: "Réponse inattendue.",
       networkError: "Erreur réseau. Veuillez réessayer.",
     },
@@ -426,10 +455,25 @@ export const translations = {
 
     // ── Work Archive ──
     work: {
-      eyebrow: "Archives",
-      h1Start: "Travaux sélectionnés avec une",
-      h1Outline: "présence affirmée",
-      body: "Sites web, outils et applications construits pour la clarté, la présence et l'usage réel.",
+      eyebrow: "Projets",
+      h1Start: "Projets",
+      h1Outline: "sélectionnés",
+      body: "Produits, sites et outils développés depuis Gafsa.",
+      featuredEyebrow: "Projets sélectionnés",
+      featuredTitle: "Un regard plus proche.",
+      featuredBody: "Trois projets, de bout en bout.",
+      archiveEyebrow: "Autres projets",
+      archiveTitle: "Le répertoire",
+      archiveBody: "D'autres produits, outils et expériences.",
+      backToPortfolio: "Retour au portfolio",
+      groups: {
+        products: "Produits & plateformes",
+        commerce: "Commerce & services",
+        experiments: "Expériences & interfaces",
+      },
+      projectsLabel: "projets",
+      rolesLabel: "Contribution",
+      openProject: "Ouvrir le projet",
     },
 
     // ── Case Study ──
@@ -449,11 +493,11 @@ export const translations = {
 
     // ── Footer ──
     footer: {
-      closingNote: "Note de clôture",
-      closingTitle: "Construit pour des produits qui ont besoin de code propre et d'UX claire.",
-      closingBody: "Travail full-stack sur le web, le mobile, le backend et les sites produit.",
-      navigate: "Navigation",
-      connect: "Connexion",
+      closingNote: "CD / Gafsa, TN",
+      closingTitle: "De la première interface à la mise en ligne.",
+      closingBody: "Produits logiciels, applications d'IA et systèmes orientés données, développés avec soin depuis Gafsa, en Tunisie.",
+      contactCta: "Démarrer une conversation",
+      backToTop: "Retour en haut",
       copyright: "Droits d'auteur",
     },
 
@@ -482,4 +526,71 @@ export function getLocaleFromUrl(url: URL): Locale {
 export function localizedPath(path: string, locale: Locale): string {
   if (locale === "en") return path;
   return `/fr${path === "/" ? "" : path}`;
+}
+
+type ProjectCopyOverrides = {
+  category?: string;
+  summary?: string;
+  roles?: string[];
+  contribution?: string;
+};
+
+const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
+  "lumina-it": {
+    category: "Cybersécurité",
+    summary: "Un site de cybersécurité conçu pour inspirer confiance dès le premier regard.",
+    roles: ["Direction web", "Direction de marque", "Développement front-end"],
+    contribution: "J'ai défini la direction de marque et développé le front-end Next.js responsive autour d'une hiérarchie plus nette.",
+  },
+  "ai-story-video": {
+    category: "Produit IA",
+    summary: "Un produit de narration assistée par IA pensé pour rester visuel et simple à explorer.",
+    roles: ["Design produit", "Développement front-end", "Parcours IA"],
+    contribution: "J'ai transformé le workflow IA en expérience visuelle et développé l'interface pour les créateurs et les storytellers.",
+  },
+  "webgrade-analyzer": {
+    category: "Outil web",
+    summary: "Un outil d'audit qui rend les contrôles de performance et de SEO plus lisibles.",
+    roles: ["Stratégie produit", "UX design", "Développement JavaScript"],
+    contribution: "J'ai structuré le parcours autour des contrôles performance, SEO et sécurité, puis développé l'interface JavaScript.",
+  },
+  "modern-estate-vision": { category: "Immobilier", summary: "Une plateforme immobilière premium avec une présence pensée pour les investisseurs.", roles: ["Design web", "Développement front-end", "Structure de contenu"] },
+  "cleanfile-agency": { category: "Système d'agence", summary: "Une plateforme d'agence structurée pour gagner en crédibilité et préparer l'automatisation.", roles: ["Design dashboard", "Pensée système", "Développement front-end"] },
+  "photo-printing-order": { category: "E-commerce", summary: "Un parcours de commande photo avec davantage de contrôle lors de l'édition.", roles: ["UX design", "Interface interactive", "Développement React"] },
+  "dent-dental-clinic": { category: "Santé", summary: "Un site de cabinet dentaire conçu pour être calme, clair et rassurant.", roles: ["Design web", "Développement Next.js", "Présentation des services"] },
+  "ecommerce-platform": { category: "E-commerce", summary: "Une boutique en ligne moderne centrée sur la rapidité et la fluidité du parcours d'achat.", roles: ["Interface e-commerce", "Développement full-stack", "Parcours d'achat"] },
+  "fitlite-ai-fitness": { category: "Application fitness", summary: "Une landing page fitness assistée par IA, conçue pour transmettre de l'énergie et du mouvement.", roles: ["Design de landing page", "Motion design", "Développement front-end"] },
+  "ftball-ecommerce": { category: "Commerce sportif", summary: "Une boutique de football conçue pour faciliter la navigation et renforcer la marque.", roles: ["Design de boutique", "Interface commerce", "Développement front-end"] },
+  "la-cuisine-restaurant": { category: "Site de restaurant", summary: "Un site de restaurant au rythme élégant, organisé autour de la réservation.", roles: ["Design web", "UX one-page", "Finition interactive"] },
+  "lolchat-gaming": { category: "Application IA", summary: "Un chatbot IA basé sur des modèles de langage, avec une interface web et des APIs IA pour des conversations interactives.", roles: ["Développement full-stack", "Intégration d'APIs IA", "Interface web"] },
+  "property-investment": { category: "Plateforme d'investissement", summary: "Une landing page d'investissement conçue pour renforcer la confiance et les prises de contact.", roles: ["Design génération de leads", "Structure UI", "Parcours de conversion"] },
+  "speed-typer-game": { category: "Jeu", summary: "Un jeu de frappe avec feedback en direct et interface orientée performance.", roles: ["UI de jeu", "Logique interactive", "Feedback de performance"] },
+  "sspace-star-map": { category: "Outil interactif", summary: "Une application web d'astronomie intégrant Stellarium Web Engine pour visualiser les objets célestes et explorer les données spatiales.", roles: ["Développement full-stack", "Visualisation de données", "Interface interactive"] },
+  "unit-converter": { category: "Outil utilitaire", summary: "Un convertisseur d'unités en temps réel, simple et rapide à utiliser.", roles: ["UX utilitaire", "Design d'outil", "Développement JavaScript"] },
+  "wallpaper-generator": { category: "Outil créatif", summary: "Un générateur de fonds d'écran ludique centré sur l'expérimentation visuelle.", roles: ["Creative coding", "Interface interactive", "Expérimentation front-end"] },
+  "epic-chicken-adventure": { category: "Jeu", summary: "Une expérience de jeu navigateur allégée et remise en forme pour plus de finition.", roles: ["Présentation de jeu", "Développement Next.js", "UI responsive"] },
+};
+
+const englishProjectContributions: Record<string, string> = {
+  "lumina-it": "I shaped the brand direction and built the responsive Next.js front end around sharper hierarchy and contrast.",
+  "ai-story-video": "I framed the AI workflow as a visual product and built the front end for creators and storytellers.",
+  "webgrade-analyzer": "I structured the audit flow around performance, SEO, and security checks, then built the JavaScript UI.",
+};
+
+export function getProjectCopy(
+  locale: Locale,
+  project: { slug: string; title: string; category: string; summary: string; roles: string[] },
+) {
+  const overrides = locale === "fr" ? frenchProjectCopy[project.slug] : undefined;
+  const roles = overrides?.roles ?? project.roles;
+  return {
+    category: overrides?.category ?? project.category,
+    summary: overrides?.summary ?? project.summary,
+    roles,
+    contribution:
+      overrides?.contribution ??
+      englishProjectContributions[project.slug] ??
+      roles.slice(0, 2).join(" · "),
+    alt: locale === "fr" ? `Aperçu du projet ${project.title}` : `Preview of ${project.title}`,
+  };
 }

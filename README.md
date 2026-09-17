@@ -11,7 +11,7 @@ bun run dev
 
 ## Production
 
-This repo now includes the same VPS deployment pattern used in `portfolio v2`:
+VPS deployment uses:
 
 - `Dockerfile`
 - `docker-compose.yml`
@@ -20,18 +20,18 @@ This repo now includes the same VPS deployment pattern used in `portfolio v2`:
 Target host:
 
 ```bash
-https://v1.chames.dhibi.tn
+https://chames.tn
 ```
 
 Set your server `.env` like this:
 
 ```bash
-PUBLIC_SITE_URL=https://v1.chames.dhibi.tn
+PUBLIC_SITE_URL=https://chames.tn
 TELEGRAM_BOT_TOKEN=your_bot_token_here
 TELEGRAM_CHAT_ID=your_chat_id_here
 ```
 
-The contact form sends submissions to the configured Telegram chat. If the Telegram variables are not set, submissions are logged to the server console instead.
+The contact form sends submissions to the configured Telegram chat. If the Telegram variables are not set, the form returns a clear unavailable response and visitors can use the email fallback.
 
 Then deploy on the VPS with:
 

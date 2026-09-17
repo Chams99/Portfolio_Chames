@@ -1,6 +1,6 @@
 ---
-import HelloMarquee from "@/astro/HelloMarquee.astro";
-import { contactChannels, isExternalHref, siteConfig } from "@/data/site";
+import { contactChannels, siteConfig } from "@/data/site";
+import SectionMarker from "@/astro/SectionMarker.astro";
 import { t, getLocaleFromUrl, localizedPath } from "@/i18n/index";
 
 interface Props {
@@ -9,60 +9,47 @@ interface Props {
 
 const { locale = getLocaleFromUrl(Astro.url) } = Astro.props;
 const i = t(locale);
-const navLabels = [i.nav.home, i.nav.stack, i.nav.projects, i.nav.experiences, i.nav.contact];
-const scrollNavItems = [
-  { href: localizedPath("/", locale as any) + "#top", label: navLabels[0] },
-  { href: localizedPath("/", locale as any) + "#stack", label: navLabels[1] },
-  { href: localizedPath("/", locale as any) + "#projects", label: navLabels[2] },
-  { href: localizedPath("/", locale as any) + "#experiences", label: navLabels[3] },
-  { href: localizedPath("/", locale as any) + "#contact", label: navLabels[4] },
-];
+const emailChannel = contactChannels.find((item) => item.label === "Email");
 ---
 
-<footer class="section-line mt-24">
-  <HelloMarquee />
-  <div class="page-shell py-14">
-    <div class="grid gap-10 lg:grid-cols-[1.2fr_0.9fr_0.9fr]">
-      <div class="space-y-4">
-        <p class="eyebrow">{i.footer.closingNote}</p>
-        <h2 class="editorial-title max-w-xl text-4xl text-white md:text-6xl">
-          {i.footer.closingTitle}
-        </h2>
-        <p class="max-w-lg text-sm leading-6 text-white/62">
-          {i.footer.closingBody}
-        </p>
+<footer class="site-footer section-line">
+  <div class="page-shell footer-canvas">
+    <div class="footer-canvas-top">
+      <div class="footer-monogram" aria-label="Chames Dhibi">
+        <span class="footer-monogram-mark" aria-hidden="true">CD</span>
+        <span class="footer-monogram-meta">Chames Dhibi<br />{new Date().getFullYear()}</span>
       </div>
 
-      <div class="space-y-3">
-        <p class="eyebrow">{i.footer.navigate}</p>
-        <div class="flex flex-col gap-2">
-          {scrollNavItems.map((item) => (
-            <a href={item.href} class="link-underline w-fit text-sm text-white/62 hover:text-white">
-              {item.label}
-            </a>
-          ))}
-        </div>
+      <div class="footer-close-copy">
+        <SectionMarker icon="contact" label={i.footer.closingNote} />
+        <h2 class="footer-close-title">{i.footer.closingTitle}</h2>
+        <p class="footer-close-body">{i.footer.closingBody}</p>
       </div>
 
-      <div class="space-y-3">
-        <p class="eyebrow">{i.footer.connect}</p>
-        <div class="flex flex-col gap-2">
-          {contactChannels.map((item) => (
-            <a
-              href={item.href}
-              target={isExternalHref(item.href) ? "_blank" : undefined}
-              rel={isExternalHref(item.href) ? "noreferrer" : undefined}
-              class="link-underline w-fit text-sm text-white/62 hover:text-white"
-            >
-              {item.label}: {item.value}
-            </a>
-          ))}
-        </div>
+    {emailChannel ? (
+      <div class="footer-email-panel">
+        <p>{i.footer.contactCta}</p>
+        <a class="footer-email-link" href={emailChannel.href}>
+          <span>{emailChannel.value}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
       </div>
+    ) : null}
+
     </div>
 
-    <div class="mt-12 border-t border-white/8 pt-5 text-sm text-white/62">
-      {i.footer.copyright} {new Date().getFullYear()} {siteConfig.name}
+    <div class="footer-bottom">
+      <p class="footer-signature">CHAMES / {new Date().getFullYear()}</p>
+      <p>{i.footer.copyright} {new Date().getFullYear()} {siteConfig.name}</p>
+      <a
+        class="footer-back-to-top"
+        href={localizedPath("/", locale as any)}
+        data-back-to-top
+        aria-label={i.footer.backToTop}
+      >
+        <span>{i.footer.backToTop}</span>
+        <span aria-hidden="true">↑</span>
+      </a>
     </div>
   </div>
 </footer>

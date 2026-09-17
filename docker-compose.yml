@@ -1,5 +1,8 @@
 x-service-template: &service-template
-  build: .
+  build:
+    context: .
+    args:
+      PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-https://chames.tn}
   healthcheck:
     test: ["CMD", "curl", "-sf", "http://localhost/health"]
     interval: 3s
@@ -9,6 +12,9 @@ x-service-template: &service-template
   restart: unless-stopped
   environment:
     - PUBLIC_SITE_URL=${PUBLIC_SITE_URL:-https://chames.tn}
+    - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+    - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+    - CONTACT_RATE_LIMIT_FILE=${CONTACT_RATE_LIMIT_FILE:-/tmp/portfolio-contact-rate-limit.json}
   networks:
     - traefik
   deploy:

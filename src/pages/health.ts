@@ -1,13 +1,7 @@
-import type { APIRoute } from "astro";
+export const prerender = true;
 
-export const prerender = false;
-
-export const GET: APIRoute = () => {
+export function GET() {
   return new Response("ok", {
-    status: 200,
-    headers: {
-      "Content-Type": "text/plain",
-      "Cache-Control": "no-cache",
-    },
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
   });
-};
+}
