@@ -3763,6 +3763,19 @@ a {
     padding-inline: 1rem;
   }
 
+  .home-hero-inner {
+    justify-items: stretch;
+  }
+
+  .home-hero-copy {
+    width: 100%;
+  }
+
+  .home-portrait {
+    width: min(100%, 18rem);
+    justify-self: center;
+  }
+
   .site-header-nav {
     gap: 0.75rem;
     padding-block: 0.8rem;
