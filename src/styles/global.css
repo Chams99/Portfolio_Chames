@@ -2132,6 +2132,36 @@ a {
   line-height: 1.7;
 }
 
+.home-github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin-top: 1.25rem;
+  color: color-mix(in srgb, var(--foreground) 68%, transparent);
+  font-family: var(--font-label);
+  font-size: 0.72rem;
+  letter-spacing: 0.03em;
+  line-height: 1.4;
+  transition: color 180ms ease, transform 180ms ease;
+}
+
+.home-github-link:hover,
+.home-github-link:focus-visible {
+  color: var(--primary);
+  transform: translateX(2px);
+}
+
+.home-github-link-icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex: 0 0 1.15rem;
+}
+
+.home-github-link-arrow {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
 .home-hero-signature {
   margin: 2rem 0 0;
   color: color-mix(in srgb, var(--foreground) 42%, transparent);
