@@ -11,9 +11,9 @@ export function GET() {
       theme_color: "#0b0a0f",
       icons: [
         {
-          src: "/app-icon.png",
-          sizes: "512x512",
-          type: "image/png",
+          src: "/favicon.svg?v=cd",
+          sizes: "any",
+          type: "image/svg+xml",
         },
       ],
     }),

@@ -12,6 +12,7 @@ interface Props {
   canonical?: string;
   robots?: string;
   locale?: string;
+  showHeader?: boolean;
 }
 
 const {
@@ -20,6 +21,7 @@ const {
   canonical = getCanonicalUrl(Astro.url.pathname),
   robots,
   locale = getLocaleFromUrl(Astro.url),
+  showHeader = true,
 } = Astro.props;
 
 const pageTitle = title
@@ -29,6 +31,8 @@ const pageTitle = title
   : siteConfig.title;
 const htmlLang = locale === "fr" ? "fr" : "en";
 const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
+const englishPath = Astro.url.pathname.replace(/^\/fr/, "") || "/";
+const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
 ---
 
 <!doctype html>
@@ -53,14 +57,19 @@ const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
     <meta name="twitter:image" content={getCanonicalUrl(siteConfig.ogImage)} />
     {robots ? <meta name="robots" content={robots} /> : null}
     <link rel="canonical" href={canonical} />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="apple-touch-icon" href="/app-icon.png" />
+    <link rel="alternate" hreflang="en" href={getCanonicalUrl(englishPath)} />
+    <link rel="alternate" hreflang="fr" href={getCanonicalUrl(frenchPath)} />
+    <link rel="alternate" hreflang="x-default" href={getCanonicalUrl(englishPath)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=cd" />
+    <link rel="apple-touch-icon" href="/favicon.svg?v=cd" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="sitemap" href={getCanonicalUrl("/sitemap.xml")} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://elysiajs.com" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;0,6..96,800;1,6..96,400;1,6..96,700&family=DM+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <script
@@ -81,13 +90,15 @@ const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
             "@id": `${siteConfig.siteUrl}/#person`,
             name: siteConfig.name,
             alternateName: "Chames Eddine",
-            jobTitle: "Full-Stack Web & Mobile Developer",
+            jobTitle: "Software Engineer & Full-Stack Developer",
             description: siteConfig.description,
             email: `mailto:${siteConfig.email}`,
+            telephone: siteConfig.phone,
             url: siteConfig.siteUrl,
             sameAs: [
-              "https://github.com/Chams99",
-              "https://www.linkedin.com/in/dhibi-chames-eddine-827146344/",
+              "https://chames.tn",
+              "https://github.com/chams99",
+              "https://linkedin.com/in/chamesdh",
               "https://www.upwork.com/freelancers/~01ec2dc27e0c617399",
             ],
             address: {
@@ -100,20 +111,6 @@ const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
       })}
     />
     <ClientRouter />
-    <script is:inline>
-      // Hide split-target headlines before first paint so SplitText can stage them.
-      // Skipped when JS is off or motion is reduced, so text is never trapped hidden.
-      if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-        document.documentElement.classList.add("js-split");
-      }
-    </script>
-    <noscript>
-      <style>
-        [data-simplebar] {
-          overflow: auto;
-        }
-      </style>
-    </noscript>
   </head>
   <body>
     <a
@@ -123,7 +120,7 @@ const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
       Skip to content
     </a>
     <div class="min-h-screen">
-      <SiteHeader pathname={Astro.url.pathname.replace(/^\/fr/, '') || '/'} locale={locale} />
+      {showHeader ? <SiteHeader pathname={Astro.url.pathname.replace(/^\/fr/, '') || '/'} locale={locale} /> : null}
       <div id="main-content" tabindex="-1">
         <slot />
       </div>
@@ -131,7 +128,8 @@ const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
     </div>
 
     <script>
-      import "simplebar";
+      import "@/scripts/navigation";
+      import "@/scripts/contact-form";
       import "@/scripts/scroll-reveal";
       import "@/scripts/type-reveal";
     </script>

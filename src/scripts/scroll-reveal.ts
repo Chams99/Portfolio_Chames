@@ -1,37 +1,53 @@
-// Lightweight scroll reveal using IntersectionObserver
+let observer: IntersectionObserver | undefined;
+
+const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+function clearReveal() {
+  observer?.disconnect();
+  observer = undefined;
+  document.documentElement.classList.remove("reveal-ready");
+}
+
+function revealImmediately(elements: NodeListOf<HTMLElement>) {
+  elements.forEach((element) => element.classList.add("revealed"));
+}
+
 function initReveal() {
-  const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
+  clearReveal();
 
-  // Without an observer these elements would stay at opacity:0 forever.
-  if (!("IntersectionObserver" in window)) {
-    els.forEach((el) => el.classList.add("revealed"));
-    return;
-  }
+  const elements = document.querySelectorAll<HTMLElement>("[data-reveal]");
+  if (!elements.length) return;
 
-  // assign stagger indices
   document.querySelectorAll("[data-reveal-stagger]").forEach((parent) => {
-    parent.querySelectorAll<HTMLElement>(":scope > [data-reveal]").forEach((child, i) => {
-      child.style.setProperty("--reveal-i", String(i));
+    parent.querySelectorAll<HTMLElement>(":scope > [data-reveal]").forEach((child, index) => {
+      child.style.setProperty("--reveal-i", String(index));
     });
   });
 
-  const observer = new IntersectionObserver(
+  if (reducedMotion.matches || !("IntersectionObserver" in window)) {
+    revealImmediately(elements);
+    return;
+  }
+
+  // Only stage an optional reveal after this controller is ready. If the
+  // bundle fails or JavaScript is disabled, the default CSS remains visible.
+  document.documentElement.classList.add("reveal-ready");
+  observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("revealed");
-          observer.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("revealed");
+        observer?.unobserve(entry.target);
       });
     },
-    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    { threshold: 0.15, rootMargin: "0px 0px -40px 0px" },
   );
 
-  els.forEach((el) => observer.observe(el));
+  elements.forEach((element) => observer?.observe(element));
 }
 
-// Run on initial load
-initReveal();
+document.addEventListener("astro:before-swap", clearReveal);
+document.addEventListener("astro:page-load", initReveal);
+reducedMotion.addEventListener("change", initReveal);
 
-// Re-run after Astro view transitions
-document.addEventListener("astro:after-swap", initReveal);
+if (document.readyState !== "loading") initReveal();

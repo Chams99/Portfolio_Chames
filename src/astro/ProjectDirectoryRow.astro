@@ -1,0 +1,61 @@
+---
+import ResponsiveImage from "@/astro/ResponsiveImage.astro";
+import type { Project } from "@/data/site";
+import { getProjectImages } from "@/data/generatedImages";
+import { getProjectCopy, type Locale } from "@/i18n/index";
+
+interface Props {
+  project: Project;
+  locale: Locale;
+  index: number;
+  featured?: boolean;
+  openLabel: string;
+}
+
+const { project, locale, index, featured = false, openLabel } = Astro.props;
+const copy = getProjectCopy(locale, project);
+const media = getProjectImages(project.slug);
+const previewImage = media?.card ?? project.heroImage;
+const srcset = media ? `${media.card.src} ${media.card.width}w` : undefined;
+const projectHref = project.externalLink!;
+const isExternal = projectHref.startsWith("http");
+---
+
+<a
+  href={projectHref}
+  target={isExternal ? "_blank" : undefined}
+  rel={isExternal ? "noreferrer" : undefined}
+  class:list={["work-directory-row group", featured && "work-directory-row-featured"]}
+  data-reveal
+>
+  <span class="work-directory-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+
+  <div class="work-directory-preview">
+    <ResponsiveImage
+      src={previewImage}
+      alt={copy.alt}
+      class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+      loading={featured && index === 0 ? "eager" : "lazy"}
+      fetchpriority={featured && index === 0 ? "high" : "auto"}
+      sizes="(min-width: 900px) 22rem, 100vw"
+      srcset={srcset}
+    />
+  </div>
+
+  <div class="work-directory-content">
+    <div class="work-directory-meta">
+      <span>{copy.category}</span>
+      <span>{project.year}</span>
+    </div>
+    <h3>{project.title}</h3>
+    <p>{copy.summary}</p>
+    <div class="work-directory-tags" aria-label={locale === "fr" ? "Rôles du projet" : "Project roles"}>
+      {copy.roles.slice(0, 3).map((role) => <span>{role}</span>)}
+    </div>
+  </div>
+
+  <span class="work-directory-action">
+    <span>{openLabel}</span>
+    <span aria-hidden="true">↗</span>
+  </span>
+</a>

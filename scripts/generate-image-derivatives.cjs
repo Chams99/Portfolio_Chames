@@ -124,8 +124,37 @@ async function generateVariant(inputRelative, outputRelative, options) {
   const width = metadata.width || options.width;
   const targetWidth = Math.min(width, options.width);
 
+  try {
+    const [sourceStats, outputStats] = await Promise.all([
+      fs.promises.stat(inputPath),
+      fs.promises.stat(outputPath),
+    ]);
+    if (outputStats.mtimeMs >= sourceStats.mtimeMs) {
+      const existing = await sharp(outputPath).metadata();
+      const hasExpectedSize = existing.width === targetWidth && (!options.height || existing.height === options.height);
+      if (hasExpectedSize) {
+        return {
+          src: toPosix(`/generated-images/${outputRelative}`),
+          width: existing.width,
+          height: existing.height,
+        };
+      }
+    }
+  } catch {
+    // Missing or stale derivatives are generated below.
+  }
+
+  const resizeOptions = options.height
+    ? {
+        width: targetWidth,
+        height: options.height,
+        fit: options.fit || "cover",
+        position: options.position || "centre",
+      }
+    : { width: targetWidth, withoutEnlargement: true };
+
   await pipeline
-    .resize({ width: targetWidth, withoutEnlargement: true })
+    .resize(resizeOptions)
     .webp({ quality: options.quality, effort: 6 })
     .toFile(outputPath);
 
@@ -145,7 +174,13 @@ async function main() {
 
   for (const [slug, config] of Object.entries(projectSources)) {
     const slugDir = slug;
-    const card = await generateVariant(config.hero, `${slugDir}/card.webp`, { width: 820, quality: 68 });
+    const card = await generateVariant(config.hero, `${slugDir}/card.webp`, {
+      width: 820,
+      height: 512,
+      fit: "cover",
+      position: "top",
+      quality: 68,
+    });
     const hero = await generateVariant(config.hero, `${slugDir}/hero.webp`, { width: 1440, quality: 74 });
 
     const gallery = [];

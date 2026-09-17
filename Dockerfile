@@ -2,6 +2,9 @@ FROM oven/bun:1-debian AS builder
 
 WORKDIR /app
 
+ARG PUBLIC_SITE_URL=https://chames.tn
+ENV PUBLIC_SITE_URL=${PUBLIC_SITE_URL}
+
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
 

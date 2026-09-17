@@ -1,4 +1,4 @@
-const fallbackSiteUrl = "https://v1.chames.dhibi.tn";
+const fallbackSiteUrl = "https://chames.tn";
 
 export type Capability = {
   title: string;
@@ -62,13 +62,14 @@ export type Project = {
 };
 
 export const siteConfig = {
-  name: "Dhibi Chames Eddine",
-  shortName: "Chames Eddine",
-  title: "Full-Stack Web & Mobile Developer | Dhibi Chames Eddine",
+  name: "Chames Eddine Dhibi",
+  shortName: "Chames Dhibi",
+  title: "Software Engineer & Full-Stack Developer | Chames Eddine Dhibi",
   description:
-    "Chames Eddine Dhibi is a full-stack web and mobile developer building web apps, mobile apps, and AI products. Available for freelance and remote work.",
+    "Chames Eddine Dhibi is a Software Engineering graduate and full-stack developer building software products, AI applications, and data-driven systems.",
   location: "Gafsa, Tunisia",
   email: "dhibichams@gmail.com",
+  phone: "+216 51091800",
   siteUrl: import.meta.env.PUBLIC_SITE_URL ?? fallbackSiteUrl,
   ogImage: "/opengraph-image.png",
   locale: "en_US",
@@ -173,28 +174,34 @@ export const principles: Principle[] = [
 
 export const experience: ExperienceItem[] = [
   {
-    period: "2023 - 2026",
-    title: "Bachelor of Computer Science",
-    place: "Universite de Gafsa",
-    details: "Computer science studies focused on web, mobile, backend, and AI foundations.",
+    period: "Mar 2026 - May 2026",
+    title: "Final Year Project Intern (PFE) - Software Engineering",
+    place: "Compagnie des Phosphates de Gafsa (CPG)",
+    details: "Completed a final year project internship and developed a software solution as part of the graduation project.",
   },
   {
-    period: "2022",
-    title: "Full Stack Python Developer",
-    place: "Go My Code",
-    details: "Built full-stack apps, backend systems, and APIs in a practical training environment.",
+    period: "Jul 2025 - Present",
+    title: "Full-Stack Developer (Freelance)",
+    place: "Upwork",
+    details: "Worked as a freelance full-stack developer for international clients, implementing frontend and backend solutions, APIs, and database integrations.",
   },
   {
-    period: "2025 - Present",
-    title: "Freelance Full-Stack Developer",
-    place: "Independent",
-    details: "Built web and mobile projects across Next.js, Flutter, Node.js, Express, Elysia, and Supabase.",
+    period: "Jun 2025 - Aug 2025",
+    title: "Software Development & Cybersecurity Intern",
+    place: "Compagnie des Phosphates de Gafsa (CPG)",
+    details: "Developed software solutions under the supervision of a Cybersecurity Engineer and gained practical exposure to secure software development practices.",
   },
   {
-    period: "2025 - 2026",
-    title: "Web Development Intern",
-    place: "CPG (Compagnie des Phosphates de Gafsa)",
-    details: "Built internal web tools and gained hands-on production experience.",
+    period: "Sep 2023 - Jun 2026",
+    title: "Licence in Computer Science - Software Engineering",
+    place: "Faculté des Sciences de Gafsa, Tunisia",
+    details: "Bachelor's degree focused on software development, databases, artificial intelligence, and web technologies. Final grade: 14/20.",
+  },
+  {
+    period: "September 2022 - June 2023",
+    title: "Baccalaureate in Mathematics",
+    place: "Houcine Bouzaiene High School of Gafsa (L.H.B.G)",
+    details: "Completed in 2023.",
   },
 ];
 
@@ -205,9 +212,14 @@ export const contactChannels: ContactChannel[] = [
     href: `mailto:${siteConfig.email}`,
   },
   {
+    label: "Phone",
+    value: siteConfig.phone,
+    href: `tel:${siteConfig.phone.replace(/\s/g, "")}`,
+  },
+  {
     label: "GitHub",
-    value: "github.com/Chams99",
-    href: "https://github.com/Chams99",
+    value: "github.com/chams99",
+    href: "https://github.com/chams99",
   },
   {
     label: "Upwork",
@@ -216,8 +228,8 @@ export const contactChannels: ContactChannel[] = [
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/dhibi-chames-eddine-827146344",
-    href: "https://www.linkedin.com/in/dhibi-chames-eddine-827146344/",
+    value: "linkedin.com/in/chamesdh",
+    href: "https://linkedin.com/in/chamesdh",
   },
   {
     label: "X",
@@ -522,9 +534,9 @@ export const projects: Project[] = [
     year: "2025",
     category: "Gaming Interface",
     summary:
-      "A gaming-themed chat UI that balances atmosphere with cleaner usability.",
+      "An AI chatbot application using large language models, with a web interface and integrated AI APIs for interactive conversations.",
     heroImage: "/images/optimized/lol-large.webp",
-    roles: ["Interface design", "Thematic UI", "Responsive development"],
+    roles: ["Full-stack development", "AI API integration", "Web interface"],
     stack: ["Chat UI", "Responsive", "Themed interface"],
     externalLink: "https://lolchat.vercel.app/",
     quote: "Themed interfaces work when the atmosphere stays sharp without breaking usability.",
@@ -561,9 +573,9 @@ export const projects: Project[] = [
     year: "2025",
     category: "Interactive Tool",
     summary:
-      "An interactive star map designed to feel immersive, curious, and easier to explore.",
+      "An interactive astronomy web application integrating Stellarium Web Engine to visualize celestial objects and explore space data.",
     heroImage: "/images/optimized/sspace-large.webp",
-    roles: ["Interactive design", "Data visualization", "Front-end development"],
+    roles: ["Full-stack development", "Stellarium integration", "Interactive data visualization"],
     stack: ["Interactive UI", "Data viz", "Animation"],
     externalLink: "https://space-seven-fawn.vercel.app/",
     quote: "Exploration tools land best when the interface feels curious, not complicated.",
