@@ -3765,10 +3765,35 @@ a {
 
   .home-hero-inner {
     justify-items: stretch;
+    text-align: center;
   }
 
   .home-hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
+  }
+
+  .home-title,
+  .home-hero-body {
+    text-align: center;
+  }
+
+  .home-hero-body {
+    max-width: 34rem;
+  }
+
+  .home-hero-actions {
+    justify-content: center;
+  }
+
+  .home-location {
+    justify-content: center;
+  }
+
+  .home-hero-signature {
+    text-align: center;
   }
 
   .home-portrait {
