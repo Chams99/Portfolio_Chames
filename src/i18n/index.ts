@@ -42,14 +42,14 @@ export const translations = {
       projects: {
         sectionTitle: "My projects",
         intro: "Six products I designed and built from interface to delivery.",
-        selectedLabel: "6 selected projects",
-        featuredLabel: "Featured build",
+        selectedLabel: "I",
         viewAll: "View all projects →",
         openProject: "Visit project →",
-        archiveLabel: "More work",
+        archiveLabel: "I",
       },
       stack: {
         sectionTitle: "My skills",
+        marker: "II",
         titleLine1: "My",
         titleLine2: "Skills",
         intro: "The tools I use to design, build, and ship reliable software.",
@@ -88,12 +88,12 @@ export const translations = {
         ],
       },
       contact: {
-        marker: "05",
+        marker: "V",
         titleLine1: "Get in",
         titleLine2: "Touch",
         body: "Ready to get started? Reach out through any of these channels.",
         profileAction: "View profile",
-        sectionTitle: "Say Hi",
+        sectionTitle: "V",
         servicesTitle: "Services",
         socialTitle: "Stay connected",
         projectTitle: "Start a project",
@@ -130,13 +130,14 @@ export const translations = {
 
     // ── Experiences ──
     experiences: {
-      eyebrow: "Experience & education",
+      eyebrow: "III",
       h1Start: "Experience &",
       h1Outline: "education",
       h1End: "behind the work.",
       body: "A record of the work, education, and credentials behind the products.",
       experienceLabel: "Experience",
       educationLabel: "Education",
+      credentialsEyebrow: "IV",
       credentialsTitle: "A little more about me",
       credentialsBody: "The certifications, languages, interests, and working habits behind the work.",
       workItems: [
@@ -293,14 +294,14 @@ export const translations = {
       projects: {
         sectionTitle: "Mes projets",
         intro: "Six produits que j'ai conçus et développés, de l'interface à la livraison.",
-        selectedLabel: "6 projets sélectionnés",
-        featuredLabel: "Projet phare",
+        selectedLabel: "I",
         viewAll: "Voir tous les projets →",
         openProject: "Visiter le projet →",
-        archiveLabel: "Autres projets",
+        archiveLabel: "I",
       },
       stack: {
         sectionTitle: "Mes compétences",
+        marker: "II",
         titleLine1: "Mes",
         titleLine2: "compétences",
         intro: "Les outils que j'utilise pour concevoir, développer et livrer des logiciels fiables.",
@@ -339,12 +340,12 @@ export const translations = {
         ],
       },
       contact: {
-        marker: "05",
+        marker: "V",
         titleLine1: "Me",
         titleLine2: "contacter",
         body: "Prêt à commencer ? Écrivez-moi par l’un de ces canaux.",
         profileAction: "Voir le profil",
-        sectionTitle: "Dites Bonjour",
+        sectionTitle: "V",
         servicesTitle: "Services",
         socialTitle: "Rester connecté",
         projectTitle: "Démarrer un projet",
@@ -381,13 +382,14 @@ export const translations = {
 
     // ── Experiences ──
     experiences: {
-      eyebrow: "Expérience & formation",
+      eyebrow: "III",
       h1Start: "Expérience &",
       h1Outline: "formation",
       h1End: "derrière le travail.",
       body: "Un aperçu du travail, de la formation et des qualifications qui soutiennent les produits livrés.",
       experienceLabel: "Expérience",
       educationLabel: "Formation",
+      credentialsEyebrow: "IV",
       credentialsTitle: "Un peu plus sur moi",
       credentialsBody: "Les certifications, les langues, les intérêts et les habitudes de travail derrière mes projets.",
       workItems: [

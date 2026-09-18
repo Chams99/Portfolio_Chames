@@ -101,6 +101,56 @@ function initNavigation() {
     }, { signal });
   });
 
+  document.querySelectorAll<HTMLAnchorElement>('a[href$="#top"]').forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const target = new URL(link.href, window.location.href);
+      const staysOnThisPage =
+        target.origin === window.location.origin &&
+        target.pathname === window.location.pathname &&
+        target.search === window.location.search &&
+        target.hash === "#top";
+
+      if (!staysOnThisPage) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      window.history.replaceState(null, "", `${target.pathname}${target.search}#top`);
+      window.scrollTo({
+        top: 0,
+        left: 0,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
+    }, { signal });
+  });
+
+  document.querySelectorAll<HTMLAnchorElement>(
+    'a[href$="#projects"], a[href$="#stack"], a[href$="#experiences"], a[href$="#contact"]',
+  ).forEach((link) => {
+    link.addEventListener("click", (event) => {
+      const targetUrl = new URL(link.href, window.location.href);
+      const staysOnThisPage =
+        targetUrl.origin === window.location.origin &&
+        targetUrl.pathname === window.location.pathname &&
+        targetUrl.search === window.location.search;
+      const target = targetUrl.hash ? document.getElementById(targetUrl.hash.slice(1)) : null;
+
+      if (!staysOnThisPage || !target) return;
+
+      event.preventDefault();
+      event.stopPropagation();
+      window.history.replaceState(null, "", `${targetUrl.pathname}${targetUrl.search}${targetUrl.hash}`);
+
+      const headerHeight = document.querySelector(".site-header-shell")?.getBoundingClientRect().height ?? 0;
+      const targetTop = Math.max(0, target.getBoundingClientRect().top + window.scrollY - headerHeight - 16);
+
+      window.scrollTo({
+        top: targetTop,
+        left: 0,
+        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth",
+      });
+    }, { signal });
+  });
+
   if (!nav || !indicator) return;
 
   const links = nav.querySelectorAll<HTMLAnchorElement>("a[data-section]");
