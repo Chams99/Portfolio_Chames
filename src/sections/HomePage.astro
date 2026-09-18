@@ -185,11 +185,7 @@ const indexItems = [
                   href={project.externalLink}
                   target="_blank"
                   rel="noreferrer"
-                  class:list={[
-                    "selected-project group",
-                    index === 0 && "selected-project-featured",
-                    index > 0 && "selected-project-supporting",
-                  ]}
+                  class="selected-project group"
                   data-reveal
                 >
                   <div class="selected-project-media">
@@ -199,12 +195,9 @@ const indexItems = [
                       class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.02]"
                       loading={index === 0 ? "eager" : "lazy"}
                       fetchpriority={index === 0 ? "high" : "auto"}
-                      sizes="(min-width: 1024px) 58vw, 100vw"
+                      sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw"
                       srcset={srcset}
                     />
-                    {index === 0 ? (
-                      <span class="selected-project-media-label">{home.projects.featuredLabel}</span>
-                    ) : null}
                   </div>
 
                   <div class="selected-project-content">
@@ -235,7 +228,6 @@ const indexItems = [
         <div class="home-project-index" data-reveal>
           <div class="home-project-index-intro">
             <div>
-              <SectionMarker icon="archive" label={home.projects.archiveLabel} reveal />
               <h3>{i.work.archiveTitle}</h3>
             </div>
             <p>{i.work.archiveBody}</p>
@@ -271,7 +263,7 @@ const indexItems = [
     <section id="stack" class="home-section home-capabilities-section" aria-labelledby="capabilities-title">
       <div class="page-shell">
         <div class="skills-section-heading" data-reveal>
-          <SectionMarker icon="skills" label={home.stack.sectionTitle} reveal />
+          <SectionMarker icon="skills" label={home.stack.marker} reveal />
           <h2 id="capabilities-title" class="skills-section-title">
             <span>{home.stack.titleLine1}</span>
             <span class="skills-section-title-outline">{home.stack.titleLine2}</span>
@@ -332,7 +324,7 @@ const indexItems = [
         </div>
 
         <div class="experience-columns" data-reveal-stagger>
-          <section class="experience-track" aria-labelledby="experience-track-title">
+          <section class="experience-track experience-panel" aria-labelledby="experience-track-title">
             <div class="experience-track-heading">
               <span aria-hidden="true">//</span>
               <h3 id="experience-track-title">{i.experiences.experienceLabel}</h3>
@@ -341,12 +333,14 @@ const indexItems = [
               {
                 i.experiences.workItems.map((item, index) => (
                   <li class="experience-item" data-reveal>
-                    <span class="experience-item-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                     <p class="experience-period">{item.period}</p>
-                    <div>
-                      <h4>{item.title}</h4>
-                      <p class="experience-place">{item.place}</p>
-                      <p class="experience-details">{item.details}</p>
+                    <div class="experience-item-main">
+                      <span class="experience-item-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                      <div class="experience-item-content">
+                        <h4>{item.title}</h4>
+                        <p class="experience-place">{item.place}</p>
+                        <p class="experience-details">{item.details}</p>
+                      </div>
                     </div>
                   </li>
                 ))
@@ -354,7 +348,7 @@ const indexItems = [
             </ol>
           </section>
 
-          <section class="experience-track" aria-labelledby="education-track-title">
+          <section class="experience-track experience-panel" aria-labelledby="education-track-title">
             <div class="experience-track-heading">
               <span aria-hidden="true">//</span>
               <h3 id="education-track-title">{i.experiences.educationLabel}</h3>
@@ -363,12 +357,14 @@ const indexItems = [
               {
                 i.experiences.educationItems.map((item, index) => (
                   <li class="experience-item" data-reveal>
-                    <span class="experience-item-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                     <p class="experience-period">{item.period}</p>
-                    <div>
-                      <h4>{item.title}</h4>
-                      <p class="experience-place">{item.place}</p>
-                      <p class="experience-details">{item.details}</p>
+                    <div class="experience-item-main">
+                      <span class="experience-item-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                      <div class="experience-item-content">
+                        <h4>{item.title}</h4>
+                        <p class="experience-place">{item.place}</p>
+                        <p class="experience-details">{item.details}</p>
+                      </div>
                     </div>
                   </li>
                 ))
@@ -380,7 +376,7 @@ const indexItems = [
         <div id="credentials" class="experience-credentials" data-reveal>
           <div class="experience-credentials-heading">
             <div>
-              <SectionMarker icon="credentials" label={i.experiences.credentialsTitle} />
+              <SectionMarker icon="credentials" label={i.experiences.credentialsEyebrow} />
               <h3>{i.experiences.credentialsTitle}</h3>
             </div>
             <p>{i.experiences.credentialsBody}</p>
@@ -391,20 +387,30 @@ const indexItems = [
               <article
                 class:list={[
                   "experience-credential",
-                  index === 0 && "experience-credential-featured",
-                  (index === 3 || index === 5) && "experience-credential-wide",
-                  index === 3 && "experience-credential-achievement",
+                  "experience-panel",
+                  item.badge && "experience-credential-achievement",
                 ]}
                 data-reveal
               >
-                <span class="experience-credential-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
-                <p class="experience-credential-label">{item.label}</p>
+                {item.href ? (
+                  <a
+                    class="experience-credential-card-link"
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={`${item.label}: ${item.value}`}
+                  ></a>
+                ) : null}
+                <div class="experience-credential-heading">
+                  <span class="experience-credential-index" aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+                  <p class="experience-credential-label">{item.label}</p>
+                </div>
                 <p class="experience-credential-value">{item.value}</p>
                 {item.badge ? <RisingTalentBadge label={item.badge} /> : null}
                 {item.href ? (
-                  <a class="experience-credential-proof" href={item.href} target="_blank" rel="noreferrer">
+                  <span class="experience-credential-proof">
                     {isFr ? "Vérifier sur Upwork" : "Verify on Upwork"} <span aria-hidden="true">↗</span>
-                  </a>
+                  </span>
                 ) : null}
               </article>
             ))}
@@ -419,7 +425,7 @@ const indexItems = [
           <div class="home-contact-copy">
             <SectionMarker
               icon="contact"
-              label={`${home.contact.titleLine1} ${home.contact.titleLine2}`}
+              label={home.contact.sectionTitle}
               class="home-contact-kicker"
             />
             <h2 id="contact-title" class="home-contact-title">

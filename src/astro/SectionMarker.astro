@@ -9,62 +9,70 @@ interface Props {
 }
 
 const { icon, label, class: className = "", reveal = false } = Astro.props;
+const isRomanMarker = /^[IVXLCDM]+$/.test(label.trim());
 ---
 
 <p class:list={[
   "home-section-kicker section-marker",
+  isRomanMarker && "section-marker-numbered",
   className,
 ]} data-reveal={reveal ? true : undefined}>
-  <span class="section-marker-icon" aria-hidden="true">
-    <svg viewBox="0 0 24 24" focusable="false">
-      {icon === "archive" && (
-        <>
-          <path d="M4 7.5h16" />
-          <path d="M5 7.5 6 4h12l1 3.5" />
-          <path d="M5 7.5v11.25A1.25 1.25 0 0 0 6.25 20h11.5A1.25 1.25 0 0 0 19 18.75V7.5" />
-          <path d="M9 12h6" />
-        </>
-      )}
-      {icon === "contact" && (
-        <>
-          <rect x="3.25" y="5" width="17.5" height="14" rx="1.75" />
-          <path d="m4.25 6.25 7.75 6 7.75-6" />
-        </>
-      )}
-      {icon === "credentials" && (
-        <>
-          <circle cx="12" cy="9.5" r="5.25" />
-          <path d="m9.15 13.9-1.1 6.1L12 18l3.95 2-1.1-6.1" />
-          <path d="m12 7.1.7 1.45 1.6.23-1.15 1.12.27 1.6L12 10.75l-1.42.75.27-1.6L9.7 8.78l1.6-.23L12 7.1Z" />
-        </>
-      )}
-      {icon === "experience" && (
-        <>
-          <path d="M6 5v14" />
-          <path d="M6 7h12" />
-          <path d="M6 12h12" />
-          <path d="M6 17h12" />
-          <circle cx="6" cy="5" r="1.25" />
-          <circle cx="6" cy="12" r="1.25" />
-          <circle cx="6" cy="19" r="1.25" />
-        </>
-      )}
-      {icon === "projects" && (
-        <>
-          <rect x="3.5" y="3.5" width="7" height="7" rx="1" />
-          <rect x="13.5" y="3.5" width="7" height="7" rx="1" />
-          <rect x="3.5" y="13.5" width="7" height="7" rx="1" />
-          <rect x="13.5" y="13.5" width="7" height="7" rx="1" />
-        </>
-      )}
-      {icon === "skills" && (
-        <>
-          <path d="m8 7-5 5 5 5" />
-          <path d="m16 7 5 5-5 5" />
-          <path d="m14 4-4 16" />
-        </>
-      )}
-    </svg>
-  </span>
-  <span>{label}</span>
+  {isRomanMarker ? (
+    <span class="section-marker-number">{label}</span>
+  ) : (
+    <>
+      <span class="section-marker-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          {icon === "archive" && (
+            <>
+              <path d="M4 7.5h16" />
+              <path d="M5 7.5 6 4h12l1 3.5" />
+              <path d="M5 7.5v11.25A1.25 1.25 0 0 0 6.25 20h11.5A1.25 1.25 0 0 0 19 18.75V7.5" />
+              <path d="M9 12h6" />
+            </>
+          )}
+          {icon === "contact" && (
+            <>
+              <rect x="3.25" y="5" width="17.5" height="14" rx="1.75" />
+              <path d="m4.25 6.25 7.75 6 7.75-6" />
+            </>
+          )}
+          {icon === "credentials" && (
+            <>
+              <circle cx="12" cy="9.5" r="5.25" />
+              <path d="m9.15 13.9-1.1 6.1L12 18l3.95 2-1.1-6.1" />
+              <path d="m12 7.1.7 1.45 1.6.23-1.15 1.12.27 1.6L12 10.75l-1.42.75.27-1.6L9.7 8.78l1.6-.23L12 7.1Z" />
+            </>
+          )}
+          {icon === "experience" && (
+            <>
+              <path d="M6 5v14" />
+              <path d="M6 7h12" />
+              <path d="M6 12h12" />
+              <path d="M6 17h12" />
+              <circle cx="6" cy="5" r="1.25" />
+              <circle cx="6" cy="12" r="1.25" />
+              <circle cx="6" cy="19" r="1.25" />
+            </>
+          )}
+          {icon === "projects" && (
+            <>
+              <rect x="3.5" y="3.5" width="7" height="7" rx="1" />
+              <rect x="13.5" y="3.5" width="7" height="7" rx="1" />
+              <rect x="3.5" y="13.5" width="7" height="7" rx="1" />
+              <rect x="13.5" y="13.5" width="7" height="7" rx="1" />
+            </>
+          )}
+          {icon === "skills" && (
+            <>
+              <path d="m8 7-5 5 5 5" />
+              <path d="m16 7 5 5-5 5" />
+              <path d="m14 4-4 16" />
+            </>
+          )}
+        </svg>
+      </span>
+      <span>{label}</span>
+    </>
+  )}
 </p>
