@@ -156,23 +156,23 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "hero": {
       "src": "/generated-images/photo-printing-order/hero.webp",
       "width": 1440,
-      "height": 714
+      "height": 900
     },
     "gallery": [
       {
         "src": "/generated-images/photo-printing-order/gallery-1-photo-printing-full.webp",
         "width": 1440,
-        "height": 714
+        "height": 900
       },
       {
         "src": "/generated-images/photo-printing-order/gallery-2-photo-printing-details.webp",
-        "width": 500,
-        "height": 705
+        "width": 960,
+        "height": 600
       },
       {
         "src": "/generated-images/photo-printing-order/gallery-3-photo-printing-features.webp",
-        "width": 500,
-        "height": 705
+        "width": 960,
+        "height": 600
       }
     ]
   },

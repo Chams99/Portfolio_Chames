@@ -435,33 +435,33 @@ export const projects: Project[] = [
   }),
   buildProject({
     slug: "photo-printing-order",
-    title: "Photo Printing Order System",
-    year: "2024",
+    title: "printclub — Photo Print Studio",
+    year: "2026",
     category: "E-Commerce",
     summary:
-      "A photo printing flow with better editing control and a smoother path to order.",
+      "A print-aware photo editor with guided setup, editable templates, previews, and a demo request flow.",
     heroImage: "/images/projects/photo-printing-full.png",
     gallery: [
       "/images/projects/photo-printing-full.png",
       "/images/projects/photo-printing-details.png",
       "/images/projects/photo-printing-features.png",
     ],
-    roles: ["UX design", "Interactive UI", "React development"],
-    stack: ["React", "Image editor", "Order flow"],
-    externalLink: "https://photo-printing-order.vercel.app/",
+    roles: ["Product design", "Editor interaction", "React development"],
+    stack: ["TanStack Start", "React", "Elysia", "Better Auth"],
+    externalLink: "https://printclub.chames.tn/",
     intro:
-      "The flow had to make detailed print edits feel simple enough for everyday users.",
+      "The product needed to make photo editing and print requests feel approachable from the first click.",
     problem:
-      "Customization breaks fast when zoom, crop, and placement stop feeling predictable.",
+      "A print workflow becomes confusing when format, crop, templates, and account choices arrive all at once.",
     creativeApproach:
-      "I tightened the editor around control, stability, and a clearer ordering flow.",
+      "I designed a guided creation path, a focused editor, and clear demo boundaries so visitors can make and review a print before requesting it.",
     outcome:
-      "The experience became smoother, easier to trust, and easier to finish.",
+      "The rebuild demonstrates a complete browser path from format selection to editable composition and demo request, with honest limits around payment and fulfillment.",
     metrics: [
-      { label: "Focus", value: "Editing flow + precision" },
-      { label: "Built with", value: "React interaction logic" },
+      { label: "Flow", value: "Format → setup → studio" },
+      { label: "Status", value: "Portfolio demo" },
     ],
-    quote: "Good customization tools feel precise without making people work too hard for control.",
+    quote: "A creative tool earns trust when every next step is visible and every limitation is explicit.",
   }),
   buildProject({
     slug: "dent-dental-clinic",
