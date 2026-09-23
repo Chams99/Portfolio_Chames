@@ -558,7 +558,7 @@ const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
   },
   "modern-estate-vision": { category: "Immobilier", summary: "Une plateforme immobilière premium avec une présence pensée pour les investisseurs.", roles: ["Design web", "Développement front-end", "Structure de contenu"] },
   "cleanfile-agency": { category: "Système d'agence", summary: "Une plateforme d'agence structurée pour gagner en crédibilité et préparer l'automatisation.", roles: ["Design dashboard", "Pensée système", "Développement front-end"] },
-  "photo-printing-order": { category: "E-commerce", summary: "Un parcours de commande photo avec davantage de contrôle lors de l'édition.", roles: ["UX design", "Interface interactive", "Développement React"] },
+  "photo-printing-order": { category: "E-commerce", summary: "Un studio photo pensé pour l'impression, avec une préparation guidée, des modèles éditables et une demande de démonstration.", roles: ["Design produit", "Interaction éditeur", "Développement React"] },
   "dent-dental-clinic": { category: "Santé", summary: "Un site de cabinet dentaire conçu pour être calme, clair et rassurant.", roles: ["Design web", "Développement Next.js", "Présentation des services"] },
   "ecommerce-platform": { category: "E-commerce", summary: "Une boutique en ligne moderne centrée sur la rapidité et la fluidité du parcours d'achat.", roles: ["Interface e-commerce", "Développement full-stack", "Parcours d'achat"] },
   "fitlite-ai-fitness": { category: "Application fitness", summary: "Une landing page fitness assistée par IA, conçue pour transmettre de l'énergie et du mouvement.", roles: ["Design de landing page", "Motion design", "Développement front-end"] },
