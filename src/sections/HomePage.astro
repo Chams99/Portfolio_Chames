@@ -26,9 +26,9 @@ const sortProjectsByYear = (items: typeof projects) =>
   [...items].sort((a, b) => Number(a.year) - Number(b.year));
 const orderedExternalProjects = sortProjectsByYear(projects.filter((project) => project.externalLink));
 const selectedProjectSlugs = [
+  "photo-printing-order",
   "dent-dental-clinic",
   "ftball-ecommerce",
-  "unit-converter",
   "fitlite-ai-fitness",
   "webgrade-analyzer",
   "sspace-star-map",
