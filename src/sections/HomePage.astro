@@ -27,10 +27,10 @@ const sortProjectsByYear = (items: typeof projects) =>
 const orderedExternalProjects = sortProjectsByYear(projects.filter((project) => project.externalLink));
 const selectedProjectSlugs = [
   "photo-printing-order",
+  "webgrade-analyzer",
   "dent-dental-clinic",
   "ftball-ecommerce",
   "fitlite-ai-fitness",
-  "webgrade-analyzer",
   "sspace-star-map",
 ] as const;
 const selectedProjects = selectedProjectSlugs.flatMap((slug) =>
