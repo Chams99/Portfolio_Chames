@@ -551,10 +551,10 @@ const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
     contribution: "J'ai transformé le workflow IA en expérience visuelle et développé l'interface pour les créateurs et les storytellers.",
   },
   "webgrade-analyzer": {
-    category: "Outil web",
-    summary: "Un outil d'audit qui rend les contrôles de performance et de SEO plus lisibles.",
-    roles: ["Stratégie produit", "UX design", "Développement JavaScript"],
-    contribution: "J'ai structuré le parcours autour des contrôles performance, SEO et sécurité, puis développé l'interface JavaScript.",
+    category: "Outil développeur",
+    summary: "Un outil d'audit pour lire plus clairement les signaux de performance, d'accessibilité, de SEO et de sécurité.",
+    roles: ["Design produit", "Développement full-stack", "Intégration d'API"],
+    contribution: "J'ai conçu un parcours scanner compact, séparé les sources de preuve et développé le backend API et l'interface de rapport.",
   },
   "modern-estate-vision": { category: "Immobilier", summary: "Une plateforme immobilière premium avec une présence pensée pour les investisseurs.", roles: ["Design web", "Développement front-end", "Structure de contenu"] },
   "cleanfile-agency": { category: "Système d'agence", summary: "Une plateforme d'agence structurée pour gagner en crédibilité et préparer l'automatisation.", roles: ["Design dashboard", "Pensée système", "Développement front-end"] },
@@ -576,7 +576,7 @@ const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
 const englishProjectContributions: Record<string, string> = {
   "lumina-it": "I shaped the brand direction and built the responsive Next.js front end around sharper hierarchy and contrast.",
   "ai-story-video": "I framed the AI workflow as a visual product and built the front end for creators and storytellers.",
-  "webgrade-analyzer": "I structured the audit flow around performance, SEO, and security checks, then built the JavaScript UI.",
+  "webgrade-analyzer": "I designed a compact scanner flow, separated provider evidence, and built the Next.js API and report interface.",
 };
 
 export function getProjectCopy(

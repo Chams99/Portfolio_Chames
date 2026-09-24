@@ -362,33 +362,33 @@ export const projects: Project[] = [
   buildProject({
     slug: "webgrade-analyzer",
     title: "WebGrade Analyzer",
-    year: "2025",
-    category: "Web Tool",
+    year: "2026",
+    category: "Developer Tool",
     summary:
-      "A website audit tool designed to make performance and SEO checks clearer.",
+      "A developer-facing website audit tool for performance, accessibility, SEO, and security signals.",
     heroImage: "/images/projects/webgrade-analyzer-full.png",
     previewMode: "scroll",
     gallery: [
       "/images/projects/webgrade-analyzer-full.png",
       "/images/projects/website-grading-v0.png",
     ],
-    roles: ["Product strategy", "UX design", "JavaScript development"],
-    stack: ["JavaScript", "SEO checks", "Performance"],
+    roles: ["Product design", "Full-stack development", "API integration"],
+    stack: ["Next.js", "TypeScript", "PageSpeed API", "Docker"],
     featured: true,
-    externalLink: "https://webgrade.pages.dev/",
+    externalLink: "https://webgrade.chames.tn/",
     intro:
-      "WebGrade was built to make audits feel fast, clear, and usable.",
+      "I rebuilt WebGrade as a compact scanner that gets visitors from a public URL to readable evidence quickly.",
     problem:
-      "Most audit tools overwhelm people before they help them.",
+      "Audit tools often bury the input under marketing copy or blur lab measurements with field and security evidence.",
     creativeApproach:
-      "I stripped the interface back and organized the results around what matters first.",
+      "I designed a scanner-first flow, kept provider consent explicit, separated each source, and built the report and API around graceful unavailable states.",
     outcome:
-      "The tool feels calmer, clearer, and more actionable.",
+      "The public deployment runs the scanner and report flow without an account. Browser-local history and normal browser sharing work now; durable workspace features remain a separate database-backed mode.",
     metrics: [
-      { label: "Audits", value: "Performance + SEO + security" },
-      { label: "Audience", value: "Developers, agencies, owners" },
+      { label: "Core flow", value: "URL → device audit → report" },
+      { label: "Deployment", value: "Next.js API + Docker + Traefik" },
     ],
-    quote: "A diagnostic tool earns trust when the answer feels clearer than the problem.",
+    quote: "A diagnostic tool earns trust when the evidence is easier to read than the problem.",
   }),
   buildProject({
     slug: "modern-estate-vision",
