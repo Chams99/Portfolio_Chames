@@ -84,18 +84,18 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "hero": {
       "src": "/generated-images/webgrade-analyzer/hero.webp",
       "width": 1440,
-      "height": 3009
+      "height": 900
     },
     "gallery": [
       {
         "src": "/generated-images/webgrade-analyzer/gallery-1-webgrade-analyzer-full.webp",
         "width": 1440,
-        "height": 3009
+        "height": 900
       },
       {
         "src": "/generated-images/webgrade-analyzer/gallery-2-website-grading-v0.webp",
         "width": 960,
-        "height": 473
+        "height": 600
       }
     ]
   },
