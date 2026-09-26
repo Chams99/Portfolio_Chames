@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-/* Tailwind v4 only generates font-* utilities from @theme, not from :root —
+/* Tailwind v4 only generates font-* utilities from @theme, not from :root -
    these also emit as --font-* custom properties for use in plain CSS below. */
 @theme {
   --font-display: "Space Grotesk", system-ui, sans-serif;
@@ -90,7 +90,7 @@
    EDITORIAL PRIMITIVES
    ══════════════════════════════════════════════════════════ */
 
-/* Display voice — one class, every headline. */
+/* Display voice - one class, every headline. */
 .display {
   font-family: var(--font-display);
   font-optical-sizing: auto;
@@ -105,7 +105,7 @@
   font-weight: 700;
 }
 
-/* Folio — the "01 — STACK" section marker. Pure print signal. */
+/* Folio - the "01 - STACK" section marker. Pure print signal. */
 .folio {
   font-family: var(--font-label);
   font-size: var(--step-label);
@@ -119,7 +119,7 @@
   color: var(--primary);
 }
 
-/* Caption — mono, under images and figures. */
+/* Caption - mono, under images and figures. */
 .caption {
   font-family: var(--font-label);
   font-size: 0.66rem;
@@ -129,7 +129,7 @@
   color: rgba(247, 240, 224, 0.42);
 }
 
-/* Rules — structure without boxes. */
+/* Rules - structure without boxes. */
 .rule {
   border-top: 1px solid var(--rule);
 }
@@ -138,7 +138,7 @@
   border-top: 1px solid var(--rule-soft);
 }
 
-/* Measure — capped line length. Print never lets text run full width. */
+/* Measure - capped line length. Print never lets text run full width. */
 .measure {
   max-width: 34ch;
 }
@@ -163,7 +163,7 @@
   }
 }
 
-/* Index row — replaces card chrome with a hairline that warms on hover. */
+/* Index row - replaces card chrome with a hairline that warms on hover. */
 .index-row {
   border-top: 1px solid var(--rule-soft);
   transition: border-color 0.45s ease;
@@ -552,7 +552,7 @@ a {
 }
 
 /* Zellige tessellation. currentColor drives the tile linework, so the motif
-   inherits the gold accent instead of hardcoding it. Kept faint — it should
+   inherits the gold accent instead of hardcoding it. Kept faint - it should
    read as texture, not decoration. */
 .zellige {
   color: var(--primary);
@@ -1143,7 +1143,7 @@ a {
    TEMPLATE-PATTERN STYLES  (TemplateMo 578 · dark adaptation)
    ============================================================ */
 
-/* Badge dot — replaces avatar in section pills */
+/* Badge dot - replaces avatar in section pills */
 .tmpl-badge-dot {
   width: 10px;
   height: 10px;

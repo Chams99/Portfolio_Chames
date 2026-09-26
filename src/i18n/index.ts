@@ -567,7 +567,7 @@ const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
   "lolchat-gaming": { category: "Application IA", summary: "Un chatbot IA basé sur des modèles de langage, avec une interface web et des APIs IA pour des conversations interactives.", roles: ["Développement full-stack", "Intégration d'APIs IA", "Interface web"] },
   "property-investment": { category: "Plateforme d'investissement", summary: "Une landing page d'investissement conçue pour renforcer la confiance et les prises de contact.", roles: ["Design génération de leads", "Structure UI", "Parcours de conversion"] },
   "speed-typer-game": { category: "Jeu", summary: "Un jeu de frappe avec feedback en direct et interface orientée performance.", roles: ["UI de jeu", "Logique interactive", "Feedback de performance"] },
-  "sspace-star-map": { category: "Outil interactif", summary: "Une application web d'astronomie intégrant Stellarium Web Engine pour visualiser les objets célestes et explorer les données spatiales.", roles: ["Développement full-stack", "Visualisation de données", "Interface interactive"] },
+  "sspace-star-map": { category: "Application d'astronomie full-stack", summary: "Un explorateur astronomique full-stack avec un catalogue PostgreSQL, une API Elysia/Bun, un rendu du ciel avec Stellarium et un planificateur d'observation sur 24 heures.", roles: ["Développement full-stack", "Systèmes de données astronomiques", "Visualisation interactive"], contribution: "J'ai développé l'explorateur Next.js, l'API Elysia/Bun, le catalogue PostgreSQL et le planificateur d'observation autour d'un ciel Stellarium dans le navigateur." },
   "unit-converter": { category: "Outil utilitaire", summary: "Un convertisseur d'unités en temps réel, simple et rapide à utiliser.", roles: ["UX utilitaire", "Design d'outil", "Développement JavaScript"] },
   "wallpaper-generator": { category: "Outil créatif", summary: "Un générateur de fonds d'écran ludique centré sur l'expérimentation visuelle.", roles: ["Creative coding", "Interface interactive", "Expérimentation front-end"] },
   "epic-chicken-adventure": { category: "Jeu", summary: "Une expérience de jeu navigateur allégée et remise en forme pour plus de finition.", roles: ["Présentation de jeu", "Développement Next.js", "UI responsive"] },
@@ -577,6 +577,7 @@ const englishProjectContributions: Record<string, string> = {
   "lumina-it": "I shaped the brand direction and built the responsive Next.js front end around sharper hierarchy and contrast.",
   "ai-story-video": "I framed the AI workflow as a visual product and built the front end for creators and storytellers.",
   "webgrade-analyzer": "I designed a compact scanner flow, separated provider evidence, and built the Next.js API and report interface.",
+  "sspace-star-map": "I built the Next.js explorer, Elysia/Bun API, PostgreSQL catalog, and observing planner around a browser-based Stellarium sky.",
 };
 
 export function getProjectCopy(
