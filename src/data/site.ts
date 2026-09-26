@@ -435,7 +435,7 @@ export const projects: Project[] = [
   }),
   buildProject({
     slug: "photo-printing-order",
-    title: "printclub — Photo Print Studio",
+    title: "printclub - Photo Print Studio",
     year: "2026",
     category: "E-Commerce",
     summary:
@@ -569,16 +569,16 @@ export const projects: Project[] = [
   }),
   buildProject({
     slug: "sspace-star-map",
-    title: "Sspace Star Map",
+    title: "SSpace Astronomy Explorer",
     year: "2025",
-    category: "Interactive Tool",
+    category: "Full-stack astronomy app",
     summary:
-      "An interactive astronomy web application integrating Stellarium Web Engine to visualize celestial objects and explore space data.",
+      "A full-stack astronomy explorer with a Next.js frontend, Elysia/Bun API, PostgreSQL catalog, Stellarium sky rendering, and a 24-hour observing planner.",
     heroImage: "/images/optimized/sspace-large.webp",
-    roles: ["Full-stack development", "Stellarium integration", "Interactive data visualization"],
-    stack: ["Interactive UI", "Data viz", "Animation"],
-    externalLink: "https://space-seven-fawn.vercel.app/",
-    quote: "Exploration tools land best when the interface feels curious, not complicated.",
+    roles: ["Full-stack development", "Astronomy data systems", "Interactive visualization"],
+    stack: ["Next.js", "Elysia/Bun", "PostgreSQL", "Stellarium"],
+    externalLink: "https://sspace.chames.tn/",
+    quote: "A sky explorer feels useful when rich astronomy data stays clear and approachable.",
   }),
   buildProject({
     slug: "unit-converter",
