@@ -28,10 +28,10 @@ const orderedExternalProjects = sortProjectsByYear(projects.filter((project) => 
 const selectedProjectSlugs = [
   "photo-printing-order",
   "webgrade-analyzer",
+  "sspace-star-map",
   "dent-dental-clinic",
   "ftball-ecommerce",
   "fitlite-ai-fitness",
-  "sspace-star-map",
 ] as const;
 const selectedProjects = selectedProjectSlugs.flatMap((slug) =>
   orderedExternalProjects.find((project) => project.slug === slug) ?? [],
