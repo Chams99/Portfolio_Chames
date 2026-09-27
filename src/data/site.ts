@@ -366,7 +366,7 @@ export const projects: Project[] = [
     year: "2026",
     category: "AI Data Platform",
     summary:
-      "A portfolio-ready assistant platform for grounded database, website, and manual knowledge workflows.",
+      "An assistant platform for grounded database, website, and manual knowledge workflows.",
     heroImage: "https://dbmanager.chames.tn/logo/logo-dark-mode.png",
     roles: ["Product design", "Full-stack development", "AI workflow design"],
     stack: ["Bun", "Express", "PostgreSQL", "Redis", "React", "OpenRouter"],
@@ -379,7 +379,7 @@ export const projects: Project[] = [
     creativeApproach:
       "I built three grounded assistant modes—synthetic database data, pre-ingested website knowledge, and manual context—then bounded public access with read-only query paths, table scope checks, shared AI budgets, Redis coordination, Google sign-in, and a deployable widget flow.",
     outcome:
-      "The live portfolio release lets visitors inspect the product, sign in, try the prepared assistants, and review read-only results using synthetic data. Custom sources and credentials remain owner-managed.",
+      "The public release lets visitors inspect the product, sign in, try the prepared assistants, and review read-only results using synthetic data. Custom sources and credentials remain owner-managed.",
     metrics: [
       { label: "Public mode", value: "Synthetic data + read-only access" },
       { label: "Assistant modes", value: "Database · Website · Manual" },
@@ -486,7 +486,7 @@ export const projects: Project[] = [
       "The rebuild demonstrates a complete browser path from format selection to editable composition and demo request, with honest limits around payment and fulfillment.",
     metrics: [
       { label: "Flow", value: "Format → setup → studio" },
-      { label: "Status", value: "Portfolio demo" },
+      { label: "Status", value: "Public demo" },
     ],
     quote: "A creative tool earns trust when every next step is visible and every limitation is explicit.",
   }),
