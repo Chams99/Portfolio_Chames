@@ -211,7 +211,7 @@ export const translations = {
       body: "Products, websites, and tools built from Gafsa.",
       featuredEyebrow: "Selected projects",
       featuredTitle: "A closer look.",
-      featuredBody: "Three projects, end to end.",
+      featuredBody: "Four projects, end to end.",
       archiveEyebrow: "More projects",
       archiveTitle: "The directory",
       archiveBody: "More products, tools, and experiments.",
@@ -463,7 +463,7 @@ export const translations = {
       body: "Produits, sites et outils développés depuis Gafsa.",
       featuredEyebrow: "Projets sélectionnés",
       featuredTitle: "Un regard plus proche.",
-      featuredBody: "Trois projets, de bout en bout.",
+      featuredBody: "Quatre projets, de bout en bout.",
       archiveEyebrow: "Autres projets",
       archiveTitle: "Le répertoire",
       archiveBody: "D'autres produits, outils et expériences.",
@@ -550,6 +550,12 @@ const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
     roles: ["Design produit", "Développement front-end", "Parcours IA"],
     contribution: "J'ai transformé le workflow IA en expérience visuelle et développé l'interface pour les créateurs et les storytellers.",
   },
+  "assistant-ai": {
+    category: "Plateforme de données IA",
+    summary: "Une plateforme d'assistants ancrés dans une base de données, un site pré-ingéré ou une base de connaissances manuelle.",
+    roles: ["Design produit", "Développement full-stack", "Conception du workflow IA"],
+    contribution: "J'ai conçu les trois modes d'assistant et construit les garde-fous de production autour des requêtes en lecture seule, des budgets IA et des données synthétiques.",
+  },
   "webgrade-analyzer": {
     category: "Outil développeur",
     summary: "Un outil d'audit pour lire plus clairement les signaux de performance, d'accessibilité, de SEO et de sécurité.",
@@ -576,6 +582,7 @@ const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
 const englishProjectContributions: Record<string, string> = {
   "lumina-it": "I shaped the brand direction and built the responsive Next.js front end around sharper hierarchy and contrast.",
   "ai-story-video": "I framed the AI workflow as a visual product and built the front end for creators and storytellers.",
+  "assistant-ai": "I designed the three assistant modes and built the production boundaries around read-only queries, AI budgets, and synthetic data.",
   "webgrade-analyzer": "I designed a compact scanner flow, separated provider evidence, and built the Next.js API and report interface.",
   "sspace-star-map": "I built the Next.js explorer, Elysia/Bun API, PostgreSQL catalog, and observing planner around a browser-based Stellarium sky.",
 };
