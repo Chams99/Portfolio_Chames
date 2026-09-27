@@ -255,6 +255,7 @@ const projectOrder = [
   "webgrade-analyzer",
   "ftball-ecommerce",
   "lumina-it",
+  "assistant-ai",
   "ai-story-video",
   "photo-printing-order",
   "lolchat-gaming",
@@ -358,6 +359,32 @@ export const projects: Project[] = [
       { label: "Core shift", value: "Technical to cinematic" },
     ],
     quote: "When the promise is cinematic, the interface cannot feel mechanical.",
+  }),
+  buildProject({
+    slug: "assistant-ai",
+    title: "AssistantAI",
+    year: "2026",
+    category: "AI Data Platform",
+    summary:
+      "A portfolio-ready assistant platform for grounded database, website, and manual knowledge workflows.",
+    heroImage: "https://dbmanager.chames.tn/logo/logo-dark-mode.png",
+    roles: ["Product design", "Full-stack development", "AI workflow design"],
+    stack: ["Bun", "Express", "PostgreSQL", "Redis", "React", "OpenRouter"],
+    featured: true,
+    externalLink: "https://dbmanager.chames.tn/",
+    intro:
+      "AssistantAI needed to show a real data workflow without exposing production credentials or unbounded AI usage.",
+    problem:
+      "A database assistant has to make natural-language access useful while keeping sources, queries, credentials, and provider spend under control.",
+    creativeApproach:
+      "I built three grounded assistant modes—synthetic database data, pre-ingested website knowledge, and manual context—then bounded public access with read-only query paths, table scope checks, shared AI budgets, Redis coordination, Google sign-in, and a deployable widget flow.",
+    outcome:
+      "The live portfolio release lets visitors inspect the product, sign in, try the prepared assistants, and review read-only results using synthetic data. Custom sources and credentials remain owner-managed.",
+    metrics: [
+      { label: "Public mode", value: "Synthetic data + read-only access" },
+      { label: "Assistant modes", value: "Database · Website · Manual" },
+    ],
+    quote: "A data assistant earns trust when its boundaries are visible before the first query.",
   }),
   buildProject({
     slug: "webgrade-analyzer",
