@@ -75,6 +75,30 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
       }
     ]
   },
+  "assistant-ai": {
+    "card": {
+      "src": "/generated-images/assistant-ai/card.webp",
+      "width": 820,
+      "height": 512
+    },
+    "hero": {
+      "src": "/generated-images/assistant-ai/hero.webp",
+      "width": 1440,
+      "height": 685
+    },
+    "gallery": [
+      {
+        "src": "/generated-images/assistant-ai/gallery-1-assistant-ai-landing.webp",
+        "width": 1440,
+        "height": 685
+      },
+      {
+        "src": "/generated-images/assistant-ai/gallery-2-assistant-ai-dashboard.webp",
+        "width": 960,
+        "height": 456
+      }
+    ]
+  },
   "webgrade-analyzer": {
     "card": {
       "src": "/generated-images/webgrade-analyzer/card.webp",

@@ -367,7 +367,11 @@ export const projects: Project[] = [
     category: "AI Data Platform",
     summary:
       "An assistant platform for grounded database, website, and manual knowledge workflows.",
-    heroImage: "https://dbmanager.chames.tn/logo/logo-dark-mode.png",
+    heroImage: "/images/projects/assistant-ai-landing.png",
+    gallery: [
+      "/images/projects/assistant-ai-landing.png",
+      "/images/projects/assistant-ai-dashboard.png",
+    ],
     roles: ["Product design", "Full-stack development", "AI workflow design"],
     stack: ["Bun", "Express", "PostgreSQL", "Redis", "React", "OpenRouter"],
     featured: true,

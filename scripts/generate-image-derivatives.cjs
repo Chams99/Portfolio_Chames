@@ -25,6 +25,13 @@ const projectSources = {
       "public/images/projects/ai-story-video-features.png",
     ],
   },
+  "assistant-ai": {
+    hero: "public/images/projects/assistant-ai-landing.png",
+    gallery: [
+      "public/images/projects/assistant-ai-landing.png",
+      "public/images/projects/assistant-ai-dashboard.png",
+    ],
+  },
   "webgrade-analyzer": {
     hero: "public/images/projects/webgrade-analyzer-full.png",
     gallery: [
