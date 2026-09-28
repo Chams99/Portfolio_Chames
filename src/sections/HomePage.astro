@@ -32,7 +32,6 @@ const selectedProjectSlugs = [
   "sspace-star-map",
   "dent-dental-clinic",
   "ftball-ecommerce",
-  "fitlite-ai-fitness",
 ] as const;
 const selectedProjects = selectedProjectSlugs.flatMap((slug) =>
   orderedExternalProjects.find((project) => project.slug === slug) ?? [],
