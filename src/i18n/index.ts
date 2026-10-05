@@ -211,7 +211,7 @@ export const translations = {
       body: "Products, websites, and tools built from Gafsa.",
       featuredEyebrow: "Selected projects",
       featuredTitle: "A closer look.",
-      featuredBody: "Four projects, end to end.",
+      featuredBody: "Five projects, end to end.",
       archiveEyebrow: "More projects",
       archiveTitle: "The directory",
       archiveBody: "More products, tools, and experiments.",
@@ -463,7 +463,7 @@ export const translations = {
       body: "Produits, sites et outils développés depuis Gafsa.",
       featuredEyebrow: "Projets sélectionnés",
       featuredTitle: "Un regard plus proche.",
-      featuredBody: "Quatre projets, de bout en bout.",
+      featuredBody: "Cinq projets, de bout en bout.",
       archiveEyebrow: "Autres projets",
       archiveTitle: "Le répertoire",
       archiveBody: "D'autres produits, outils et expériences.",
@@ -574,7 +574,12 @@ const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
   "property-investment": { category: "Plateforme d'investissement", summary: "Une landing page d'investissement conçue pour renforcer la confiance et les prises de contact.", roles: ["Design génération de leads", "Structure UI", "Parcours de conversion"] },
   "speed-typer-game": { category: "Jeu", summary: "Un jeu de frappe avec feedback en direct et interface orientée performance.", roles: ["UI de jeu", "Logique interactive", "Feedback de performance"] },
   "sspace-star-map": { category: "Application d'astronomie full-stack", summary: "Un explorateur astronomique full-stack avec un catalogue PostgreSQL, une API Elysia/Bun, un rendu du ciel avec Stellarium et un planificateur d'observation sur 24 heures.", roles: ["Développement full-stack", "Systèmes de données astronomiques", "Visualisation interactive"], contribution: "J'ai développé l'explorateur Next.js, l'API Elysia/Bun, le catalogue PostgreSQL et le planificateur d'observation autour d'un ciel Stellarium dans le navigateur." },
-  "unit-converter": { category: "Outil utilitaire", summary: "Un convertisseur d'unités en temps réel, simple et rapide à utiliser.", roles: ["UX utilitaire", "Design d'outil", "Développement JavaScript"] },
+  "unit-converter": {
+    category: "Outils de conversion full-stack",
+    summary: "Un atelier de conversion pour 73 unités, les taux de change de référence, les outils développeur et les images, avec des outils locaux et une API serveur aux limites explicites.",
+    roles: ["Design produit", "Développement full-stack", "Architecture API"],
+    contribution: "J'ai développé le monorepo Next.js et Fastify, la logique de conversion partagée et les limites d'upload et de traitement serveur.",
+  },
   "wallpaper-generator": { category: "Outil créatif", summary: "Un générateur de fonds d'écran ludique centré sur l'expérimentation visuelle.", roles: ["Creative coding", "Interface interactive", "Expérimentation front-end"] },
   "epic-chicken-adventure": { category: "Jeu", summary: "Une expérience de jeu navigateur allégée et remise en forme pour plus de finition.", roles: ["Présentation de jeu", "Développement Next.js", "UI responsive"] },
 };
@@ -585,6 +590,7 @@ const englishProjectContributions: Record<string, string> = {
   "assistant-ai": "I designed the three assistant modes and built the production boundaries around read-only queries, AI budgets, and synthetic data.",
   "webgrade-analyzer": "I designed a compact scanner flow, separated provider evidence, and built the Next.js API and report interface.",
   "sspace-star-map": "I built the Next.js explorer, Elysia/Bun API, PostgreSQL catalog, and observing planner around a browser-based Stellarium sky.",
+  "unit-converter": "I built the Next.js and Fastify monorepo, shared conversion logic, and limits for uploads and server processing.",
 };
 
 export function getProjectCopy(

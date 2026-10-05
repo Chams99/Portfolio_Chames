@@ -3840,8 +3840,12 @@ a {
   }
 
   .home-portrait {
-    width: min(100%, 20rem);
+    width: min(calc(100% - 2.5rem), 20rem);
     justify-self: center;
+  }
+
+  .reveal-ready .home-portrait[data-reveal="fade-right"]:not(.revealed) {
+    transform: translateY(24px);
   }
 
   .site-header-nav {

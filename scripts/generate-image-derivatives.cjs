@@ -96,8 +96,14 @@ const projectSources = {
     gallery: ["public/images/optimized/sspace-large.webp"],
   },
   "unit-converter": {
-    hero: "public/images/projects/unit-converter-full.png",
-    gallery: ["public/images/projects/unit-converter-full.png"],
+    hero: "public/images/projects/convertal-units.png",
+    gallery: [
+      "public/images/projects/convertal-units.png",
+      "public/images/projects/convertal-developer.png",
+      "public/images/projects/convertal-images.png",
+      "public/images/projects/convertal-currency.png",
+      "public/images/projects/convertal-mobile.png",
+    ],
   },
   "wallpaper-generator": {
     hero: "public/images/optimized/wallpaper-large.webp",
