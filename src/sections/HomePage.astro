@@ -32,11 +32,13 @@ const selectedProjectSlugs = [
   "sspace-star-map",
   "unit-converter",
   "dent-dental-clinic",
-  "ftball-ecommerce",
 ] as const;
 const selectedProjects = selectedProjectSlugs.flatMap((slug) =>
   orderedExternalProjects.find((project) => project.slug === slug) ?? [],
 );
+if (selectedProjects.length !== 6) {
+  throw new Error("The home page must show exactly six selected projects.");
+}
 const archiveProjects = orderedExternalProjects.filter(
   (project) => !selectedProjectSlugs.includes(project.slug),
 );

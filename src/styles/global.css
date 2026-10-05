@@ -30,6 +30,7 @@
   color-scheme: dark;
   /* Warm palette adapted from chames.tn: plum black, cream, gold, and terracotta. */
   --background: #09080e;
+  --header-surface: color-mix(in srgb, var(--background) 74%, transparent);
   --foreground: #f5ece0;
   --card: #120f14;
   --card-foreground: #f5ece0;
@@ -235,9 +236,16 @@ body {
 
 .site-header-shell {
   border-bottom: 1px solid transparent;
-  background: color-mix(in srgb, var(--background) 76%, transparent);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: var(--background);
+}
+
+@supports ((backdrop-filter: blur(16px)) or (-webkit-backdrop-filter: blur(16px))) and
+  (background: color-mix(in srgb, var(--background) 74%, transparent)) {
+  .site-header-shell {
+    background: var(--header-surface);
+    -webkit-backdrop-filter: blur(16px);
+    backdrop-filter: blur(16px);
+  }
 }
 
 img {
