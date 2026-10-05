@@ -39,3 +39,20 @@ Then deploy on the VPS with:
 chmod +x deploy.sh
 ./deploy.sh
 ```
+
+To update the existing VPS deployment, run these commands from its portfolio checkout:
+
+```bash
+git switch New_Design
+git pull --ff-only origin New_Design
+bash deploy.sh
+curl -fsS https://chames.tn/health
+```
+
+If you need to find that checkout, inspect the existing containers' Compose labels:
+
+```bash
+docker inspect --format '{{ index .Config.Labels "com.docker.compose.project.working_dir" }}' portfolio-v1-blue portfolio-v1-green 2>/dev/null
+```
+
+Keep the server's existing `.env`. The deployment script builds the inactive blue/green service, waits for its health check, and then stops the previous service.

@@ -380,13 +380,33 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "hero": {
       "src": "/generated-images/unit-converter/hero.webp",
       "width": 1440,
-      "height": 1000
+      "height": 1122
     },
     "gallery": [
       {
-        "src": "/generated-images/unit-converter/gallery-1-unit-converter-full.webp",
+        "src": "/generated-images/unit-converter/gallery-1-convertal-units.webp",
         "width": 1440,
-        "height": 1000
+        "height": 1122
+      },
+      {
+        "src": "/generated-images/unit-converter/gallery-2-convertal-developer.webp",
+        "width": 960,
+        "height": 647
+      },
+      {
+        "src": "/generated-images/unit-converter/gallery-3-convertal-images.webp",
+        "width": 960,
+        "height": 891
+      },
+      {
+        "src": "/generated-images/unit-converter/gallery-4-convertal-currency.webp",
+        "width": 960,
+        "height": 640
+      },
+      {
+        "src": "/generated-images/unit-converter/gallery-5-convertal-mobile.webp",
+        "width": 390,
+        "height": 2052
       }
     ]
   },

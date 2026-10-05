@@ -19,7 +19,7 @@ const title = isFr ? "Projets" : "Work";
 const description = isFr
   ? "Projets sélectionnés de Chames Dhibi sur les produits numériques, les plateformes de services et les outils interactifs."
   : "Selected projects from Chames Dhibi across digital products, service platforms, company websites, and interactive tools.";
-const featuredProjectSlugs = ["lumina-it", "assistant-ai", "ai-story-video", "webgrade-analyzer"] as const;
+const featuredProjectSlugs = ["lumina-it", "assistant-ai", "ai-story-video", "webgrade-analyzer", "unit-converter"] as const;
 const featuredProjects = featuredProjectSlugs.flatMap((slug) => visibleProjects.find((project) => project.slug === slug) ?? []);
 const archiveProjects = visibleProjects.filter((project) => !project.featured);
 const archiveGroups = [

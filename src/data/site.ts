@@ -613,16 +613,32 @@ export const projects: Project[] = [
   }),
   buildProject({
     slug: "unit-converter",
-    title: "Universal Unit Converter",
-    year: "2024",
-    category: "Utility Tool",
+    title: "Universal Convertal",
+    year: "2026",
+    category: "Full-stack conversion tools",
     summary:
-      "A real-time unit converter with a simpler, faster utility-first interface.",
-    heroImage: "/images/projects/unit-converter-full.png",
-    roles: ["Utility UX", "Tool design", "JavaScript development"],
-    stack: ["JavaScript", "Utility UI", "Real-time calc"],
-    externalLink: "https://unit-converter-sq3u.vercel.app/",
-    quote: "Utility products feel premium when speed and simplicity are obvious from the first interaction.",
+      "A conversion workbench for 73 units, reference currency rates, developer tools, and images, with browser-local tools and a bounded server API.",
+    heroImage: "/images/projects/convertal-units.png",
+    gallery: [
+      "/images/projects/convertal-units.png",
+      "/images/projects/convertal-developer.png",
+      "/images/projects/convertal-images.png",
+      "/images/projects/convertal-currency.png",
+      "/images/projects/convertal-mobile.png",
+    ],
+    roles: ["Product design", "Full-stack development", "API architecture"],
+    stack: ["Next.js", "Fastify", "TypeScript", "Sharp", "Turborepo", "Docker"],
+    featured: true,
+    externalLink: "https://units.chames.tn/",
+    intro:
+      "Universal Convertal brings unit, currency, developer, and image tools into one responsive workbench.",
+    problem:
+      "Each tool needed a clear conversion flow while keeping browser-local work private and server processing bounded.",
+    creativeApproach:
+      "I built a Next.js and Fastify monorepo with shared conversion logic, explicit processing modes, provider adapters, and upload and resource limits.",
+    outcome:
+      "The deployed app combines precise unit conversions, reference exchange rates, local developer transformations, and image conversion without durable uploads.",
+    quote: "A useful conversion tool makes its results, processing mode, and limits clear.",
   }),
   buildProject({
     slug: "wallpaper-generator",

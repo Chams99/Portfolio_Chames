@@ -1,0 +1,179 @@
+{
+  "date": "2026-10-05",
+  "browser": "Chrome, headless, Windows",
+  "build": "Astro 6.4.5 production preview",
+  "axe": "4.13.0, changed card scope",
+  "zoom": "200% zoom emulated with a 720×480 CSS viewport at device scale 2; native browser zoom UI not exercised",
+  "results": [
+    {
+      "route": "/",
+      "label": "width 320, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr",
+      "label": "width 320, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/work",
+      "label": "width 320, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr/work",
+      "label": "width 320, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "label": "width 390, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr",
+      "label": "width 390, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/work",
+      "label": "width 390, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr/work",
+      "label": "width 390, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "label": "width 768, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr",
+      "label": "width 768, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/work",
+      "label": "width 768, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr/work",
+      "label": "width 768, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "label": "width 1440, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr",
+      "label": "width 1440, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/work",
+      "label": "width 1440, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr/work",
+      "label": "width 1440, reduced motion",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "label": "JavaScript disabled, content and image visible",
+      "status": "pass"
+    },
+    {
+      "route": "/fr",
+      "label": "JavaScript disabled, content and image visible",
+      "status": "pass"
+    },
+    {
+      "route": "/work",
+      "label": "JavaScript disabled, content and image visible",
+      "status": "pass"
+    },
+    {
+      "route": "/fr/work",
+      "label": "JavaScript disabled, content and image visible",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "label": "normal motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr",
+      "label": "normal motion",
+      "status": "pass"
+    },
+    {
+      "route": "/work",
+      "label": "normal motion",
+      "status": "pass"
+    },
+    {
+      "route": "/fr/work",
+      "label": "normal motion",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "label": "keyboard navigation and visible focus",
+      "status": "pass"
+    },
+    {
+      "route": "/fr",
+      "label": "keyboard navigation and visible focus",
+      "status": "pass"
+    },
+    {
+      "route": "/work",
+      "label": "keyboard navigation and visible focus",
+      "status": "pass"
+    },
+    {
+      "route": "/fr/work",
+      "label": "keyboard navigation and visible focus",
+      "status": "pass"
+    },
+    {
+      "route": "/ → /work",
+      "label": "ClientRouter, back/forward, motion change, Enter opens live project",
+      "status": "pass"
+    },
+    {
+      "route": "/fr → /fr/work",
+      "label": "ClientRouter, back/forward, motion change, Enter opens live project",
+      "status": "pass"
+    },
+    {
+      "route": "/",
+      "label": "200% zoom equivalent: 1440×960 physical pixels, 720×480 CSS pixels",
+      "status": "pass"
+    },
+    {
+      "route": "/fr",
+      "label": "200% zoom equivalent: 1440×960 physical pixels, 720×480 CSS pixels",
+      "status": "pass"
+    },
+    {
+      "route": "/work",
+      "label": "200% zoom equivalent: 1440×960 physical pixels, 720×480 CSS pixels",
+      "status": "pass"
+    },
+    {
+      "route": "/fr/work",
+      "label": "200% zoom equivalent: 1440×960 physical pixels, 720×480 CSS pixels",
+      "status": "pass"
+    }
+  ]
+}
