@@ -26,18 +26,24 @@ const projectSources = {
     ],
   },
   "assistant-ai": {
-    hero: "public/images/projects/assistant-ai-landing.png",
+    hero: "public/images/projects/assistant-ai-cover.png",
     gallery: [
+      "public/images/projects/assistant-ai-cover.png",
       "public/images/projects/assistant-ai-landing.png",
       "public/images/projects/assistant-ai-dashboard.png",
     ],
   },
   "webgrade-analyzer": {
-    hero: "public/images/projects/webgrade-analyzer-full.png",
+    hero: "public/images/projects/webgrade-analyzer-cover.png",
     gallery: [
+      "public/images/projects/webgrade-analyzer-cover.png",
       "public/images/projects/webgrade-analyzer-full.png",
       "public/images/projects/website-grading-v0.png",
     ],
+  },
+  "rapport-auditor": {
+    hero: "public/images/projects/rapport-auditor-cover.png",
+    gallery: ["public/images/projects/rapport-auditor-cover.png"],
   },
   "modern-estate-vision": {
     hero: "public/images/optimized/meridian-large.webp",
@@ -52,8 +58,9 @@ const projectSources = {
     ],
   },
   "photo-printing-order": {
-    hero: "public/images/projects/photo-printing-full.png",
+    hero: "public/images/projects/photo-printing-cover.png",
     gallery: [
+      "public/images/projects/photo-printing-cover.png",
       "public/images/projects/photo-printing-full.png",
       "public/images/projects/photo-printing-details.png",
       "public/images/projects/photo-printing-features.png",
@@ -92,12 +99,16 @@ const projectSources = {
     gallery: ["public/images/optimized/typing-game-large.webp"],
   },
   "sspace-star-map": {
-    hero: "public/images/optimized/sspace-large.webp",
-    gallery: ["public/images/optimized/sspace-large.webp"],
+    hero: "public/images/projects/sspace-star-map-cover.png",
+    gallery: [
+      "public/images/projects/sspace-star-map-cover.png",
+      "public/images/optimized/sspace-large.webp",
+    ],
   },
   "unit-converter": {
-    hero: "public/images/projects/convertal-units.png",
+    hero: "public/images/projects/convertal-cover.png",
     gallery: [
+      "public/images/projects/convertal-cover.png",
       "public/images/projects/convertal-units.png",
       "public/images/projects/convertal-developer.png",
       "public/images/projects/convertal-images.png",

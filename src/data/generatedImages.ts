@@ -84,16 +84,21 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "hero": {
       "src": "/generated-images/assistant-ai/hero.webp",
       "width": 1440,
-      "height": 685
+      "height": 900
     },
     "gallery": [
       {
-        "src": "/generated-images/assistant-ai/gallery-1-assistant-ai-landing.webp",
+        "src": "/generated-images/assistant-ai/gallery-1-assistant-ai-cover.webp",
         "width": 1440,
-        "height": 685
+        "height": 900
       },
       {
-        "src": "/generated-images/assistant-ai/gallery-2-assistant-ai-dashboard.webp",
+        "src": "/generated-images/assistant-ai/gallery-2-assistant-ai-landing.webp",
+        "width": 960,
+        "height": 457
+      },
+      {
+        "src": "/generated-images/assistant-ai/gallery-3-assistant-ai-dashboard.webp",
         "width": 960,
         "height": 456
       }
@@ -112,14 +117,38 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     },
     "gallery": [
       {
-        "src": "/generated-images/webgrade-analyzer/gallery-1-webgrade-analyzer-full.webp",
+        "src": "/generated-images/webgrade-analyzer/gallery-1-webgrade-analyzer-cover.webp",
         "width": 1440,
         "height": 900
       },
       {
-        "src": "/generated-images/webgrade-analyzer/gallery-2-website-grading-v0.webp",
+        "src": "/generated-images/webgrade-analyzer/gallery-2-webgrade-analyzer-full.webp",
         "width": 960,
         "height": 600
+      },
+      {
+        "src": "/generated-images/webgrade-analyzer/gallery-3-website-grading-v0.webp",
+        "width": 960,
+        "height": 600
+      }
+    ]
+  },
+  "rapport-auditor": {
+    "card": {
+      "src": "/generated-images/rapport-auditor/card.webp",
+      "width": 820,
+      "height": 512
+    },
+    "hero": {
+      "src": "/generated-images/rapport-auditor/hero.webp",
+      "width": 1440,
+      "height": 900
+    },
+    "gallery": [
+      {
+        "src": "/generated-images/rapport-auditor/gallery-1-rapport-auditor-cover.webp",
+        "width": 1440,
+        "height": 900
       }
     ]
   },
@@ -184,17 +213,22 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     },
     "gallery": [
       {
-        "src": "/generated-images/photo-printing-order/gallery-1-photo-printing-full.webp",
+        "src": "/generated-images/photo-printing-order/gallery-1-photo-printing-cover.webp",
         "width": 1440,
         "height": 900
       },
       {
-        "src": "/generated-images/photo-printing-order/gallery-2-photo-printing-details.webp",
+        "src": "/generated-images/photo-printing-order/gallery-2-photo-printing-full.webp",
         "width": 960,
         "height": 600
       },
       {
-        "src": "/generated-images/photo-printing-order/gallery-3-photo-printing-features.webp",
+        "src": "/generated-images/photo-printing-order/gallery-3-photo-printing-details.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "/generated-images/photo-printing-order/gallery-4-photo-printing-features.webp",
         "width": 960,
         "height": 600
       }
@@ -361,13 +395,18 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "hero": {
       "src": "/generated-images/sspace-star-map/hero.webp",
       "width": 1440,
-      "height": 716
+      "height": 900
     },
     "gallery": [
       {
-        "src": "/generated-images/sspace-star-map/gallery-1-sspace-large.webp",
+        "src": "/generated-images/sspace-star-map/gallery-1-sspace-star-map-cover.webp",
         "width": 1440,
-        "height": 716
+        "height": 900
+      },
+      {
+        "src": "/generated-images/sspace-star-map/gallery-2-sspace-large.webp",
+        "width": 960,
+        "height": 477
       }
     ]
   },
@@ -380,31 +419,36 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "hero": {
       "src": "/generated-images/unit-converter/hero.webp",
       "width": 1440,
-      "height": 1122
+      "height": 900
     },
     "gallery": [
       {
-        "src": "/generated-images/unit-converter/gallery-1-convertal-units.webp",
+        "src": "/generated-images/unit-converter/gallery-1-convertal-cover.webp",
         "width": 1440,
-        "height": 1122
+        "height": 900
       },
       {
-        "src": "/generated-images/unit-converter/gallery-2-convertal-developer.webp",
+        "src": "/generated-images/unit-converter/gallery-2-convertal-units.webp",
+        "width": 960,
+        "height": 748
+      },
+      {
+        "src": "/generated-images/unit-converter/gallery-3-convertal-developer.webp",
         "width": 960,
         "height": 647
       },
       {
-        "src": "/generated-images/unit-converter/gallery-3-convertal-images.webp",
+        "src": "/generated-images/unit-converter/gallery-4-convertal-images.webp",
         "width": 960,
         "height": 891
       },
       {
-        "src": "/generated-images/unit-converter/gallery-4-convertal-currency.webp",
+        "src": "/generated-images/unit-converter/gallery-5-convertal-currency.webp",
         "width": 960,
         "height": 640
       },
       {
-        "src": "/generated-images/unit-converter/gallery-5-convertal-mobile.webp",
+        "src": "/generated-images/unit-converter/gallery-6-convertal-mobile.webp",
         "width": 390,
         "height": 2052
       }

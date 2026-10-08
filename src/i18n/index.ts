@@ -556,6 +556,12 @@ const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
     roles: ["Design produit", "Développement full-stack", "Conception du workflow IA"],
     contribution: "J'ai conçu les trois modes d'assistant et construit les garde-fous de production autour des requêtes en lecture seule, des budgets IA et des données synthétiques.",
   },
+  "rapport-auditor": {
+    category: "Outil de rédaction académique",
+    summary: "Un bureau de relecture bilingue pour les rapports académiques : répétitions, phrases denses, formules toutes faites et affirmations qui peuvent nécessiter une source visible.",
+    roles: ["Design produit", "Développement full-stack", "Conception des règles linguistiques"],
+    contribution: "J'ai conçu les règles anglaises et françaises, relié chaque suggestion à son passage et développé l'aperçu des corrections, qui ne modifie jamais le fichier source.",
+  },
   "webgrade-analyzer": {
     category: "Outil développeur",
     summary: "Un outil d'audit pour lire plus clairement les signaux de performance, d'accessibilité, de SEO et de sécurité.",
@@ -588,6 +594,7 @@ const englishProjectContributions: Record<string, string> = {
   "lumina-it": "I shaped the brand direction and built the responsive Next.js front end around sharper hierarchy and contrast.",
   "ai-story-video": "I framed the AI workflow as a visual product and built the front end for creators and storytellers.",
   "assistant-ai": "I designed the three assistant modes and built the production boundaries around read-only queries, AI budgets, and synthetic data.",
+  "rapport-auditor": "I designed the English and French cue rules, linked every prompt to its passage, and built the edit preview that never changes the source file.",
   "webgrade-analyzer": "I designed a compact scanner flow, separated provider evidence, and built the Next.js API and report interface.",
   "sspace-star-map": "I built the Next.js explorer, Elysia/Bun API, PostgreSQL catalog, and observing planner around a browser-based Stellarium sky.",
   "unit-converter": "I built the Next.js and Fastify monorepo, shared conversion logic, and limits for uploads and server processing.",

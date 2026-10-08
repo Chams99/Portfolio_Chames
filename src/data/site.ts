@@ -256,6 +256,7 @@ const projectOrder = [
   "ftball-ecommerce",
   "lumina-it",
   "assistant-ai",
+  "rapport-auditor",
   "ai-story-video",
   "photo-printing-order",
   "lolchat-gaming",
@@ -367,8 +368,9 @@ export const projects: Project[] = [
     category: "AI Data Platform",
     summary:
       "An assistant platform for grounded database, website, and manual knowledge workflows.",
-    heroImage: "/images/projects/assistant-ai-landing.png",
+    heroImage: "/images/projects/assistant-ai-cover.png",
     gallery: [
+      "/images/projects/assistant-ai-cover.png",
       "/images/projects/assistant-ai-landing.png",
       "/images/projects/assistant-ai-dashboard.png",
     ],
@@ -397,9 +399,9 @@ export const projects: Project[] = [
     category: "Developer Tool",
     summary:
       "A developer-facing website audit tool for performance, accessibility, SEO, and security signals.",
-    heroImage: "/images/projects/webgrade-analyzer-full.png",
-    previewMode: "scroll",
+    heroImage: "/images/projects/webgrade-analyzer-cover.png",
     gallery: [
+      "/images/projects/webgrade-analyzer-cover.png",
       "/images/projects/webgrade-analyzer-full.png",
       "/images/projects/website-grading-v0.png",
     ],
@@ -420,6 +422,28 @@ export const projects: Project[] = [
       { label: "Deployment", value: "Next.js API + Docker + Traefik" },
     ],
     quote: "A diagnostic tool earns trust when the evidence is easier to read than the problem.",
+  }),
+  buildProject({
+    slug: "rapport-auditor",
+    title: "Rapport Auditor",
+    year: "2026",
+    category: "Academic writing tool",
+    summary:
+      "A bilingual review desk for academic drafts that flags repetition, dense sentences, stock phrasing, and claims that may need a visible source.",
+    heroImage: "/images/projects/rapport-auditor-cover.png",
+    gallery: ["/images/projects/rapport-auditor-cover.png"],
+    roles: ["Product design", "Full-stack development", "Language rule design"],
+    stack: ["Python", "Flask", "Waitress", "Jinja", "Docker"],
+    externalLink: "https://rapport.chames.tn/",
+    intro:
+      "Rapport Auditor helps writers review English and French report drafts before the next revision.",
+    problem:
+      "Writing feedback has to point at concrete passages without pretending to judge quality, verify facts, or detect plagiarism.",
+    creativeApproach:
+      "I built deterministic English and French cue rules, linked every prompt to its passage, and added a style-edit preview that never changes the source file.",
+    outcome:
+      "Writers can paste text or upload .txt and .tex files, review each prompt in context, and preview conservative edits. The app is designed not to store drafts.",
+    quote: "Review prompts are most useful when they show the passage and leave the decision to the writer.",
   }),
   buildProject({
     slug: "modern-estate-vision",
@@ -471,8 +495,9 @@ export const projects: Project[] = [
     category: "E-Commerce",
     summary:
       "A print-aware photo editor with guided setup, editable templates, previews, and a demo request flow.",
-    heroImage: "/images/projects/photo-printing-full.png",
+    heroImage: "/images/projects/photo-printing-cover.png",
     gallery: [
+      "/images/projects/photo-printing-cover.png",
       "/images/projects/photo-printing-full.png",
       "/images/projects/photo-printing-details.png",
       "/images/projects/photo-printing-features.png",
@@ -605,7 +630,11 @@ export const projects: Project[] = [
     category: "Full-stack astronomy app",
     summary:
       "A full-stack astronomy explorer with a Next.js frontend, Elysia/Bun API, PostgreSQL catalog, Stellarium sky rendering, and a 24-hour observing planner.",
-    heroImage: "/images/optimized/sspace-large.webp",
+    heroImage: "/images/projects/sspace-star-map-cover.png",
+    gallery: [
+      "/images/projects/sspace-star-map-cover.png",
+      "/images/optimized/sspace-large.webp",
+    ],
     roles: ["Full-stack development", "Astronomy data systems", "Interactive visualization"],
     stack: ["Next.js", "Elysia/Bun", "PostgreSQL", "Stellarium"],
     externalLink: "https://sspace.chames.tn/",
@@ -618,8 +647,9 @@ export const projects: Project[] = [
     category: "Full-stack conversion tools",
     summary:
       "A conversion workbench for 73 units, reference currency rates, developer tools, and images, with browser-local tools and a bounded server API.",
-    heroImage: "/images/projects/convertal-units.png",
+    heroImage: "/images/projects/convertal-cover.png",
     gallery: [
+      "/images/projects/convertal-cover.png",
       "/images/projects/convertal-units.png",
       "/images/projects/convertal-developer.png",
       "/images/projects/convertal-images.png",
