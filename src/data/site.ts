@@ -47,7 +47,6 @@ export type Project = {
   category: string;
   summary: string;
   heroImage: string;
-  previewMode?: "cover" | "scroll";
   gallery: string[];
   roles: string[];
   stack?: string[];
@@ -305,7 +304,6 @@ export const projects: Project[] = [
     summary:
       "A cybersecurity website shaped to feel sharper, more direct, and more trusted.",
     heroImage: "/images/projects/lumina-it-full.png",
-    previewMode: "scroll",
     gallery: [
       "/images/projects/lumina-it-full.png",
       "/images/projects/lumina-it-details.png",
@@ -337,7 +335,6 @@ export const projects: Project[] = [
     summary:
       "An AI storytelling product framed to feel visual, simple, and cinematic.",
     heroImage: "/images/projects/ai-story-video-full.png",
-    previewMode: "scroll",
     gallery: [
       "/images/projects/ai-story-video-full.png",
       "/images/projects/ai-story-video-details.png",
