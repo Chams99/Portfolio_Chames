@@ -4,6 +4,8 @@ WORKDIR /app
 
 ARG PUBLIC_SITE_URL=https://chames.tn
 ENV PUBLIC_SITE_URL=${PUBLIC_SITE_URL}
+ARG PUBLIC_GA4_MEASUREMENT_ID=
+ENV PUBLIC_GA4_MEASUREMENT_ID=${PUBLIC_GA4_MEASUREMENT_ID}
 
 COPY package.json bun.lock ./
 RUN bun install --frozen-lockfile
