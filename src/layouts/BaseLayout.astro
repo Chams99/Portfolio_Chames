@@ -3,7 +3,7 @@ import { ClientRouter } from "astro:transitions";
 import SiteFooter from "@/astro/SiteFooter.astro";
 import SiteHeader from "@/astro/SiteHeader.astro";
 import { getCanonicalUrl, siteConfig } from "@/data/site";
-import { getLocaleFromUrl, t } from "@/i18n/index";
+import { getLocaleFromUrl } from "@/i18n/index";
 import "@/styles/global.css";
 
 interface Props {
@@ -31,8 +31,6 @@ const pageTitle = title
   : siteConfig.title;
 const htmlLang = locale === "fr" ? "fr" : "en";
 const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
-const copy = t(locale).footer;
-const analyticsMeasurementId = import.meta.env.PUBLIC_GA4_MEASUREMENT_ID ?? "";
 const englishPath = Astro.url.pathname.replace(/^\/fr/, "") || "/";
 const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
 ---
@@ -142,28 +140,12 @@ const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
       <SiteFooter locale={locale} />
     </div>
 
-    <aside
-      class="analytics-consent"
-      data-analytics-consent
-      data-measurement-id={analyticsMeasurementId}
-      hidden
-      aria-labelledby="analytics-consent-title"
-      aria-live="polite"
-    >
-      <h2 id="analytics-consent-title">{copy.analyticsTitle}</h2>
-      <p>{copy.analyticsBody}</p>
-      <div class="analytics-consent-actions">
-        <button type="button" data-analytics-accept>{copy.analyticsAccept}</button>
-        <button type="button" data-analytics-decline>{copy.analyticsDecline}</button>
-      </div>
-    </aside>
-
     <script>
       import "@/scripts/navigation";
       import "@/scripts/contact-form";
       import "@/scripts/scroll-reveal";
       import "@/scripts/type-reveal";
-      import "@/scripts/analytics-consent";
+      import "@/scripts/analytics";
     </script>
   </body>
 </html>

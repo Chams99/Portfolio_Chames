@@ -750,37 +750,6 @@ a {
   color: var(--foreground);
 }
 
-.footer-bottom .footer-analytics-preferences {
-  justify-self: end;
-  min-height: 2.5rem;
-  padding: 0.55rem 0.8rem;
-  border: 1px solid var(--rule);
-  border-radius: 0.35rem;
-  background: transparent;
-  color: var(--muted-foreground);
-  font: inherit;
-  font-family: var(--font-label);
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  line-height: 1;
-  text-transform: uppercase;
-  touch-action: manipulation;
-  cursor: pointer;
-  transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
-}
-
-.footer-bottom .footer-analytics-preferences:hover {
-  border-color: color-mix(in srgb, var(--primary) 68%, var(--rule));
-  background: color-mix(in srgb, var(--primary) 7%, transparent);
-  color: var(--primary);
-}
-
-.footer-bottom .footer-analytics-preferences:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 3px;
-}
-
 .footer-bottom a:hover {
   color: var(--primary);
 }
@@ -837,80 +806,6 @@ a {
     justify-self: start;
   }
 
-  .footer-bottom .footer-analytics-preferences {
-    justify-self: start;
-  }
-}
-
-.analytics-consent {
-  position: fixed;
-  z-index: 100;
-  right: 1rem;
-  bottom: 1rem;
-  width: min(35rem, calc(100vw - 2rem));
-  padding: 1.1rem;
-  border: 1px solid var(--rule);
-  border-radius: 0.5rem;
-  background: var(--card);
-  color: var(--foreground);
-  box-shadow: 0 0.75rem 2.5rem rgb(0 0 0 / 0.32);
-}
-
-.analytics-consent h2 {
-  margin: 0 0 0.4rem;
-  font-family: var(--font-display);
-  font-size: 1rem;
-}
-
-.analytics-consent p {
-  margin: 0;
-  max-width: 60ch;
-  color: var(--muted-foreground);
-  font-size: 0.875rem;
-  line-height: 1.55;
-}
-
-.analytics-consent-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.65rem;
-  margin-top: 0.9rem;
-}
-
-.analytics-consent-actions button {
-  min-height: 2.75rem;
-  padding: 0.65rem 0.9rem;
-  border: 1px solid var(--rule);
-  border-radius: 0.35rem;
-  background: transparent;
-  color: var(--foreground);
-  font: inherit;
-  font-size: 0.8rem;
-  font-weight: 700;
-  cursor: pointer;
-}
-
-.analytics-consent-actions button:first-child {
-  border-color: var(--primary);
-  background: var(--primary);
-  color: var(--primary-foreground);
-}
-
-.analytics-consent-actions button:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 3px;
-}
-
-.analytics-consent[hidden],
-.footer-bottom [hidden] {
-  display: none !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .footer-bottom .footer-analytics-preferences,
-  .analytics-consent-actions button {
-    transition: none;
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
