@@ -6,7 +6,7 @@ const locale = getLocaleFromUrl(Astro.url);
 const i = t(locale);
 ---
 
-<BaseLayout title="Not Found" description={i.notFound.body} robots="noindex,follow" locale={locale}>
+<BaseLayout title={i.notFound.title} description={i.notFound.body} robots="noindex,follow" locale={locale}>
   <main class="page-shell py-24">
     <p class="eyebrow">404</p>
     <h1 class="editorial-title mt-4 text-5xl text-white md:text-7xl">{i.notFound.title}</h1>

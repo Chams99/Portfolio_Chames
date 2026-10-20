@@ -74,8 +74,12 @@ export const siteConfig = {
   locale: "en_US",
 } as const;
 
-export function getCanonicalUrl(path = "/") {
-  return new URL(path, siteConfig.siteUrl).toString();
+export function getCanonicalUrl(path = "/", base: string | URL = siteConfig.siteUrl) {
+  const url = new URL(path, base);
+  if (url.pathname !== "/" && !/\.[^/]+$/.test(url.pathname) && !url.pathname.endsWith("/")) {
+    url.pathname += "/";
+  }
+  return url.toString();
 }
 
 export function isExternalHref(href: string) {

@@ -56,10 +56,10 @@ const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={getCanonicalUrl(siteConfig.ogImage)} />
     {robots ? <meta name="robots" content={robots} /> : null}
-    <link rel="canonical" href={canonical} />
-    <link rel="alternate" hreflang="en" href={getCanonicalUrl(englishPath)} />
-    <link rel="alternate" hreflang="fr" href={getCanonicalUrl(frenchPath)} />
-    <link rel="alternate" hreflang="x-default" href={getCanonicalUrl(englishPath)} />
+    {robots?.includes("noindex") ? null : <link rel="canonical" href={canonical} />}
+    {robots?.includes("noindex") ? null : <link rel="alternate" hreflang="en" href={getCanonicalUrl(englishPath)} />}
+    {robots?.includes("noindex") ? null : <link rel="alternate" hreflang="fr" href={getCanonicalUrl(frenchPath)} />}
+    {robots?.includes("noindex") ? null : <link rel="alternate" hreflang="x-default" href={getCanonicalUrl(englishPath)} />}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=cd" />
     <link rel="apple-touch-icon" href="/favicon.svg?v=cd" />
     <link rel="manifest" href="/manifest.webmanifest" />
@@ -89,14 +89,13 @@ const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
             "@type": "Person",
             "@id": `${siteConfig.siteUrl}/#person`,
             name: siteConfig.name,
-            alternateName: "Chames Eddine",
+            alternateName: ["Chames Dhibi", "Chames Eddine", "Chams Dhibi"],
             jobTitle: "Software Engineer & Full-Stack Developer",
             description: siteConfig.description,
             email: `mailto:${siteConfig.email}`,
             telephone: siteConfig.phone,
             url: siteConfig.siteUrl,
             sameAs: [
-              "https://chames.tn",
               "https://github.com/chams99",
               "https://linkedin.com/in/chamesdh",
               "https://www.upwork.com/freelancers/~01ec2dc27e0c617399",
@@ -107,6 +106,20 @@ const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
               addressCountry: "Tunisia",
             },
           },
+          ...(robots?.includes("noindex")
+            ? []
+            : [
+                {
+                  "@type": "WebPage",
+                  "@id": `${canonical}#webpage`,
+                  url: canonical,
+                  name: pageTitle,
+                  description,
+                  inLanguage: htmlLang,
+                  isPartOf: { "@id": `${siteConfig.siteUrl}/#website` },
+                  about: { "@id": `${siteConfig.siteUrl}/#person` },
+                },
+              ]),
         ],
       })}
     />
