@@ -41,14 +41,6 @@ const emailChannel = contactChannels.find((item) => item.label === "Email");
     <div class="footer-bottom">
       <p class="footer-signature">CHAMES / {new Date().getFullYear()}</p>
       <p>{i.footer.copyright} {new Date().getFullYear()} {siteConfig.name}</p>
-      <button
-        class="footer-analytics-preferences"
-        type="button"
-        data-analytics-preferences
-        hidden
-      >
-        {i.footer.analyticsPreferences}
-      </button>
       <a
         class="footer-back-to-top"
         href={localizedPath("/", locale as any)}
