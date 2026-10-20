@@ -63,9 +63,9 @@ export type Project = {
 export const siteConfig = {
   name: "Chames Eddine Dhibi",
   shortName: "Chames Dhibi",
-  title: "Software Engineer & Full-Stack Developer | Chames Eddine Dhibi",
+  title: "Chames Eddine Dhibi | Freelance Full-Stack Developer",
   description:
-    "Chames Eddine Dhibi is a Software Engineering graduate and full-stack developer building software products, AI applications, and data-driven systems.",
+    "Chames Eddine Dhibi is a software engineer and freelance full-stack developer in Tunisia, building web and mobile products.",
   location: "Gafsa, Tunisia",
   email: "dhibichams@gmail.com",
   phone: "+216 51091800",
