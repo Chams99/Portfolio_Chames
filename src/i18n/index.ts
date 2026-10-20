@@ -248,6 +248,11 @@ export const translations = {
       closingBody: "Software products, AI applications, and data-driven systems built with care from Gafsa, Tunisia.",
       contactCta: "Start a conversation",
       backToTop: "Back to top",
+      analyticsPreferences: "Analytics preferences",
+      analyticsTitle: "Optional analytics",
+      analyticsBody: "If you allow it, Google Analytics records page views and visit patterns. You can change this choice at any time.",
+      analyticsAccept: "Allow analytics",
+      analyticsDecline: "Decline",
       copyright: "Copyright",
     },
 
@@ -500,6 +505,11 @@ export const translations = {
       closingBody: "Produits logiciels, applications d'IA et systèmes orientés données, développés avec soin depuis Gafsa, en Tunisie.",
       contactCta: "Démarrer une conversation",
       backToTop: "Retour en haut",
+      analyticsPreferences: "Préférences des statistiques",
+      analyticsTitle: "Statistiques facultatives",
+      analyticsBody: "Si vous l’autorisez, Google Analytics enregistre les pages consultées et les visites. Vous pouvez modifier ce choix à tout moment.",
+      analyticsAccept: "Autoriser les statistiques",
+      analyticsDecline: "Refuser",
       copyright: "Droits d'auteur",
     },
 

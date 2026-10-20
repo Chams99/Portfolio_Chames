@@ -7,6 +7,7 @@
     "dev": "bunx --bun astro dev",
     "prepare:images": "node scripts/generate-image-derivatives.cjs",
     "build": "node scripts/generate-image-derivatives.cjs && bunx --bun astro build",
+    "test:analytics": "bun scripts/test-analytics-consent.ts",
     "preview": "bunx --bun astro preview"
   },
   "dependencies": {
