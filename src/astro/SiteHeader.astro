@@ -1,0 +1,124 @@
+---
+import { siteConfig } from "@/data/site";
+import { t } from "@/i18n/index";
+
+interface Props {
+  pathname: string;
+  locale?: string;
+}
+
+const { pathname, locale = "en" } = Astro.props;
+const i = t(locale);
+const altLocale = locale === "fr" ? "en" : "fr";
+const altLabel = locale === "fr" ? "EN" : "FR";
+
+const navLabels = [i.nav.home, i.nav.stack, i.nav.projects, i.nav.experiences, i.nav.contact];
+const scrollNavItems = [
+  { href: "#top", label: navLabels[0] },
+  { href: "#projects", label: navLabels[2] },
+  { href: "#stack", label: navLabels[1] },
+  { href: "#experiences", label: navLabels[3] },
+  { href: "#contact", label: navLabels[4] },
+];
+
+function localizedHref(href: string) {
+  if (locale === "en") return href;
+  return `/fr${href === "/" ? "" : href}`;
+}
+
+function switchLocalePath() {
+  if (locale === "en") {
+    return `/fr${pathname === "/" ? "" : pathname}`;
+  }
+  return pathname.replace(/^\/fr/, "") || "/";
+}
+
+function resolveNavHref(href: string) {
+  if (!href.startsWith("#")) return localizedHref(href);
+  return pathname === "/" ? href : `${localizedHref("/")}${href}`;
+}
+---
+
+<div class="site-header-shell sticky top-0 z-40">
+  <header class="page-shell">
+    <nav class="site-header-nav flex items-center justify-between gap-4 py-5" aria-label="Main navigation">
+      <a href={localizedHref("/")} class="group flex items-center gap-3">
+        <span class="brand-mark" aria-hidden="true">CD</span>
+        <span>
+          <span class="eyebrow block text-white/75 transition-colors group-hover:text-white">{siteConfig.name}</span>
+          <span class="header-subtitle-full block text-sm text-white/62">{i.header.subtitle}</span>
+          <span class="header-subtitle-mobile block text-sm text-white/62" aria-hidden="true">
+            {locale === "fr" ? "Développeur full-stack" : "Full-stack developer"}
+          </span>
+        </span>
+      </a>
+
+      <div class="header-nav-desktop relative hidden items-center lg:flex" id="desktop-nav">
+        <div class="header-nav-links relative flex items-center">
+          {
+            scrollNavItems.map((item) => {
+              const href = resolveNavHref(item.href);
+              const section = item.href.replace(/^#|^\//, "");
+              return (
+                <a
+                  href={href}
+                  data-section={section}
+                  class="nav-link relative z-10 text-sm text-white/62 transition-colors hover:text-white"
+                >
+                  {item.label}
+                </a>
+              );
+            })
+          }
+          <span
+            id="nav-indicator"
+            class="pointer-events-none absolute bottom-0 left-0 h-[2px] rounded-full bg-[color:var(--accent)] opacity-0 transition-all duration-300 ease-out"
+            aria-hidden="true"
+          />
+        </div>
+
+        <div class="header-nav-actions flex items-center">
+          <a href={switchLocalePath()} class="lang-switch">{altLabel}</a>
+          <a href={resolveNavHref("#projects")} class="header-cta">
+            {locale === "fr" ? "Explorer les projets" : "Explore projects"}
+          </a>
+        </div>
+      </div>
+
+      <!-- Mobile hamburger -->
+      <div class="flex items-center gap-3 lg:hidden">
+        <a href={switchLocalePath()} class="lang-switch">{altLabel}</a>
+        <button
+          type="button"
+          class="hamburger inline-flex h-11 w-11 flex-col items-center justify-center gap-[5px] p-2 text-white/62"
+          aria-label={i.header.menuLabel}
+          aria-controls="mobile-menu"
+          aria-expanded="false"
+          id="mobile-menu-btn"
+        >
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="mobile-menu lg:hidden" id="mobile-menu" hidden aria-hidden="true" inert>
+      <div class="flex flex-col gap-3 pb-6">
+        {
+          scrollNavItems.map((item) => {
+            const href = resolveNavHref(item.href);
+            return (
+              <a
+                href={href}
+                class="text-sm text-white/62 hover:text-white"
+              >
+                {item.label}
+              </a>
+            );
+          })
+        }
+      </div>
+    </div>
+  </header>
+</div>

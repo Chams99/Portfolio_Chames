@@ -1,0 +1,50 @@
+---
+import type { GeneratedImage } from "@/data/generatedImages";
+
+type LoadingValue = "eager" | "lazy";
+type DecodingValue = "sync" | "async" | "auto";
+type FetchPriorityValue = "high" | "low" | "auto";
+
+interface Props {
+  src: GeneratedImage | string;
+  alt: string;
+  class?: string;
+  loading?: LoadingValue;
+  decoding?: DecodingValue;
+  fetchpriority?: FetchPriorityValue;
+  sizes?: string;
+  srcset?: string;
+  width?: number;
+  height?: number;
+}
+
+const {
+  src,
+  alt,
+  class: className = "",
+  loading = "lazy",
+  decoding = "async",
+  fetchpriority = "auto",
+  sizes,
+  srcset,
+  width,
+  height,
+} = Astro.props;
+
+const imageSrc = typeof src === "string" ? src : src.src;
+const imageWidth = typeof src === "string" ? width : src.width;
+const imageHeight = typeof src === "string" ? height : src.height;
+---
+
+<img
+  src={imageSrc}
+  alt={alt}
+  class={className}
+  loading={loading}
+  decoding={decoding}
+  fetchpriority={fetchpriority}
+  width={imageWidth}
+  height={imageHeight}
+  sizes={sizes}
+  srcset={srcset}
+/>

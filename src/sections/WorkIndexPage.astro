@@ -1,0 +1,116 @@
+---
+import ProjectDirectoryRow from "@/astro/ProjectDirectoryRow.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionMarker from "@/astro/SectionMarker.astro";
+import { projects } from "@/data/site";
+import { localizedPath, t, type Locale } from "@/i18n/index";
+
+const visibleProjects = projects.filter((p) => p.externalLink);
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const i = t(locale);
+const isFr = locale === "fr";
+
+const title = isFr ? "Projets" : "Work";
+const description = isFr
+  ? "Projets sélectionnés de Chames Dhibi sur les produits numériques, les plateformes de services et les outils interactifs."
+  : "Selected projects from Chames Dhibi across digital products, service platforms, company websites, and interactive tools.";
+const featuredProjectSlugs = ["lumina-it", "assistant-ai", "ai-story-video", "webgrade-analyzer", "unit-converter"] as const;
+const featuredProjects = featuredProjectSlugs.flatMap((slug) => visibleProjects.find((project) => project.slug === slug) ?? []);
+const archiveProjects = visibleProjects.filter((project) => !project.featured);
+const archiveGroups = [
+  {
+    key: "products" as const,
+    slugs: ["rapport-auditor", "modern-estate-vision", "cleanfile-agency", "dent-dental-clinic", "property-investment"],
+  },
+  {
+    key: "commerce" as const,
+    slugs: ["photo-printing-order", "ecommerce-platform", "fitlite-ai-fitness", "ftball-ecommerce", "la-cuisine-restaurant"],
+  },
+  {
+    key: "experiments" as const,
+    slugs: ["lolchat-gaming", "speed-typer-game", "sspace-star-map", "unit-converter", "wallpaper-generator"],
+  },
+].map((group) => ({
+  ...group,
+  projects: group.slugs.flatMap((slug) => archiveProjects.find((project) => project.slug === slug) ?? []),
+}));
+---
+
+<BaseLayout title={title} description={description} locale={locale} showHeader={false}>
+  <main class="work-page">
+    <section class="work-page-hero page-shell" aria-labelledby="work-page-title">
+      <SectionMarker icon="projects" label={i.work.eyebrow} reveal />
+      <h1 id="work-page-title" class="work-page-title" data-reveal>
+        {i.work.h1Start} {i.work.h1Outline}
+      </h1>
+      <p class="work-page-lede" data-reveal>{i.work.body}</p>
+      <div class="work-page-meta" data-reveal>
+        <span>{visibleProjects.length} {i.work.projectsLabel}</span>
+      </div>
+      <a class="work-page-back" href={localizedPath("/", locale)} data-reveal>
+        <span aria-hidden="true">←</span>
+        {i.work.backToPortfolio}
+      </a>
+    </section>
+
+    <section class="work-featured-section" aria-labelledby="work-featured-title">
+      <div class="page-shell">
+        <div class="work-directory-intro" data-reveal>
+          <div>
+            <SectionMarker icon="projects" label={i.work.featuredEyebrow} />
+            <h2 id="work-featured-title">{i.work.featuredTitle}</h2>
+          </div>
+          <p>{i.work.featuredBody}</p>
+        </div>
+
+        <div class="work-directory-list" data-reveal-stagger>
+          {featuredProjects.map((project, index) => (
+            <ProjectDirectoryRow
+              project={project}
+              locale={locale}
+              index={index}
+              featured
+              openLabel={i.work.openProject}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="work-archive-section" aria-labelledby="work-archive-title">
+      <div class="page-shell">
+        <div class="work-directory-intro" data-reveal>
+          <div>
+            <SectionMarker icon="archive" label={i.work.archiveEyebrow} />
+            <h2 id="work-archive-title">{i.work.archiveTitle}</h2>
+          </div>
+          <p>{i.work.archiveBody}</p>
+        </div>
+
+        <div class="work-groups">
+          {archiveGroups.map((group, groupIndex) => (
+            <section class="work-group" aria-labelledby={`work-group-${group.key}`}>
+              <div class="work-group-heading">
+                <div>
+                  <p class="work-group-index">{String(groupIndex + 1).padStart(2, "0")}</p>
+                  <h3 id={`work-group-${group.key}`}>{i.work.groups[group.key]}</h3>
+                </div>
+                <span>{group.projects.length} {i.work.projectsLabel}</span>
+              </div>
+              <div class="work-directory-list work-directory-list-archive" data-reveal-stagger>
+                {group.projects.map((project, index) => (
+                  <ProjectDirectoryRow project={project} locale={locale} index={index} openLabel={i.work.openProject} />
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+</BaseLayout>

@@ -1,0 +1,51 @@
+x-service-template: &service-template
+  build:
+    context: .
+    args:
+      PUBLIC_SITE_URL: ${PUBLIC_SITE_URL:-https://chames.tn}
+  healthcheck:
+    test: ["CMD", "curl", "-sf", "http://localhost/health"]
+    interval: 3s
+    timeout: 3s
+    retries: 10
+    start_period: 15s
+  restart: unless-stopped
+  environment:
+    - PUBLIC_SITE_URL=${PUBLIC_SITE_URL:-https://chames.tn}
+    - TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
+    - TELEGRAM_CHAT_ID=${TELEGRAM_CHAT_ID}
+    - CONTACT_RATE_LIMIT_FILE=${CONTACT_RATE_LIMIT_FILE:-/tmp/portfolio-contact-rate-limit.json}
+  networks:
+    - traefik
+  deploy:
+    resources:
+      limits:
+        cpus: "0.25"
+        memory: 256M
+
+services:
+  blue:
+    <<: *service-template
+    container_name: portfolio-v1-blue
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio-v1-blue.rule=Host(`v1.chames.dhibi.tn`) || Host(`chames.tn`)"
+      - "traefik.http.routers.portfolio-v1-blue.entrypoints=websecure"
+      - "traefik.http.routers.portfolio-v1-blue.tls.certresolver=myresolver"
+      - "traefik.http.routers.portfolio-v1-blue.middlewares=default-chain@file"
+      - "traefik.http.services.portfolio-v1-blue.loadbalancer.server.port=80"
+
+  green:
+    <<: *service-template
+    container_name: portfolio-v1-green
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.portfolio-v1-green.rule=Host(`v1.chames.dhibi.tn`) || Host(`chames.tn`)"
+      - "traefik.http.routers.portfolio-v1-green.entrypoints=websecure"
+      - "traefik.http.routers.portfolio-v1-green.tls.certresolver=myresolver"
+      - "traefik.http.routers.portfolio-v1-green.middlewares=default-chain@file"
+      - "traefik.http.services.portfolio-v1-green.loadbalancer.server.port=80"
+
+networks:
+  traefik:
+    external: true

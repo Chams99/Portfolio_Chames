@@ -1,0 +1,18 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import { getLocaleFromUrl, t } from "@/i18n/index";
+
+const locale = getLocaleFromUrl(Astro.url);
+const i = t(locale);
+---
+
+<BaseLayout title={i.notFound.title} description={i.notFound.body} robots="noindex,follow" locale={locale}>
+  <main class="page-shell py-24">
+    <p class="eyebrow">404</p>
+    <h1 class="editorial-title mt-4 text-5xl text-white md:text-7xl">{i.notFound.title}</h1>
+    <p class="mt-6 max-w-lg text-base leading-7 text-white/62">{i.notFound.body}</p>
+    <a href={locale === "fr" ? "/fr" : "/"} class="mt-8 inline-flex rounded-full border border-white/10 px-5 py-3 text-sm text-white hover:bg-white/5">
+      {i.notFound.back}
+    </a>
+  </main>
+</BaseLayout>

@@ -1,0 +1,147 @@
+---
+import { ClientRouter } from "astro:transitions";
+import SiteFooter from "@/astro/SiteFooter.astro";
+import SiteHeader from "@/astro/SiteHeader.astro";
+import { getCanonicalUrl, siteConfig } from "@/data/site";
+import { getLocaleFromUrl } from "@/i18n/index";
+import "@/styles/fonts.css";
+import "@/styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  robots?: string;
+  locale?: string;
+  showHeader?: boolean;
+}
+
+const {
+  title = siteConfig.title,
+  description = siteConfig.description,
+  canonical = getCanonicalUrl(Astro.url.pathname),
+  robots,
+  locale = getLocaleFromUrl(Astro.url),
+  showHeader = true,
+} = Astro.props;
+
+const pageTitle = title
+  ? title.includes(siteConfig.name)
+    ? title
+    : `${title} | ${siteConfig.name}`
+  : siteConfig.title;
+const htmlLang = locale === "fr" ? "fr" : "en";
+const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
+const englishPath = Astro.url.pathname.replace(/^\/fr/, "") || "/";
+const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="theme-color" content="#0b0a0f" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={openGraphLocale} />
+    <meta property="og:site_name" content={siteConfig.shortName} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={getCanonicalUrl(siteConfig.ogImage)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={getCanonicalUrl(siteConfig.ogImage)} />
+    {robots ? <meta name="robots" content={robots} /> : null}
+    {robots?.includes("noindex") ? null : <link rel="canonical" href={canonical} />}
+    {robots?.includes("noindex") ? null : <link rel="alternate" hreflang="en" href={getCanonicalUrl(englishPath)} />}
+    {robots?.includes("noindex") ? null : <link rel="alternate" hreflang="fr" href={getCanonicalUrl(frenchPath)} />}
+    {robots?.includes("noindex") ? null : <link rel="alternate" hreflang="x-default" href={getCanonicalUrl(englishPath)} />}
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=cd" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="sitemap" href={getCanonicalUrl("/sitemap.xml")} />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" />
+    <link rel="preconnect" href="https://elysiajs.com" />
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "WebSite",
+            "@id": `${siteConfig.siteUrl}/#website`,
+            url: siteConfig.siteUrl,
+            name: siteConfig.name,
+            description: siteConfig.description,
+            publisher: { "@id": `${siteConfig.siteUrl}/#person` },
+          },
+          {
+            "@type": "Person",
+            "@id": `${siteConfig.siteUrl}/#person`,
+            name: siteConfig.name,
+            alternateName: ["Chames Dhibi", "Chames Eddine", "Chams Dhibi"],
+            jobTitle: "Software Engineer & Full-Stack Developer",
+            description: siteConfig.description,
+            email: `mailto:${siteConfig.email}`,
+            telephone: siteConfig.phone,
+            url: siteConfig.siteUrl,
+            sameAs: [
+              "https://github.com/chams99",
+              "https://linkedin.com/in/chamesdh",
+              "https://www.upwork.com/freelancers/~01ec2dc27e0c617399",
+            ],
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Gafsa",
+              addressCountry: "Tunisia",
+            },
+          },
+          ...(robots?.includes("noindex")
+            ? []
+            : [
+                {
+                  "@type": "WebPage",
+                  "@id": `${canonical}#webpage`,
+                  url: canonical,
+                  name: pageTitle,
+                  description,
+                  inLanguage: htmlLang,
+                  isPartOf: { "@id": `${siteConfig.siteUrl}/#website` },
+                  about: { "@id": `${siteConfig.siteUrl}/#person` },
+                },
+              ]),
+        ],
+      })}
+    />
+    <ClientRouter />
+  </head>
+  <body>
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:border focus:border-white/10 focus:bg-black focus:px-4 focus:py-2 focus:text-sm focus:text-white"
+    >
+      Skip to content
+    </a>
+    <div class="min-h-screen">
+      {showHeader ? <SiteHeader pathname={Astro.url.pathname.replace(/^\/fr/, '') || '/'} locale={locale} /> : null}
+      <div id="main-content" tabindex="-1">
+        <slot />
+      </div>
+      <SiteFooter locale={locale} />
+    </div>
+
+    <script>
+      import "@/scripts/navigation";
+      import "@/scripts/contact-form";
+      import "@/scripts/scroll-reveal";
+      import "@/scripts/type-reveal";
+      import "@/scripts/analytics";
+    </script>
+  </body>
+</html>

@@ -1,139 +1,238 @@
-const fallbackSiteUrl = "https://portfolio-v3.local";
+const fallbackSiteUrl = "https://chames.tn";
+
+export type Capability = {
+  title: string;
+  body: string;
+};
+
+export type TrustSignal = {
+  label: string;
+  value: string;
+  body: string;
+};
+
+export type ProcessStep = {
+  label: string;
+  title: string;
+  body: string;
+};
+
+export type Principle = {
+  title: string;
+  body: string;
+};
+
+export type ExperienceItem = {
+  period: string;
+  title: string;
+  place: string;
+  details: string;
+};
+
+export type ContactChannel = {
+  label: string;
+  value: string;
+  href: string;
+};
+
+export type ProjectMetric = {
+  label: string;
+  value: string;
+};
+
+export type Project = {
+  slug: string;
+  title: string;
+  year: string;
+  category: string;
+  summary: string;
+  heroImage: string;
+  gallery: string[];
+  roles: string[];
+  stack?: string[];
+  featured?: boolean;
+  externalLink?: string;
+  intro: string;
+  problem: string;
+  creativeApproach: string;
+  outcome: string;
+  metrics?: ProjectMetric[];
+  quote: string;
+};
 
 export const siteConfig = {
-  name: "Chames Dhibi",
-  shortName: "Portfolio v3",
-  title: "Chames Dhibi | Portfolio v3",
-  description: "Bold portfolio experiment focused on product-style presentation, speed, and strong hierarchy.",
+  name: "Chames Eddine Dhibi",
+  shortName: "Chames Dhibi",
+  title: "Chames Eddine Dhibi | Freelance Full-Stack Developer",
+  description:
+    "Chames Eddine Dhibi is a software engineer and freelance full-stack developer in Tunisia, building web and mobile products.",
   location: "Gafsa, Tunisia",
   email: "dhibichams@gmail.com",
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? fallbackSiteUrl,
+  phone: "+216 51091800",
+  siteUrl: import.meta.env.PUBLIC_SITE_URL ?? fallbackSiteUrl,
   ogImage: "/opengraph-image.png",
   locale: "en_US",
 } as const;
 
-export function getCanonicalUrl(path = "/") {
-  return new URL(path, siteConfig.siteUrl).toString();
+export function getCanonicalUrl(path = "/", base: string | URL = siteConfig.siteUrl) {
+  const url = new URL(path, base);
+  if (url.pathname !== "/" && !/\.[^/]+$/.test(url.pathname) && !url.pathname.endsWith("/")) {
+    url.pathname += "/";
+  }
+  return url.toString();
 }
 
 export function isExternalHref(href: string) {
   return href.startsWith("http://") || href.startsWith("https://");
 }
 
-export const navItems = [
-  { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/work", label: "Work" },
-  { href: "/contact", label: "Contact" },
+export const homeIntro = {
+  eyebrow: "Full-stack web and mobile developer",
+  headline: "Building web, mobile, and backend-powered products that ship.",
+  body:
+    "I build web, mobile, and backend-powered products with clean architecture and reliable execution.",
+  ctaLabel: "Open selected work",
+  secondaryCtaLabel: "Start a conversation",
+};
+
+export const homeNarrative = [
+  "I come from shipping full-stack products across web and mobile, so the design work is never detached from content structure, responsiveness, backend flow, or what actually survives in production.",
+  "That makes the final result clearer and harder to ignore: stronger visual presence, cleaner hierarchy, and products that still feel intentional across Next.js, Flutter, and Node.js builds.",
 ];
 
-export const heroStats = [
-  { label: "Launches", value: "15+" },
-  { label: "Stack", value: "React / Next / Flutter" },
-  { label: "Base", value: "Tunisia" },
-];
-
-export const projects = [
+export const capabilities: Capability[] = [
   {
-    slug: "ai-story-video",
-    title: "AI Story Video",
-    year: "2026",
-    type: "Interactive Product",
-    image: "/images/project-1.png",
-    summary: "AI-assisted storyboarding and cinematic scene generation wrapped in a high-contrast product experience.",
-    challenge: "Translate a technically dense AI tool into a product surface that feels immediate and cinematic.",
-    outcome: "Built a faster narrative around concept, output, and usability so the project reads as a product, not a demo.",
+    title: "Product launches",
+    body: "Launch-ready pages and products built to explain value fast.",
   },
   {
-    slug: "cleanfile-agency",
-    title: "Cleanfile Agency",
-    year: "2026",
-    type: "Agency System",
-    image: "/images/project-2.png",
-    summary: "A sharper agency presence with clear service framing, modular sections, and conversion-driven pacing.",
-    challenge: "Give the site enough edge to stand apart while still making the service offer instantly legible.",
-    outcome: "Created a stronger hierarchy, modular service rhythm, and more decisive visual pacing.",
+    title: "Web platforms",
+    body: "Web apps and sites built to be fast, clear, and dependable.",
   },
   {
-    slug: "lumina-it",
-    title: "Lumina IT",
-    year: "2025",
-    type: "Company Website",
-    image: "/images/project-3.png",
-    summary: "Structured corporate storytelling built around trust, motion, and a cleaner technical hierarchy.",
-    challenge: "Balance technical credibility with a warmer, more approachable first impression.",
-    outcome: "Reframed the site around confidence, service clarity, and a more modern brand posture.",
+    title: "Full-stack systems",
+    body: "Frontend, APIs, and data flow built as one system.",
+  },
+  {
+    title: "UX structure",
+    body: "Cleaner flows for products that need less friction.",
   },
 ];
 
-export const capabilities = [
-  "Full-stack web apps",
-  "Product interfaces",
-  "Design systems",
-  "Landing pages",
-  "Mobile experiences",
-  "API-driven builds",
-  "Motion-forward UI",
-  "Rapid prototypes",
-];
-
-export const manifesto = [
-  "Design should feel immediate, not over-explained.",
-  "Every block on the page should either persuade, orient, or convert.",
-  "The best portfolio is not softer. It is clearer, faster, and harder to ignore.",
-];
-
-export const principles = [
+export const trustSignals: TrustSignal[] = [
   {
-    title: "Signal over filler",
-    body: "I reduce decorative noise and make the important parts obvious fast.",
+    label: "Working style",
+    value: "Product + backend thinking",
+    body: "Architecture and usability are shaped together from the start.",
   },
   {
-    title: "Systems with edge",
-    body: "Strong spacing, repeatable components, and visual restraint keep bold ideas usable.",
+    label: "Background",
+    value: "Web + mobile + AI",
+    body: "Built across web, mobile, backend systems, and AI features.",
   },
   {
-    title: "Ship-ready thinking",
-    body: "The goal is not a pretty mockup. It is a site or product that can survive real users.",
+    label: "Best fit",
+    value: "Products that need shipping",
+    body: "Best for products that need clear UX and real functionality.",
   },
 ];
 
-export const experience = [
+export const processSteps: ProcessStep[] = [
   {
-    period: "2022",
-    title: "Full Stack Python Developer",
-    place: "Go My Code",
-    details: "Built full-stack apps, REST APIs, and practical systems with strong backend foundations.",
+    label: "01",
+    title: "Find the friction",
+    body: "Identify what feels unclear and what needs to improve first.",
   },
   {
-    period: "2022 - now",
-    title: "Freelance Developer",
-    place: "Independent",
-    details: "Shipped websites, landing pages, and product interfaces across web and mobile stacks.",
+    label: "02",
+    title: "Set the structure",
+    body: "Organize the page around what users need to understand quickly.",
   },
   {
-    period: "2026",
-    title: "Portfolio v3",
-    place: "Current direction",
-    details: "Pushing the portfolio toward a bolder, more authored visual language with clearer product framing.",
+    label: "03",
+    title: "Build for the browser",
+    body: "Keep the UI distinctive, but practical enough to ship cleanly.",
+  },
+  {
+    label: "04",
+    title: "Refine",
+    body: "Tighten the details until the product feels fast and finished.",
   },
 ];
 
-export const contactChannels = [
+export const principles: Principle[] = [
+  {
+    title: "Clarity first",
+    body: "The work should be easy to understand and easy to trust.",
+  },
+  {
+    title: "Systems that ship",
+    body: "Good ideas only matter if they hold up in real implementation.",
+  },
+  {
+    title: "Polish with control",
+    body: "Strong visuals work better when the structure stays disciplined.",
+  },
+];
+
+export const experience: ExperienceItem[] = [
+  {
+    period: "Mar 2026 - May 2026",
+    title: "Final Year Project Intern (PFE) - Software Engineering",
+    place: "Compagnie des Phosphates de Gafsa (CPG)",
+    details: "Completed a final year project internship and developed a software solution as part of the graduation project.",
+  },
+  {
+    period: "Jul 2025 - Present",
+    title: "Full-Stack Developer (Freelance)",
+    place: "Upwork",
+    details: "Worked as a freelance full-stack developer for international clients, implementing frontend and backend solutions, APIs, and database integrations.",
+  },
+  {
+    period: "Jun 2025 - Aug 2025",
+    title: "Software Development & Cybersecurity Intern",
+    place: "Compagnie des Phosphates de Gafsa (CPG)",
+    details: "Developed software solutions under the supervision of a Cybersecurity Engineer and gained practical exposure to secure software development practices.",
+  },
+  {
+    period: "Sep 2023 - Jun 2026",
+    title: "Licence in Computer Science - Software Engineering",
+    place: "Faculté des Sciences de Gafsa, Tunisia",
+    details: "Bachelor's degree focused on software development, databases, artificial intelligence, and web technologies. Final grade: 14/20.",
+  },
+  {
+    period: "September 2022 - June 2023",
+    title: "Baccalaureate in Mathematics",
+    place: "Houcine Bouzaiene High School of Gafsa (L.H.B.G)",
+    details: "Completed in 2023.",
+  },
+];
+
+export const contactChannels: ContactChannel[] = [
   {
     label: "Email",
     value: siteConfig.email,
     href: `mailto:${siteConfig.email}`,
   },
   {
+    label: "Phone",
+    value: siteConfig.phone,
+    href: `tel:${siteConfig.phone.replace(/\s/g, "")}`,
+  },
+  {
     label: "GitHub",
-    value: "github.com/Chams99",
-    href: "https://github.com/Chams99",
+    value: "github.com/chams99",
+    href: "https://github.com/chams99",
+  },
+  {
+    label: "Upwork",
+    value: "upwork.com/freelancers/~01ec2dc27e0c617399",
+    href: "https://www.upwork.com/freelancers/~01ec2dc27e0c617399",
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/dhibi-chams-827146344",
-    href: "https://www.linkedin.com/in/dhibi-chams-827146344/",
+    value: "linkedin.com/in/chamesdh",
+    href: "https://linkedin.com/in/chamesdh",
   },
   {
     label: "X",
@@ -141,3 +240,481 @@ export const contactChannels = [
     href: "https://x.com/ChamesDhibi",
   },
 ];
+
+export const helloMarquee = [
+  "Hello",
+  "Hola",
+  "Hallo",
+  "Bonjour",
+  "Ciao",
+  "مرحبا",
+];
+
+const projectOrder = [
+  "fitlite-ai-fitness",
+  "la-cuisine-restaurant",
+  "sspace-star-map",
+  "dent-dental-clinic",
+  "webgrade-analyzer",
+  "ftball-ecommerce",
+  "lumina-it",
+  "assistant-ai",
+  "rapport-auditor",
+  "ai-story-video",
+  "photo-printing-order",
+  "lolchat-gaming",
+  "wallpaper-generator",
+  "modern-estate-vision",
+  "cleanfile-agency",
+  "ecommerce-platform",
+  "property-investment",
+  "epic-chicken-adventure",
+  "speed-typer-game",
+] as const;
+
+type ProjectInput = Omit<Project, "intro" | "problem" | "creativeApproach" | "outcome" | "gallery"> & {
+  gallery?: string[];
+  intro?: string;
+  problem?: string;
+  creativeApproach?: string;
+  outcome?: string;
+};
+
+function buildProject(input: ProjectInput): Project {
+  return {
+    ...input,
+    gallery: input.gallery?.length ? input.gallery : [input.heroImage],
+    intro:
+      input.intro ??
+      `${input.title} needed a clearer, stronger digital presence.`,
+    problem:
+      input.problem ??
+      "The core challenge was making the product easier to understand and trust quickly.",
+    creativeApproach:
+      input.creativeApproach ??
+      "I focused on hierarchy, pacing, and a cleaner interface direction.",
+    outcome:
+      input.outcome ??
+      "The result feels clearer, stronger, and more aligned with the product behind it.",
+  };
+}
+
+export const projects: Project[] = [
+  buildProject({
+    slug: "lumina-it",
+    title: "Lumina IT Solutions",
+    year: "2026",
+    category: "Cybersecurity",
+    summary:
+      "A cybersecurity website shaped to feel sharper, more direct, and more trusted.",
+    heroImage: "/images/projects/lumina-it-full.png",
+    gallery: [
+      "/images/projects/lumina-it-full.png",
+      "/images/projects/lumina-it-details.png",
+      "/images/projects/lumina-it-features.png",
+    ],
+    roles: ["Web design", "Brand direction", "Front-end development"],
+    stack: ["Next.js", "Custom CSS", "Responsive UI"],
+    featured: true,
+    externalLink: "https://lumina-it.vercel.app/",
+    intro:
+      "Lumina needed a digital presence that felt as credible as the service behind it.",
+    problem:
+      "The brand looked too generic for a cybersecurity company that needed instant trust.",
+    creativeApproach:
+      "I pushed the interface toward a colder, sharper system with stronger contrast and more command.",
+    outcome:
+      "The result feels more technical, more deliberate, and more believable.",
+    metrics: [
+      { label: "Direction", value: "Brutalist + cybersecurity" },
+      { label: "Built with", value: "Next.js + custom CSS" },
+    ],
+    quote: "Technical credibility lands harder when the brand looks deliberate.",
+  }),
+  buildProject({
+    slug: "ai-story-video",
+    title: "AI Story Video Generator",
+    year: "2024",
+    category: "AI Product",
+    summary:
+      "An AI storytelling product framed to feel visual, simple, and cinematic.",
+    heroImage: "/images/projects/ai-story-video-full.png",
+    gallery: [
+      "/images/projects/ai-story-video-full.png",
+      "/images/projects/ai-story-video-details.png",
+      "/images/projects/ai-story-video-features.png",
+    ],
+    roles: ["Product design", "Front-end development", "AI workflow framing"],
+    stack: ["Next.js", "AI APIs", "Video workflow"],
+    featured: true,
+    externalLink: "https://ai-story-video.vercel.app/",
+    intro:
+      "The idea was strong. The product needed to feel exciting before the workflow appeared.",
+    problem:
+      "The experience had to feel creative first, not technical first.",
+    creativeApproach:
+      "I framed it like a story-led product, with clearer hierarchy and more visual momentum.",
+    outcome:
+      "The concept became easier to understand, trust, and want.",
+    metrics: [
+      { label: "Built for", value: "Creators + storytellers" },
+      { label: "Core shift", value: "Technical to cinematic" },
+    ],
+    quote: "When the promise is cinematic, the interface cannot feel mechanical.",
+  }),
+  buildProject({
+    slug: "assistant-ai",
+    title: "AssistantAI",
+    year: "2026",
+    category: "AI Data Platform",
+    summary:
+      "An assistant platform for grounded database, website, and manual knowledge workflows.",
+    heroImage: "/images/projects/assistant-ai-cover.png",
+    gallery: [
+      "/images/projects/assistant-ai-cover.png",
+      "/images/projects/assistant-ai-landing.png",
+      "/images/projects/assistant-ai-dashboard.png",
+    ],
+    roles: ["Product design", "Full-stack development", "AI workflow design"],
+    stack: ["Bun", "Express", "PostgreSQL", "Redis", "React", "OpenRouter"],
+    featured: true,
+    externalLink: "https://dbmanager.chames.tn/",
+    intro:
+      "AssistantAI needed to show a real data workflow without exposing production credentials or unbounded AI usage.",
+    problem:
+      "A database assistant has to make natural-language access useful while keeping sources, queries, credentials, and provider spend under control.",
+    creativeApproach:
+      "I built three grounded assistant modes—synthetic database data, pre-ingested website knowledge, and manual context—then bounded public access with read-only query paths, table scope checks, shared AI budgets, Redis coordination, Google sign-in, and a deployable widget flow.",
+    outcome:
+      "The public release lets visitors inspect the product, sign in, try the prepared assistants, and review read-only results using synthetic data. Custom sources and credentials remain owner-managed.",
+    metrics: [
+      { label: "Public mode", value: "Synthetic data + read-only access" },
+      { label: "Assistant modes", value: "Database · Website · Manual" },
+    ],
+    quote: "A data assistant earns trust when its boundaries are visible before the first query.",
+  }),
+  buildProject({
+    slug: "webgrade-analyzer",
+    title: "WebGrade Analyzer",
+    year: "2026",
+    category: "Developer Tool",
+    summary:
+      "A developer-facing website audit tool for performance, accessibility, SEO, and security signals.",
+    heroImage: "/images/projects/webgrade-analyzer-cover.png",
+    gallery: [
+      "/images/projects/webgrade-analyzer-cover.png",
+      "/images/projects/webgrade-analyzer-full.png",
+      "/images/projects/website-grading-v0.png",
+    ],
+    roles: ["Product design", "Full-stack development", "API integration"],
+    stack: ["Next.js", "TypeScript", "PageSpeed API", "Docker"],
+    featured: true,
+    externalLink: "https://webgrade.chames.tn/",
+    intro:
+      "I rebuilt WebGrade as a compact scanner that gets visitors from a public URL to readable evidence quickly.",
+    problem:
+      "Audit tools often bury the input under marketing copy or blur lab measurements with field and security evidence.",
+    creativeApproach:
+      "I designed a scanner-first flow, kept provider consent explicit, separated each source, and built the report and API around graceful unavailable states.",
+    outcome:
+      "The public deployment runs the scanner and report flow without an account. Browser-local history and normal browser sharing work now; durable workspace features remain a separate database-backed mode.",
+    metrics: [
+      { label: "Core flow", value: "URL → device audit → report" },
+      { label: "Deployment", value: "Next.js API + Docker + Traefik" },
+    ],
+    quote: "A diagnostic tool earns trust when the evidence is easier to read than the problem.",
+  }),
+  buildProject({
+    slug: "rapport-auditor",
+    title: "Rapport Auditor",
+    year: "2026",
+    category: "Academic writing tool",
+    summary:
+      "A bilingual review desk for academic drafts that flags repetition, dense sentences, stock phrasing, and claims that may need a visible source.",
+    heroImage: "/images/projects/rapport-auditor-cover.png",
+    gallery: ["/images/projects/rapport-auditor-cover.png"],
+    roles: ["Product design", "Full-stack development", "Language rule design"],
+    stack: ["Python", "Flask", "Waitress", "Jinja", "Docker"],
+    externalLink: "https://rapport.chames.tn/",
+    intro:
+      "Rapport Auditor helps writers review English and French report drafts before the next revision.",
+    problem:
+      "Writing feedback has to point at concrete passages without pretending to judge quality, verify facts, or detect plagiarism.",
+    creativeApproach:
+      "I built deterministic English and French cue rules, linked every prompt to its passage, and added a style-edit preview that never changes the source file.",
+    outcome:
+      "Writers can paste text or upload .txt and .tex files, review each prompt in context, and preview conservative edits. The app is designed not to store drafts.",
+    quote: "Review prompts are most useful when they show the passage and leave the decision to the writer.",
+  }),
+  buildProject({
+    slug: "modern-estate-vision",
+    title: "Meridian Capital",
+    year: "2025",
+    category: "Real Estate",
+    summary:
+      "A premium real estate platform with a darker, investor-led digital presence.",
+    heroImage: "/images/optimized/meridian-large.webp",
+    roles: ["Web design", "Front-end development", "Content structure"],
+    stack: ["Next.js", "Landing page", "Responsive UI"],
+    externalLink: "https://modern-estate-vision.vercel.app/",
+    quote: "Premium positioning only works when the experience feels composed from the first second.",
+  }),
+  buildProject({
+    slug: "cleanfile-agency",
+    title: "CleanFile Agency",
+    year: "2025",
+    category: "Agency System",
+    summary:
+      "A cleaner agency platform built for credibility, clarity, and future automation.",
+    heroImage: "/images/projects/cleanfile-agency-full.png",
+    gallery: [
+      "/images/projects/cleanfile-agency-full.png",
+      "/images/projects/cleanfile-agency-details.png",
+      "/images/projects/cleanfile-agency-features.png",
+    ],
+    roles: ["Dashboard design", "System thinking", "Front-end development"],
+    stack: ["Dashboard UI", "System design", "Front-end"],
+    externalLink: "https://mahdi-ydm2.vercel.app/",
+    intro:
+      "CleanFile needed to feel credible before the deeper system arrived.",
+    problem:
+      "The platform had to look organized, reliable, and ready to grow.",
+    creativeApproach:
+      "I focused on restraint, status clarity, and a system that could expand cleanly.",
+    outcome:
+      "The result feels more operational, more believable, and easier to scale.",
+    metrics: [
+      { label: "Primary goal", value: "Clarity + credibility" },
+      { label: "Direction", value: "Dashboard-ready foundation" },
+    ],
+    quote: "A service platform should look organized before it ever claims efficiency.",
+  }),
+  buildProject({
+    slug: "photo-printing-order",
+    title: "printclub - Photo Print Studio",
+    year: "2026",
+    category: "E-Commerce",
+    summary:
+      "A print-aware photo editor with guided setup, editable templates, previews, and a demo request flow.",
+    heroImage: "/images/projects/photo-printing-cover.png",
+    gallery: [
+      "/images/projects/photo-printing-cover.png",
+      "/images/projects/photo-printing-full.png",
+      "/images/projects/photo-printing-details.png",
+      "/images/projects/photo-printing-features.png",
+    ],
+    roles: ["Product design", "Editor interaction", "React development"],
+    stack: ["TanStack Start", "React", "Elysia", "Better Auth"],
+    externalLink: "https://printclub.chames.tn/",
+    intro:
+      "The product needed to make photo editing and print requests feel approachable from the first click.",
+    problem:
+      "A print workflow becomes confusing when format, crop, templates, and account choices arrive all at once.",
+    creativeApproach:
+      "I designed a guided creation path, a focused editor, and clear demo boundaries so visitors can make and review a print before requesting it.",
+    outcome:
+      "The rebuild demonstrates a complete browser path from format selection to editable composition and demo request, with honest limits around payment and fulfillment.",
+    metrics: [
+      { label: "Flow", value: "Format → setup → studio" },
+      { label: "Status", value: "Public demo" },
+    ],
+    quote: "A creative tool earns trust when every next step is visible and every limitation is explicit.",
+  }),
+  buildProject({
+    slug: "dent-dental-clinic",
+    title: "Dent Dental Clinic",
+    year: "2024",
+    category: "Healthcare",
+    summary:
+      "A premium dental website designed to feel calm, clear, and trusted.",
+    heroImage: "/images/optimized/dent-showcase.png",
+    roles: ["Website design", "Next.js development", "Service presentation"],
+    stack: ["Next.js", "Service site", "Booking UX"],
+    externalLink: "https://dent-phi.vercel.app/",
+    quote: "Healthcare sites earn confidence when every detail feels calm and credible.",
+  }),
+  buildProject({
+    slug: "ecommerce-platform",
+    title: "ChamsShop",
+    year: "2025",
+    category: "E-Commerce",
+    summary:
+      "A modern e-commerce build focused on speed, flow, and dependable shopping.",
+    heroImage: "/images/optimized/ecommerce-large.webp",
+    roles: ["E-commerce UI", "Full-stack development", "Shopping flow"],
+    stack: ["PHP", "Commerce UI", "MySQL"],
+    externalLink: "https://chames.youssef.tn/ChamsShop/Public/core/",
+    quote: "Retail interfaces work best when speed and clarity feel built into the surface.",
+  }),
+  buildProject({
+    slug: "fitlite-ai-fitness",
+    title: "FitLite",
+    year: "2025",
+    category: "Fitness App",
+    summary:
+      "An AI fitness landing page with sharper motion and stronger energy.",
+    heroImage: "/images/optimized/Fitness-large.webp",
+    roles: ["Landing page design", "Motion styling", "Front-end development"],
+    stack: ["Next.js", "Motion UI", "Landing page"],
+    externalLink: "https://chames.youssef.tn/fitness_app",
+    quote: "Energetic products need a landing page that feels alive before the first click.",
+  }),
+  buildProject({
+    slug: "ftball-ecommerce",
+    title: "FTBall Store",
+    year: "2024",
+    category: "Sports Commerce",
+    summary:
+      "A football storefront built for clearer browsing and stronger brand presence.",
+    heroImage: "/images/optimized/FTBALL-large.webp",
+    roles: ["Storefront design", "Commerce UI", "Front-end build"],
+    stack: ["React", "Commerce UI", "Responsive"],
+    externalLink: "https://ftball-ten.vercel.app/",
+    quote: "Merchandise sells better when the storefront already feels like part of the fandom.",
+  }),
+  buildProject({
+    slug: "la-cuisine-restaurant",
+    title: "La Cuisine",
+    year: "2025",
+    category: "Restaurant Website",
+    summary:
+      "A restaurant website with elegant pacing and a cleaner booking-led experience.",
+    heroImage: "/images/optimized/restaurents-large.webp",
+    roles: ["Web design", "Single-page UX", "Interaction polish"],
+    stack: ["Landing page", "Booking UX", "Responsive UI"],
+    externalLink: "https://chames.youssef.tn/restaurents/",
+    quote: "Hospitality sites should set the tone before the customer ever arrives.",
+  }),
+  buildProject({
+    slug: "lolchat-gaming",
+    title: "LolChat",
+    year: "2025",
+    category: "Gaming Interface",
+    summary:
+      "An AI chatbot application using large language models, with a web interface and integrated AI APIs for interactive conversations.",
+    heroImage: "/images/optimized/lol-large.webp",
+    roles: ["Full-stack development", "AI API integration", "Web interface"],
+    stack: ["Chat UI", "Responsive", "Themed interface"],
+    externalLink: "https://lolchat.vercel.app/",
+    quote: "Themed interfaces work when the atmosphere stays sharp without breaking usability.",
+  }),
+  buildProject({
+    slug: "property-investment",
+    title: "Property Investment Platform",
+    year: "2025",
+    category: "Investment Platform",
+    summary:
+      "A premium investment landing page designed for clearer trust and stronger leads.",
+    heroImage: "/images/projects/property-consultation.png",
+    roles: ["Lead generation design", "UI structure", "Conversion flow"],
+    stack: ["Lead gen", "Landing page", "Responsive UI"],
+    externalLink: "https://chames.youssef.tn/Property/",
+    quote: "High-trust financial experiences need structure that feels premium and direct at once.",
+  }),
+  buildProject({
+    slug: "speed-typer-game",
+    title: "Speed Typer",
+    year: "2025",
+    category: "Game",
+    summary:
+      "A typing game with live feedback and a cleaner performance-first interface.",
+    heroImage: "/images/optimized/typing-game-large.webp",
+    roles: ["Game UI", "Interactive logic", "Performance feedback"],
+    stack: ["JavaScript", "Game loop", "Score tracking"],
+    externalLink: "https://chames.youssef.tn/typing-game/",
+    quote: "Simple games feel better when the feedback loop is immediate and satisfying.",
+  }),
+  buildProject({
+    slug: "sspace-star-map",
+    title: "SSpace Astronomy Explorer",
+    year: "2025",
+    category: "Full-stack astronomy app",
+    summary:
+      "A full-stack astronomy explorer with a Next.js frontend, Elysia/Bun API, PostgreSQL catalog, Stellarium sky rendering, and a 24-hour observing planner.",
+    heroImage: "/images/projects/sspace-star-map-cover.png",
+    gallery: [
+      "/images/projects/sspace-star-map-cover.png",
+      "/images/optimized/sspace-large.webp",
+    ],
+    roles: ["Full-stack development", "Astronomy data systems", "Interactive visualization"],
+    stack: ["Next.js", "Elysia/Bun", "PostgreSQL", "Stellarium"],
+    externalLink: "https://sspace.chames.tn/",
+    quote: "A sky explorer feels useful when rich astronomy data stays clear and approachable.",
+  }),
+  buildProject({
+    slug: "unit-converter",
+    title: "Universal Convertal",
+    year: "2026",
+    category: "Full-stack conversion tools",
+    summary:
+      "A conversion workbench for 73 units, reference currency rates, developer tools, and images, with browser-local tools and a bounded server API.",
+    heroImage: "/images/projects/convertal-cover.png",
+    gallery: [
+      "/images/projects/convertal-cover.png",
+      "/images/projects/convertal-units.png",
+      "/images/projects/convertal-developer.png",
+      "/images/projects/convertal-images.png",
+      "/images/projects/convertal-currency.png",
+      "/images/projects/convertal-mobile.png",
+    ],
+    roles: ["Product design", "Full-stack development", "API architecture"],
+    stack: ["Next.js", "Fastify", "TypeScript", "Sharp", "Turborepo", "Docker"],
+    featured: true,
+    externalLink: "https://units.chames.tn/",
+    intro:
+      "Universal Convertal brings unit, currency, developer, and image tools into one responsive workbench.",
+    problem:
+      "Each tool needed a clear conversion flow while keeping browser-local work private and server processing bounded.",
+    creativeApproach:
+      "I built a Next.js and Fastify monorepo with shared conversion logic, explicit processing modes, provider adapters, and upload and resource limits.",
+    outcome:
+      "The deployed app combines precise unit conversions, reference exchange rates, local developer transformations, and image conversion without durable uploads.",
+    quote: "A useful conversion tool makes its results, processing mode, and limits clear.",
+  }),
+  buildProject({
+    slug: "wallpaper-generator",
+    title: "Wallpaper Generator",
+    year: "2025",
+    category: "Creative Tool",
+    summary:
+      "A playful wallpaper generator built around fast experimentation and visual output.",
+    heroImage: "/images/optimized/wallpaper-large.webp",
+    roles: ["Creative coding", "Interactive UI", "Front-end experimentation"],
+    stack: ["Creative coding", "Canvas", "Interactive UI"],
+    externalLink: "https://chames.youssef.tn/wallpaper/",
+    quote: "Creative tools earn attention when the interface itself feels generative.",
+  }),
+  buildProject({
+    slug: "epic-chicken-adventure",
+    title: "Epic Chicken Adventure",
+    year: "2025",
+    category: "Game",
+    summary:
+      "A browser game shell rebuilt to feel cleaner, lighter, and more polished.",
+    heroImage: "/images/optimized/chicken-large.webp",
+    roles: ["Game presentation", "Next.js build", "Responsive UI"],
+    stack: ["Next.js", "Game shell", "Responsive UI"],
+    quote: "Even playful projects feel stronger when the surrounding experience is properly designed.",
+  }),
+].sort((a, b) => {
+  const aIndex = projectOrder.indexOf(a.slug as (typeof projectOrder)[number]);
+  const bIndex = projectOrder.indexOf(b.slug as (typeof projectOrder)[number]);
+
+  if (aIndex === -1 && bIndex === -1) {
+    return Number(b.year) - Number(a.year);
+  }
+
+  if (aIndex === -1) {
+    return 1;
+  }
+
+  if (bIndex === -1) {
+    return -1;
+  }
+
+  return aIndex - bIndex;
+});
+
+
+
+

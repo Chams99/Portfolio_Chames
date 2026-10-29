@@ -1,0 +1,55 @@
+---
+import { contactChannels, siteConfig } from "@/data/site";
+import SectionMarker from "@/astro/SectionMarker.astro";
+import { t, getLocaleFromUrl, localizedPath } from "@/i18n/index";
+
+interface Props {
+  locale?: string;
+}
+
+const { locale = getLocaleFromUrl(Astro.url) } = Astro.props;
+const i = t(locale);
+const emailChannel = contactChannels.find((item) => item.label === "Email");
+---
+
+<footer class="site-footer section-line">
+  <div class="page-shell footer-canvas">
+    <div class="footer-canvas-top">
+      <div class="footer-monogram" aria-label="Chames Dhibi">
+        <span class="footer-monogram-mark" aria-hidden="true">CD</span>
+        <span class="footer-monogram-meta">Chames Dhibi<br />{new Date().getFullYear()}</span>
+      </div>
+
+      <div class="footer-close-copy">
+        <SectionMarker icon="contact" label={i.footer.closingNote} />
+        <h2 class="footer-close-title">{i.footer.closingTitle}</h2>
+        <p class="footer-close-body">{i.footer.closingBody}</p>
+      </div>
+
+    {emailChannel ? (
+      <div class="footer-email-panel">
+        <p>{i.footer.contactCta}</p>
+        <a class="footer-email-link" href={emailChannel.href}>
+          <span>{emailChannel.value}</span>
+          <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    ) : null}
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-signature">CHAMES / {new Date().getFullYear()}</p>
+      <p>{i.footer.copyright} {new Date().getFullYear()} {siteConfig.name}</p>
+      <a
+        class="footer-back-to-top"
+        href={localizedPath("/", locale as any)}
+        data-back-to-top
+        aria-label={i.footer.backToTop}
+      >
+        <span>{i.footer.backToTop}</span>
+        <span aria-hidden="true">↑</span>
+      </a>
+    </div>
+  </div>
+</footer>

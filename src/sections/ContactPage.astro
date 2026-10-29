@@ -1,0 +1,164 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import SectionMarker from "@/astro/SectionMarker.astro";
+import { contactChannels, isExternalHref, siteConfig } from "@/data/site";
+import { t, type Locale } from "@/i18n/index";
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const i = t(locale);
+const isFr = locale === "fr";
+
+const title = isFr ? "Contact" : "Contact";
+const description = isFr
+  ? "Contactez Chames Eddine Dhibi pour des produits logiciels, des applications d'IA et des systèmes backend."
+  : "Contact Chames Eddine Dhibi for software products, AI applications, and backend-powered systems.";
+---
+
+<BaseLayout title={title} description={description} locale={locale}>
+  <main class="contact-page">
+    <section class="contact-hero page-shell" aria-labelledby="contact-page-title">
+      <SectionMarker icon="contact" label={i.contact.eyebrow} reveal />
+      <h1 id="contact-page-title" class="contact-page-title" data-reveal>
+        {i.contact.h1Start} {i.contact.h1Outline} {i.contact.h1End}
+      </h1>
+      <p class="contact-page-lede" data-reveal>{i.contact.body}</p>
+    </section>
+
+    <section class="contact-content-section">
+      <div class="page-shell contact-layout">
+        <div class="contact-form-column">
+          <div class="contact-section-heading" data-reveal>
+            <p class="home-section-kicker">{i.contact.formTitle}</p>
+            <h2>{i.contact.formTitle}</h2>
+            <p>{i.contact.formBody}</p>
+          </div>
+
+          <form
+            id="contact-form"
+            action="/api/contact"
+            method="post"
+            enctype="application/x-www-form-urlencoded"
+            class="contact-form"
+            data-reveal
+            data-success={i.contact.successMessage}
+            data-error={i.contact.errorMessage}
+            data-required={i.contact.validationRequired}
+            data-invalid-email={i.contact.validationEmail}
+            data-invalid-name={i.contact.validationName}
+            data-invalid-subject={i.contact.validationSubject}
+            data-invalid-message={i.contact.validationMessage}
+            data-rate-limit={i.contact.rateLimitError}
+            data-unavailable={i.contact.unavailableError}
+            data-timeout={i.contact.timeoutError}
+            data-unexpected={i.contact.unexpectedResponse}
+            data-network={i.contact.networkError}
+          >
+            <div class="contact-field-grid">
+              <label class="contact-label">
+                <span>{i.contact.nameLabel}</span>
+                <input
+                  type="text"
+                  name="name"
+                  autocomplete="name"
+                  required
+                  minlength="2"
+                  maxlength="50"
+                  aria-describedby="contact-name-error"
+                  aria-invalid="false"
+                  class="contact-input"
+                />
+                <span id="contact-name-error" class="field-error hidden" role="alert"></span>
+              </label>
+              <label class="contact-label">
+                <span>{i.contact.emailLabel}</span>
+                <input
+                  type="email"
+                  name="email"
+                  autocomplete="email"
+                  required
+                  maxlength="254"
+                  aria-describedby="contact-email-error"
+                  aria-invalid="false"
+                  class="contact-input"
+                />
+                <span id="contact-email-error" class="field-error hidden" role="alert"></span>
+              </label>
+            </div>
+
+            <label class="contact-label">
+              <span>{i.contact.subjectLabel}</span>
+              <input
+                type="text"
+                name="subject"
+                autocomplete="off"
+                required
+                minlength="3"
+                maxlength="100"
+                aria-describedby="contact-subject-error"
+                aria-invalid="false"
+                class="contact-input"
+              />
+              <span id="contact-subject-error" class="field-error hidden" role="alert"></span>
+            </label>
+
+            <label class="contact-label">
+              <span>{i.contact.messageLabel}</span>
+              <textarea
+                name="message"
+                autocomplete="off"
+                required
+                minlength="5"
+                maxlength="2000"
+                rows="7"
+                placeholder={i.contact.messagePlaceholder}
+                aria-describedby="contact-message-error"
+                aria-invalid="false"
+                class="contact-input contact-textarea"
+              ></textarea>
+              <span id="contact-message-error" class="field-error hidden" role="alert"></span>
+            </label>
+
+            <div class="contact-submit-row">
+              <button type="submit" class="home-button home-button-primary">
+                <span class="submit-text">{i.contact.sendButton}</span>
+                <span class="submit-spinner hidden">{i.contact.sendingButton}</span>
+              </button>
+              <p>{i.contact.replyHint}</p>
+            </div>
+
+            <div class="form-status hidden" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+
+        <aside class="contact-aside" aria-label={isFr ? "Autres moyens de contact" : "Other ways to connect"}>
+          <div class="contact-aside-block" data-reveal>
+            <p class="home-section-kicker">{i.contact.primaryContact}</p>
+            <h2>{i.contact.bestFitTitle}</h2>
+            <p>{i.contact.bestFitBody}</p>
+            <a href={`mailto:${siteConfig.email}`} class="contact-email-link">{siteConfig.email}</a>
+          </div>
+
+          <div class="contact-aside-block" data-reveal>
+            <p class="home-section-kicker">{isFr ? "Liens" : "Elsewhere"}</p>
+            <div class="contact-social-list">
+              {contactChannels.filter((channel) => channel.label !== "Email").map((channel) => (
+                <a
+                  href={channel.href}
+                  target={isExternalHref(channel.href) ? "_blank" : undefined}
+                  rel={isExternalHref(channel.href) ? "noreferrer" : undefined}
+                >
+                  <span>{channel.label}</span>
+                  <span aria-hidden="true">↗</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
