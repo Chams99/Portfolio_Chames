@@ -28,8 +28,3 @@ Thumbs.db
 
 # TypeScript
 *.tsbuildinfo
-
-# Private planning and agent notes
-AGENTS.md
-portfolio-audit.md
-system design.md

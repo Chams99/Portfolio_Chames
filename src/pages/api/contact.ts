@@ -278,7 +278,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     }, 413);
   }
 
-  const ip = clientAddress ?? "unknown";
+  // Behind Traefik the socket address is the proxy's own, which would give every
+  // visitor one shared limit. Traefik passes the visitor's address in
+  // X-Forwarded-For and, by default, drops any value the visitor sent.
+  const forwardedFor = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim();
+  const ip = forwardedFor || clientAddress || "unknown";
   let rateLimit: { allowed: boolean; retryAfter: number };
   try {
     rateLimit = await checkRateLimit(ip);

@@ -48,15 +48,25 @@ if (import.meta.env.PROD && measurementId && /^G-[A-Z0-9]+$/.test(measurementId)
       allow_ad_personalization_signals: false,
     });
 
-    if (!document.getElementById("portfolio-ga4-script")) {
+    // Commands queue in dataLayer until the tag arrives, so loading it once the
+    // page is idle keeps it off the critical path without losing the page view.
+    whenIdle(() => {
+      if (document.getElementById("portfolio-ga4-script")) return;
       const script = document.createElement("script");
       script.id = "portfolio-ga4-script";
       script.async = true;
       script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`;
       document.head.append(script);
-    }
+    });
 
     tagInitialized = true;
+  }
+
+  function whenIdle(task: () => void) {
+    const schedule = () =>
+      "requestIdleCallback" in window ? window.requestIdleCallback(task, { timeout: 3000 }) : setTimeout(task, 1500);
+    if (document.readyState === "complete") schedule();
+    else window.addEventListener("load", schedule, { once: true });
   }
 
   function onPageLoad() {

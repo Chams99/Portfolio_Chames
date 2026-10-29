@@ -4,6 +4,7 @@ import SiteFooter from "@/astro/SiteFooter.astro";
 import SiteHeader from "@/astro/SiteHeader.astro";
 import { getCanonicalUrl, siteConfig } from "@/data/site";
 import { getLocaleFromUrl } from "@/i18n/index";
+import "@/styles/fonts.css";
 import "@/styles/global.css";
 
 interface Props {
@@ -60,18 +61,13 @@ const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
     {robots?.includes("noindex") ? null : <link rel="alternate" hreflang="en" href={getCanonicalUrl(englishPath)} />}
     {robots?.includes("noindex") ? null : <link rel="alternate" hreflang="fr" href={getCanonicalUrl(frenchPath)} />}
     {robots?.includes("noindex") ? null : <link rel="alternate" hreflang="x-default" href={getCanonicalUrl(englishPath)} />}
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=cd" />
-    <link rel="apple-touch-icon" href="/favicon.svg?v=cd" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/manifest.webmanifest" />
     <link rel="sitemap" href={getCanonicalUrl("/sitemap.xml")} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://cdn.jsdelivr.net" />
     <link rel="preconnect" href="https://elysiajs.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
     <script
       type="application/ld+json"
       set:html={JSON.stringify({

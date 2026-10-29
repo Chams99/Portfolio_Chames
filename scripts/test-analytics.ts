@@ -13,6 +13,7 @@ function createHarness({ hasMeasurementId = true }: { hasMeasurementId?: boolean
   let canonical = "https://chames.tn/";
 
   const document = {
+    readyState: "interactive",
     title: "Chames Dhibi — Portfolio",
     referrer: "https://search.example/results?private=value#section",
     head: { append: (script: { id?: string; src?: string; async?: boolean }) => scripts.push(script) },
@@ -27,9 +28,16 @@ function createHarness({ hasMeasurementId = true }: { hasMeasurementId?: boolean
     },
   };
 
+  const idleTasks: Array<() => void> = [];
   const window = {
     dataLayer: [] as unknown[],
     location: { origin: "https://chames.tn", href: "https://chames.tn/?utm_source=private#section" },
+    addEventListener(name: string, callback: Listener) {
+      (listeners[`window:${name}`] ??= []).push(callback);
+    },
+    requestIdleCallback(task: () => void) {
+      idleTasks.push(task);
+    },
   };
 
   const moduleCode = hasMeasurementId
@@ -45,7 +53,13 @@ function createHarness({ hasMeasurementId = true }: { hasMeasurementId?: boolean
     canonical = value;
   }
 
-  return { window, scripts, pageLoad, setCanonical, listenerCount: listeners["astro:page-load"]?.length ?? 0 };
+  function finishLoading() {
+    document.readyState = "complete";
+    for (const listener of listeners["window:load"] ?? []) listener();
+    while (idleTasks.length) idleTasks.shift()?.();
+  }
+
+  return { window, scripts, pageLoad, setCanonical, finishLoading, listenerCount: listeners["astro:page-load"]?.length ?? 0 };
 }
 
 function events(harness: ReturnType<typeof createHarness>, name: string) {
@@ -53,7 +67,10 @@ function events(harness: ReturnType<typeof createHarness>, name: string) {
 }
 
 const site = createHarness();
-assert.equal(site.scripts.length, 1, "configured production ID loads one GA tag");
+assert.equal(site.scripts.length, 0, "the GA tag waits until the page has loaded");
+assert.equal(events(site, "page_view").length, 1, "the first pageview is queued straight away");
+site.finishLoading();
+assert.equal(site.scripts.length, 1, "configured production ID loads one GA tag once the page is idle");
 assert.match(site.scripts[0].src ?? "", /gtag\/js\?id=G-TEST123/);
 const config = site.window.dataLayer.find((entry) => entry[0] === "config");
 assert.equal(config?.[2].send_page_view, false, "manual pageviews are the only pageview source");
@@ -84,7 +101,8 @@ assert.equal(site.scripts.length, 1, "Astro navigation does not add another tag"
 assert.equal(site.listenerCount, 1, "one Astro page-load listener is registered");
 
 const noId = createHarness({ hasMeasurementId: false });
+noId.finishLoading();
 assert.equal(noId.scripts.length, 0, "missing build-time ID disables analytics");
 assert.equal(noId.window.dataLayer.length, 0, "missing ID sends no analytics events");
 
-console.log("Analytics checks passed: automatic initialization, one manual view per route, URL/referrer sanitization, and missing-ID safety.");
+console.log("Analytics checks passed: tag loads after the page, one manual view per route, URL/referrer sanitization, and missing-ID safety.");
