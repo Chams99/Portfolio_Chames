@@ -161,13 +161,28 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "hero": {
       "src": "/generated-images/modern-estate-vision/hero.webp",
       "width": 1440,
-      "height": 709
+      "height": 900
     },
     "gallery": [
       {
-        "src": "/generated-images/modern-estate-vision/gallery-1-meridian-large.webp",
+        "src": "/generated-images/modern-estate-vision/gallery-1-modern-estate-vision-cover.webp",
         "width": 1440,
-        "height": 709
+        "height": 900
+      },
+      {
+        "src": "/generated-images/modern-estate-vision/gallery-2-modern-estate-vision-demo.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "/generated-images/modern-estate-vision/gallery-3-modern-estate-vision-home.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "/generated-images/modern-estate-vision/gallery-4-modern-estate-vision-contact.webp",
+        "width": 960,
+        "height": 600
       }
     ]
   },
@@ -242,14 +257,29 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     },
     "hero": {
       "src": "/generated-images/dent-dental-clinic/hero.webp",
-      "width": 1024,
-      "height": 500
+      "width": 1440,
+      "height": 900
     },
     "gallery": [
       {
-        "src": "/generated-images/dent-dental-clinic/gallery-1-dent-showcase.webp",
-        "width": 1024,
-        "height": 500
+        "src": "/generated-images/dent-dental-clinic/gallery-1-dent-cover.webp",
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "src": "/generated-images/dent-dental-clinic/gallery-2-dent-home.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "/generated-images/dent-dental-clinic/gallery-3-dent-treatments.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "/generated-images/dent-dental-clinic/gallery-4-dent-booking.webp",
+        "width": 960,
+        "height": 600
       }
     ]
   },
@@ -299,14 +329,29 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     },
     "hero": {
       "src": "/generated-images/ftball-ecommerce/hero.webp",
-      "width": 1130,
-      "height": 884
+      "width": 1440,
+      "height": 900
     },
     "gallery": [
       {
-        "src": "/generated-images/ftball-ecommerce/gallery-1-ftball-large.webp",
-        "width": 1130,
-        "height": 884
+        "src": "/generated-images/ftball-ecommerce/gallery-1-ftball-cover.webp",
+        "width": 1440,
+        "height": 900
+      },
+      {
+        "src": "/generated-images/ftball-ecommerce/gallery-2-ftball-home.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "/generated-images/ftball-ecommerce/gallery-3-ftball-jerseys.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "/generated-images/ftball-ecommerce/gallery-4-ftball-product.webp",
+        "width": 960,
+        "height": 600
       }
     ]
   },
@@ -338,13 +383,28 @@ export const projectImages: Record<string, GeneratedProjectImages> = {
     "hero": {
       "src": "/generated-images/lolchat-gaming/hero.webp",
       "width": 1440,
-      "height": 810
+      "height": 900
     },
     "gallery": [
       {
-        "src": "/generated-images/lolchat-gaming/gallery-1-lol-large.webp",
+        "src": "/generated-images/lolchat-gaming/gallery-1-lolchat-cover.webp",
         "width": 1440,
-        "height": 810
+        "height": 900
+      },
+      {
+        "src": "/generated-images/lolchat-gaming/gallery-2-lolchat-ahri.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "/generated-images/lolchat-gaming/gallery-3-lolchat-jhin.webp",
+        "width": 960,
+        "height": 600
+      },
+      {
+        "src": "/generated-images/lolchat-gaming/gallery-4-lolchat-mobile.webp",
+        "width": 390,
+        "height": 844
       }
     ]
   },

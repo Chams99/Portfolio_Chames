@@ -46,8 +46,13 @@ const projectSources = {
     gallery: ["public/images/projects/rapport-auditor-cover.png"],
   },
   "modern-estate-vision": {
-    hero: "public/images/optimized/meridian-large.webp",
-    gallery: ["public/images/optimized/meridian-large.webp"],
+    hero: "public/images/projects/modern-estate-vision-cover.png",
+    gallery: [
+      "public/images/projects/modern-estate-vision-cover.png",
+      "public/images/projects/modern-estate-vision-demo.png",
+      "public/images/projects/modern-estate-vision-home.png",
+      "public/images/projects/modern-estate-vision-contact.png",
+    ],
   },
   "cleanfile-agency": {
     hero: "public/images/projects/cleanfile-agency-full.png",
@@ -67,8 +72,13 @@ const projectSources = {
     ],
   },
   "dent-dental-clinic": {
-    hero: "public/images/optimized/dent-showcase.png",
-    gallery: ["public/images/optimized/dent-showcase.png"],
+    hero: "public/images/projects/dent-cover.png",
+    gallery: [
+      "public/images/projects/dent-cover.png",
+      "public/images/projects/dent-home.png",
+      "public/images/projects/dent-treatments.png",
+      "public/images/projects/dent-booking.png",
+    ],
   },
   "ecommerce-platform": {
     hero: "public/images/optimized/ecommerce-large.webp",
@@ -79,16 +89,26 @@ const projectSources = {
     gallery: ["public/images/optimized/Fitness-large.webp"],
   },
   "ftball-ecommerce": {
-    hero: "public/images/optimized/FTBALL-large.webp",
-    gallery: ["public/images/optimized/FTBALL-large.webp"],
+    hero: "public/images/projects/ftball-cover.png",
+    gallery: [
+      "public/images/projects/ftball-cover.png",
+      "public/images/projects/ftball-home.png",
+      "public/images/projects/ftball-jerseys.png",
+      "public/images/projects/ftball-product.png",
+    ],
   },
   "la-cuisine-restaurant": {
     hero: "public/images/optimized/restaurents-large.webp",
     gallery: ["public/images/optimized/restaurents-large.webp"],
   },
   "lolchat-gaming": {
-    hero: "public/images/optimized/lol-large.webp",
-    gallery: ["public/images/optimized/lol-large.webp"],
+    hero: "public/images/projects/lolchat-cover.png",
+    gallery: [
+      "public/images/projects/lolchat-cover.png",
+      "public/images/projects/lolchat-ahri.png",
+      "public/images/projects/lolchat-jhin.png",
+      "public/images/projects/lolchat-mobile.png",
+    ],
   },
   "property-investment": {
     hero: "public/images/projects/property-consultation.png",
