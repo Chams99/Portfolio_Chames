@@ -213,7 +213,11 @@ async function generateVariant(inputRelative, outputRelative, options) {
 async function main() {
   await ensureDir(outDir);
 
-  const avatar = await generateVariant(avatarSource, "avatar.webp", { width: 560, quality: 78 });
+  const portrait = await generateVariant(avatarSource, "chames-eddine-dhibi.webp", { width: 560, quality: 78 });
+  await fs.promises.copyFile(
+    path.join(outDir, "chames-eddine-dhibi.webp"),
+    path.join(outDir, "avatar.webp"),
+  );
   const projectImages = {};
 
   for (const [slug, config] of Object.entries(projectSources)) {
@@ -239,7 +243,7 @@ async function main() {
     projectImages[slug] = { card, hero, gallery };
   }
 
-  const output = `export type GeneratedImage = {\n  src: string;\n  width: number;\n  height: number;\n};\n\nexport type GeneratedProjectImages = {\n  card: GeneratedImage;\n  hero: GeneratedImage;\n  gallery: GeneratedImage[];\n};\n\nexport const avatarImage: GeneratedImage = ${JSON.stringify(avatar, null, 2)};\n\nexport const projectImages: Record<string, GeneratedProjectImages> = ${JSON.stringify(projectImages, null, 2)};\n\nexport function getProjectImages(slug: string) {\n  return projectImages[slug];\n}\n`;
+  const output = `export type GeneratedImage = {\n  src: string;\n  width: number;\n  height: number;\n};\n\nexport type GeneratedProjectImages = {\n  card: GeneratedImage;\n  hero: GeneratedImage;\n  gallery: GeneratedImage[];\n};\n\nexport const portraitImage: GeneratedImage = ${JSON.stringify(portrait, null, 2)};\nexport const avatarImage: GeneratedImage = { ...portraitImage, src: "/generated-images/avatar.webp" };\n\nexport const projectImages: Record<string, GeneratedProjectImages> = ${JSON.stringify(projectImages, null, 2)};\n\nexport function getProjectImages(slug: string) {\n  return projectImages[slug];\n}\n`;
 
   await fs.promises.writeFile(dataFile, output);
 }

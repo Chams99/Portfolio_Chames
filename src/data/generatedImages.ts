@@ -10,11 +10,12 @@ export type GeneratedProjectImages = {
   gallery: GeneratedImage[];
 };
 
-export const avatarImage: GeneratedImage = {
-  "src": "/generated-images/avatar.webp",
+export const portraitImage: GeneratedImage = {
+  "src": "/generated-images/chames-eddine-dhibi.webp",
   "width": 560,
   "height": 644
 };
+export const avatarImage: GeneratedImage = { ...portraitImage, src: "/generated-images/avatar.webp" };
 
 export const projectImages: Record<string, GeneratedProjectImages> = {
   "lumina-it": {

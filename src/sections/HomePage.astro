@@ -3,9 +3,9 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import ResponsiveImage from "@/astro/ResponsiveImage.astro";
 import RisingTalentBadge from "@/astro/RisingTalentBadge.astro";
 import SectionMarker from "@/astro/SectionMarker.astro";
-import { avatarImage, projectImages } from "@/data/generatedImages";
+import { portraitImage, projectImages } from "@/data/generatedImages";
 import { skillCategories } from "@/data/skills";
-import { contactChannels, isExternalHref, projects } from "@/data/site";
+import { contactChannels, isExternalHref, projects, siteConfig } from "@/data/site";
 import { getProjectCopy, localizedPath, t, type Locale } from "@/i18n/index";
 
 interface Props {
@@ -143,10 +143,10 @@ const indexItems = [
         <figure class="home-portrait" data-reveal="fade-right">
           <div class="home-portrait-frame">
             <img
-              src={avatarImage.src}
+              src={siteConfig.portraitImage}
               alt={isFr ? "Portrait de Chames Eddine Dhibi" : "Portrait of Chames Eddine Dhibi"}
-              width={avatarImage.width}
-              height={avatarImage.height}
+              width={portraitImage.width}
+              height={portraitImage.height}
               loading="eager"
               fetchpriority="high"
             />
