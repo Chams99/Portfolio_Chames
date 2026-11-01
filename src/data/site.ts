@@ -70,6 +70,7 @@ export const siteConfig = {
   email: "dhibichams@gmail.com",
   phone: "+216 51091800",
   siteUrl: import.meta.env.PUBLIC_SITE_URL ?? fallbackSiteUrl,
+  portraitImage: "/generated-images/chames-eddine-dhibi.webp",
   ogImage: "/opengraph-image.png",
   locale: "en_US",
 } as const;

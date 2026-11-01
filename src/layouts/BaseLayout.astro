@@ -32,6 +32,9 @@ const pageTitle = title
   : siteConfig.title;
 const htmlLang = locale === "fr" ? "fr" : "en";
 const openGraphLocale = locale === "fr" ? "fr_FR" : siteConfig.locale;
+const portraitImageUrl = getCanonicalUrl(siteConfig.portraitImage);
+const normalizedPathname = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isHomePage = normalizedPathname === "/" || normalizedPathname === "/fr";
 const englishPath = Astro.url.pathname.replace(/^\/fr/, "") || "/";
 const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
 ---
@@ -86,6 +89,7 @@ const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
             "@id": `${siteConfig.siteUrl}/#person`,
             name: siteConfig.name,
             alternateName: ["Chames Dhibi", "Chames Eddine", "Chams Dhibi"],
+            image: portraitImageUrl,
             jobTitle: "Software Engineer & Full-Stack Developer",
             description: siteConfig.description,
             email: `mailto:${siteConfig.email}`,
@@ -114,6 +118,15 @@ const frenchPath = `/fr${englishPath === "/" ? "" : englishPath}`;
                   inLanguage: htmlLang,
                   isPartOf: { "@id": `${siteConfig.siteUrl}/#website` },
                   about: { "@id": `${siteConfig.siteUrl}/#person` },
+                  ...(isHomePage
+                    ? {
+                        primaryImageOfPage: {
+                          "@type": "ImageObject",
+                          contentUrl: portraitImageUrl,
+                          url: portraitImageUrl,
+                        },
+                      }
+                    : {}),
                 },
               ]),
         ],
