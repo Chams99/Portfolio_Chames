@@ -731,6 +731,7 @@ export const projects: Project[] = [
       "A free URL toolkit for short links, QR codes, link cleaning, and webpage conversion.",
     heroImage: "/images/projects/urlx-logo.png",
     roles: [],
+    featured: true,
     externalLink: "https://urlx.tn/",
     quote: "",
   }),
