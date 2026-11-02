@@ -588,6 +588,10 @@ const frenchProjectCopy: Record<string, ProjectCopyOverrides> = {
   },
   "wallpaper-generator": { category: "Outil créatif", summary: "Un générateur de fonds d'écran ludique centré sur l'expérimentation visuelle.", roles: ["Creative coding", "Interface interactive", "Expérimentation front-end"] },
   "epic-chicken-adventure": { category: "Jeu", summary: "Une expérience de jeu navigateur allégée et remise en forme pour plus de finition.", roles: ["Présentation de jeu", "Développement Next.js", "UI responsive"] },
+  urlx: {
+    category: "Plateforme web",
+    summary: "Une boîte à outils gratuite pour les liens courts, les QR codes, le nettoyage d’URL et la conversion de pages web.",
+  },
 };
 
 const englishProjectContributions: Record<string, string> = {

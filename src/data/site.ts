@@ -271,6 +271,7 @@ const projectOrder = [
   "property-investment",
   "epic-chicken-adventure",
   "speed-typer-game",
+  "urlx",
 ] as const;
 
 type ProjectInput = Omit<Project, "intro" | "problem" | "creativeApproach" | "outcome" | "gallery"> & {
@@ -720,6 +721,18 @@ export const projects: Project[] = [
     roles: ["Game presentation", "Next.js build", "Responsive UI"],
     stack: ["Next.js", "Game shell", "Responsive UI"],
     quote: "Even playful projects feel stronger when the surrounding experience is properly designed.",
+  }),
+  buildProject({
+    slug: "urlx",
+    title: "URLX",
+    year: "2026",
+    category: "Web Platform",
+    summary:
+      "A free URL toolkit for short links, QR codes, link cleaning, and webpage conversion.",
+    heroImage: "/images/projects/urlx-logo.png",
+    roles: [],
+    externalLink: "https://urlx.tn/",
+    quote: "",
   }),
 ].sort((a, b) => {
   const aIndex = projectOrder.indexOf(a.slug as (typeof projectOrder)[number]);

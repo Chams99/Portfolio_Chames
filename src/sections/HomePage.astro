@@ -45,7 +45,7 @@ const archiveProjects = orderedExternalProjects.filter(
 const projectGroups = [
   {
     key: "products" as const,
-    slugs: ["modern-estate-vision", "cleanfile-agency", "dent-dental-clinic", "property-investment"],
+    slugs: ["modern-estate-vision", "cleanfile-agency", "dent-dental-clinic", "property-investment", "urlx"],
   },
   {
     key: "commerce" as const,
@@ -247,14 +247,17 @@ const indexItems = [
                   <span>{group.projects.length}</span>
                 </div>
                 <ul>
-                  {group.projects.map((project) => (
-                    <li>
-                      <a href={project.externalLink} target="_blank" rel="noreferrer">
-                        <span>{project.title}</span>
-                        <span>{project.category} · {project.year} <span aria-hidden="true">↗</span></span>
-                      </a>
-                    </li>
-                  ))}
+                  {group.projects.map((project) => {
+                    const copy = getProjectCopy(locale, project);
+                    return (
+                      <li>
+                        <a href={project.externalLink} target="_blank" rel="noreferrer">
+                          <span>{project.title}</span>
+                          <span>{copy.category} · {project.year} <span aria-hidden="true">↗</span></span>
+                        </a>
+                      </li>
+                    );
+                  })}
                 </ul>
               </section>
             ))}
