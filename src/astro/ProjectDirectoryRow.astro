@@ -34,14 +34,16 @@ const isUrlx = project.slug === "urlx";
   <div class="work-directory-preview">
     <ResponsiveImage
       src={previewImage}
-      alt={isUrlx ? (locale === "fr" ? "Logo URLX" : "URLX logo") : copy.alt}
-      class={`h-full w-full transition-transform duration-500 group-hover:scale-[1.03] ${isUrlx ? "bg-white object-contain p-8" : "object-cover object-top"}`}
+      alt={isUrlx
+        ? (locale === "fr" ? "Interface URLX présentant ses outils d’URL" : "URLX interface showing its URL tools")
+        : copy.alt}
+      class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
       loading={featured && index === 0 ? "eager" : "lazy"}
       fetchpriority={featured && index === 0 ? "high" : "auto"}
       sizes="(min-width: 900px) 22rem, 100vw"
       srcset={srcset}
-      width={isUrlx ? 1033 : undefined}
-      height={isUrlx ? 274 : undefined}
+      width={isUrlx ? 1905 : undefined}
+      height={isUrlx ? 938 : undefined}
     />
   </div>
 
