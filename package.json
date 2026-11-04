@@ -8,6 +8,7 @@
     "prepare:images": "node scripts/generate-image-derivatives.cjs",
     "build": "node scripts/generate-image-derivatives.cjs && bunx --bun astro build",
     "test:analytics": "bun scripts/test-analytics.ts",
+    "indexnow": "bun scripts/indexnow.ts",
     "preview": "bunx --bun astro preview"
   },
   "dependencies": {

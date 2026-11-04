@@ -33,7 +33,10 @@ bun install
 bun run dev              # http://localhost:3000
 bun run build            # image derivatives, then the production build in dist/
 bun run test:analytics
+bun run indexnow         # after a deploy: send the live sitemap's pages to IndexNow (add --dry-run to only list them)
 ```
+
+IndexNow lets Bing and the other engines that use it recrawl right after a change. Its key is the file `public/<key>.txt`, which must stay online at the site root; the key is public by design.
 
 Copy `.env.example` to `.env` for local settings. `PUBLIC_GA4_MEASUREMENT_ID` is optional; without it no analytics load.
 
